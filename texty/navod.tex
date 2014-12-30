@@ -1,0 +1,115 @@
+\subsection{Nastavení texmakeru}
+Takto vypadá nějak vypadá text v Latexu. Text je by měl být psán v kodování UTF-8! 
+Nastavte si Texmaker přes Options$\rightarrow$ Configure Texmaker $\rightarrow$ Editor $\rightarrow$ Editor font encoding = UTF-8. 
+Nastavte si také na této záložce spellchecker. Zkopírujte si z této složky někam k sobě soubor cs\_CZ.dic.
+
+Nepracujte přímo v Dropboxu! Na Dropbox nahrajte vždy až novou verzi, kterou chcete prezentovat světu.
+
+
+\subsubsection{Kompilace dokumentu}
+Pro kompilaci je dobré použít příkaz pdflatex. V Texmakeru funguje následující postup (vždy musíte mít otevřený hlavní soubor PIGA2014\_KvantovaChemie.tex a váš soubor s textem):
+\begin{enumerate}
+\item Když máte otevřený hlavní soubor PIGA2014\_kvantovaChemie.tex, klepněte na \textit{Options}  $\rightarrow$ \textit{Define current document as master dokument} (slouží k tomu, abyste mohli kompilovat, i když jste zrovna ve své kapitole.)
+\item Kompilace. Stačí zmáčknout F6. Pokud se dole zobrazí \textit{Process exited normally}, máte vyhráno.
+\item Pro zobrazení pdf zmáčkněte F7 (je třeba udělat jen jednou, pak už by se pdf mělo samo aktualizovat - může záviset na použitém pdf prohlížeči.)
+\end{enumerate}
+
+\subsection{Psaní rovnic}
+
+Takto se dělají číslované rovnice (jiné nebudeme používat)
+\begin{equation}
+\hat{H}\Psi=E\Psi
+\label{rov:esch}
+\end{equation}
+
+\noindent  %zamezuje udělaní odstavce, občas to vypadá hnusně
+Braketová symbolika se používá například následovně:
+(kompletní dokumentaci najdete na:
+
+\noindent
+http://mirrors.nic.cz/tex-archive/macros/latex/contrib/braket/braket.pdf)
+\begin{eqnarray}
+E&=&\braket{\phi|H|\phi} \\
+\ket{\psi}&=&\sum_i c_i \chi \\
+F&=&\Braket{\Psi|\frac{\partial}{\partial r}|\Psi}
+\end{eqnarray}
+
+Pokud chcete, aby část textu v matematickém prostředí nebyla italikou, použijte příkaz mathrm. Toto je například nutné použít pro označení diferenciálu d$x$.
+Správně napsaný integrál vypadá takto:
+\begin{equation}
+\rho(r)=\int_{-\infty}^\infty |\Psi |^2 \mathrm{d}r
+\end{equation}
+
+\subsection{Křížové odkazy}
+Nyní něco o~křížových odkazech. Odkazovat můžeme na~rovnice, například na~rovnici \ref{rov:esch}.
+Odkazovat můžeme ale také na~jiné kapitoly, např. na kapitolu \ref{kap:matematika}. Stejně fungují odkazy na obrázky a tabulky.
+
+Na všechny odkazy se používá příkaz \textbf{ref}, který musí být spojený s příslušným příkazem \textbf{label}, který je umístěn v místě, na které chcete odkazovat.
+Když jej dám například na následují řádek, tak bude odkazovat na podkapitolu \ref{kap:ref}. Pokud přidáte novou label, tak musíte zkompilovat dvakrát po sobě, aby odkaz začal fungovat. 
+\label{kap:ref}  
+
+Pokud chcete odkázat na~číslo stránky, používejte příkaz pageref. Například, tento návod začíná na stránce \pageref{kap:navod}.
+\subsubsection{Názvosloví odkazů}
+Pro větší přehlednost a komfort práce v latexu je dobré dodržovat určité názvosloví odkazů. Všechny by měly být malými písmeny bez mezer a speciálních znaků, a měly by začínat příponou, která označuje typ odkazu. Odkazy na kapitoly a podkapitoly mají příponu \textbf{kap:}, na rovnice příponu \textbf{rov:}, na obrázky \textbf{obr:} a na tabulky příponu \textbf{tab:}.
+
+
+\subsection{typografické drobnosti}
+Takto se dělají \uv{české uvozovky}
+
+V~některých případech je třeba používat nezalomitelné mezery. Svazujte k~sobě čísla a jednotky, jednopísmenné předložky s~následujícím slovem, prostě vše, co by neměl oddělit konec řádku. Pokud někde zapomenete, nic se neděje. Na konci soubory projedu programem \textit{vlnka}, který by měl nezalomitelné mezery za předložkami doplnit automaticky (ne ovšem u čísel a jednotek a podobných věcí).
+
+Pokud vás ještě cokoli napadne ohledně syntaxe, typografie nebo čehokoli jiného, čeho bychom se všichni měli držet, napište to sem!!
+
+\subsection{Prostředí pro sazbu příkladů -- VS doplnění}
+Za účelem jednotné sazby příkladů jsem vytvořil nové prostředí \textsf{priklad}, které se volá standardním postupem
+\begin{verbatim}
+\begin{priklad}
+...
+\end{priklad}
+\end{verbatim}
+jako jiná prostředí. Prostředí \textsf{priklad} graficky odděluje tělo příkladu od zbytku textu pomocí dvojice horizontálních čar, navíc je připojena ikonka uvozující začátek příkladu. Prostředí je navrženo tak, že příklady jsou automaticky číslovány a je možné na ně odkazovat
+\begin{verbatim}
+\begin{priklad} \label{pr:NazevNavesti}
+...
+\end{priklad}
+\end{verbatim}
+kde příkaz
+\begin{verbatim}
+\ref{pr:VasNazevNavesti}
+\end{verbatim}
+vrátí odkaz na dané číslo příkladu.
+
+Aby bylo možné používat prostředí \textsf{priklad} je nutné mít připojen stylový balík \textsf{priklad.sty} a~v~kořenovém adresáři musí být přítomny soubory definující ikonku prostředí \textsf{priklad.eps} a~\textsf{priklad-eps-converted-to.pdf}.
+
+Pro větší názornost zde uvedu konkrétní příklad. Následující kód:
+\begin{verbatim}
+\begin{priklad}
+\textbf{Zadání:} Odvoďte známé vzorečky
+pro kosinus a sinus dvojnásobného argumentu
+\begin{displaymath}
+\cos 2\theta = \cos^2 \theta - \sin^2 \theta \quad \mbox{a} \quad
+\sin 2\theta = 2 \sin \theta \cos \theta \mbox{.}
+\end{displaymath}
+\textbf{Řešení:} Použijeme Moivreovu větu (\ref{rov:MoivreovaVeta}) ve tvaru
+\begin{displaymath}
+(\cos \theta + i \sin \theta )^2 =
+\cos^2 \theta + 2 i \cos \theta \sin \theta - \sin^2 \theta =
+\cos 2 \theta + i \sin 2 \theta
+\end{displaymath}
+Odtud porovnáním členů s a bez komplexní jednotky dostaneme
+vzorečky pro kosinus a sinus dvojnásobného argumentu.
+\end{priklad}
+\end{verbatim}
+po vysázení vrátí následující text:
+\begin{priklad}
+\textbf{Zadání:} Odvoďte známé vzorečky pro kosinus a sinus dvojnásobného argumentu
+\begin{displaymath}
+\cos 2\theta = \cos^2 \theta - \sin^2 \theta \quad \mbox{a} \quad
+\sin 2\theta = 2 \sin \theta \cos \theta \mbox{.}
+\end{displaymath}
+\textbf{Řešení:} Použijeme Moivreovu větu (\ref{rov:MoivreovaVeta}) ve tvaru
+\begin{displaymath}
+(\cos \theta + i \sin \theta )^2 = \cos^2 \theta + 2 i \cos \theta \sin \theta - \sin^2 \theta = \cos 2 \theta + i \sin 2 \theta
+\end{displaymath}
+Odtud porovnáním členů s a bez komplexní jednotky dostaneme vzorečky pro kosinus a sinus dvojnásobného argumentu.
+\end{priklad}
