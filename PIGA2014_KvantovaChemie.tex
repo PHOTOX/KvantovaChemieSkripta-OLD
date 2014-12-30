@@ -1,0 +1,179 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} %řeší chyby se zalamovanim radku
+\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amssymb} %matematické fonty
+\usepackage{amsmath} %umoznuje prikaz \numberwithin
+\usepackage{epstopdf} %vkládání eps obrázků do pdf souboru
+\usepackage{color}
+\usepackage{picinpar}
+\usepackage{braket}
+\usepackage[squaren]{SIunits} %spravne sazeni jednotek
+\usepackage{booktabs} %lepsi vzhled tabulek
+\usepackage[top=2cm,bottom=2cm,right=2.cm,left=2.0cm]{geometry}  %%%okraje
+\usepackage[bf]{caption}   %tucne "Figure" a "table'
+\captionsetup{width=0.9\textwidth} %úprava šířky popisků
+\captionsetup{textfont=it, font=small} %úprava fontů u obrázků, text bude menší a italikou
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}  %footnote jako symboly
+
+
+%\usepackage[inline]{showlabels} %vizualizace popisku rovnic
+%\usepackage{showframe}	%ramecky kolem textu - jen pro kontrolu
+%\usepackage{indentfirst} %odsazeni prvniho odstavce po nadpisu
+\usepackage{priklad}	%definuje prostredi priklad
+
+
+\numberwithin{equation}{section} %cislovani rovnic v kazde sekci zvlast
+\graphicspath{{obrazky/}{../obrazky/}} %adresar pro obrazky
+
+%nastaveni automatickeho cislovani prvni textove stranky podle poctu uvodnich necislovanych stranek
+\newcounter{stranky}
+\setcounter{stranky}{1}
+\newcommand{\uvodnistrana}{\newpage \stepcounter{stranky}}
+
+%kontrola vdov a sirotku
+\usepackage[defaultlines=4,all]{nowidow}
+
+
+\usepackage[pdftitle={Kvantová chemie},
+pdfauthor={D. Hollas, O. Svoboda, V. Svoboda, P. Slavíček},
+bookmarks=true,
+colorlinks=true,
+breaklinks=true,
+urlcolor=red,
+citecolor=blue,
+linkcolor=blue,
+unicode=true,
+pdfstartview=FitV]{hyperref}
+
+%\floatsetup[table]{capposition=top}
+%\newfloatcommand{capbtabbox}{table}[][\FBwidth]
+%\renewcommand\refname{}   
+%\usepackage[super,sort&compress,comma]{natbib}
+%\bibliographystyle{achemso_DH}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Kvantová chemie}
+\author{D. Hollas, O. Svoboda, V. Svoboda, P. Slavíček}
+
+\begin{document}
+\pagestyle{empty}
+\pagenumbering{gobble}
+\maketitle
+\uvodnistrana
+%\renewcommand{\thetable}{\Roman{table}} 
+
+
+\tableofcontents
+\uvodnistrana \uvodnistrana
+\listoffigures
+\uvodnistrana
+\pagestyle{plain}
+\pagenumbering{arabic}
+\setcounter{page}{\thestranky} %nastaveni cislovani od teto stranky ale s cislem podle poctu listu od zacatku dokumentu
+%\section{Návod a pravidla pro psaní}
+%\label{kap:navod}
+%\input{texty/navod.tex}
+
+\section*{Literatura}
+\label{kap:literatura}
+\input{texty/Literatura.tex}
+
+\clearpage
+\section{Historický nástin kvantové mechaniky}
+\label{kap:historie}
+\input{texty/uvod.tex}
+
+\clearpage
+\section{Matematika kvantové mechaniky}
+\label{kap:matematika}
+\input{texty/matematika.tex}
+
+\clearpage
+\section{Základní úlohy kvantové mechaniky}
+\label{kap:zakladniulohy}
+\input{texty/zakladniulohy.tex}
+
+\clearpage
+\section{Moment hybnosti}
+\label{kap:momenthybnosti}
+\input{texty/momenthybnosti.tex}
+
+\clearpage
+\section{Elektronový spin}
+\label{kap:elektronovyspin}
+\input{texty/elektronovyspin.tex}
+
+\clearpage
+\section{Problém dvou částic}
+\label{kap:dvecastice}
+\input{texty/dvecastice.tex}
+
+\clearpage
+\section{Atom vodíku}
+\label{kap:vodik}
+\input{texty/vodik.tex}
+
+\clearpage
+\section{Přibližné metody}
+\label{kap:pribliznemetody}
+\input{texty/pribliznemetody.tex}
+
+\clearpage
+\section{Více-elektronové atomy}
+\label{kap:viceelektron}
+\input{texty/viceelektron.tex}
+
+\clearpage
+\section{Hartreeho-Fockova metoda}
+\label{kap:hf}
+%\input{texty/hf.tex}
+
+\clearpage
+\section{Kvantová teorie molekul}
+\label{kap:molekuly}
+\input{texty/molekuly.tex}
+
+\clearpage
+\section{Vibrace a rotace molekul}
+\label{kap:vibrot}
+\input{texty/vibrot.tex}
+
+\clearpage
+\section{Elektronová struktura molekul}
+\label{kap:elstruktmol}
+%\input{texty/elstruktmol.tex}
+
+\clearpage
+\section{Ab initio metody}
+\label{kap:abinitio}
+%\input{texty/abinitio.tex}
+
+\clearpage
+\section{Semiempirické přístupy}
+\label{kap:semiemp}
+\input{texty/semiemp.tex}
+
+%%% Vytvoření seznamu literatury.
+%\newpage
+%\addcontentsline{toc}{section}{BIBLIOGRAPHY}
+%\bibliography{literatura} % if you have multiple bib files, never put space after comma
+
+%%% Přílohy.
+%\newpage
+%\section*{A}
+%\addcontentsline{toc}{section}{APPENDICES}
+%\appendix
+
+\newpage
+\section*{Seznam zkratek}
+\bigskip
+\begin{tabular}{ll}
+\bf HF & Hartreeho-Fockova metoda \\
+\bf PES & povrch potenciální energie (Potential Energy Surface)\\	
+
+\end{tabular}
+
+\end{document}
