@@ -1,0 +1,132 @@
+
+Nejprve úvod:
+pojem funkcionalu
+$$
+F[]=
+$$
+Podobně jako funkce můžeme derivovat, podobná operace existuje i pro funkcionály, říká se jí variace funkcionálu.
+Když děláme derivaci funkce, tak se vlastně díváme, co se děje se závisle proměnnou, když trochu změníme závisle proměnnou.
+U variace je to podobné. Zajímá nás, jak se změní hodnota funkcionálu, když mírně změníme naši funkci. Přesná definice je složitější a neuvádime ji zde. Bude ale pro nás důležité, že pro variace platí podobné vztahy, jako pro derivace. Dá se například ukázat, že v minimu funkcionlu je jeho variace nulová.
+
+Pro příklad funkcionálu nemusíme chodit daleko, stačí se podívat, jak vypadá funkcionál energie v kvantové mechanice. 
+$$
+E[\psi] = \int \psi^*\hat{H}\psi \mathrm{d}\tau
+$$
+Variační princip pak můžeme napsat jednoduše pomocí variace tohoto funkcionálu:
+$$
+\delta E = 0
+$$
+\begin{equation}
+\rho=N \int |\psi(\textbf{r}_1,\textbf{r}_2,...,\textbf{r}_n)|^2 \mathrm{d}\textbf{r}_2\dots\mathrm{d}\textbf{r}_n
+\end{equation}
+
+Vlastnosti:
+\begin{itemize}
+\item Pokud zintegrujeme elektronovou hustotu přes celý prostor, dostaneme počet elektronů v systému.
+\begin{equation}
+\int \rho\mathrm{d}r = N
+\end{equation}
+\item V poloze jader má elektronová hustota maxima, pro které se dá ukázat...
+\item 
+\begin{equation}
+\lim_{r_i \to 0} \left[ \frac{\delta}{\delta r}+2Z_A\right]\rho(r)=0
+\end{equation}
+
+\end{itemize}
+
+Pojdme si napsat ještě jednou elektronový Hamiltonián molekuly s N elektrony. Vynecháme člen popisujicí repulzi jader, jelikož ten je stejně v rámci BO aproximace konstantní. 
+\begin{equation}
+\hat{H}=\sum_{i=1}^N -\frac{1}{2}+\sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}}-\sum_{i=1}^N\sum_{A=1}^K \frac{Z_A}{r_{iA}}
+\end{equation}
+
+Formálně můžeme funkcionál energie napsat následovně:
+\begin{equation}
+E=\int \psi^*\hat{H}\psi \mathrm{d}\tau = \int \psi^*\hat{T}\psi\mathrm{d}\tau \int \psi^*\hat{V_{el}}\psi\mathrm{d}\tau \int \psi^*\nu_{ext}\psi\mathrm{d}\tau=T[\rho]+V_{ee}[\rho]+V_{ne}[\rho]
+\end{equation}
+Funkcionál energie jsme tedy rozdělili na funkcionál kinetické energie elektronů, funkcionál repulze elektronů a funkcionál interakce elektronů s jádry. Jelikož externí potenciál $\nu_{ext}$ nezávisí na polohách elektronů, můžeme si posledně jmenovaný funkcionál jednoduše přepsat do tvaru, ve kterém již vystupuje elektronová hustota:
+\begin{equation}
+V_{ne}=\int \psi^*\nu_{ext}\psi\mathrm{d}\tau = \int \rho(\textbf{r})\nu_{ext}(\textbf{r}) \mathrm{d}\textbf{r} 
+\end{equation} 
+
+
+2. HK teorém 
+Předpokládejme, že pro daný externí potenciál $\nu_{ext,0}$ je správná elektronová hustota $\rho_0$. Pak pro jakoukoli funkci $\rho$ bude platit: $$ E[\rho_0] < E[\rho] $$
+
+Důkaz:
+Z prvního HK teorému plyne, že každá funkce $\rho$ jednoznačně definuje externí potenciál (který je odlišný od $v_{ext,0}$), a tudíž i nějakou vlnovou funkci $\psi$. Pokud ale pro tuto vlnovou funkci vyčíslíme energii, pak nám z již známého variačního principu plyne:
+\begin{equation}
+E^\prime=\int \psi^{\prime *} \hat{H} \psi^{\prime} \mathrm{d}\tau = E[\rho] > E_0 = E_0 [\rho_0] ,
+\end{equation}
+což jsme chtěli dokázat.
+
+\textbf{Kohn-Shamovy rovnice}
+
+
+\textbf{Aproximace lokální hustoty}
+
+LDA (Local density Approximation)
+\begin{equation}
+E_{xc}^{LDA}=\int \rho(\textbf{r})V_{xc}(\rho(\textbf{r}))\mathrm{d}\textbf{r} 
+\end{equation}
+
+
+\begin{equation}
+V_{xc}(\rho)=V_x(\rho)+V_c(\rho)
+\end{equation}
+Pro výměnný člen platí pro homogenní plyn následující vztah:
+\begin{equation}
+V_x(\rho)=-\frac{3}{4}\left(\frac{3}{\pi}\right)^{\frac{1}{3}}\rho^{\frac{1}{3}}
+\end{equation}
+Pro korelační energii UEG nelze získat analytický výraz. Příslušné výpočty lze ale provést numericky a výsledek poté nafitovat. Výsledný korelační funkcionál je znám jako VWN (dle pánů Vosko-Wilk-Nusair).
+
+LSDA....$E_{xc}=E_{xc}[\rho_\alpha\rho_\beta]$ 
+
+GGA 
+\begin{equation}
+E_{xc}^{GGA}=\int \rho(\textbf{r})f(\rho,\Delta\rho\mathrm{d}\textbf{r} 
+\end{equation}
+
+Becke: B88, LYP (Lee-Yang-Parr),
+kombinace: BP86, BLYP, PBE
+
+meta-GGA
+
+\textbf{Hybridní funkcionály}
+\begin{equation}
+E_X^{exact}=-\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N K_{ij}
+\end{equation}
+
+B3LYP:
+\begin{equation}
+E_{xc}^{B3LYP}=(1-a_0-a_x)E_x^{LDA}+a_0E_x^{exact}+a_xE_x^{B88}+(1-a_c)E_c^{VWN}+a_c E_c^{LYP}
+\end{equation}
+$a_0=0,2$; $a_x=0,72$; $a_c=0,81$
+
+PBE0 (25\,\%), BMK,BHandHLYP(50\,\%)
+
+\textbf{Long-range corrected funkcionály}
+Mělo by platit, že $lim_{V_x\to \infty}=\frac{1}{r}$
+
+\textbf{Disperzní korekce}
+
+Grimmeho empirická korekce
+\begin{equation}
+E_{vdw}=-s_6\sum c^{ij}r_{ij}^{-6}
+\end{equation}
+Koeficient $s_6$ závisí na použitém funkcionálu, zatímco koeficienty $c_{ij}$ závisí na typu interagujících atomů.
+
+\textbf{Dvojitě hybridní funkcionály}
+S.Grimme 
+\begin{equation}
+E_{xc}^{hybrid}=a_1E_x^{GGA}+(1-a_1)E_x^{EXACT}+a_2E_c^{GGA}
+\end{equation}
+Pro tento tvar se vyřeší KS rovnice a získají KS orbitaly. Z těchto orbitalů se poté vypočítá MP2 korekce
+ze vzorečku XX a přídá se k $E_{xc}^{hybrid}$
+
+\begin{equation}
+E_{xc}^{DH}=E_{xc}^{hybrid}+(1-a_2)E_c^{KS-MP2}
+\end{equation}
+
+Příkladem může být B2LYP s parametry $a_1=0,47$ a $a_2$=0,73
+
+% Jakobův žebřík, obrázek (Genesis 28:10-12)

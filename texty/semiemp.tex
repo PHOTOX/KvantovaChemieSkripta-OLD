@@ -1,0 +1,124 @@
+V této kapitole se podíváme na skupinu semiempirických metod. Ačkoli semiempirické metody také vycházejí z řešení elektronové Schr\"{o}dingerovy rovnice (odtud přízvisko \textit{semi}), jejich rovnice obsahují dodatečné parametry, jejichž hodnoty se typicky získávají z přesnějších \textit{ab initio} výpočtů nebo se z experimentálních dat (odtud \textit{empirické}).
+
+Aproximace, které tyto metody využívají, můžeme rozdělit do dvou skupin. V první řadě, většina semiempirických metod nevychází z přesného molekulárního hamiltoniánu XX, ale určitého efektivního hamiltoniánu, ve kterém jsou zanedbány některé členy. Většina semiempirických metod se například soustředí pouze na valenční elektrony (příspěvek ostatních elektronů je brán jako konstanta), což celkový hamiltonián systému značně zjednoduší.
+
+Po určení hamiltoniánu se při odvození typické semiempirické metody postupuje obdobně jako při odvození HF rovnic. Zvolíme si konkrétní tvar vlnové funkce a zvolíme bázi (metoda MO-LCAO) a aplikací variačního principu odvodíme pracovní rovnice. V tomto kroku ale u semiempirických metod dojde k dalšímu zjednodušení. Buď můžeme některé členy z rovnic úplně zanedbat a položit rovno nule, anebo je můžeme považovat za konstantu, jejíž hodnotu určíme tak, aby nám to vycházelo.   
+
+Motivací k vývoji semiempirických metod bylo zmenšení výpočetních nároků \textit{ab initio} metod s pokud možno co nejmenším ovlivněním přesnosti. Nicméně i metody, které byly kvantitativně nepřesné, se ukázaly jako velmi užitečné, neboť dovolily kvalitativní pochopení zákonitostí chemických vazeb a jiných vlastností molekul. Na jednu takovou metodu, která nám dala známé pravidlo \uv{$ 4n+2 $} pro určení aromaticity, se nyní podíváme.
+
+\subsection{H\"{u}ckelova metoda}
+
+H\"{u}ckelova metoda (dále jen HM) je historicky první a asi i nejjednoduší semiempirická metoda. Pro rozumné molekuly je pro použití této metody potřeba doslova jen tužka a papír. Její jednoduchost spočívá v tom, že se soustředí pouze na $\pi$ vazebné elektrony,
+tedy elektrony v molekulových orbitalech složených z atomových \textit{p} orbitalů.
+Její použití je tudíž omezeno na planární systémy s vícenásobnými vazbami. 
+
+Hamiltonián HM metody má následující tvar:
+\begin{equation}
+H_{HMO}= \sum h_{i, eff}^\pi
+\end{equation}
+kde $h_{i, eff}^\pi$ je jednoelektronový potencál $\pi$ elektronu, který v sobě obsahuje jak kinetickou energii, tak interakce s ostatními elektrony.
+Z toho zřejmé, že elektrony jsou považovány za nezávislé. (to je zásadní rozdíl oproti metodě HF, ve které je nezávislost elektronů vyjádřena \uv{pouze} tvarem vlnové funkce). 
+Konkrétní tvar těchto efektivních elektronových hamiltoniánů není specifikován a bere se pouze jako parametr metody. 
+
+Dalším krokem je výběr báze. V případě metody HM to budou $p_z$ orbitaly všech uhlíkových atomů.
+
+\begin{equation}
+\psi= \sum_i c_i \phi_i
+\end{equation}
+
+Pro lepší ilustraci budeme nadále uvažovat výpočet pro molekulu butadienu.
+Naše báze se tedy bude skládat ze čtyř $p_z$ orbitalů.
+
+Aplikací variačního principu poté dostaneme následující sekulární rovnice:
+\begin{equation}
+\begin{vmatrix}
+H_{11}-ES_{11} & H_{21}-ES_{21} & H_{31}-ES_{31} & H_{41}-ES_{41}  \\
+H_{12}-ES_{12} & H_{22}-ES_{22} & H_{32}-ES_{32} & H_{42}-ES_{42}  \\
+H_{11}-ES_{13} & H_{23}-ES_{23} & H_{33}-ES_{33} & H_{43}-ES_{43}  \\
+H_{11}-ES_{14} & H_{24}-ES_{24} & H_{34}-ES_{34} & H_{44}-ES_{44}
+\end{vmatrix}
+= 0
+\end{equation}
+Nyní bychom měli spočítat integrály $H_{ij}$ a $S_{ij}$, které v principu závisí na geometrii systému.
+V rámci H\"{u}ckelovy aproximace na ně ale pohlížíme jako na parametry metody
+a naložíme s nimi takto:
+\begin{itemize}
+\item zanedbáme překryvové integrály mezi AO na různých atomech tj. $S_{ij}=\delta_{ij}$;
+\item integrály $H_{ii}=\alpha$ těmto integrálům říkáme coulombovské integrály
+\item integrály $H_{ij}$ položíme rovno nule, pokud orbitaly nepatří sousedním atomům.
+Nenulové integrály položíme rovno parametru $\beta$ a nazýváme je rezonančními integrály.
+\end{itemize}
+
+Takto zjednodušené rovnice poté vyřešíme. Nejprve najdeme vlastní čísla přes sekulární determinant a následně určíme koeficienty $c_i$. V případě butadienu bude sekulární determinant vypadat následovně:
+\begin{equation}
+\begin{vmatrix}
+\alpha-E & \beta & 0 & 0  \\
+\beta &\alpha-E & \beta & 0  \\
+0 &\beta &\alpha-E & \beta  \\
+0 & 0 & \beta &\alpha-E   
+\end{vmatrix}
+= 0
+\end{equation}
+%Tento determinant vede na rovnici čtvrtého stupně, kterou lze ale vhodnou substitucí řešit analyticky.
+Ve druhém kroku jsme determinant vydělily $\beta$ a zavedli substituci $x=\frac{\alpha-\beta}{E}$.
+Nyní rozvojem determinantu podle prvního řádku dostaneme:
+\begin{equation}
+x
+\begin{vmatrix}
+x & 1 & 0 \\
+1 & x & 1 \\
+0 & 1 & x \\
+\end{vmatrix}
+-
+\begin{vmatrix}
+x & 1 & 0 \\
+1 & x & 1 \\
+0 & 1 & x \\
+\end{vmatrix}
+=x^4-3x^2+1=0
+\end{equation}
+Tuto kvartickou rovnici můžeme naštěstí převést na kvadratickou pomocí substituce $y=x^2$ a dostaneme:
+\begin{equation}
+y^2-3y+1=0; y_1=2,62 a y_2=0.382
+\end{equation}
+a tedy
+\begin{equation}
+x_{1,2}=1,62
+x_{3,4}=0,62
+\end{equation}
+Z toho vyplývají násůedující hodnoty energií:
+$$ E_1 = \alpha+1,62\beta $$
+$$ E_2 = \alpha+0,62\beta $$
+$$ E_3 = \alpha-0,62\beta $$
+$$ E_4 = \alpha-1,62\beta $$
+Zpětným dosazením do sekulárních rovnic bychom poté dopočítali koeficienty $c_i$.
+Jak nyní získáme parametry?...
+
+\textbf{Spektroskopie}
+
+\textbf{Delokalizační energie}
+
+\subsetion{Rozšířená H\"{u}ckelova metoda}
+
+\begin{itemize}
+\item Počítá i se $\sigma$ vazbami
+\item $H_{ii}=-I_i$
+\item $H_{ij}=\frac{1}{2}K(I_i+I_j)S_{ij}$
+\item Dá se použít pro hledání geometrie
+\item Podobně jako v původní H\"{u}ckelově metodě tvar pracovních rovnic nezávisí na řešení, a tudíž není třeba iterovat. Rozšířená H\"{u}ckelova metoda se proto i nyní rutinně využívá v kvantově chemických programech k prvotním nástřelu vlnové funkce.
+\end{itemize}
+
+
+\subsection{Moderní semiempirické metody}
+
+ Vycházíme z HF, ale zanedbáváme některé 2-elektronové integrály
+ Pár vět o CNDO (Complete Neglect of Differential Overlap),
+ INDO (Intermediate Neglect of Differential Overlap),
+ MINDO (Modified Neglect of Differential Overlap)
+ AM1(Austin model 1), PM6 atp.
+
+Ačkoli jsou semiempirické zjednodušením původních HF rovnic, často poskytují řešení lepší než HF.
+To je dáno tím, že parametry jsou fitovány na experimentální data, a mohou tedy implicitně zahrnout část korelační energie.
+
+
+ 
