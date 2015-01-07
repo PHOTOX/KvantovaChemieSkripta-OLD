@@ -1,0 +1,162 @@
+Experimentálně molekuly charakterizujeme pomocí nejrůznějších vlastností: můžeme změřit třeba NMR posuny, elektrické či magnetické parametry či třeba jejich optickou otáčivost. Tyto molekulární vlastnosti musí být v principu možné vypočítat metodami kvantové chemie. V duchu axiomatiky kvantové teorie musí být přitom všechny vlastnosti molekul nějakým způsobem získatelné z vlnové funkce. V našich úvahách jsme se doteď soustředili na jednu konkrétní veličinu, na energii. Tu vypočítáme přímo ze Schr\"odingerovy rovnice snadno jako
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Energie je veličina prvořadé důležitosti, představuje klíč ke struktuře molekul, termodynamice chemických reakcí či k celé spektroskopii. Mohou nás ale ale zajímat libovolné jiné veličiny, například obecně veličina A, které přísluší operátor $\hat{A}$. Střední naměřená hodnota této veličiny je pak dána jako
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+V této krátké kapitole se podíváme na některé molekulární vlastnosti.
+
+  
+\subsection{Elektrické vlastnosti molekul}
+Na nabité částice silově působí elektrické pole. Uvažme nyní neutrální molekulu. V ní je nějakým způsobem rozložený náboj, toto rozložení náboje v prostoru je dáno elektronovou hustotou $\rho(\vec{r})$ a náboji jednotlivých jader $q_I=Z_I e$. Sečteme-li celkovou hustotu náboje přes celý prostor, dostaneme pro neutrální molekulu nulovou hodnotu. I na neutrální molekulu ale vnější elektrické pole působí, neboť náboj v ní není rozložen rovnoměrně. Tak v molekule HCl je o něco více elektronové hustoty soustředěno kolem chlóru než kolem vodíku a z elektrického hlediska pak na molekulu chlorovodíku můžeme pohlížet jako na soustavu $\delta +$...$\delta -$ ve vzdálenosti $r$. Říkáme, že molekula HCl má nenulový dipólový moment daný vztahem
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent kde $q$ je náboj a $r$ je vzdálenost mezi náboji. 
+
+Jak bychom mohli dipólový moment molekuly vypočítat? Uvažme jakoukoliv molekulu v určitém geometrii (tj. s určitými polohami atomových jader). V této molekule se pohybují elektrony, každý z nich má okmažitou polohu $\vec{r}$. okamžitá hodnota vektoru dipólového momentu pro dané uspořádání elektronů je dáno jako
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+\noindent kde $e$ je elementární náboj elektronu, $\vec{r}_i$ je poloha i-tého elektronu, $Z_I$je nábojové číslo $I$-tého atomového jádra a $\vec{R}_I$ je poloha $I$-tého atomového jádra. Chceme-li nyní získat dipólový moment molekuly, musíme hodnotu dipólového momentu pro danou konfiguraci váhovat pravděpodobností, že daná konfigurace nastane. Jinými slovy, musíme vypočítat střední hodnotu dipólového momentu
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Vidíme tak, že ze znalosti vlnové funkce přímo získáme i hodnotu dipólového momentu molekuly. Stejným způsobem bychom získali třeba také kvadrupólový moment molekuly, který vykazuje například molekula oxidu uhličitého, která má jinak nulový dipólový moment. Podívejme se ještě na jinou vlastnost molekuly, na polarizovatelnost $\alpha$. Tato veličina nám říká, jak je molekula citlivá na vnější elektrické pole. V molekula se po vložení do elektrického pole o intenzitě $\vec{E}$ indukuje dipólový moment
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent přičemž konstantou úměrnosti je právě polarizovatelnost $\alpha$ (tento vztah platí toliko pro malé intenzity pole). Vidíme nyní, jakým způsobem bychom polarizovatelnost mohli najít: vypočítali bychom dipólový moment molekuly v elektrickém poli a molekuly bez elektrického pole. Rozdíl těchto dipólových momentů by po vydělení intenzitou elektrického pole poskytne hodnotu polarizovatelnosti. Sluší se dodat, že ve skutečnosti se polarizovatlenost počítá ještě jednodušeji a dvou výpočtů není potřeba. Tento detail jde však za rámec tohoto úvodního textu. Za malý komentář stojí také fakt, že polarizovatelnost představuje obecně tenzor, tj. matici a nikoliv pouhé číslo. Elektrické pole orientované například ve směru osy $z$ může totiž indukovat i dipólový moment ve směru osy $x$ či $y$. Jak je to možné? Představme si třeba elektron, jehož pohyb je omezen na pohyb po šroubovici. Elektrické pole ve směru osy šroubovice vyvolá částečně i pohyb elektronu ve směru na šroubovici kolmý. 
+
+Podobným způsobem jako jsme vypočítali z elektronové vlnové funkce dipólový moment či polarizovatelnost můžeme v principu vypočítat jakoukoliv vlastnost molekuly, od NMR či EPR parametrů, přes geometrie molekuly, jejich vodivosti či spektrální vlastnosti.  
+
+
+
+\subsection{Parciální náboje atomů}
+
+V předchozím oddíle jsme prohlásili, že v molekule HCl je na atomu chlóru parciální záporný náboj a na atomu vodíku naopak parciální kladný náboj. Dokáže kvantová chemie tyto náboje vypočítat? To je poněkud delikátnější otázka než se zdá. Na rozdíl od dipólového momentu totiž parciální náboj na atomech nepředstavuje dobře definovanou, měřitelnou veličinu. Parciální náboj nám sděluje, kolik elektronů "patří" atomu chlóru. jenže to hodně záleží na tom, "kam až sahá Krakonošovo", tedy jakou část prohlásíme za příslušnou atomu chlóru a jakou část za přiléhající vodíku. Existují tudíž různé způsoby, jak parciální náboje na molekulách vypočítat. Mluvíme o tzv. populační analýze, neboť se snažíme vypočítat populaci elektronů příslušející určitému atomu.
+
+Nejrozšířenější metodou populační analýzy je tzv. Mullikenova populační analýza. Uvažme vlnovou funkci v rámci metody Hartreeho-Focka. Ta je dána jako antisymetrizovaný součin molekulových orbitalů
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent přičemž molekulární orbital $\phi_j$ můžeme vyjádřit jako lineární kombinaci atomových orbitalů:
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent kde $chi_r$ představuje atomový orbital a $c_{jr}$ představuje rozvojový koeficient, který nám říká, jak moc přispívá atomový orbital $chi_r$ do molekulového orbitalu $\phi_j$. Z "účetních" důvodů si tento rozvoj napišme ještě pomocí jiného indexu
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Trik Mullikenova přístupu spočívá v tom, že u atomových orbitalů víme, jakému atomu přísluší. Můžeme proto sečíst příspěvky jednotlivých atomových orbitalů do celkové vlnové funkce a tím zjistit, jak moc do vlnové funkce přispívá určitý atom. Celkový počet elektronů $N$ můžeme napsat jako
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent což můžeme rozepsat jako příspěvky členů pocházejících od jednotlivých atomů
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent kde $S_{rs}=XXXX$ je překryvový integrál mezi atomovými orbitaly $chi_r$ a $chi_s$. V posledním členu rovnice \textbf{XXX} se mísí příspěvky od atomu k a od některého jiného z atomů, tento příspěvek v Mullikenově přístupu rozdělíme rovnoměrně mezi oba atomy. Veličina $N_k$ představuje elektronovou populaci na daném atomu. Parciální náboj $q_k$ pak získáme jako rozdíl nábojového čísla atomového jádra $Z_k$ a elektronové populace $N_k$
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+Příklad:
+
+
+Mullikenovu populační analýzu můžeme snadno provést v rámci H\"uckelovy metody. Zde je situace obzvláště jednoduchá, neboť překryovové integrály $S_{rs}=0$. Vlnové funkce dvou nejvyšších obsazených stavů v molekule butadienu jsou dány jako
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+ 
+\noindent kde $\chi_1,\chi_2, \chi_3$ a $\chi_4$ představuje 2p$_Z$ orbitaly jednotlivých atomů uhlíku. Vztah \textbf{XXX} se zde mění na jednoduchou formuli
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent kde $n_j$ je obsazovací číslo $j$-tého molekulového orbitalu a $c_{jk}$ je příslušný rozvojový koeficient. Elektronová populace na prvním atomu uhlíku je dána jako
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+\noindent a podobně pro ostatní atomy
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+Vidíme tedy, že všechny atomy mají $\pi$ elektronovou populaci stejnou, čtyři $\pi$ elektrony se rovnoměrně rozdělily mezi atomy. To není moc zajímavý výsledek, ale pojďme vlnovou funkci analyzovat dále. Definujme si řád vazby jako
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Pak vidíme, že $\pi$ elektronový řád vazby mezi prvním a druhým atomem uhlíku je
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent a mezi druhým a třetím atomem pak
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+Celkový řád vazby (po přičtení 1 za sigma vazbu) je tak 1,89 pro vazby mezi prvním a druhým atomem a 1,44 za vazbu mezi druhým a třetím atomem. Charakter jednotlivých vazeb je tak značně odlišný.
+
+
+Mullikenova populační analýza má samozřejmě své problémy. Výrazně závisí na volbě báze. Je snadné si představit bázi, která vůbec nebude lokalizovaná na atomech. Mullikenova analýza pak poskytne nulové populace elektronů na atomech, což zjevně nedává smysl. Mullikenova analýza proto dobře funguje pro menší báze, pro větší a difúznější báze je poněkud nespolehlivá. Náboje na atomech ale můžeme vypočítat i jiným způsobem. Můžeme třeba vyžít skutečnosti, že dipólový moment fyzikální veličinou je. Můžeme pak nastavit parciální náboje takovým způsobem, abych dostali vypočítaný dipólový moment. Podobná technika založená na fitování elektrostatického potenciálu generovaného molekulou se nazývá CHElP (z angl. \textit{Charges from Electrostatic Potential}). Tento přístup je dosti spolehlivý a v praktickém použití jej lze doporučit
+
+
+
+   
+         
+   
+
+
+
+
+
+      
+
+ 
+

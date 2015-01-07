@@ -1,0 +1,402 @@
+Ústředním úkolem kvantové chemie po zavedení Bornovy-Oppenheimerovy aproximace je výpočet elektronové energie molekul:
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent kde elektronová energie závisí na konkrétní geometrii molekuly, tj. na souřadnicích atomových jader \textbf{XXXXX}. V této kapitole probereme řešení rovnice \textbf{XXX} pro dvouatomové molekuly. Začneme přitom nejjednodušší molekulou, totiž iontem molekuly vodíku H$_2^+$.   
+
+\subsection{Ion molekuly vodíku}
+
+\bigskip
+\textbf{OBR: Geometrie iontu molekuly vodíku?} 
+\bigskip
+
+Ion molekuly vodíku je tvořen dvěma jádry (konkrétně protony), označme si je jako jádra A a B a jedním elektronem, viz Obr. \textbf{XXX}. Pro takovýto útvar nám není zatěžko napsat elektronový hamiltonián:
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+\noindent
+kde \textbf{XX} je Laplaceův operátor v souřadnicích elektronu, $r_A$ je vzdálenost elektronu k jádru A a $r_B$ je vzdálenost elektronu k jádru B.\footnote{V elektronovém hamiltoniánu může, ale nemusí být přidán člen popisující coulombovské odpuzování mezi jádry. Z pohledu elektronové vlnové funkce totiž tento člen představuje konstantu. Zde mezijadernou repulzi vynecháváme}  Nadále bude poněkud pohodlnější pracovat v soustavě atomových jednotek, ve kterých $\hbar=m_e=e=4\pi \epsilon = 0$. Hamiltonián pak nabude tvaru
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Elektronovou Schr\"odingerovu rovnici s tímto Hamiltoniánem je možné řešit analyticky. Nás ale bude zajímat řešení přibližné, takové, které budeme moci využít i pro složitější molekuly. Můžeme se docela dobře odrazit z naší znalosti elektronové struktury atomů. Kdybychom měli v blízkosti elektronu pouze jádro A, pak bychom řešení znali: vlnová funkce by byla dána atomovým orbitalem vodíku $1s_A$. Stejně tak kdyby se elektron pohyboval v blízkosti jádra B a jádro A se v okolí vůbec nevyskytovalo, pak by exaktním řešením byl orbital $1s_B$. Připomeňme, že atomové orbitaly $1s_A$ a $1s_B$ jsou matematickými funkcemi souřadnic elektronů, konkrétně
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent kde pro jádro vodíku o nábojovém čísle $Z=1$ je $k=1$ (pro elektron v poli jádra He$^+$ je pak $k=2$ atd.). Pokud obě jádra hodně daleko od sebe, pak přesné řešení bude dáno jako
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Uvažme situaci, kdy se elektron nachází v blízkosti jádra A. Hodnota vlnové funkce $1s_B$ pak pro velké vzdálenosti $r_{AB}$ bude zanedbatelná a tento elektron je pak v zásadě popsán orbitalem $1s_A$, chová se tedy jako elektron atomu A. A nebo se elektron nachází v blízkosti jádra B a pak se chová jako elektron atomu B. My budeme předpokládat, že tuto formu vlnové funkce můžeme použít pro všechny mezi-jaderné vzdálenosti. Výraz \textbf{XXXX} představuje zkusmou vlnovou funkci ve smyslu variačního principu: tato funkce je závislá na rozvojových koeficientech $c_A$ a $c_B$, které musíme určit minimalizací funkcionálu energie. \footnote{Jako variační parametr můžeme použít také parametr $k$. Ten je spojen s nábojovým číslem. Je jasné, že pro disociovanou strukturu s velkou mezijadernou vzdáleností $r_{AB}$ bude optimální hodnota $k=1$, budeme skutečně popisovat atom vodíku. Pokud ale obě jádra přiblížíme na velmi malou vzdálenost, vlnová funkce se bude blížit orbitalu $1s$ iontu atomu helia a tedy $k=2$} Tento tvar vlnové funkce je zárodkem metody označované zkratkou MO-LCAO (z angl. \textit{Molecular Orbitals - Linear Combination of Atomic Orbitals}). Hledáme totiž vlnovou funkci jednoho elektronu pohybujícího se v molekule (tedy hledáme tzv. molekulový orbital) ve formě lineární kombinace atomových orbitalů. To je klasický příklad lineárního funkcionálu, který vede k sekulárním rovnicím, se kterými jsme se již několikráte setkali:
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent kde coulombovský integrál $H_{AA}$ a $H_{BB}$, rezonanční integrál $H_{AB}$ a překryvový integrál $S_{AB}$ mají v našem případě tvar
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Podmínkou netriviálního řešení sekulárních rovnic je nulovost sekulárního determinantu
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent což vede k dvěma možným hodnotám energie (uvažme přitom, že hodnota rezonančního integrálu $H_{AB}$ je záporná)
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Jestliže dosadíme energii $E_1$ zpět do sekulárních rovnic, získáme podmínku 
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Pokud do sekulárních rovnic  dosadíme za energii hodnotu $E_2$, získáme podmínku
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent Hodnoty rozvojových koeficientů se tak v absolutní hodnotě musí rovnat, lišit se může pouze jejich znaménko. To jsme ani nemuseli počítat z variačního principu, neboť to plyne přímo ze symetrie problému. Máme tak dvojí řešení, pro základní stav s energií $E_1$ je řešením molekulový orbital jako součet atomových orbitalů
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent Mluvíme o tzv. vazebném orbitalu. Pro excitovaný stav s energií $E_2$ je řešením Schr\"odingerovy rovnice rozdíl těchto atomových orbitalů:
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent zde mluvíme o antivazebném orbitalu. Obrázek \textbf{XXX} vysvětluje toto označení. Ve vazebném orbitalu je maximum elektronové hustoty soustředěno do oblasti mezi atomovými jádry. Takovéto uspořádání podporuje přibližování atomových jader. Na druhou stranu v antivazebném orbitalu elektrony mezi jádry příliš nejsou a obě jádra se tak od sebe odpuzují. \footnote{Obrázek by mohl vzbuzovat dojem, že primární hnací silou chemické vazby je elektrostatické stínění odpudivé interakce mezi jádry. To je ale přinejmenším nepřesné. Hlavním tahounem poklesu energie při vzniku vazby je pokles kinetické energie elektronů.} 
+
+
+\bigskip
+
+\textbf{OBRAZEK XXX Vazebný a antivazebný orbital iontu molekuly vodíku.} 
+
+\bigskip
+
+\noindent Z rovnice XXX můžeme do grafu snadno vynést energie $E_1$ a $E_2$ v závislosti na mezijaderné vzdálenosti $R$. Přidáme-li ještě mezijadernou repulzi $1/R$, získáme křivky zobrazené na Obr. \textbf{XXX}.
+
+\bigskip
+
+\textbf{Obr. XXX: Potenciálové křivky dvou nejnižších stavů iontu molekuly vodíku.} 
+
+\bigskip
+
+
+Pro úplnost zbývá ještě doplnit, že konkrétní hodnotu rozvojového koeficientu $c_A$ získáme z normalizační podmínky
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+\noindent a vlnová funkce tak má tvar
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\subsection{Molekulové orbitaly excitovaných stavů}
+
+Výpočet elektronové energie iontu molekuly vodíku představený v minulé kapitole je pouze velmi přibližný. Jak bychom jej mohli vylepšit? Jedna z možností by byla považovat parametr $k$ za variační parametr. To je ale matematicky poněkud obtížnější úkol, neměli bychom pak již lineární funkcionál. Jinou, fyzikálně dobře motivovanou, možností je rozvinout molekulové orbitaly do rozsáhlejší množiny atomových orbitalů, například uvažovat elektron pohybující se ne pouze v základním stavu atomu vodíku, ale i v jeho stavech excitovaných. Mohli bychom například psát:
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent Takovýto rozvoj zvýší flexibilitu vlnové funkce. Sekulární rovnice nyní již představují soustavu deseti rovnic pro deset neznámých rozvojových koeficientů. Pořád ale jde o soustavu lineárních rovnic, které jsou snadno řešitelné. Na místo dvou stavů ale nyní získáme stavů 10. V základním stavu získáme řešením funkci, jejímž dominantním členem bude součet $1s_A+1s_B$, ale v určité malé míře budou k řešení přispívat i orbitalu $2s_A$, $(2p_0)_A$, $2s_B$ či $(2p_0)_A$, v excitovaných stavech se začnou výrazněji uplatňovat i vyšší atomové orbitaly. Při kombinování atomových orbitalů do orbitalů molekulových bude platit
+
+\begin{itemize}
+\item V jednom molekulovém orbitalu se budou výrazněji uplatňovat pouze atomové orbitaly o podobné energii. To vyplývá jednak z matematiky celého problému, jednak i ze selského rozumu. Jestliže se elektron v atomu A pohybuje s určitou energií, nemůžeme asi čekat, že se v blízkosti atomu B jeho energie závratně změní.
+
+\item Kombinují se toliko atomové orbitaly o stejné symetrii vůči prvkům symetrie dané molekuly. Nebude se tak kombinovat orbital $1s_A$ s orbitalem $(2p_1)_B$, neboť tyto orbitaly mají nulový překryv. Díky tomu můžeme řešit zvlášť sekulární problém pro $\sigma$ a $\pi$ elektrony:
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\end{itemize}
+
+
+\subsection{Více-elektronové molekuly}
+Není asi snadné nadchnout chemika pro otázky spojené s iontem molekuly vodíku. Skutečně, skoro vše,c o chemika zajímá, má elektronů více. Mohou nám nějak výše uvedené úvahy pomoci při řešení otázek spojenými s více-elektronovými molekulami? Ano, může. V rámci Hartreeho-Fockovy aproximace totiž $N$-elektronovou Schr\"odingerovu rovnici 
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent redukujeme na $N$ jednoelektronových Fockových rovnic pro jednotlivé elektrony
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent Fockovy rovnice obsahují složitější operátor než ten, se kterým jsme se setkali při řešení iontu molekuly vodíku, vše co bylo řečeno ale platí i pro molekulové orbitaly více-elektronových molekul. Stále tak hledáme molekulové orbitaly $\phi$ jako lineární kombinace atomových orbitalů $\chi$
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent přičemž rozvojové koeficienty $c_i$ získáváme pomocí variačního principu. Výsledky takovýchto výpočtů jsou důvěrně známé každému pečlivějšímu čtenáři základních učebnic anorganické chemie. Uplatňují se přitom dvě výše zmíněná pravidla o kombinování orbitalů. Není cílem této přednášky dopodrobna opakovat celý tak důvěrně známý příběh. Pro připomenutí však čtenáře odkazujeme na Obr. \textbf{XX} zobrazující elektronové hladiny v homonuklárních diatomických molekulách.
+
+\bigskip
+\textbf{Obr. XXX Jednoelektronové stavy v homonukleárních diatomických molekulách.}
+\bigskip
+
+Připomeňme také, že s výše uvedenými orbitálními diagramy je spojen pojem řád vazby, definovaný jako
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+který nám říká, "kolikatinásobná" je příslušná vazba. Tak například vidíme, že molekula dusíku je vázána trojnásobnou vazbou. Taktéž by nám neměla uniknout překvapivá prediktivní síla kvalitativní teorie molekulových orbitalů. Z diagramu pro molekulu O$_2$ kupříkladu hned vidíme, že tato molekula by měla být paramagnetická, neboť představuje dle Hundova pravidla biradikál, má totiž dva nepárové elektrony.
+
+\textbf{PSNOTE: Nevim, zda se zde nerozpindat vice}
+
+Zatím jsme se dívali pouze na diatomické molekuly tvořené dvěma stejnými atomy (homonukleární diatomika. Nic nám ale nebrání hledat molekulové orbitaly popisující pohyb elektronů v diatomickcýh molekulách s nestejnými atomy. podíejme se na případ molekuly NO. energie 2p orbitalu atomu dusíku je -15 eV, energie 2p orbitalu atomu kyslíku je -17 eV. Orbitální diagram pak vypadá takto
+
+\bigskip
+\bigskip
+\textbf{Obr. XXXX: Orbitální diagram molekuly NO. Znázorněny jsou pouze interakce 2p orbitalů.}
+\bigskip
+\bigskip
+
+\noindent Jelikož je energie atomu dusíku nižší, budou MO vazebných orbitalů tvořeny z větší míry právě orbitaly atomu N a na tom tak bude soustředěn větší záporný náboj. Všimněme si také, že molekula NO představuje dle tohoto schématu radikál.
+
+
+Podívejme se ještě na jeden případ, na molekulu fluorovodíku. Elektron v 1s orbitalu atomu vodíku má energii -13,6 eV, elektron v 2p orbitalu atomu fluoru má hodnotu -17,4 eV. Orbitální diagram pak bude vypadat takto
+
+\bigskip
+Obr. XXXX: Orbitální diagram molekuly HF.
+\bigskip
+
+\noindent S 1s orbitalem atomu vodíku se ze symetrických důvodů může kombinovat pouze jediný z 2p orbitalů atomu fluoru. Zbylé dva orbitaly se vazby neúčastní, nejsu vazebné, ani antivazebné, nýbrž nevazebné. Opět vidíme, že vazebný orbital bude mít větší příspěvek  od atomu fluoru, konkrétně
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+\noindent naopak antivazený orbital bude mít větší příspěvek od atomu vodíku
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+\noindent jelikož v základním stavu elektrony nevazebný orbital nezaplňují, bude větší elektronová hustota lokalizovaná na atomu fluoru a ten tak bude mít záporný parciální náboj. Tento typ úvah je základem tzv. Mullikenovy populační analýzy, o které na přednášce bude řeč ještě později.
+
+
+Na závěr tohoto oddílu si ještě zopakujme, jakým způsobem přistupujeme k řešení $N$-elektronovou Schr\"odingerovy rovnice v rámci přístupu MO-LCAO. Předpokládáme, že známe řešení pro orbitaly atomů vodíkového typu (tyto funkce přitom mohou obsahovat určité variační parametry). jejich uspořádáním do Slaterova determinnatu vytvoříme mnohaelektronovou vlnovou funkci a v rámci metody Hartreeho-Focka tak vypočítáme elektronovou energii atomů. Jednoelektronové vlnové funkce atomů vodíkového typu můžeme v rámci přístupu MO-LCAO zkombinovat do molekulových orbitalů, ze kterých pak vytvoříme opět mnohaelektronovou vlnovou funkci uspořádáním do Slaterova determinantu, viz. Obr. \textbf{XXX}.
+
+
+\bigskip
+\textbf{Obr. XXX: Metoda MO-LCAO}
+\bigskip
+
+\subsection{Klasifikace molekulových orbitalů a elektronové termy dvouatomových molekul}
+ 
+Jednoelektronové vlnové funkce molekul, tj. molekulové orbitaly, můžeme klasifikovat s ohledem na chování vlnové funkce vůči prvkům symetrie molekul. Všechny diatomické molekuly mají nekonečně četnou osu symetrie $C_\infty$. Homonukleární diatomika mají navíc střed symetrie.
+
+Z hlediska chování vlnové funkce vůči ose symetrie $C_\infty$ mluvíme o 
+
+\begin{itemize}
+
+\item Orbitalu $\sigma$, jestliže rotace kolem osy $C_\infty$ ponechá orbital nezměněn.
+
+\item Orbitalu $\pi$, jestliže je osa $C_\infty$ obsažena v jedné uzlové rovině (tj. v rovině, ve které je hodnota vlnové funnkce nulová)
+
+\item Orbitalu $\delta$, jestliže je osa $C_\infty$ obsažena ve dvou uzlových rovinách. 
+
+\end{itemize}
+
+\noindent A takto bychm mohli pokračovat dále. Z hlediska středu symetrie můžeme orbitaly klasifikovat jako 
+
+\begin{itemize}
+
+\item g (údajně z něm. \textit{gerade}), kdy operace zrcadlení dle středu symetrie nemění znaménko vlnové funkce
+
+\item u  (údajně z něm. \textit{ungerade}), kdy operace zrcadlení dle středu symetrie mění znaménko vlnové funkce 
+
+\end{itemize}
+
+Na obrázku XX je klasifikace orbitalů znázorněna na několika příkladech.
+
+\bigskip
+
+\textbf{Obr. XX: Příklad klasifikace molekulových orbitalů}
+
+\bigskip
+ 
+
+Pojďme se ještě zamyslet nad otázkou, zda klasifikace dle orbitalů dle symetrie nemá ještě nějaký hlubší význam. Symetrie je obvykle znakem zachování určité fyzikální veličiny. U molekul už nemůžeme předpokládat zachování momentu hybnosti jako u atomů, neboť elektrony v molekulách se nepohybují v centrálním poli. Molekuly mají pořád ještě válcovou symetrii a zachovává se tak průmět momentu hybnosti do osy $z$, $L_z$. Zavedeme-li si nyní kvantové číslo $\lambda= |m|$, kde $m=0,+-1,+-2$ atd. můžeme udělat následující přiřazení
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+Ve vícelektronových molekulách se moment hybosti ve směru osy $z$ může sčítat. Celkové magnetické kvantové číslo $M_L$ vícelektronové molekuly je pak dáno prostým součtem magnetických kvantových čísel $m$ jednotlivých elektronů. Zavádíme pak kvantové číslo 
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}   
+       
+\noindent a opět zavádíme značení
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+\textbf{Příklad:} Mějme konfiguraci $\sigma\sigma$, pak možné stavy této mokeluly jsou 
+
+\bigskip
+XXXXX
+\bigskip
+
+Pro stavy $\pi\pi$ jsou možné stavy 
+
+\bigskip
+XXXXX
+\bigskip
+
+
+Můžeme pak ještě uvažovat celkový moment hybnosti daný součtem orbitálního a spinového momentu molekuly. Odpovídající kvantové číslo nabývá hodnot
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\textbf{Příklad:} Molekula ve stavu $^4\Pi$ se může nacházet ve stavech 
+
+\bigskip
+XXXXXX
+\bigskip
+
+
+Energetické rozštěpení těchto stavů je pro prvky o malém protonovém čísle velmi malé, je dáno pouze spi-orbitální interakcí, o které již byla řeč dříve. 
+
+
+\subsection{Molekulové orbitaly víceatomových molekul}
+Doposud jsme diskutovali pouze diatomické molekuly. Elektronovou energii můžeme ale prostřednictvím Hartreeho-Fockovy metody stejně dobře hledat i pro molekuly víceatomové. Opět budeme hledat molekulové orbitaly jako lineární kombinaci atomových orbitalů. Tyto molekulové orbitaly nemůžeme již klasifikovat s ohledem na chování vůči ose symetrie $C_\infty$, neboť obecně molekuly takovouto symetrii nevykazují. I nižší symetrie ale mohou sloužit k označování molekulových orbitalů. Příklad molekulových orbitalů víceatomové molekuly lze najít na Obr. XXX.
+
+\bigskip
+
+\textbf{Obr. XXX: Molekulové orbitaly molekuly vody.}
+
+\bigskip
+ 
+Všimněme si, že v případě molekuly vody není tak úplně snadné říci, zda je o orbital vazebný či antivazebný. Příslušné molekulové orbitaly jsou totiž delokalizovány přes celou molekulu. Rozhodně se nedá říci, že určitý molekulový orbital náležel určité vazbě. Pro chemika to není úplně komfortní situace. od dob Lewisových je zvyklý si chemickou vazbu představovat jako sdílený elektronový pár. Tento pár by se pak dle chemického pohledu měl nacházet někde mezi dvěma atomy, jako je tou v případě diatomických molekul. 
+
+Tomuto pohledu v principu není obtížné vyjít vstříc. Orbitaly jsou totiž pouze pomocnými veličinami, fyzikálně pozorovatelné veličiny závisí toliko na celkové vlnové funkci. Každá transformace orbitalu taková, že zanechá vlnovou funkci až na znaménko netknutou je proto možná. Jak taková povolená transformace má vypadat? Zaveďme si tzv. unitární matici vztahem
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Potom bude nutně platit
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Z čehož ale vyplývá, že 
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+kde lambda je libovolné číslo. Nyní si definujme matici 
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+Harteeho-Fockova vlnová funkce je pak dána jako
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+Mějme nyní transformovanou sadu orbitalů
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+A v této sadě napišme Slaterův determinant
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Z čehož 
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+Pro reálné funkce faktor $e^{i\lambda}$  neznamená než změnu znaménka. 
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+Vidíme tedy, že jakákoliv unitární transformace orbitalů nevede k závažné změně vlnové funkce. Transformovaná sada orbitalů je stejně dobrou sadou jako ta původní. Nikdo nám proto nemůže zabránit ve vytvoření sady atomových orbitalů, která v případě tetraedrického uspořádání vazeb jako v případě molekuly vody poveden ke čtyřem orbitalům mířícím do vrcholu tetraedru
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+Tyto tzv. hybridní orbitaly je možné využít ke konstrukci molekulových orbitalů molekuly vody (či kupříkladu molekuly methanu). Získané orbitaly se budou nacházet v oblasti vazeb. Jde ale o změnu víceméně kosmetickou a není žádoucí pojem hybridizace přeceňovat. Poznamenejme, že původní, tzv. kanonické, orbitaly jsou v jistém smyslu "fyzikálnější", neboť pouze pro ně (a nikoliv pro hybridní orbitaly) platí Koopmansův teorém.\footnote{K diskuzi o hybridních orbitalech odkazujeme na starší článek A. Sadleje a R. Zahradníka \textit{Jsou chemické jevy podmíněné hybridizací?} Chem. Listy \textbf{1981}, 75, 561-562, stejně jako na nedávnou zajímavou výměnu názorů iniciovanou textem A. Grushowa \textit{"Is It Time To retire the Hybrid Atomic Orbital?"} J. Chem. Educ. \textbf{2011}, 88, 860-862 } 
+
+
+        
+   
+
+
+
+      
+
+
+
+
+
