@@ -15,15 +15,20 @@ Její použití je tudíž omezeno na planární systémy s vícenásobnými vaz
 Hamiltonián HM metody má následující tvar:
 \begin{equation}
 H_{HMO}= \sum h_{i, eff}^\pi
+\label{rov:Ham_HM}
 \end{equation}
 kde $h_{i, eff}^\pi$ je jednoelektronový potencál $\pi$ elektronu, který v sobě obsahuje jak kinetickou energii, tak interakce s ostatními elektrony.
 Z toho zřejmé, že elektrony jsou považovány za nezávislé. (to je zásadní rozdíl oproti metodě HF, ve které je nezávislost elektronů vyjádřena \uv{pouze} tvarem vlnové funkce). 
 Konkrétní tvar těchto efektivních elektronových hamiltoniánů není specifikován a bere se pouze jako parametr metody. 
 
 Dalším krokem je výběr báze. V případě metody HM to budou $p_z$ orbitaly všech uhlíkových atomů.
-
 \begin{equation}
 \psi= \sum_i c_i \phi_i
+\end{equation}
+Tím převedeme problém najití vlnové funkce na jednodušší problém najití koeficientů $c_i$. Pokud tuto vlnovou funkci dosadíme do SCHR s Hamiltoniánem \ref{Ham_HM} a aplikujeme variační princip, dostaneme sadu sekulárních rovnic. Z nich poté obdržíme sekulární determinant:
+\begin{equation}
+|\mathbf{H}-\epsilon \mathbb{S}|=0
+\label{rov:HM_det}
 \end{equation}
 
 Pro lepší ilustraci budeme nadále uvažovat výpočet pro molekulu butadienu.
@@ -32,10 +37,10 @@ Naše báze se tedy bude skládat ze čtyř $p_z$ orbitalů.
 Aplikací variačního principu poté dostaneme následující sekulární rovnice:
 \begin{equation}
 \begin{vmatrix}
-H_{11}-ES_{11} & H_{21}-ES_{21} & H_{31}-ES_{31} & H_{41}-ES_{41}  \\
-H_{12}-ES_{12} & H_{22}-ES_{22} & H_{32}-ES_{32} & H_{42}-ES_{42}  \\
-H_{11}-ES_{13} & H_{23}-ES_{23} & H_{33}-ES_{33} & H_{43}-ES_{43}  \\
-H_{11}-ES_{14} & H_{24}-ES_{24} & H_{34}-ES_{34} & H_{44}-ES_{44}
+H_{11}-\epsilon S_{11} & H_{21}-\epsilon S_{21} & H_{31}-\epsilon S_{31} & H_{41}-\epsilon S_{41}  \\
+H_{12}-\epsilon S_{12} & H_{22}-\epsilon S_{22} & H_{32}-\epsilon S_{32} & H_{42}-\epsilon S_{42}  \\
+H_{11}-\epsilon S_{13} & H_{23}-\epsilon S_{23} & H_{33}-\epsilon S_{33} & H_{43}-\epsilon S_{43}  \\
+H_{11}-\epsilon S_{14} & H_{24}-\epsilon S_{24} & H_{34}-\epsilon S_{34} & H_{44}-\epsilon S_{44}
 \end{vmatrix}
 = 0
 \end{equation}
@@ -52,15 +57,15 @@ Nenulové integrály položíme rovno parametru $\beta$ a nazýváme je rezonan�
 Takto zjednodušené rovnice poté vyřešíme. Nejprve najdeme vlastní čísla přes sekulární determinant a následně určíme koeficienty $c_i$. V případě butadienu bude sekulární determinant vypadat následovně:
 \begin{equation}
 \begin{vmatrix}
-\alpha-E & \beta & 0 & 0  \\
-\beta &\alpha-E & \beta & 0  \\
-0 &\beta &\alpha-E & \beta  \\
-0 & 0 & \beta &\alpha-E   
+\alpha-\epsilon & \beta & 0 & 0  \\
+\beta &\alpha-\epsilon & \beta & 0  \\
+0 &\beta &\alpha-\epsilon & \beta  \\
+0 & 0 & \beta &\alpha-\epsilon  
 \end{vmatrix}
 = 0
 \end{equation}
 %Tento determinant vede na rovnici čtvrtého stupně, kterou lze ale vhodnou substitucí řešit analyticky.
-Ve druhém kroku jsme determinant vydělily $\beta$ a zavedli substituci $x=\frac{\alpha-\beta}{E}$.
+Ve druhém kroku jsme determinant vydělily $\beta$ a zavedli substituci $x=\frac{\alpha-\beta}{\epsilon}$.
 Nyní rozvojem determinantu podle prvního řádku dostaneme:
 \begin{equation}
 x
@@ -87,18 +92,59 @@ x_{1,2}=1,62
 x_{3,4}=0,62
 \end{equation}
 Z toho vyplývají násůedující hodnoty energií:
-$$ E_1 = \alpha+1,62\beta $$
-$$ E_2 = \alpha+0,62\beta $$
-$$ E_3 = \alpha-0,62\beta $$
-$$ E_4 = \alpha-1,62\beta $$
+$$ \epsilon_1 = \alpha+1,62\beta $$
+$$ \epsilon_2 = \alpha+0,62\beta $$
+$$ \epsilon_3 = \alpha-0,62\beta $$
+$$ \epsilon_4 = \alpha-1,62\beta $$
 Zpětným dosazením do sekulárních rovnic bychom poté dopočítali koeficienty $c_i$.
 Jak nyní získáme parametry?...
 
 \textbf{Spektroskopie}
+Jak můžeme pomocí HM spočítat excitační energii? Prostě formálně excitujeme jeden elektron z obsazeného do neobsazeného orbitalu a potom spočítáme celkovou energii a od ní odečteme celkovou energii zákaldního stavu. Pokud budeme chtít spočítat nejnižší excitační energii butadienu, přesuneme jeden elektron z orbitalu 3 do orbitalu 2. Výsledná energie potom bude:
+$$
+\Delta E = \epsilon_3-\epsilon_4 = 1,24 \beta = \frac{hc}{\nu} 
+$$
+Vlnová délka excitujícího záření potom vyjde 287\,nm, zatímco experimentální hodnota je kolem 200\,nm.
+Soulad to není ideální, ale není ani tragický, na to že jsme jej získali tak jednoduše. HM také správně zachycuje experimentální fakt, že excitační energie se snižuje se zvyšující se délkou řetězce obsahující konjugované dvojné vazby.
 
 \textbf{Delokalizační energie}
 
-\subsetion{Rozšířená H\"{u}ckelova metoda}
+$$
+\left| \right|=0
+$$
+z čehož nám vyjde
+$$
+(\alpha-\epsilon)^2=\beta^2
+$$
+$$
+\alpha - \epsilon = \pm \beta
+\epsilon_{1,2}= \alpha\pm \beta
+$$
+Pro butadien poté vyjde delokalizační energie $E_D=0,472\beta=35,4 kJ/mol$
+Experimentálně můžeme míru delokalizace určit pomocí hydrogenačních tepel a opět to vztáhnout vůči ethanu.
+Hydrogenační teplo ethanu (tj. entalpie reakce ethan + H$_2$ = ethen) je -136,94\,kJ/mol, zatímco hydrogenační teplo butadienu je -240\,kJ/mol. Experimentální delokalizační energie je tedy:
+$$
+E_D^{exp}=2\cdot139,9-240 = 33,8 kJ/mol,
+$$
+což je v dobrém souladu s námi vypočtenou hodnotou.
+
+\textbf{Cyklické systémy a aromaticita}
+Asi největším úspěchem HM bylo vysvětlení aromaticity cyklických molekul.
+Například pro benzen dává HM následující strukturu molekulových orbitalů:
+Pokud bychom nyní zkoušeli počítat delokalizační energii pro různý počet elektronů, zjistili bychom, že má maximum pro šest elektronů, tedy pokud plně zaplníme všechny vazebné orbitaly.
+
+Pokud bychom spočítali HM metodou obecně pro cyklické uhlovodíky, došli bychom ke známému H\"{u}ckelovu pravidlu $4n+2$. Z diagramu pro benzen je patrnén, že pro 4n+1 elektronů bychom měli radikál, zatímco pro $4n$ elektronů bychom měli dokonce biradikál.
+
+\begin{priklad}
+\textbf{Zadání:} Jak to bude s aromaticitou cyklopropenylového radikálu? A co cyklopentadienylový radikál?
+
+\textbf{Reseni:} V cyklopropenylu máme tři elektrony v $p_z$ orbitalech, stabilnější tedy bude cyklopropenylový kation. Podobně tomu je u cyklopentadienylu máme elektronů pět, stabilnější bude cyklopendienylový anion, který se opravdu často vyskytuje jako ligand v komplexech kovů.
+\end{priklad}
+
+\textbf{obrazek}
+\bigskip
+
+\subsection{Rozšířená H\"{u}ckelova metoda}
 
 \begin{itemize}
 \item Počítá i se $\sigma$ vazbami
