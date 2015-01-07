@@ -1,0 +1,58 @@
+Skoro všechna zajímavá chemie se odehrává v kondenzované fázi. Naproti tomu v našem výkladů jsem se doposud zabývali výhradně výpočty prováděnými v plynné fázi. V mnoha případech to nijak zvlášť nevadí. Reakce neutrálních molekul nejsou příliš ovlivněny prostředím a výpočet provedený v plynné fázi tak představuje dobré přiblížení pro situaci v roztoku.
+Děje, ve kterých vystupují ionty jsou ale solvatací ovlivněny zcela zásadně. Tak například molekula NaCl se v plynné fázi určitě neoddělí na ionty, zatímco ve vodě je disociace v ionty zcela tuctovou podívanou.
+Kvalitní popis solvatace je proto jedním z ústředních problémů současné výpočetní chemie. V tomto textu jenom velmi stručným způsobem načrtneme možnosti, které se před námi otevírají, případného zájemce o hlubší vhled odkazujeme na kteroukoliv z velké řady publikací a kompendií věnovaných výpočetní chemii, kupříkladu na práci Cramerovu. \footnote{C. J. Cramer, Essentials of Computational Chemistry. Theories and Models, 2nd edition. Wiley, 2004.} Nyní tedy pouze stručný přehled:
+
+\begin{itemize}
+
+\item \textbf{Mikrosolvatace.} V rámci tohoto přístupu jednoduše obklopíme molekulu molekulami rozpouštědla a pro celý tento systém pak počítáme vlastnosti (například energii). Jde o přímočarou cestu k zahrnutí solvatačních efektů, nicméně nikoliv o cestu příliš praktickou. Malé agregáty mají totiž jen málo co společného s kondenzovanou fází a konvergence vlastností molekul s velikosti použitého klastru je velmi pomalá. Naproti tomu výpočetní náročnost kvantově-chemických metod velmi silně roste s velikostí systému. Ačkoliv dnes již je možné za určitých okolností provádět kvantové výpočty i pro stovky molekul, jde pořád o mimořádně nákladný podnik. Jinou potíží je skutečnost, že systém s větším počtem solvatujících molekul vykazuje celou řadu energetických minim o přibližně stejné energii a výpočet s jediným z těchto minim není příliš smysluplný. Je proto třeba použít metod molekulových simulací, kupříkladu metodu molekulové dynamiky nebo metodu Monte Carlo, pomocí kterých můžeme simulovat statistické soubory molekul. Při výpočtech na \textit{ab initio} úrovni je to ovšem výpočetně dosti náročné.
+
+\bigskip
+OBR Mikrosolvatace.
+\bigskip
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+
+\item \textbf{QM/MM metody.} V rámci tohoto přístupu studujeme část systému metodami kvantové chemie a část jednoduššími přístupy, s použitím empirických potenciálů. Empirické potenciály popisují molekuly pomocí různých empirických vazebných příspěvku a interakce mezi molekulami je pak realizována elektrostatickými, repulzními a disperzními příspěvky. \footnote{Empirickým potenciálům se v tomto textu nevěnujeme, čtenáře zde odkazujeme kupř. na text Petra Bouře na http://hanicka.uochb.cas.cz/~bour/prednaska/prednaska.htm}  Na kvantové úrovni řešíme většinou pouze ty nejdůležitější části systému, například aktivní centrum enzymu, okolí či roztok pak popisujeme metodami empirickými. Hamailtonián je pak dán jako
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent kde XX je hamiltonián pro molekulu rozpuštěné látky počítaný na kvantově-chemické úrovni, XXX představuje empirický potenciál a XXX představuje interakci mezi oběma částmi. V nejběžnějším případě můžeme psát
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+\noindent
+kde $q_M$ je náboj molekulárně-mechanického (MM) atomu $M$, $Z_{\alpha}$ je nábojové číslo kvantově-mechanického (QM) atomu $\alpha$ a $\epsilon_{\alpha M}$ a $R_{\alpha M}$ jsou parametry Lennard-Jonesova potenciálu popisující repulzní a disperzní síly mezi kvantově-mechanickým atomem $\alpha$ a molekulárně-mechanickými atomy $M$. Elektrony jdou označeny indexem $i$. Elektrony i jádra rozpuštěné látky popsané na QM úrovni tedy "cítí" parciální náboje MM atomů a k tomu přidáváme repulzi a disperzní přitahování mezi QM a MM atomy. 
+
+Díky QM/MM přístupu je tak možné studovat i velmi rozsáhlé systémy. O důležitosti QM/MM metod svědčí i Nobelova cena za rok 2013 udělená právě za výzkumy v tomto směru. 
+
+\bigskip
+OBR schéma strategie QM/MM.
+\bigskip
+
+
+\item \textbf{Implicitní modely.} Představme si, že chceme vypočítat energii určitého iontu v  roztoku. Pro jednoduchost uvažujme ion kulovitého tvaru. Můžeme vypočítat energii iontu v plynné fázi a připočítat solvatační energii. Ta je v nejjednodušším případě dána Bornovou rovnicí, kdy solvatační energii vypočítáme z rovnic klasické elektrostatiky jako rozdíl práce nutné k nabití iontu ve vakuu a v prostředí o relativní permitivitě $\epsilon_r$:
+
+
+\begin{equation}
+\label{rov:XXX}
+\end{equation}
+
+
+\noindent 
+kde $r_i$ je poloměr příslušného iontu a $\epsilon_0$  je permitivita vakua. Jde o velmi přímočarou opravu na vliv solvatace, která ovšem nebere v potaz některé složky solvatační energie. Tak kupříkladu zanedbává tzv. kavitační energii, tj. energii nutnou na vytvoření kavity, do které příslušný ion umístíme. Tuto veličinu můžeme odhadnout například z hodnot povrchového napětí kapaliny, ve kterém molekulu solvatujeme. Kromě toho předpokládáme, že elektronová struktura není solvatací ovlivněna. To ale není nutně splněno. Ion totiž polarizuje rozpouštědlo, které ho obklopuje, které ale zpětně působí svým polem na solvatovaný ion. Vytváří se tzv. reakční pole, ve kterém je ion umístěn. Korektní postup tak spočívá v tom, že řešením Schr\"odingerovy rovnice vypočítáme elektrické pole generované naším iontem, v tomto poli řešíme elektrostatické rovnice pro okolní roztok, získáme ono reakční pole a znovu znovu opakujeme celý výpočet, dokud se již vlnová funkce ani reakční pole nemění (SCRF, z angl. \textit{Self Consistent Reaction Field}). Tento přístup je pouze o málo náročnější než výpočet ve vakuu a bývá proto často používán. Na druhou stranu je třeba být obezřetný, neboť model má svá dobře známá omezení.        
+
+     
+\bigskip
+OBR SCRF kolečko.
+\bigskip
+
+\end{itemize}
