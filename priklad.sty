@@ -1,0 +1,26 @@
+% Balik priklad
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autor: Vit Svoboda, Praha 2014
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{poradi} % novy citac pro cislo prikladu
+\newcounter{CP} % novy citac pro cislo v labelu
+\newcommand{\pocitadlo}{\stepcounter{poradi}\theporadi} % realizace pocitadla pro cislo prikladu 
+\newcommand{\MujLable}[1]{\refstepcounter{CP}\label{#1}} % novy prikaz pro label, ktery resi spravny odkaz \ref
+\newcommand{\nadpis}{{\normalsize \sffamily \color{blue}{Příklad \pocitadlo}} \vspace{0.2cm} \MujLable{\theCP}} %prikaz, který vypise "Priklad xy"
+
+%procedura definujici nove prostredi "priklad"
+\newenvironment{priklad}
+{\hspace*{\fill} \\
+\begin{minipage}[t]{\textwidth}
+\begin{minipage}[t]{0.1\textwidth}
+\vspace{-0.2cm}
+\includegraphics[scale=0.8]{priklad.eps}
+\end{minipage}
+\begin{minipage}[t]{0.85\textwidth}
+\small \sffamily
+\rule{\textwidth}{1pt}\\
+\nadpis \\ \noindent}
+{\hspace*{\fill}
+\\ \rule{\textwidth}{1pt}
+\end{minipage}\end{minipage} \vspace{0.5cm}}
