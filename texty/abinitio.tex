@@ -10,10 +10,15 @@ Nejjednodušší \textit{ab initio} metodou je metoda Hartree--Fockova, která j
 
 \subsection{Hartreeho--Fockova metoda}
 
-\subsection{Mollerova--Plessetova metoda}
-
+\begin{eqnarray}
+\hat{F}_i = \hat{h}_i+\sum_{j\neq i} \hat{J}_j - \delta(s_i,s_j) \hat{K}_j \\
+\hat{h}_i = -\frac{1}{2}\Delta_i - \sum_{A}\frac{Z_A}{r_{iA}}
+\hat{J}_j=\int \frac{|\varphi |^2}{r_{ij}}\mathrm{d}\textbf{r}_j \\
+\hat{K}_{ij} = \int \frac{\phi_j^*(\mathbf{r}_j)\phi_i(\mathbf{r}_i)}{r_{ij}}\mathrm{d}\textbf{r}_j
+\end{eqnarray}
 
 \subsection{Metoda kofigurační interakce}
+První post-HF metoda je založena na variačním principu.
 
 \begin{equation}
 \Psi_{CI}=c_0\Psi_0+\sum_a\sum_m c_a^m\Psi_a^m+\sum c_{ab}^{mn}\Psi_{ab}^{mn}+\dots
@@ -22,13 +27,38 @@ První člen je HF řešení, druhý člen odpovídá monoexcitacím, a druhý �
 Jak nyní určíme koeficienty $c$? Stačí nám k tomu variační princip. Jelikož vlnová funkce na těchto koeficientech závisí lineárně,
 aplikací variačního principu dostaneme již dříve zmíněné sekulární rovnice.
 
+\begin{equation}
+\mathbb{H}\mathbf{c}=E\mathbf{c} \nonumber \\
+\sum_j (H_ij-E_i\delta_{ij})c_i=0 \forall i 
+\end{equation}
+
+Problémy: size consistency a exponeniciální školování FCI
+
+\subsection{Mollerova--Plessetova metoda}
+
+\begin{equation}
+\hat{H}^0=\sum_i^N\hat{F}_i
+\end{equation}
+
+
 
 \subsection{Metody spřažených klastrů}
 
 Excitační operátor.
-\begin{equation}
-T_1\Psi_0=\sum^N_{a=1}\sum_{m=n+1}^\infty t_a^m\Psi_a^m
-\end{equation}
+\begin{eqnarray}
+T_1\Psi_0=\sum^N_{a=1}\sum_{m=n+1}^\infty t_a^m\Psi_a^m \\
+T_2\psi_0=\sum_{a=1}^N \sum_{b\neq a}^N\sum_{m=N+1}^\infty \sum_{n=N+1}^\infty t_{ab}^{mn}\psi_{ab}^{mn} \\
+\hat{T}=\hat{T}_1+\hat{T}_2+\cdots
+\end{eqnarray}
+
+\begin{eqnarray}
+\Psi = e^{\hat{T}} \psi_0 \\
+e^{\hat{T}} = 1+\hat{T}+\frac{\hat{T}^2}{2}+\cdots
+\end{eqnarray}
+
+Pro CCSD metodu platí $\hat{T}=\hat{T}_1+\hat{T}_2$
+
+CCSD(T)..zlatá metoda kvantové chemie
 
 \subsection{Multireferenční metody}
 
