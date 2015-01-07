@@ -1,0 +1,340 @@
+V~této kapitole se podíváme na řešení Schrödingerovy rovnice pro některé jednoduché situace vedoucí k~analyticky řešitelným úlohám. Takových situací, které by byly zároveň fyzikálně zajímavé není mnoho. Proto se při popisu složitějších problémů musíme uchýlit k~jistým zjednodušením a aproximacím, kterým se budeme blíže věnovat v~kapitole \ref{kap:pribliznemetody}.
+
+Nejprve se podíváme na jednoduchý experiment s~dvojštěrbinou, který je ve své klasické podobě dobře znám z~optiky a~na kterém si blíže objasníme význam interferencí v~kvantové mechanice. Poté budeme studovat volnou částici. Na tomto triviálním případě si vysvětlíme přístup k~řešení úloh pomocí časově nezávislé Schrödingerovy rovnice. Na volnou částici plynule navážeme popisem částice v~nekonečně hluboké potenciálové jámě. Zde si vysvětlíme odkud se bere kvantování energie a hybnosti. Na závěr kapitoly se ve stručnosti podíváme na velmi důležitý problém řešení kvantového harmonického oscilátoru, který slouží jako modelový fyzikální systém například pro vibrační pohyby molekul.
+
+\subsection{Rozptyl na dvojštěrbině}
+\label{kap:RozptylSterbina}
+
+Z~optiky je znám Youngův experiment. Mějme dvojici paralelních štěrbin (dvojštěrbinu), na které dopadá monochromatické záření. Záření prochází dvojštěrbinou a  dopadá na stínítko. Výsledkem našeho pozorování bude interferenční obrazec střídajících se světlých a tmavých proužků, které po řadě odpovídají maximům a minimům intenzity dopadajícího světla. Pozorujeme tzv. interferenční obrazec. Maxima odpovídají konstruktivní interferenci, minima naopak interferenci destruktivní. Vysvětlení pozorovaného je následující. Světlo se prostorem šíří jako vlna, jako taková vyplňuje celý dostupný prostor. A~tak nás nepřekvapí, že jedna vlna projde v~jeden okamžik oběma štěrbinami zároveň. Proto je vlna procházející jednou štěrbinou ovlivněn vlnou z~druhé štěrbiny a naopak. Vycházející paprsky spolu interagují, skládají se, což je podstatou pozorované interference.
+
+Proveďme teď stejný experiment jen s~tím rozdílem, že na dvojštěrbinu bude dopadat tok klasických částic. Protože částice je podle klasické mechaniky lokální objekt, zdá se být samozřejmé, že v~daný okamžik může částice projít jen jednou štěrbinou, nikoliv oběma štěrbinami zároveň. Z~klasické mechaniky pak pro intenzitu dopadajících částic vyplývá, že intenzita v~daném bodě stínítka je součtem intenzit, které bychom dostali při otevření pouze první nebo druhé štěrbiny
+\begin{equation}
+I_{12} = I_1 + I_2 \mbox{.}
+\label{rov:IntenzitaKlasickeCastice}
+\end{equation}
+Rovnice (\ref{rov:IntenzitaKlasickeCastice}) vyjadřuje skutečnost, že přítomnost jedné štěrbiny nijak neovlivňuje to, jakým způsobem částice procházejí druhou štěrbinou.
+
+V~případě světla (Youngův experiment) je situace složitější, protože jak víme, dochází k~interferenci. Tu lze popsat tak, že v~daném bodě na stínítku  se sčítají intenzity (v~případě světla) elektrického pole od obou štěrbin
+\begin{equation}
+\mathbf{E}_{12} = \mathbf{E}_1 + \mathbf{E}_2 \mbox{.}
+\label{rov:IntenzitaSvetla-E}
+\end{equation}
+Intenzita světla je úměrná kvadrátu velikosti odpovídající intenzity pole, proto v~případě světla dostaneme namísto rovnice (\ref{rov:IntenzitaKlasickeCastice})
+\begin{equation}
+I_{12} \not = I_1 + I_2 \mbox{.}
+\label{rov:IntenzitaSvetla-I}
+\end{equation}
+Nerovnost ve výrazu (\ref{rov:IntenzitaSvetla-I}) je důsledkem interference světelných paprsků. Světlo v~tomto případě reprezentujeme jako vlnu, takže přítomnost jedné štěrbiny ovlivní průchod světla druhou štěrbinou. Výsledkem je existence interferenčního členu, který způsobí například to, že při otevření obou štěrbin může být intenzita v~daném místě nižší než při otevření jen jedné štěrbiny.
+
+Experiment ještě dále pozměňme. Snižujme intenzitu dopadajícího světla natolik, až proti stínítku bude v~jeden okamžik dopadat vždy jen jeden foton (kvantum elektromagnetického záření). Při dopadu fotonu na stínítko dojde k~ozáření jen jednoho bodu, podobně jako tomu je v~případě klasických částic, kde každá může dopadnout jen na jediné místo na stínítku. Ovšem necháme-li experiment probíhat dostatečně dlouho, začne se z~jednotlivých bodů na stínítku vytvářen stejný interferenční obrazec, jaký bychom dostali v~případě dopadajících světelných vln, analogicky jako v~případě Youngově experimentu. Toto chování nemůžeme vysvětlit jinak, než že i jeden jediný foton je ovlivňován existencí druhé štěrbiny, stejně jako monochromatická vlna.
+
+Podobně jako fotony můžeme nechat na stínítko dopadat tok jiných elementárních částic, například neutronů či elektronů. Výsledek bude totožný tomu, který jsme dostali při experimentu s~fotony. Pozorované interferenční chování částic nemůžeme vysvětlit pomocí teoretického aparátu klasické fyziky. Podle klasické fyziky projde-li částice jednou štěrbinou, nemá na ni přítomnost druhé štěrbiny žádný vliv. Ovšem pozorované interferenční chování částic je experimentálním faktem, který nemůžeme přehlížet. Elegantním řešením je připustit, že částice mají obdobný vlnový charakter jako monochromatické záření. Tento závěr jako první vyslovil Louis de Broglie ve své hypotéze o~dualitě částic a vlnění (viz kapitola \ref{kap:historie}).
+
+U~částic tedy můžeme pozorovat kvantověmechanické interference, které lze popsat tak, že každé částici přiřadíme vlnovou funkci $\psi(x, t)$, která je funkcí prostorových souřadnic a~času. Přidržíme-li se i nadále analogie s~optikou, můžeme hustotu pravděpodobnosti $\rho$ nalezení částice v~daném místě $x$ a čase $t$ vyjádřit jako
+\begin{equation}
+\rho(x, t) = |\psi(x,t)|^2 \mbox{.}
+\label{rov:VlnovaFce-castice}
+\end{equation}
+Vzhledem k~tomu, že kvadrát vlnové funkce interpretujeme jako pravděpodobnost (viz Bornova pravděpodobnostní interpretace kvantové mechaniky v~kapitole \ref{kap:historie}), musí platit rovnice
+\begin{equation}
+\int_{x=-\infty}^\infty |\psi(x,t)|^2 \,\mathrm{d}x = 1 \mbox{,}
+\label{rov:Normalizace}
+\end{equation}
+která vyjadřuje skutečnost, že částice se musí někde vyskytovat. Rovnice (\ref{rov:Normalizace}) vyjadřuje tzv. normalizační podmínku.
+
+Pokud zavedeme po řadě pro pravděpodobnosti dopadu částice na stínítko při otevřené první nebo druhé štěrbině označení $p_1$ a $p_2$, pak pravděpodobnost dopadu na dané místo stínítka při obou otevřených štěrbinách se nerovná součtu pravděpodobností $p_1$ a $p_2$
+\begin{equation}
+p_{12} \not = p_1 + p_2 \mbox{,}
+\label{rov:Pravdepodobnosti-Stinitko}
+\end{equation}
+ale pravděpodobnost bude záviset na interferenčním členu. Můžeme dokonce dostat výsledek takový, že $p_{12} = 0$, přestože $p_1 \not =  0$ a $p_2 \not = 0$, což vede k~minimu intenzity na stínítku (analogie s~destruktivní interferencí).
+
+\subsection{Volná částice}
+\label{kap:VolnaCastice}
+
+Abychom názorně demonstrovali řešení časově nezávislé Schrödingerovy rovnice
+\begin{equation}
+(- \frac{\hbar^2}{2m} \Delta + V) \psi = \hat{H} \psi = E \psi \mbox{,}
+\label{rov:SCHR-Tvar}
+\end{equation}
+začneme s~řešením nejjednoduššího možného problému, kterým je volná částice, tj. částice na kterou nepůsobí žádná síla, tj. $V = 0$. Protože volná částice se pohybuje volně, nejsou na řešení Schrödingerovy rovnice (\ref{rov:SCHR-Tvar}) kladeny žádné okrajové podmínky. Uvidíme, že neexistence okrajových podmínek vede k~tomu, že energie a hybnost částice nebudou kvantovány.
+
+Pro jednoduchost budeme předpokládat, že částice se může pohybovat pouze v~jednom rozměru. Rovnice (\ref{rov:SCHR-Tvar}) pak přejde do tvaru
+\begin{equation}
+-\frac{\hbar^2}{2m} \frac{\mathrm{d}^2\psi(x)}{\mathrm{d}x^2} = E \psi(x) \mbox{,}
+\label{rov:Volna1}
+\end{equation}
+kde jsme využili předpoklad, že částice je volná, tj. $V = 0$. Rovnici (\ref{rov:Volna1}) dále upravíme do tvaru
+\begin{equation}
+\left( \frac{\mathrm{d}^2}{\mathrm{d}x^2} + \frac{2mE}{\hbar^2} \right) \psi(x) = 0 \mbox{.}
+\label{rov:Volna2}
+\end{equation}
+Protože celková energie volné částice je rovná kinetické energii částice $T=p^2/(2m)$ a protože kinetická energie může být kladná anebo nulová, můžeme pro celkovou energii volné částice psát $E \geq 0$. Vzhledem k~této nerovnosti můžeme zavést substituci
+\begin{equation}
+\frac{2mE}{\hbar^2} = k^2 \mbox{,}
+\label{rov:Volna3}
+\end{equation}
+kde $k\geq0$ je reálné číslo, obvykle označované jako vlnový vektor. S~využitím substituce (\ref{rov:Volna3}) přejde rovnice (\ref{rov:Volna2}) do tvaru
+\begin{equation}
+\left( \frac{\mathrm{d}^2}{\mathrm{d}x^2} + k^2 \right) \psi(x) = 0 \mbox{,}
+\label{rov:Volna4}
+\end{equation}
+což je obyčejná diferenciální rovnice s~konstantními koeficienty. Rovnice tohoto typu řešíme metodou charakteristické rovnice -- polynomu. V~tomto případě je příslušný charakteristický polynom
+\begin{equation}
+\lambda^2 + k^2 = 0 \mbox{.}
+\label{rov:Volna5}
+\end{equation}
+Řešením dostaneme kořeny
+\begin{equation}
+\lambda_{1,2} = \pm ik \mbox{.}
+\label{rov:Volna6}
+\end{equation}
+Podle předpokladu o~řešení můžeme zapsat homogenní řešení rovnice (\ref{rov:Volna4}) ve tvaru
+\begin{equation}
+\psi(x) = e^{\pm ikx} \mbox{.}
+\label{rov:Volna7}
+\end{equation}
+Působením operátoru hybnosti  $\hat{p}$ na vlnovou funkci (\ref{rov:Volna7}) dostaneme
+\begin{equation}
+\hat{p} \psi(x) = -i\hbar \frac{\mathrm{d}\psi(x)}{\mathrm{d}x} = \pm \hbar k \psi(x) \mbox{.}
+\label{rov:Volna8}
+\end{equation}
+Z~rovnosti (\ref{rov:Volna8}) vyplývají vlastní hodnoty hybnosti volné částice ve tvaru
+\begin{equation}
+p = \pm \hbar k \mbox{.}
+\label{rov:Volna9}
+\end{equation}
+Vlnovou funkci volné částice proto můžeme zapsat jako
+\begin{equation}
+\psi(x) = e^{-px/(i\hbar)} \mbox{.}
+\label{rov:Volna10}
+\end{equation}
+Vyjádříme-li celkovou energii částice pomocí hybnosti $p$, dostaneme výraz pro energii ve tvaru
+\begin{equation}
+E = \frac{p^2}{2m} = \frac{\hbar^2k^2}{2m} \mbox{.}
+\label{rov:Volna11}
+\end{equation}
+Vidíme, že ani hybnost ani energie volné částice nejsou kvantovány.
+
+Na závěr si shrňme výsledky, ke kterým jsme při odvození došli. Vlnová funkce pro volnou částici je vlastní funkcí hamiltoniánu
+\begin{equation}
+\hat{H} = \hat{T} = \frac{\hat{p}^2}{2m} = -\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}
+\label{rov:Volna12}
+\end{equation}
+s~vlastní hodnotou neboli energií $E = p^2/(2m)$. Dále víme, že vlnová funkce volné částice je i~vlastní funkcí operátoru momentu hybnosti $\hat{p} = -i\hbar ({\mathrm{d}}/{\mathrm{d}x})$ s~vlastní hodnotou $p = \pm \hbar k$. Z~toho vyplývá, že komutátor operátorů
+\begin{equation}
+[\hat{T},\hat{p}]
+\label{rov:Volna13}
+\end{equation}
+musí být roven nule. Protože operátory spolu komutují (komutátor je nulový), mají společný soubor vlastních vlnových funkcí, a tak lze jednorozměrný pohyb volné částice charakterizovat pomocí dvou kvantových čísel -- kinetické energie $E = p^2/(2m)$ a hybnosti $p$. Dále si všimněme, že de Broglieův vztah mezi vlnovým vektorem a hybností částice jsme zde nemuseli předpokládat, ale že nám vyšel z~řešení Schrödingerovy rovnice (\ref{rov:Volna1}) pro volnou částici.
+
+\subsection{Částice v~nekonečně hluboké potenciálová jámě}
+\label{kap:CasticeJama}
+
+Problém částice v~nekonečně hluboké jámě nám poslouží jako vzorový příklad kvantověmechanického problému, ve kterém se okrajové podmínky kladené na řešení projeví v~kvantování energií a hybností. Uvažujme nejdříve pro jednoduchost jednorozměrný případ, který pak přirozeně rozšíříme na trojrozměrný případ.
+
+Předpokládejme, že v~intervalu $\langle0,a\rangle$ je potenciální energie $V(x)$ rovna nule, tj. $V = 0$. Dále předpokládejme, že mimo tento interval je potenciální energie nekonečná, tj. $V \rightarrow \infty$. Tímto předpokladem jsme si vytvořili potenciální jámu, která je pro částici uvězněnou uvnitř jámy, tj. v~intervalu $\langle0,a\rangle$ neproniknutelná, protože částice nemůže mít nekonečnou hodnotu energie.
+
+Pro vlnovou funkci částice mimo jámu platí
+\begin{equation}
+\psi(x) = 0
+\label{rov:Jama1}
+\end{equation}
+pro $x$ takové, že $x < 0$ a $x< a$. Výraz (\ref{rov:Jama1}) je vyjádřením skutečnosti, že částice se mimo potenciálovou jámu nemůže vyskytovat. Když máme vyřešen problém mimo samotnou jámu, zbývá nám vyřešit pohyb částice v~jámě. Pro tento případ hledáme řešení Schrödingerovy rovnice
+\begin{equation}
+-\frac{\hbar^2}{2m} \frac{\mathrm{d}^2\psi(x)}{\mathrm{d}x^2} = E \psi(x)
+\label{rov:Jama2}
+\end{equation}
+pro hodnoty $x$ takové, že $x\in\langle 0,a\rangle $.
+
+Diferenciální rovnici (\ref{rov:Jama2}) řešíme pomocí charakteristického polynomu ve tvaru
+\begin{equation}
+\lambda^2 + \frac{2mE}{\hbar^2} = 0 \mbox{.}
+\label{rov:Jama3}
+\end{equation}
+Vzhledem k~tomu, že celková energie částice v~jámě odpovídá její kinetické energii (v~jámě platí $V = 0$), musí pro celkovou energii platit $E\geq0$. Proto můžeme zavést stejné označení jako v~kapitole \ref{kap:VolnaCastice} rovnice (\ref{rov:Volna3}). Řešením dostaneme pro $\lambda$ stejný výsledek jako ve výrazu (\ref{rov:Volna6}). Obecné řešení rovnice (\ref{rov:Jama2}) můžeme tedy zapsat ve tvaru
+\begin{equation}
+\psi(x) = Ae^{ikx} + Be^{-ikx} \mbox{,}
+\label{rov:Jama4}
+\end{equation}
+kde $A$ a $B$ jsou libovolné komplexní konstanty.
+
+Jedním z~postulátů, které kladou podmínky na akceptovatelnost vlnové funkce, je postulát o~spojitosti vlnové funkce. Vzhledem k~tomu, že mimo interval $\langle0,a\rangle$ je vlnová funkce nulová (\ref{rov:Jama1}), musí řešení (\ref{rov:Jama4}) splňovat následující okrajové podmínky
+\begin{equation}
+\psi(0)=0
+\label{rov:Jama5}
+\end{equation}
+a
+\begin{equation}
+\psi(a)=0 \mbox{.}
+\label{rov:Jama6}
+\end{equation}
+První podmínku splníme tak, že položíme $A = -B$, tj. místo obecné vlnové funkce (\ref{rov:Jama4}) vezmeme jen funkci ve tvaru
+\begin{equation}
+\psi(x)=N \sin(kx) \mbox{,}
+\label{rov:Jama7}
+\end{equation}
+kde $N$ je normovací konstanta. Využili jsme přitom Eulerovu identitu. Druhou podmínku (\ref{rov:Jama6}) splníme tak, že položíme
+\begin{equation}
+ka = \pi n, \quad n= 1,2,3, \dots \mbox{,}
+\label{rov:Jama8}
+\end{equation}
+kde $n$ je přirozené číslo -- kvantové číslo. V~případě $n=0$ bychom obdrželi řešení $\psi(x)=0$, které nemá fyzikální význam, neboť částice by se na intervalu $\langle0,a\rangle$ vůbec nevyskytovala.
+
+Jak jsme předeslali, v~případě omezeného pohybu, zde neproniknutelnou potenciálovou bariérou, dospějeme k~závěru, že energie i odpovídající vlnový vektor jsou kvantovány
+\begin{equation}
+k_n = \frac{\pi}{a}n \quad n=1,2,3, \dots \mbox{,}
+\label{rov:Jama9}
+\end{equation}
+\begin{equation}
+E_n = \frac{\pi^2\hbar^2}{2ma^2}n^2, \quad n=1,2,3, \dots 
+\label{rov:Jama10}
+\end{equation}
+a že kvantování vyplývá z~okrajových podmínek (\ref{rov:Jama5}) a (\ref{rov:Jama6}). Vlnové funkce příslušející energiím daným vztahem (\ref{rov:Jama10}) jsou
+\begin{equation}
+\psi_n(x) = N \sin \frac{\pi n x}{a}, \quad n=1,2,3,\dots \mbox{.}
+\label{rov:Jama11}
+\end{equation}
+
+V~tento okamžik nám zbývá jediné, určit normovací konstantu $N$ ze vztahu (\ref{rov:Jama11}). Určíme ji tak, že požadujeme, aby se částice nacházela někde uvnitř jámy
+\begin{equation}
+\int_{x=0}^a |N|^2 \sin^2 \frac{\pi x n}{a} \mathrm{d}x = 1 \mbox{,}
+\label{rov:Jama12}
+\end{equation}
+který integrací vyřešíme a obdržíme
+\begin{equation}
+N = \sqrt{\frac{2}{a}}e^{i\alpha} \mbox{,}
+\label{rov:Jama13}
+\end{equation}
+kde $\alpha$ je libovolné reálné číslo. Vidíme, že vlnová funkce $\psi(x)$ je určená až na fázový faktor $exp(i\alpha)$, který se zpravidla volí roven jedné.
+
+Diskutujme nyní dosažené výsledky. Energie $E_n$ stacionárních stavů (získali jsme je řešením časově nezávislé -- stacionární -- Schrödingerovy rovnice (\ref{rov:Jama2})) jsou větší než nula. Stav s~energií $E_n=0$ není pro jámu o~konečné šířce $a$ možný. Energetické spektrum, neboli soubor všech energií, je diskrétní a nedegenerované, tj. vlastnímu číslu (energii) přísluší jen jedna vlnová funkce. A~konečně, energie $E_n$ jsou úměrné kvadrátu kvantového čísla $n^2$.
+
+Vlnové funkce $\psi_n(x)$ pro částici v~nekonečné potenciální 1D jámě jsou ortonormální
+\begin{equation}
+\int_0^a \psi_m^\ast(x) \psi_n(x) \mathrm{d}x = \delta_{mn} \mbox{,}
+\label{rov:Jama14}
+\end{equation}
+kde $\delta_{mn}$ je Kroneckerův symbol, který se rovná jedné, pakliže $m=n$, když $m \not = n$ je roven nule. Výraz (\ref{rov:Jama14}) je jen jiným způsobem zápisu ortonormálnosti dvou funkcí. Vlnové funkce $\psi_n(x)$ dále tvoří úplnou bázi na příslušném Hilbertově prostoru. Počet uzlových bodů, tj. těch kde $\psi_n(x)=0$ je roven $n-1$.
+
+Rozšíření na trojrozměrný problém je poměrně intuitivní. Uvažujme potenciální energii $V(x,y,z) = 0$ všude v~oblasti $0\leq x\leq a$, $0\leq y \leq b$ a $0\leq z \leq c$, kde $a, b, c$ jsou rozměry uvažované jámy. Mimo tuto oblast je potenciální energie nekonečná, $V \rightarrow \infty$.
+
+Schrödingerova rovnice pro tento problém je
+\begin{equation}
+-\frac{\hbar^2}{2m} \left(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} \right) \psi(x,y,z) = E \psi(x,y,z)
+\label{rov:Jama15}
+\end{equation}
+a její řešení je možné hledat ve tvaru (metoda separace proměnných) 
+\begin{equation}
+\psi(x,y,z) = \psi_x(x)\psi_y(y)\psi_z(z) \mbox{.}
+\label{rov:Jama16}
+\end{equation}
+Dále předpokládáme, že celkovou energii můžeme vyjádřit jako součet
+\begin{equation}
+E = E_x + E_y + E_z \mbox{.}
+\label{rov:Jama17}
+\end{equation}
+Obdobným postupem řešení popsaným pro 1D případ dospějeme k~výsledku, že vlnová funkce částice v~3D jámě je
+\begin{equation}
+\psi_{lmn}(x,y,z) = \sqrt{\frac{8}{abc}} \sin \frac{\pi xl}{a}\sin \frac{\pi ym}{b} \sin \frac{\pi zn}{c}, \quad l,m,n = 1,2,3, \dots
+\label{rov:Jama18}
+\end{equation}
+a jí odpovídající energie
+\begin{equation}
+E_{lmn} = \frac{\pi^2\hbar^2}{2m} \left(\frac{l^2}{a^2} + \frac{m^2}{b^2} + \frac{n^2}{c^2} \right), \quad l,m,n = 1,2,3, \dots \mbox{.}
+\label{rov:Jama19} 
+\end{equation}
+
+Na rozdíl od 1D přpadu jsou zde degenerované energetické hladiny. To znamená, že dané energii odpovídá několik lineárně nezávislých vlnových funkcí.
+
+\subsection{Harmonický oscilátor}
+\label{kap:HarmonickyOscilator}
+
+Harmonický, nebo přesněji lineární harmonický oscilátor je jednou z~fyzikálně důležitých úloh, pro kterou lze najít analytické řešení Schrödingerovy rovnice. Důležitost lineárního harmonického oscilátoru (LHO) plyne z~toho, že jeho potenciální energie odpovídá prvním členům Taylorova rozvoje obecného potenciálu $V(x)$ v~okolí minima $x=x_0$
+\begin{equation}
+V(x) = V(x_0) + \left(\frac{\mathrm{d}V}{\mathrm{d}x} \right)_{x=x_0} (x-x_0) + \frac{1}{2} \left(\frac{\mathrm{d}^2V}{\mathrm{d}x^2} \right)_{x=x_0} (x-x_0)^2 + \dots \mbox{.}
+\label{rov:LHO1}
+\end{equation}
+První derivace potenciálu je v~minimu rovna nule, navíc omezíme-li se pouze na rozvoj do druhého řádu a zvolíme-li vhodnou referenční hladinu, například odečtením hodnoty $V(x_0)$, vztah (\ref{rov:LHO1}) se zjednoduší do tvaru
+\begin{equation}
+V(x) = \frac{1}{2} \left(\frac{\mathrm{d}^2V}{\mathrm{d}x^2} \right)_{x=x_0} (x-x_0)^2 \mbox{,}
+\label{rov:LHO2}
+\end{equation}
+který odpovídá potenciálu LHO. Podobným způsobem můžeme postupovat i v~případě více dimenzí nebo u~vícečásticových systémů.
+
+Například vhodnou volbou tzv. normálních souřadnic můžeme popisovat pomocí systému nezávislých LHO vibrace víceatomových molekul. Na druhou stranu si musíme být vědomi jistých omezení tohoto modelu. Zásadním omezením je skutečnost, že při zvětšování souřadnice $x \rightarrow \infty$ roste síla $F = -\mathrm{d}V/ \mathrm{d}x$ nade všechny meze, což je nefyzikální závěr. U~reálných systémů dojde při překročení jisté mezní výchylky z~rovnovážné polohy k~disociaci systému, což vede k~požadavku, že při $x \rightarrow \infty$ musí potenciál nabývat konečné hodnoty.
+
+Při řešení 1D LHO vyjmeme ze Schrödingerovy rovnice, kde za potenciální energii systému dosadíme potenciál LHO
+\begin{equation}
+\left( -\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2} + \frac{1}{2}m\omega^2x^2 \right) \psi(x) = E\psi(x) \mbox{.}
+\label{rov:LHO3}
+\end{equation}
+Schrödingerova rovnice (\ref{rov:LHO3}) je diferenciální rovnicí s~nelineárními koeficienty u~nulté derivace. Tento typ rovnice se řeší tak, že nejprve rovnici upravíme do tvaru
+\begin{equation}
+\frac{\mathrm{d}^2}{\mathrm{d}x^2} \psi(x) + \left( \frac{2mE}{\hbar^2} - \frac{m^2\omega^2}{\hbar^2} x^2 \right) \psi(x) = 0 \mbox{.}
+\label{rov:LHO4}
+\end{equation}
+Rovnice ve tvaru (\ref{rov:LHO4}) se dále řeší zavedením bezrozměrných proměnných
+\begin{equation}
+\xi \equiv \sqrt{\frac{m \omega}{\hbar}} x
+\label{rov:LHO5}
+\end{equation}
+a
+\begin{equation}
+\lambda \equiv \frac{2E}{\hbar \omega} \mbox{.}
+\label{rov:LHO6}
+\end{equation}
+Rovnici (\ref{rov:LHO4}) tak přejde do bezrozměrného tvaru
+\begin{equation}
+\frac{\mathrm{d}^2 \psi(\xi)}{\mathrm{d}\xi^2} + (\lambda - \xi^2)\psi(\xi) = 0 \mbox{.}
+\label{rov:LHO7}
+\end{equation}
+Při řešení se dále postupuje tak, že nejprve hledáme asymptotické řešení vlnové funkce $\psi$ pro $\xi \rightarrow \pm \infty$, kdy v~rovnici (\ref{rov:LHO7}) můžeme člen s~$\lambda$ zanedbat, protože ve srovnání s~ostatními členy je malý.  Výsledkem je asymptotické řešení ve tvaru
+\begin{equation}
+\psi(\xi) = A e^{-\xi^2/2} + B e^{\xi^2/2} \mbox{,}
+\label{rov:LHO8}
+\end{equation}
+kde $A$ a $B$ jsou libovolné konstanty. Pro znaménko plus ve výrazu (\ref{rov:LHO8}) vlnová funkce diverguje a nelze ji normovat, proto se vlnová funkce $\psi(\xi)$ asymptoticky chová jako funkce
+\begin{equation}
+\psi(\xi) = A e^{-\xi^2/2} \mbox{,}
+\label{rov:LHO9}
+\end{equation}
+a tak můžeme řešení rovnice (\ref{rov:LHO7}) hledat ve tvaru
+\begin{equation}
+\psi(\xi) = v(\xi)e^{-\xi^2/2} \mbox{,}
+\label{rov:LHO10}
+\end{equation}
+kde $v(\xi)$ je zatím neurčená funkce. Dosadíme-li předpokládané řešení (\ref{rov:LHO10}) do rovnice (\ref{rov:LHO7}) dostaneme po malé úpravě diferenciální rovnici
+\begin{equation}
+v^{\prime\prime} - 2\xi v^{\prime} + (\lambda - 1)v = 0 \mbox{,}
+\label{rov:LHO11}
+\end{equation}
+kde čárka naznačuje derivaci podle $\xi$. Diferenciální rovnice (\ref{rov:LHO11}) se řeší pomocí rozvoje hledané funkce v~mocninou řadu, kde nakonec dojdeme k~rekurentnímu vztahu mezi koeficienty řady. Aby funkce $v(\xi)$ pro $\xi \rightarrow \pm \infty$ nedivergovala, musí dosud neurčité $\lambda$ splňovat podmínku
+\begin{equation}
+\lambda = 2n + 1, \quad n=0,1,2, \dots \mbox{.}
+\label{rov:LHO12}
+\end{equation}
+S~přihlédnutím ke vztahu (\ref{rov:LHO6}) dostaneme pro energií stacionárních stavů
+\begin{equation}
+E_n = \hbar \omega (n+ 1/2), \quad n=0,1,2, \dots \mbox{.}
+\label{rov:LHO13}
+\end{equation}
+Vidíme, že kvantování energií je opět dáno okrajovými podmínkami kladenými na uvažovaný systém. Z~rovnice (\ref{rov:LHO13}) také plyne, že když za $n$ dosadíme $n=0$, neboli počítáme energii nulové hladiny LHO, dostaneme
+\begin{equation}
+E_0 = \frac{\hbar \omega}{2} \mbox{.}
+\label{rov:LHO16}
+\end{equation}
+Energie základního stavu je tak nenulová. To je podstatný rozdíl oproti klasické fyzice, kde částice může mít nulovou energii v~minimu potenciální energie $V(x)$. Nenulovost energie úzce souvisí s~relacemi neurčitosti. Energie (\ref{rov:LHO16}) je někdy označována jako energie nulových kmitů a lze ji například ověřit v~případě kmitů krystalové mřížky, kde na rozdíl od klasické fyziky vlivem nenulovosti kmitů, nevymizí rozmazání difrakčního obrazce ani při snižování teploty k~absolutní nule $T \rightarrow 0$.
+
+Provedeme-li zpětné dosazení všech použitých substitucí a provedeme-li normalizaci vlnové funkce, získáme vlnové funkce LHO ve tvaru
+\begin{equation}
+\phi_n(x)=\frac{1}{\sqrt{x_0}}\frac{1}{\sqrt{2^n n! \pi^{1/2}}}e^{-(x/x_0)^2/2}H_n(x/x_0), \quad n=0,1,2, \dots \mbox{,}
+\label{rov:LHO14}
+\end{equation}
+kde funkce $H_n(\xi)$ je funkce $v(\xi)$ ze vztahu (\ref{rov:LHO10}) a nazýváme je Hermitovy polynomy
+\begin{equation}
+H_n(\xi) = (-1)^n e^{\xi^2} \frac{\mathrm{d}^n}{\mathrm{d}\xi^n}e^{-\xi^2} \mbox{.}
+\label{rov:LHO15}
+\end{equation}
+
+

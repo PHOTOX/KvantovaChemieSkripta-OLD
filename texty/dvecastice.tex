@@ -1,0 +1,245 @@
+Do této chvíle jsme se zabývali pouze pohybem jedné částice v~jednom rozměru. Tušíme přitom, že popis pohybu dvou a více částic (ve dvou a více rozměrech) bude o~něco složitější. Pokud nás ale zajímají jen dvě částice, zůstane vše poměrně jednoduché. Řešení problému dvou částic je přitom v~chemii velmi důležité. Budeme ho potřebovat při hledání energetických stavů rotující či vibrující molekuly nebo při popisu atomů vodíkového typu.
+
+\subsection{Pohyb nezávislých částic: metoda separace proměnných}
+
+ Uvažujme pohyb dvou částic podél osy \textit{x}, přičemž předpokládáme, že částice na sebe vzájemně nepůsobí. Hamiltonián pak můžeme zapsat jako součet Hamiltoniánů popisujících na jednotlivé částice:
+
+\begin{equation}
+\hat{H}=\hat{H_{1}}+\hat{H_{2}},
+\label{rov:2č-nez1}
+\end{equation}
+
+\noindent kde $\hat{H_{1}}$ závisí toliko na souřadnici první částice $x_{1}$ a $\hat{H_{2}}$ pouze na souřadnici druhé částice $x_{2}$. Schr\"odingerova rovnice pak bude vypadat následovně:
+
+\begin{equation}
+(\hat{H_{1}}+\hat{H_{2}})\psi(x_{1},x_{2})=E\psi(x_{1},x_{2})
+\label{rov:2č-nez2}
+\end{equation}
+
+Vlnovou funkci pro dvě částice budeme hledat ve tvaru součinu vlnových funkcí popisujících nezávislé částice:
+
+\begin{equation}
+\psi(x_{1},x_{2})=\psi_{1}(x_{1})\psi_{2}(x_{2})
+\label{rov:2č-nez3}
+\end{equation}
+
+Takovémuto zápisu říkáme separace proměnných. Nejspíše je zřejmé, proč hledáme řešení v~tomto tvaru. Vlnová funkce je spojena s~pravděpodobností výskytu elektronu. Čtverec vlnové funkce na levé straně rovnice \ref{rov:2č-nez3} nám tak udává pravděpodobnost, že se částice 1 nachází v~poloze $x_{1}$ a zároveň se částice 2 nachází v~poloze $x_{2}$. Pravou stranou rovnice \ref{rov:2č-nez3} pak tvrdíme, že tato pravděpodobnost je rovna pravděpodobnosti, že se částice 1 nachází v~poloze  $x_{1}$ nezávisle na poloze částice 2, násobena pravděpodobností nalezení částice 2 v~bodě $x_{2}$ bez ohledu na polohu částice 1. Jinými slovy předpokládáme, že oba jevy jsou nezávislé. To je předpoklad rozumný, neboť obě částice na sobě silově nepůsobí. Znovu zdůrazněme, že vlnová funkce $\psi_{1}$ závisí pouze na souřadnicích částice 1 a vlnová funkce $\psi_{1}$ na souřadnicích částice 2. Nyní přepišme Schr\"odingerovu rovnici pomocí vlnové funkce v~separovaném tvaru:
+
+\begin{equation}
+\hat{H_{1}}\psi_{1}(x_{1})\psi_{2}(x_{2})+\hat{H_{2}}\psi_{1}(x_{1})\psi_{2}(x_{2})=E\psi_{1}(x_{1})\psi_{2}(x_{2})
+\label{rov:2č-nez44}
+\end{equation}
+
+
+Hamiltonián první částice působí pouze na první částici. Vlnovou funkci druhé částice tedy můžeme brát jako konstantu. Po vydělení $\psi_{1}\psi_{2}$ upravíme Schr\"odingerovu rovnici na následující tvar: 
+
+\begin{equation}
+\frac{\hat{H_{1}}\psi_{1}(x_{1})}{\psi_{1}(x_{1})}+\frac{\hat{H_{2}}\psi_{2}(x_{2})}{\psi_{2}(x_{2})}=E
+\label{rov:2č-nez5}
+\end{equation}
+
+První ze sčítanců na levé straně rovnice \ref{rov:2č-nez5} je funkcí pouze souřadnice $x_{1}$, druhý pak pouze souřadnice $x_{2}$. Součet obou členů musí být přitom konstantní pro každou kombinaci  $x_{1}$ a $x_{2}$. To obecně není možno splnit jinak než, že oba dva sčítance jsou rovny konstantám, které si označíme jako $E_{1}$ a $E_{1}$:
+
+\begin{equation}
+\hat{H_{1}}\psi_{1}(x_{1})=E_{1}\psi_{1}(x_{1})
+\label{rov:2č-nez6}
+\end{equation}
+\begin{equation}
+\hat{H_{2}}\psi_{2}(x_{2})=E_{2}\psi_{2}(x_{2})
+\label{rov:2č-nez7}
+\end{equation}
+\begin{equation}
+E=E_{1}+E_{2}
+\label{rov:2č-nez8}
+\end{equation}
+
+Schr\"odingerova rovnice pro dvě proměnné se nám tak rozpadla na dvě Schr\"odingerovy rovnice o~jedné proměnné. Místo jedné složité úlohy tak vyřešíme dvě úlohy jednoduché. Energie pohybu obou částic dohromady je dána součtem energií jednotlivých částic a vlnová funkce pro dvě částice je dána součinem dvou jednočásticových vlnových funkcí. Naše úvahy můžeme snadno rozšířit na situaci, kdy se
+\begin{itemize}
+\item jedna jedna částice pohybuje ve dvou rozměrech: 
+
+\begin{equation}
+\psi(x,y)=\psi_{1}(x)\psi_{2}(y)
+\label{rov:2č-nez9}
+\end{equation}
+
+\item dvě částice pohybují ve třech rozměrech:
+
+\begin{equation}
+\psi(x_{1},y_{1},z_{1},x_{2},y_{2},z_{2})=\psi_{1}(x_{1},y_{1},z_{1})\psi_{2}(x_{2},y_{2},z_{2})
+\label{rov:2č-nez4}
+\end{equation}
+
+\item N částic pohybuje ve třech rozměrech:
+\begin{equation}
+\psi(x_{1},y_{1},z_{1},...,x_{i},y_{i},z_{i},...,x_{N},y_{N},z_{N})=
+\prod_{i=1}^N\psi_{i}(x_{i},y_{i},z_{i})
+\label{rov:2č-Nčástic}
+\end{equation}
+
+\end{itemize}
+
+Transformace mnohačásticové (mnohadimenzionální) Schr\"odingerovy rovnice na řadu jednočásticových Schr\"odingerových rovnic patří k~základním postupům kvantové teorie molekul. V~případě pohybu nezávislých částic neprovádíme žádné přiblížení. Technika separace proměnných se ale používá i v~případech, kdy pohyb částic striktně nezávislý není.     
+
+
+{\color{red}XXXXXXXXXXXXXXXX ČÁSTICE VE 2D JÁMĚ XXXXXXXXXXXXXXXXXXXXX}
+
+\subsection{Dvě interagující částice}
+
+
+Podívejme se nyní na pohyb dvou částic, které na sebe silově působí, například proton a elektron. Potenciální energie je funkcí souřadnic obou částic. Protože na sebe částice silově působí, nemůžeme nyní bezmyšlenkovitě použít metodu separace proměnných jako v~předchozím odstavci. Po určitém úsilí se nám to však přesto podaří. Klíčem bude transformace souřadnic. Použijeme-li kartézské souřadnice, potřebujeme dohromady tři souřadnice pro částici 1 a tři souřadnice pro částici 2. Energetické působení mezi částicemi ale závisí pouze na relativní poloze obou částic. Proto si místo souřadnic $(x_{1},y_{1},z_{1},x_{2},y_{2},z_{2})$ vycházejících z~počátku soustavy souřadnic zavedeme relativní souřadnice $(x,y,z)$:
+
+\begin{eqnarray*}
+x=x_{1}-x_{2}\\
+y=y_{1}-y_{2}\\
+z=z_{1}-z_{2}\\
+\end{eqnarray*}
+\noindent či ve vektorovém zápisu
+\begin{eqnarray*}
+\textbf{r}=\textbf{r}_{1}-\textbf{r}_{2}
+\end{eqnarray*}
+
+Potenciální energie již není funkcí šesti souřadnic kartézských, ale pouze tří souřadnic relativních.
+ 
+Zbavili jsme se tak kartézských souřadnic jednotlivých částic při popisu potenciální energie. Nyní se ale musíme vypořádat ještě s~energií kinetickou. Kromě relativních souřadnic \textbf{r} zavedeme ještě souřadnice těžiště \textbf{R} 
+
+\begin{equation}
+\textbf{R}=\frac{m_{1}\textbf{r}_{1}+m_{2}\textbf{r}_{2}}{m_{1}+m_{2}}.
+\label{rov:2č-těžiště}
+\end{equation}
+
+Pohyb obou částic pak můžeme vyjádřit pomocí pohybu těžiště a relativního pohybu obou částic. Kartézské souřadnice $\textbf{r}_{1}$ a $\textbf{r}_{2}$ si nyní můžeme vyjádřit pomocí souřadnic těžiště \textbf{R} a vektoru relativní polohy \textbf{r}:
+
+\begin{eqnarray}
+\textbf{r}_{1}=\textbf{R}+\frac{m_{2}}{m_{1}+m_{2}}\textbf{r}
+\label{rov:2č-r1}\\
+\textbf{r}_{2}=\textbf{R}-\frac{m_{1}}{m_{1}+m_{2}}\textbf{r}
+\label{rov:2č-r2}
+\end{eqnarray}
+
+Kinetická energie systému dvou částic je v~klasické fyzice definována jako
+
+\begin{equation}
+T=\frac{1}{2}m_{1}|\dot{\textbf{r}}_{1}|^{2}+\frac{1}{2}m_{2}|\dot{\textbf{r}}_{2}|^{2}
+\end{equation}
+
+Pomocí vztahů \ref{rov:2č-r1} a \ref{rov:2č-r2} si můžeme vztah pro kinetickou energii upravit na 
+
+\begin{equation}
+T=\frac{1}{2}M|\dot{\textbf{R}}|^{2}+\frac{1}{2}\mu| \dot{\textbf{r}}|^{2},
+\label{rov:2č-Tmmu}
+\end{equation}
+
+kde $ M=m_{1}+m_{2} $ je celková a $ \mu $ redukovaná hmotnost definovaná jako
+
+\begin{equation}
+\mu=\frac{m_{1}m_{2}}{m_{1}+m_{2}}.
+\end{equation}
+
+Vztah (\ref{rov:2č-Tmmu}) pro kinetickou energii můžeme přepsat pomocí hybností
+
+ \begin{equation}
+T=\frac{|\textbf{p}_{M}|^{2}}{2M}+\frac{|\textbf{p}_{\mu}|^{2}}{2\mu},
+\label{rov:2č-Thybnosti}
+\end{equation}
+
+kde jsme si zavedli vektory hybnosti spojené s~pohybem molekuly jako celku ($ \textbf{p}_{M} $) a s~relativním pohybem obou částic ($ \textbf{p}_{\mu} $). 
+
+Uvažujme nyní, že potenciální energie je pouze funkcí vzdálenosti obou částic (mluvíme o~tzv. centrálním potenciálu)
+
+\begin{equation}
+V_{\mu}=V(r).
+\end{equation}
+
+Celkovou energii je pak možné zapsat jako součet členů závisejících pouze na souřadnicích a hybnostech těžiště a souřadnicích a hybnostech relativního pohybu obou částic. Při přechodu do kvantové mechaniky dostaneme pro Hamiltonián:
+
+\begin{equation}
+\hat{H}=\frac{{\hat{p}}_{M}^{2}}{2M}+\frac{{\hat{p}}_{\mu}^{2}}{2\mu}+\hat{V}_{\mu}
+\end{equation}
+
+První člen popisuje translační kinetickou energii, tzn. obě částice urazí stejnou dráhu a vzdálenosti mezi nimi se nemění. Naopak druhý a třetí člen závisejí pouze na vzdálenosti obou částic. Získali jsme Hamiltonián, který nám umožňuje provést separaci proměnných, tj. vlnovou funkci nyní můžeme rozdělit část popisující translaci a část popisující relativní pohyb. 
+
+\begin{equation}
+\psi=\psi_{M}\psi_{\mu}
+\end{equation}
+
+Schr\"odingerova rovnice se tak rozpadne na  rovnice dvě:
+
+\begin{eqnarray}
+\frac{{\hat{p}}_{M}^{2}}{2M}\psi_{M}=E_{M}\psi_{M}
+\label{rov:2č-schr-trans}
+\\
+\left(\frac{{\hat{p}}_{\mu}^{2}}{2\mu}+\hat{V}_{\mu}\right)\psi_{\mu}=E_{\mu}\psi_{\mu}
+\label{rov:2č-schr-vibr}
+\end{eqnarray}
+
+a stejně tak energii můžeme rozdělit na příspěvky energie translační a vnitřní (relativní) $ E=E_{M}+E_{\mu} $. Translační pohyb prozatím ponechme stranou a podívejme se na Schr\"odingerovu rovnici popisující relativní pohyb dvou částic. Začněme zápisem Hamiltoniánu v~kartézských souřadnicích:
+
+\begin{equation}
+\hat{H}_{\mu}=\frac{{\hat{p}}_{\mu}^{2}}{2\mu}+\hat{V}_{\mu}=\left(\frac{-\hbar^{2}}{2\mu}\right)\nabla^{2}+\hat{V}_{\mu}=\left(\frac{-\hbar^{2}}{2\mu}\right)\left(\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}+\frac{\partial^{2}}{\partial z^{2}}\right)+\hat{V}_{\mu}.
+\label{rov:2č-SferHamil}
+\end{equation}
+
+\noindent kde \textit{x,y} a \textit{z} jsou kartézské složky relativních souřadnic. Pokud máme v~úmyslu zabývat se pohybem v~centrálním poli, není kartézský souřadnicový systém příliš vhodný. Centrální pole se vyznačuje sféricky symetrickým potenciálem, proto je přirozené přejít ke sférickým souřadnicím. {\color{red}V kapitole XXX} jsme si odvodili vztah pro Laplacián ve sférických souřadnicích, který nyní využijeme:
+
+\begin{equation}
+\nabla^{2}=\frac{\partial^{2}}{\partial r^{2}}+\frac{2}{r}\frac{\partial}{\partial r}+\frac{1}{r^{2}}\frac{\partial^{2}}{\partial \theta^{2}}+\frac{1}{r^{2}}\cot\theta\frac{\partial}{\partial \theta}+\frac{1}{r^2\sin^2\theta}\frac{\partial^{2}}{\partial \phi^{2}}=\frac{\partial^{2}}{\partial r^{2}}+\frac{2}{r}\frac{\partial}{\partial r}-\frac{1}{r^2\hbar^2}\hat{L}^2
+\label{rov:2č-Momenthybnosti}
+\end{equation}
+
+K~zápisu Hamiltoniánu ve sférických souřadnicích jsme tedy použili operátor momentu hybnosti. {\color{red}Z kapitoly XXX} víme, že vlastní funkce $\hat{L}^2$ jsou sférické harmonické funkce. Hamiltonův operátor je zapsán ve tvaru, který umožňuje provést separaci proměnných. 
+
+
+Můžeme si nyní položit otázku, zda Hamiltonián komutuje s~$\hat{L}^2$, tj. zda platí
+
+\begin{equation}
+[\hat{H},\hat{L}^{2}]=[\hat{T},\hat{L}^{2}]+[\hat{H},\hat{V}^{2}]=0   
+\label{rov:2č-komutator}
+\end{equation}
+
+Člen s~operátorem kinetické energie se po dosazení z~rovnice \ref{rov:2č-Momenthybnosti} rozpadne na dva členy: 
+
+\begin{equation}
+\left[\hat{T},\hat{L}^{2}\right]=\left[-\frac{\hbar^{2}}{2m}\left(\frac{\partial^{2}}{\partial r^{2}}+\frac{2}{r}\frac{\partial}{\partial r}\right)+\frac{1}{2mr^{2}}\hat{L}^2,\hat{L}^2\right]=-\frac{\hbar^2}{2m}\left[\frac{\partial^{2}}{\partial r^{2}}+\frac{2}{r}\frac{\partial}{\partial r},\hat{L}^2\right]+\frac{1}{2m}\left[\frac{1}{r^2}\hat{L}^2,\hat{L}^2\right],
+\label{rov:2č-komutatorT}
+\end{equation}
+z~nichž první člen je nulový, protože operátor $\hat{L}^{2}$ nepůsobí na  $ r $, a druhý člen je nulový, protože $ \hat{L}^2 $ komutuje sám se sebou. Podobně budeme postupovat u~komutátoru s~operátorem potenciální energie. Potenciální energie u~centrálního pole závisí pouze na $r$, zatímco $\hat{L}^2$ závisí na $ \phi $ a $ \theta $, proto bude i tento komutátor nulový.  Tím jsme dokázali, že Hamiltonián u~systému s~centrálním polem komutuje s~$\hat{L}^2$. Podobně bychom dokázali, že
+\begin{equation}
+[\hat{H},L_{z}]=0.
+\end{equation}
+ 
+Hamiltonián tedy komutuje jak se čtvercem operátoru momentu hybnosti, tak s~jeho z-tovou složkou. To především znamená, že při pohybu dvou částic v~centrálním potenciálu se zachovává hybnost i její z-tová složka. 
+
+
+Tvar Hamiltoniánu \ref{rov:2č-SferHamil} nám umožňuje zapsat vlnovou funkci v~polárních souřadnicích ve tvaru součinu sférické harmonické funkce a nějaké doposud neurčené radiální vlnové funkce:
+
+\begin{equation}
+\psi=R(r)Y^m_l(\theta,\psi)
+\end{equation}
+
+Takto definovanou vlnovou funkci nyní dosadíme do Schr\"odingerovy rovnice, kde je Hamiltonián vyjádřen podle rovnic \ref{rov:2č-SferHamil} a \ref{rov:2č-Momenthybnosti}.
+
+\begin{equation}
+\begin{split}
+\hat{H}\psi= & -\frac{\hbar^2}{2\mu}\left(\frac{\partial}{\partial r^2} +\frac{\hbar^2}{2\mu}\frac{2}{r}\right)R(r)Y^m_l(\theta,\psi) + \\
+& +\frac{\hbar^2}{2\mu}\frac{1}{r^2\hbar^2}\hat{L}^2R(r)Y^m_l(\theta,\psi)+\hat{V}R(r)Y^m_l(\theta,\psi)=ER(r)Y^m_l(\theta,\psi).
+\end{split}
+\end{equation}
+
+Po vydělení $ Y^m_l(\theta,\psi) $ a aplikaci $ \hat{L}^2 $ posléze dostaneme tzv. radiální Schr\"odingerovu rovnici:
+
+\begin{equation}
+-\frac{\hbar^2}{2\mu}\left(R''+\frac{2}{r}R'\right)+\frac{l\left(l+1\right)\hbar^2}{2\mu r^2}R+\hat{V}R=ER.
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
