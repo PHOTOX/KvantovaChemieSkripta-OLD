@@ -24,6 +24,7 @@ Dalším krokem je výběr báze. V případě metody HM to budou $p_z$ orbitaly
 
 \begin{equation}
 \psi= \sum_i c_i \phi_i
+\label{rov:HM_MO}
 \end{equation}
 
 Pro lepší ilustraci budeme nadále uvažovat výpočet pro molekulu butadienu.
@@ -79,46 +80,69 @@ x & 1 & 0 \\
 \end{equation}
 Tuto kvartickou rovnici můžeme naštěstí převést na kvadratickou pomocí substituce $y=x^2$ a dostaneme:
 \begin{equation}
-y^2-3y+1=0; y_1=2,62 a y_2=0.382
+y^2-3y+1=0;\quad y_1=2,62;\quad y_2=0.382
 \end{equation}
 a tedy
 \begin{equation}
-x_{1,2}=1,62
-x_{3,4}=0,62
+x_{1,2}=1,62 \nonumber
+x_{3,4}=0,62 \nonumber
 \end{equation}
 Z toho vyplývají násůedující hodnoty energií:
 $$ E_1 = \alpha+1,62\beta $$
 $$ E_2 = \alpha+0,62\beta $$
 $$ E_3 = \alpha-0,62\beta $$
 $$ E_4 = \alpha-1,62\beta $$
-Zpětným dosazením do sekulárních rovnic bychom poté dopočítali koeficienty $c_i$.
-Jak nyní získáme parametry?...
+Zpětným dosazením do sekulárních rovnic bychom poté dopočítali koeficienty $c_i$ a tím získali molekulové orbitaly. Ty potom obsadíme elektrony v souladu s Pauliho vylučovacím principem a celkovou energii dostaneme jako součet orbitálních energíí 
 
-\textbf{Spektroskopie}
 
-\textbf{Delokalizační energie}
 
-\subsetion{Rozšířená H\"{u}ckelova metoda}
-
+Jak nyní získáme parametry $\alpha$ a $\beta$? Vyjdeme z experimentálních dat. Parametr $\alpha$ má jednoduchou fyzikální interpretaci; jedná se o ionizační energii atomového orbitalu $p_z$, která je exerimentálně známá. Důležitější je parametr $\beta$, který určuje vzájemnou separaci molekulových orbitalů. Můžeme jej získat v zásadě dvěma způsoby:
 \begin{itemize}
-\item Počítá i se $\sigma$ vazbami
-\item $H_{ii}=-I_i$
-\item $H_{ij}=\frac{1}{2}K(I_i+I_j)S_{ij}$
-\item Dá se použít pro hledání geometrie
-\item Podobně jako v původní H\"{u}ckelově metodě tvar pracovních rovnic nezávisí na řešení, a tudíž není třeba iterovat. Rozšířená H\"{u}ckelova metoda se proto i nyní rutinně využívá v kvantově chemických programech k prvotním nástřelu vlnové funkce.
+\item ze spektroskopických dat. Parametr zvolíme tak, aby nám seděly zvolené elektronové přechody (podrobnosti viz níže). Například fitováním na molekulu naftalenu získáme hodnotu $\beta=3,48$.
+\item z termochemických dat. K tomu se využívá konceptu delokalizační energie dvojných vazeb. Tuto energii můžeme experimentálně naměřit například pomocí hydrogenačního tepla. Její teoretický výpočet v rámci HM si ukážeme níže. 
 \end{itemize}
 
+\textbf{Ad Spektroskopie}
+
+\textbf{Ad Delokalizační energie}
+
+\subsection{Rozšířená H\"{u}ckelova metoda}
+
+Hlavním vylepšením rožšířené H\"{u}ckelovy metody (RHM) je zavrhnutí $\pi$-elektronové aproximace.
+Stále používáme jednoelektronový Hamiltonián a molekulové orbitaly rozvíjíme podobně jako v rovnici \ref{rov:HM_MO}, ale zahrnujeme všechny valenční orbitaly. Atom uhlíku tedy do báze přispěje atomovými orbitaly $2s$, $2p_x$,$2p_y$ a $2p_z$. 
+Zde jsou další pravidla pro RHM:
+
+\begin{itemize}
+\item Hodnotu Coulombických integrálů opět aproximujeme ionizační energií daného orbitalu.
+$$H_{ii}=-I_i$$
+\item Hodnoty překryvových integrálů se nezanedbávají, ale počítají se explicitně.
+\item Hodnoty rezonančních integrálů se získají z následujícího vztahu:
+\begin{equation}
+H_{ij}=\frac{1}{2}K(I_i+I_j)S_{ij},
+\end{equation}
+kde K je empirická konstanta, která má obvykle hodnotu 1,75.
+\end{itemize}
+Opět řešíme sekulární rovnice XX, ale tentokrát již matice H nebude obsahovat žádné nuly (pokud náhodou není $S_{ij}=0$ ze symetrických důvodů). Tím, že počítáme explicitně překryvové integrály, tak řešení bude záviset na konkrétní geometrii. Tato metoda se tedy dá použít k minimalizaci geometrie, ale výsledky často nejsou příliš kvalitní (například molekula vody vychází jako lineární).  
+
+Podobně jako v původní H\"{u}ckelově metodě tvar pracovních rovnic nezávisí na řešení, a tudíž není třeba iterovat. Rozšířená H\"{u}ckelova metoda se proto i nyní rutinně využívá v kvantově chemických programech k prvotním nástřelu vlnové funkce.
 
 \subsection{Moderní semiempirické metody}
 
- Vycházíme z HF, ale zanedbáváme některé 2-elektronové integrály
+Modernější semiempirické metody již ve svém hamiltoniánu nezanedbávají mezielektronovou repulzi.
+Hamiltonián je potom téměř totožný s HF Hamiltoniánem, akorát se soustředíme stále jen na valneční elektrony. Tyto metody poté iterativně řeší Roothanovy rovnice. Největším žroutem výpočetního času jsou dvouelektronové integrály (viz rovnice XX), a proto se právě pro ně zavádí další aproximace.
+ 
  Pár vět o CNDO (Complete Neglect of Differential Overlap),
+ 
  INDO (Intermediate Neglect of Differential Overlap),
+ 
  MINDO (Modified Neglect of Differential Overlap)
+ 
  AM1(Austin model 1), PM6 atp.
 
 Ačkoli jsou semiempirické zjednodušením původních HF rovnic, často poskytují řešení lepší než HF.
 To je dáno tím, že parametry jsou fitovány na experimentální data, a mohou tedy implicitně zahrnout část korelační energie.
+
+Existuje také hojně využívaná semiempirická metoda založená na DFT, takzvaná DFTB (DFT Tight Binding).
 
 
  
