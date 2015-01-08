@@ -1,14 +1,51 @@
 Doteď jsme se zabývali převáže základy kvantové teorie 
 Většinu toho jsme si byli schopni odvodit a vypočítat analyticky. 
-Pokud ale chceme kvantovou teorii aplikovat na něco více než atomy,
+Pokud ale chceme kvantovou teorii aplikovat na něco více než atomy a jednoduché molekuly,
 neobejdeme se bez počítače, který za nás bude počítat složité rovnice.
 
-Naprosto základní úlohou kvantového chemika je řešení elektronové Schr\"{o}dingerovy rovnice XX pro danou molekulu. Existují v zásadě tři přístupy k tomuto problému. Buď se snažíme tuto rovnici řešit přímo pomocí chytrých aproximací (např. pomocí HF metody) a bez dodatečných umělých parametrů. Tyto metody se nazývají \textit{ab initio} (latinsky \uv{od počátku}, jelikož k jejich aplikaci nám stačí znát pouze základní fyzikální konstanty jako je hmotnost a náboj elektronu nebo Planckova konstanta. Další třidou jsou semiempirické metody, které jsou již více aproximativní a obsahují parametry, jejichž hodnoty se získávají buď z experimentálních dat nebo z přesnějších \textit{ab initio} výpočtů. Poslední přístupem jsou metody založené na takzvané teorii funkcionálu hustoty (Density Functional Theory --- DFT). Tento přístup je fundamentálně odlišný od předchozích dvou, jelikož není založen na hledání vlnové funkce. Místo toho se soustředí na mnohem jednodušší veličinu -- elektronovou hustotu. DFT metoda je často řazena mezi \textit{ab initio} metody, jelikož v principu vede k přesnému řešení a praktická přesnost je taktéž na úrovni \textit{ab initio} metod. Na druhou stranu ale většina DFT metod obsahuje několik empirických parametrů, které se fitují na experimentální data. Proto si DFT probereme ve zvláštní kapitole.  
+Naprosto základní úlohou kvantového chemika je řešení elektronové Schr\"{o}dingerovy rovnice XX pro danou molekulu. Existují v zásadě tři přístupy k tomuto problému. Buď se snažíme tuto rovnici řešit přímo pomocí chytrých aproximací (např. pomocí HF metody) a bez dodatečných umělých parametrů. Tyto metody se nazývají \textit{ab initio} (latinsky \uv{od počátku}, jelikož k jejich aplikaci nám stačí znát pouze základní fyzikální konstanty jako je hmotnost a náboj elektronu nebo Planckova konstanta. Další třidou jsou semiempirické metody, které jsou již více aproximativní a obsahují parametry, jejichž hodnoty se získávají buď z experimentálních dat nebo z přesnějších \textit{ab initio} výpočtů. Poslední přístupem jsou metody založené na takzvané teorii funkcionálu hustoty (Density Functional Theory --- DFT). Tento přístup je fundamentálně odlišný od předchozích dvou, jelikož není založen na hledání vlnové funkce. Místo toho se soustředí na mnohem jednodušší veličinu -- elektronovou hustotu. DFT metoda je často řazena mezi \textit{ab initio} metody, jelikož v principu vede k přesnému řešení a praktická přesnost je taktéž na úrovni \textit{ab initio} metod. Na druhou stranu ale většina DFT metod obsahuje několik empirických parametrů, které se často fitují na experimentální data. Proto si DFT probereme ve zvláštní kapitole.  
 
 V této kapitole se zaměříme na \textit{ab initio} metody.
-Nejjednodušší \textit{ab initio} metodou je metoda Hartree--Fockova, která již byla představena v kapitole o víceelektronových atomech. V praxi se dnes používá spíše méně, ale stále slouží jako odrazový můstek pro většinu ostatních přesnějších\textit{ab initio} metod, tudíž si ji zde zopakujeme a dále rozšíříme.
+Nejjednodušší \textit{ab initio} metodou je metoda Hartree--Fockova, která již byla představena v kapitolách X a XX. V praxi se dnes používá spíše méně, ale stále slouží jako odrazový můstek pro většinu ostatních přesnějších\textit{ab initio} metod, tudíž si ji zde zopakujeme a probereme hlouběji.
+
+Nejprve je ale důležité ujasnit si notaci, kterou budeme v následujících kapitolách používat, abychom se ve všech těch řeckých písmenech neztratili. Celkovou vlnovou funkci budeme značit symbolem $\phi$.  zatímco molekulové orbitaly (MO) budeme značit $\phi$. Každý MO je součinem prostorové části $\chi$ a spinové části $\alpha$ nebo $\beta$. V rámci aproximace MO-LCAO poté každou prostorovou část MO rozvíjíme do báze atomových orbitalů $\varphi_i$. Abychom si ušetřili práci s psaním rovnic, budeme odteď využívat atomové jednotky.
+
+\begin{tabular}{|c|l|c|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} Symbol & 	Význam	& Vlastnosti \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} $\psi$ & Celková vlnová funkce  & $\psi$ = $|\phi_1 \phi_2 \cdots \phi_N |$ \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} $\phi$ & Molekulový orbital & 4$\phi=\chi \alpha $\\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} $\chi$ & Prostorová část MO & $\chi=\sum_{i=1}^N \varphi $ \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} $\alpha$, $\beta$  & Spin--orbitaly & $\beta(\frac{1}{2})=1$ \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} $\varphi$ & atomové orbitaly & $\int |\varphi|^2 \mathrm{d}\textbf{r} = 1 $ \\
+\hline
+\end{tabular} 
 
 \subsection{Hartreeho--Fockova metoda}
+
+Zopakujme si nejprve základní předpoklady a odvození HF teorie. Začneme tím, že celkovou vlnovou funkci předpokládáme ve formě Slaterova determinantu (SD):
+\begin{equation}
+\phi^HF=\frac{1}{\sqrt{N!}}
+\end{equation}
+
+
+Na tento tvar vlnové funkce chceme nyní aplikovat variační princpip. Po dosazení do variačního vzahu pro energii by nám po určité námaze vyšel následující vztah
+
+\begin{equation}
+E^{HF}=
+\end{equation}
+
+Tento vztah byl odvozen za předpokladu, že jsou molekulové orbitaly ortogonální. Tento požadavek je ryze praktického rázu, ke stejnému výsledku bychom došli i bez něj, ale mnohem obtížněji. Aplikací variačního počtu na předchozí rovnici (více o funkcionálech a variacích si povíme v kapitole o DFT) dostaneme Fockovy rovnice:
+\begin{equation}
+\hat{F}\phi_i(1) = \epsilon_i  
+\end{equation}
+
+kde Fockův operátor \hat{F} vypadá následovně:
 
 \begin{eqnarray}
 \hat{F}_i = \hat{h}_i+\sum_{j\neq i} \hat{J}_j - \delta(s_i,s_j) \hat{K}_j \\
@@ -17,8 +54,23 @@ Nejjednodušší \textit{ab initio} metodou je metoda Hartree--Fockova, která j
 \hat{K}_{ij} = \int \frac{\phi_j^*(\mathbf{r}_j)\phi_i(\mathbf{r}_i)}{r_{ij}}\mathrm{d}\textbf{r}_j
 \end{eqnarray}
 
+Fockovy rovnice jsou složité integro-diferencíální rovnice pro neznámé funkce $\phi_i$
+
+Jelikož molekuly jsou složeny z atomů, vhodnou bází jsou atomové orbitaly.
+Dnes se již témeř výhradně používají Gaussovy funkce, o kterých již byla řeč v kapitole XX.
+
+
+Jak je to s přesností HF metody?
+
+Rozdíl přesného řešení nerelativistické Schr\"{o}dingerovy rovnice a HF metody se nazývá korelační energie. Je důsledkem toho, že jsme zanedbali okamžitou mezielektronovou repulzi. Pojďme se na to podívat podrobněji. V reálné molekule bychom neočekávali, že se dva elektrony budou nacházet na stejném místě, takovéto uspořádání by totiž dle Coulombova zákona mělo nekonečnou energii. 
+
+
+Na konec je třeba podotknout, že celý koncept molekulových orbitalů, na které jsou chemici již tak zvyklí, je založen na HF teorii, a je tudíž pouze aproximací. Jakmile se budeme snažit dosáhnout přesnějších výsledků, začné se nám úhledný obrázek elektronů sedících v molekulových orbitalech rozpadat.
+
 \subsection{Metoda kofigurační interakce}
 První post-HF metoda je založena na variačním principu.
+
+
 
 \begin{equation}
 \Psi_{CI}=c_0\Psi_0+\sum_a\sum_m c_a^m\Psi_a^m+\sum c_{ab}^{mn}\Psi_{ab}^{mn}+\dots
