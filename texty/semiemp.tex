@@ -1,41 +1,41 @@
-V této kapitole se podíváme na skupinu semiempirických metod. Ačkoli semiempirické metody také vycházejí z řešení elektronové Schr\"{o}dingerovy rovnice (odtud přízvisko \textit{semi}), jejich rovnice obsahují dodatečné parametry, jejichž hodnoty se typicky získávají z přesnějších \textit{ab initio} výpočtů nebo se z experimentálních dat (odtud \textit{empirické}).
+V této kapitole se podíváme na skupinu semiempirických metod. Ačkoli semiempirické metody také vycházejí z řešení elektronové Schr\"{o}dingerovy rovnice, jejich rovnice obsahují dodatečné parametry, jejichž hodnoty se typicky získávají z přesnějších \textit{ab initio} výpočtů nebo se z experimentálních dat.
 
-Aproximace, které tyto metody využívají, můžeme rozdělit do dvou skupin. V první řadě, většina semiempirických metod nevychází z přesného molekulárního hamiltoniánu XX, ale určitého efektivního hamiltoniánu, ve kterém jsou zanedbány některé členy. Většina semiempirických metod se například soustředí pouze na valenční elektrony (příspěvek ostatních elektronů je brán jako konstanta), což celkový hamiltonián systému značně zjednoduší.
+Semiempirické metody jsou přibližné na dvou úrovních . V první řadě, většina semiempirických metod nevychází z přesného molekulárního hamiltoniánu, ale určitého efektivního hamiltoniánu, ve kterém jsou zanedbány některé členy. Většina semiempirických metod se například soustředí pouze na valenční elektrony (příspěvek ostatních elektronů je brán jako konstanta), což celkový hamiltonián systému značně zjednoduší. Při řešení kvantově-chemických rovnic se pak ne všechny integrály přesně vyčíslují, ale parametrizují se na experiment. 
 
-Po určení hamiltoniánu se při odvození typické semiempirické metody postupuje obdobně jako při odvození HF rovnic. Zvolíme si konkrétní tvar vlnové funkce a zvolíme bázi (metoda MO-LCAO) a aplikací variačního principu odvodíme pracovní rovnice. V tomto kroku ale u semiempirických metod dojde k dalšímu zjednodušení. Buď můžeme některé členy z rovnic úplně zanedbat a položit rovno nule, anebo je můžeme považovat za konstantu, jejíž hodnotu určíme tak, aby nám to vycházelo.   
+Po určení hamiltoniánu se při odvození typické semiempirické metody postupuje obdobně jako při odvození HF rovnic. Zvolíme si konkrétní tvar vlnové funkce a zvolíme bázi (metoda MO-LCAO) a aplikací variačního principu odvodíme pracovní rovnice. V tomto kroku ale u semiempirických metod dojde k výše zmíněnému dalšímu zjednodušení. Některé členy z rovnic úplně zanedbat a položit rovno nule, anebo je můžeme považovat za parametry, se kterými dosáhneme nejlepšího souladu s experimenty pro určitý vybraný soubor molekul. Experimentálním údajem, vůči kterému se srovnáváme, mohou být termodynamické parametry daných látek. Při použití semiempirických metod je proto třeba být velmi obezřetný. Mohou fungovat skvěle pro látky, na které byla metoda parametrizována a látky jím podobné, ale pro odlišné struktury mohou hanebně selhávat.  
 
-Motivací k vývoji semiempirických metod bylo zmenšení výpočetních nároků \textit{ab initio} metod s pokud možno co nejmenším ovlivněním přesnosti. Nicméně i metody, které byly kvantitativně nepřesné, se ukázaly jako velmi užitečné, neboť dovolily kvalitativní pochopení zákonitostí chemických vazeb a jiných vlastností molekul. Na jednu takovou metodu, která nám dala známé pravidlo \uv{$ 4n+2 $} pro určení aromaticity, se nyní podíváme.
+Motivací k vývoji semiempirických metod bylo zmenšení výpočetních nároků \textit{ab initio} metod s pokud možno co nejmenším ovlivněním přesnosti. Dnes již mají vrchol své popularity za sebou. Nicméně i metody, které byly kvantitativně nepřesné, se ukázaly jako velmi užitečné, neboť dovolily kvalitativní pochopení zákonitostí chemických vazeb a jiných vlastností molekul. Na jednu takovou metodu, která nám dala známé pravidlo \uv{$ 4n+2 $} pro určení aromaticity, se nyní podíváme.
 
 \subsection{H\"{u}ckelova metoda}
 
-H\"{u}ckelova metoda (dále jen HM) je historicky první a asi i nejjednoduší semiempirická metoda. Pro rozumné molekuly je pro použití této metody potřeba doslova jen tužka a papír. Její jednoduchost spočívá v tom, že se soustředí pouze na $\pi$ vazebné elektrony,
+H\"{u}ckelova metoda (dále jen HM) je historicky první a asi i nejjednoduší semiempirická metoda. Pro menší molekuly je pro použití této metody potřeba doslova jen tužka a papír. soustředíme se pouze na určitou skupinu elektronů, energeticky dobře oddělenou od ostatních elektronů. Typickým příkladem jsou $\pi$ vazebné elektrony v konjugovaných uhlovodících,
 tedy elektrony v molekulových orbitalech složených z atomových \textit{p} orbitalů.
-Její použití je tudíž omezeno na planární systémy s vícenásobnými vazbami. 
+ 
 
-Hamiltonián HM metody má následující tvar:
+Hamiltonián HM metody má následující tvar
 \begin{equation}
-H_{HMO}= \sum h_{i, eff}^\pi
+H_{HMO}= \sum h_{i, eff}^\pi,
 \label{rov:Ham_HM}
 \end{equation}
-kde $h_{i, eff}^\pi$ je jednoelektronový potencál $\pi$ elektronu, který v sobě obsahuje jak kinetickou energii, tak interakce s ostatními elektrony.
-Z toho zřejmé, že elektrony jsou považovány za nezávislé. (to je zásadní rozdíl oproti metodě HF, ve které je nezávislost elektronů vyjádřena \uv{pouze} tvarem vlnové funkce). 
-Konkrétní tvar těchto efektivních elektronových hamiltoniánů není specifikován a bere se pouze jako parametr metody. 
+kde $h_{i, eff}^\pi$ je jednoelektronový potenciál $\pi$ elektronu, který v sobě obsahuje jak kinetickou energii, tak interakce s ostatními elektrony.
+Z varu hamiltoniánu coby součtu jednoelektronových členů je zřejmé, že elektrony jsou zde považovány za nezávislé (to je zásadní rozdíl oproti metodě HF, ve které je nezávislost elektronů vyjádřena \uv{pouze} tvarem vlnové funkce). 
+Konkrétní tvar těchto efektivních elektronových hamiltoniánů není specifikován, neboť, jak uvidíme dále, vlastně ani není potřeba. 
 
-Dalším krokem je výběr báze. V případě metody HM to budou $p_z$ orbitaly všech uhlíkových atomů.
+Dalším krokem je výběr báze. V případě metody HM to budou $p_z$ orbitaly všech uhlíkových atomů
 \begin{equation}
-\psi= \sum_i c_i \phi_i
+\psi= \sum_i c_i \phi_i.
 \label{rov:HM_MO}
 \end{equation}
-Tím převedeme problém najití vlnové funkce na jednodušší problém najití koeficientů $c_i$. Pokud tuto vlnovou funkci dosadíme do SCHR s Hamiltoniánem \ref{Ham_HM} a aplikujeme variační princip, dostaneme sadu sekulárních rovnic. Z nich poté obdržíme sekulární determinant:
+ Matematický tvar těchto orbitalů násl ale opět nezajímá. \textbf{PSnote: Dane, Ao by mely byt chi} Tím převedeme problém nalezeni vlnové funkce na jednodušší problém najití koeficientů $c_i$. Pokud tuto vlnovou funkci dosadíme do Schr\"odingerovy s hamiltoniánem \ref{Ham_HM} a aplikujeme variační princip, dostaneme soustavu sekulárních rovnic. Z podmínky pro netriviální řešení této soustavy pak 
 \begin{equation}
 |\mathbf{H}-\epsilon \mathbb{S}|=0
 \label{rov:HM_det}
 \end{equation}
 
 Pro lepší ilustraci budeme nadále uvažovat výpočet pro molekulu butadienu.
-Naše báze se tedy bude skládat ze čtyř $p_z$ orbitalů.
+Elektronová báze se zde skládá ze čtyř $p_z$ orbitalů.
 
-Aplikací variačního principu poté dostaneme následující sekulární rovnice:
+sekulární determinant zde má tvar
 \begin{equation}
 \begin{vmatrix}
 H_{11}-\epsilon S_{11} & H_{21}-\epsilon S_{21} & H_{31}-\epsilon S_{31} & H_{41}-\epsilon S_{41}  \\
@@ -50,12 +50,12 @@ V rámci H\"{u}ckelovy aproximace na ně ale pohlížíme jako na parametry meto
 a naložíme s nimi takto:
 \begin{itemize}
 \item zanedbáme překryvové integrály mezi AO na různých atomech tj. $S_{ij}=\delta_{ij}$;
-\item integrály $H_{ii}=\alpha$ těmto integrálům říkáme coulombovské integrály
+\item integrály $H_{ii}=\alpha$ těmto integrálům říkáme coulombovské integrály;
 \item integrály $H_{ij}$ položíme rovno nule, pokud orbitaly nepatří sousedním atomům.
-Nenulové integrály položíme rovno parametru $\beta$ a nazýváme je rezonančními integrály.
+Nenulové integrály položíme rovno parametru $\beta$. Nazýváme je rezonančními integrály.
 \end{itemize}
 
-Takto zjednodušené rovnice poté vyřešíme. Nejprve najdeme vlastní čísla přes sekulární determinant a následně určíme koeficienty $c_i$. V případě butadienu bude sekulární determinant vypadat následovně:
+Takto zjednodušené rovnice poté vyřešíme. Nejprve najdeme vlastní čísla přes sekulární determinant a následně určíme koeficienty $c_i$. V případě butadienu bude H\"ckelův sekulární determinant vypadat následovně
 \begin{equation}
 \begin{vmatrix}
 \alpha-\epsilon & \beta & 0 & 0  \\
@@ -63,11 +63,11 @@ Takto zjednodušené rovnice poté vyřešíme. Nejprve najdeme vlastní čísla
 0 &\beta &\alpha-\epsilon & \beta  \\
 0 & 0 & \beta &\alpha-\epsilon  
 \end{vmatrix}
-= 0
+= 0.
 \end{equation}
 %Tento determinant vede na rovnici čtvrtého stupně, kterou lze ale vhodnou substitucí řešit analyticky.
 Ve druhém kroku jsme determinant vydělily $\beta$ a zavedli substituci $x=\frac{\alpha-\beta}{\epsilon}$.
-Nyní rozvojem determinantu podle prvního řádku dostaneme:
+Nyní rozvojem determinantu podle prvního řádku dostaneme
 \begin{equation}
 x
 \begin{vmatrix}
@@ -83,7 +83,7 @@ x & 1 & 0 \\
 \end{vmatrix}
 =x^4-3x^2+1=0
 \end{equation}
-Tuto kvartickou rovnici můžeme naštěstí převést na kvadratickou pomocí substituce $y=x^2$ a dostaneme:
+Tuto kvartickou rovnici můžeme naštěstí převést na kvadratickou pomocí substituce $y=x^2$
 \begin{equation}
 y^2-3y+1=0;\quad y_1=2,62;\quad y_2=0.382
 \end{equation}
@@ -92,7 +92,7 @@ a tedy
 x_{1,2}=1,62 \nonumber
 x_{3,4}=0,62 \nonumber
 \end{equation}
-Z toho vyplývají násůedující hodnoty energií:
+Z toho vyplývají následující hodnoty energií
 
 $$ \epsilon_1 = \alpha+1,62\beta $$
 $$ \epsilon_2 = \alpha+0,62\beta $$
@@ -102,32 +102,31 @@ $$ \epsilon_4 = \alpha-1,62\beta $$
 Zpětným dosazením do sekulárních rovnic bychom poté dopočítali koeficienty $c_i$ a tím získali molekulové orbitaly. Ty potom obsadíme elektrony v souladu s Pauliho vylučovacím principem a celkovou energii dostaneme jako součet orbitálních energií. 
 Jak nyní získáme parametry $\alpha$ a $\beta$? Vyjdeme z experimentálních dat. Parametr $\alpha$ má jednoduchou fyzikální interpretaci; jedná se o ionizační energii atomového orbitalu $p_z$, která je exerimentálně známá. Důležitější je parametr $\beta$, který určuje vzájemnou separaci molekulových orbitalů. Můžeme jej získat v zásadě dvěma způsoby:
 \begin{enumerate}
-\item Ze spektroskopických dat. Parametr zvolíme tak, aby nám seděly zvolené elektronové přechody (podrobnosti viz níže). Například fitováním na molekulu naftalenu získáme hodnotu $\beta=3,48$.
-\item Z termochemických dat. K tomu se využívá konceptu delokalizační energie dvojných vazeb. Tuto energii můžeme experimentálně naměřit například pomocí hydrogenačního tepla. Její teoretický výpočet v rámci HM si ukážeme níže. 
+\item \textbf{Ze spektroskopických dat.} Parametr zvolíme tak, aby nám seděly zvolené elektronové přechody (podrobnosti viz níže). Například fitováním na molekulu naftalenu získáme hodnotu $\beta=3,48$. \textbf{V Jakych jednotkach, v eV?}
+\item \textbf{Z termochemických dat.} K tomu se využívá konceptu delokalizační energie dvojných vazeb. Tuto energii můžeme experimentálně naměřit například pomocí hydrogenačního tepla. Její teoretický výpočet v rámci HM si ukážeme níže. 
 \end{enumerate}
 
-\noindent
-\textbf{Spektroskopie metodou HM}
+Pojďme se nyní podívat na výpočet některých vlastností butadienu pomocí HM. 
 
-Jak můžeme pomocí HM spočítat excitační energii? Prostě formálně excitujeme jeden elektron z obsazeného do neobsazeného orbitalu a potom spočítáme celkovou energii a od ní odečteme celkovou energii zákaldního stavu. Pokud budeme chtít spočítat nejnižší excitační energii butadienu, přesuneme jeden elektron z orbitalu 3 do orbitalu 2. Výsledná energie potom bude:
+
+\subsubsection{Excitační energie}
+
+Jak můžeme pomocí HM spočítat excitační energii? Formálně excitujeme jeden elektron z obsazeného do neobsazeného orbitalu a potom spočítáme celkovou energii a od ní odečteme celkovou energii základního stavu. Pokud chceme spočítat nejnižší excitační energii butadienu, přesuneme jeden elektron z orbitalu 3 do orbitalu 2. Výsledná energie potom bude
 $$
 \Delta E = \epsilon_3-\epsilon_4 = 1,24 \beta = \frac{hc}{\nu} 
 $$
-Vlnová délka excitujícího záření potom vyjde 287\,nm, zatímco experimentální hodnota je kolem 200\,nm.
+Vlnová délka excitujícího záření vyjde 287\,nm, zatímco experimentální hodnota je kolem 200\,nm.
 Soulad to není ideální, ale není ani tragický, na to že jsme jej získali tak jednoduše. HM také správně zachycuje experimentální fakt, že excitační energie se snižuje se zvyšující se délkou řetězce obsahující konjugované dvojné vazby.
 
-\medskip
-\noindent
-\textbf{Delokalizační energie}
+\subsubsection{Delokalizační energie}
 
-Z organické chemie si ještě možná vzpomeneme,
-že konjugované dvojné vazby mají jiné vlastnosti než vazby izolované.
-Tuto delokalizaci můžeme vyjádřit pomocí delokalizační energie.
+Z organické chemie si ještě možná vzpomeneme, že konjugované dvojné vazby mají jiné vlastnosti než vazby izolované.
+Tuto delokalizaci můžeme vyjádřit pomocí poněkud nefyzikální veličiny \uv{delokalizační energie}.
 
 Pokud by se dvojné vazby vzájemně neovlivňovali, tak by mělo platit, že HM energie
-\textit{n}krát-konjugovaného systému by se rovnala \textit{n}-násobku energie ethenu, který má dvojnou vazbu jen jednu. Delokalizační energie je dána právě rozdílem v těchto energií.
+\textit{n}krát-konjugovaného systému by se rovnala \textit{n}-násobku energie ethenu, který má dvojnou vazbu jen jednu. Tato rovnost ale neplatí a rozdíl je právě delokalizační energie. 
 
-Pojďme si vše ukázat na příkladě butadienu, jehož energii již známe. Musíme tedy dopočítat ethen, pro který nám vyjde následující sekulární determinant. 
+Pojďme si vše ukázat na příkladě butadienu, jehož energii již známe. Musíme tedy dopočítat energii molekuly ethenu. Pro ten vychází následující sekulární determinant. 
 \begin{equation}
 \begin{vmatrix}
 \alpha - \epsilon & \beta \\
@@ -135,7 +134,7 @@ Pojďme si vše ukázat na příkladě butadienu, jehož energii již známe. Mu
 \end{vmatrix}
 =0
 \end{equation}
-z čehož nám vyjde
+z čehož
 $$
 (\alpha-\epsilon)^2=\beta^2
 $$
@@ -143,23 +142,26 @@ $$
 \alpha - \epsilon = \pm \beta
 \epsilon_{1,2}= \alpha\pm \beta
 $$
-Pro butadien poté vyjde delokalizační energie $E_D=0,472\beta=35,4 kJ/mol$
-Experimentálně můžeme míru delokalizace určit pomocí hydrogenačních tepel a opět to vztáhnout vůči ethanu.
-Hydrogenační teplo ethanu (tj. entalpie reakce ethan + H$_2$ = ethen) je -136,94\,kJ/mol, zatímco hydrogenační teplo butadienu je -240\,kJ/mol. Experimentální delokalizační energie je tedy:
+Pro butadien poté vychází delokalizační energie $E_D=0,472\beta=35,4 kJ/mol$.
+
+
+Experimentálně můžeme míru delokalizace určit pomocí hydrogenačních tepel butadienu a ethenu.
+Hydrogenační teplo ethenu (tj. entalpie reakce ethen + H$_2$ = ethan) je -136,94\,kJ/mol, zatímco hydrogenační teplo butadienu je -240\,kJ/mol. Experimentální delokalizační energie je tedy:
 $$
 E_D^{exp}=2\cdot139,9-240 = 33,8 kJ/mol,
 $$
 což je v dobrém souladu s námi vypočtenou hodnotou.
 
-\medskip
-\noindent
-\textbf{Cyklické systémy a aromaticita}
+\subsubsection{Cyklické systémy a aromaticita}
 
-Asi největším úspěchem HM bylo vysvětlení aromaticity cyklických molekul.
-Například pro benzen dává HM následující strukturu molekulových orbitalů:
-Pokud bychom nyní zkoušeli počítat delokalizační energii pro různý počet elektronů, zjistili bychom, že má maximum pro šest elektronů, tedy pokud plně zaplníme všechny vazebné orbitaly.
+Asi největším úspěchem HM bylo vysvětlení aromaticity cyklických molekul. Na obrázku XXXX jsou znázorněny energetické hladiny cyklických systémů typu C$_n$H$_n$. Parametr $\alpha$ představuje energii elektronu v samostatném atomu uhlíku. jestliže elektron má energii nižší než  $\alpha$, interakce s okolními atomu vede k poklesu energie. Jinými slovy, dochází ke vzniku chemické vazby. energie větši než $\alpha$ indikuje destabilizaci. Pohled na diagram přitom pěkně ukazuje, odkud se vzalo známé  H\"{u}ckelovo pravidlo $4n+2$. Je totiž hne patrná, že
 
-Pokud bychom spočítali HM metodou obecně pro cyklické uhlovodíky, došli bychom ke známému H\"{u}ckelovu pravidlu $4n+2$. Z diagramu pro benzen je patrnén, že pro 4n+1 elektronů bychom měli radikál, zatímco pro $4n$ elektronů bychom měli dokonce biradikál.
+\begin{itemize}
+\item Molekuly s 4$n$+2 elektrony jsou stabilní
+\item Molekuly s 4$n$+1 elektrony představují radikály
+\item Molekuly s 4$n$ elektrony představují biradikály
+\end{itemize}
+
 
 \begin{priklad}
 \textbf{Zadání:} Jak to bude s aromaticitou cyklopropenylového radikálu? A co cyklopentadienylový radikál?
@@ -170,6 +172,9 @@ Pokud bychom spočítali HM metodou obecně pro cyklické uhlovodíky, došli by
 \textbf{obrazek}
 \bigskip
 
+\subsubsection{Vlnová funkce z H\"uckelovy metody}
+
+
 \subsection{Rozšířená H\"{u}ckelova metoda}
 
 Hlavním vylepšením rožšířené H\"{u}ckelovy metody (RHM) je zavrhnutí $\pi$-elektronové aproximace.
@@ -177,35 +182,35 @@ Stále používáme jednoelektronový Hamiltonián a molekulové orbitaly rozví
 Zde jsou další pravidla pro RHM:
 
 \begin{itemize}
-\item Hodnotu Coulombických integrálů opět aproximujeme ionizační energií daného orbitalu.
+\item Hodnotu coulombických integrálů opět aproximujeme ionizační energií daného orbitalu.
 $$H_{ii}=-I_i$$
 \item Hodnoty překryvových integrálů se nezanedbávají, ale počítají se explicitně.
 \item Hodnoty rezonančních integrálů se získají z následujícího vztahu:
 \begin{equation}
 H_{ij}=\frac{1}{2}K(I_i+I_j)S_{ij},
 \end{equation}
-kde K je empirická konstanta, která má obvykle hodnotu 1,75.
+kde $K$ je empirická konstanta, která má obvykle hodnotu 1,75.
 \end{itemize}
-Opět řešíme sekulární rovnice XX, ale tentokrát již matice H nebude obsahovat žádné nuly (pokud náhodou není $S_{ij}=0$ ze symetrických důvodů). Jelikož počítáme explicitně překryvové integrály, tak řešení závisí na konkrétní geometrii molekuly. Tato metoda se tedy dá použít k minimalizaci geometrie, ale výsledky často nejsou příliš kvalitní (například molekula vody vychází jako lineární).
+Opět řešíme sekulární rovnice \textbf{XX}, ale tentokrát již matice \textbf{H} neobsahuje žádné nuly (pokud náhodou není $S_{ij}=0$ ze symetrických důvodů). Jelikož počítáme explicitně překryvové integrály, tak řešení závisí na konkrétní geometrii molekuly. Tato metoda se tedy dá použít k minimalizaci geometrie, ale výsledky často nejsou příliš kvalitní (například molekula vody vychází jako lineární).
 
 Podobně jako v původní H\"{u}ckelově metodě tvar sekulárních rovnic nezávisí na řešení, a tudíž není třeba iterovat. Rozšířená H\"{u}ckelova metoda se proto i nyní rutinně využívá v kvantově chemických programech k prvotnímu nástřelu vlnové funkce.
 
 \subsection{Moderní semiempirické metody}
 
 Modernější semiempirické metody již ve svém hamiltoniánu nezanedbávají mezielektronovou repulzi.
-Hamiltonián je potom téměř totožný s HF Hamiltoniánem, akorát se soustředíme stále jen na valenční elektrony. Tyto metody poté iterativně řeší Roothanovy rovnice. Největším žroutem výpočetního času jsou dvouelektronové integrály (viz rovnice XX), a proto se právě pro ně zavádí další aproximace.
+Hamiltonián je potom téměř totožný s HF Hamiltoniánem, akorát se soustředíme stále jen na valenční elektrony. Tyto metody poté iterativně řeší Roothanovy rovnice. Výpočetně nejnákladnější částí Hartreeho-Fockovy metody jsou dvouelektronové integrály (viz rovnice \textbf{XX}), a proto se právě pro ně zavádí další aproximace.
 
-Asi nejjednodušší metodou z této třídy je metoda CNDO (Complete Neglect of Differential Overlap), která zavádí následující aproximaci pro všechny dvojice různých orbitalů:
+Asi nejjednodušší metodou z této třídy je metoda CNDO (z angl. \textit{Complete Neglect of Differential Overlap}), která zavádí následující aproximaci pro všechny dvojice různých orbitalů
 \begin{equation}
-\phi_i(\mathbf{r}) \phi_j(\mathbf{r}) \mathrm{d}\mathbf{r} = 0 \quad i\neq j
+\phi_i(\mathbf{r}) \phi_j(\mathbf{r}) \mathrm{d}\mathbf{r} = 0 \quad i\neq j.
 \end{equation}
 
-To vede k tomu, že většina dvouelektronových integrálů bude nulová, kromě integrálů typu (ii|ii). Méně drastickou aproximaci představuje metoda INDO (Intermediate Neglect of Differential Overlap), která výše uvedený vztah neaplikuje na dvouelektronové integrály, ve kterých jsou všechny čtyři orbitaly na stejném atomu.
-Obě metody byly vyvinuty ve skupině J. Popla a byly parametrizovány tak, aby výsledky odpovídaly \textit{ab initio} HF výpočtům pro minimální bázi. 
+To vede k tomu, že většina dvouelektronových integrálů bude nulová, kromě integrálů typu (ii|ii). \textbf{Tento symbol tady nikde neni vysvetlen} Méně drastickou aproximaci představuje metoda INDO (z angl. \textit{Intermediate Neglect of Differential Overlap}), která výše uvedený vztah neaplikuje na dvouelektronové integrály, ve kterých jsou všechny čtyři orbitaly na stejném atomu. Tato metoda byla Zernerem modifikována pro spektroskopické účely (metoda ZINDO).
+Obě metody byly vyvinuty ve skupině Johna Popla a byly parametrizovány tak, aby výsledky odpovídaly \textit{ab initio} HF výpočtům pro minimální bázi. 
  
-Jiný přistup zvolil M. Dewar, který semiempirické metody začal parametrizovat tak, aby odpovídaly experimentálním hodnotám, a tím dosáhl přesnosti často větší než HF metoda. Metody AM1 (Austin model 1), PM3 (parametric model 3) a jejich novější verze PM6 a PM7 jsou využívány a rozvíjeny dodnes (jejich implementace je k nalezení například ve volně dostupném programu MOPAC).
+Jiný přistup zvolil M. Dewar, který semiempirické metody začal parametrizovat tak, aby odpovídaly experimentálním hodnotám, a tím dosáhl přesnosti často větší než samotná Hartreeho-Fockova metoda. Metody AM1 (y angl. \textbf{Austin Model 1}), PM3 (z angl. \textbf{Parametric Model 3}) a jejich novější verze PM6 a PM7 jsou využívány a rozvíjeny dodnes (jejich implementace je k nalezení například ve volně dostupném programu MOPAC).
 
-Kromě výše zmíněných metod existuje také hojně využívaná semiempirická metoda založená na DFT, takzvaná DFTB (DFT Tight Binding).
+Kromě výše zmíněných metod existuje také hojně využívaná semiempirická metoda založená na DFT, takzvaná DFTB (DFT Tight Binding) a řada dalších metod, občas využívaných ke speciálním případům.
 
 
  
