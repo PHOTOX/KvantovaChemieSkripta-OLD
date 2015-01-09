@@ -6,46 +6,55 @@ neobejdeme se bez počítače, který za nás bude počítat složité rovnice.
 Naprosto základní úlohou kvantového chemika je řešení elektronové Schr\"{o}dingerovy rovnice XX pro danou molekulu. Existují v zásadě tři přístupy k tomuto problému. Buď se snažíme tuto rovnici řešit přímo pomocí chytrých aproximací (např. pomocí HF metody) a bez dodatečných umělých parametrů. Tyto metody se nazývají \textit{ab initio} (latinsky \uv{od počátku}, jelikož k jejich aplikaci nám stačí znát pouze základní fyzikální konstanty jako je hmotnost a náboj elektronu nebo Planckova konstanta. Další třidou jsou semiempirické metody, které jsou již více aproximativní a obsahují parametry, jejichž hodnoty se získávají buď z experimentálních dat nebo z přesnějších \textit{ab initio} výpočtů. Poslední přístupem jsou metody založené na takzvané teorii funkcionálu hustoty (Density Functional Theory --- DFT). Tento přístup je fundamentálně odlišný od předchozích dvou, jelikož není založen na hledání vlnové funkce. Místo toho se soustředí na mnohem jednodušší veličinu -- elektronovou hustotu. DFT metoda je často řazena mezi \textit{ab initio} metody, jelikož v principu vede k přesnému řešení a praktická přesnost je taktéž na úrovni \textit{ab initio} metod. Na druhou stranu ale většina DFT metod obsahuje několik empirických parametrů, které se často fitují na experimentální data. Proto si DFT probereme ve zvláštní kapitole.  
 
 V této kapitole se zaměříme na \textit{ab initio} metody.
-Nejjednodušší \textit{ab initio} metodou je metoda Hartree--Fockova, která již byla představena v kapitolách X a XX. V praxi se dnes používá spíše méně, ale stále slouží jako odrazový můstek pro většinu ostatních přesnějších\textit{ab initio} metod, tudíž si ji zde zopakujeme a probereme hlouběji.
+Nejjednodušší \textit{ab initio} metodou je metoda Hartreeho--Fockova, která již byla představena v kapitolách X a XX. V praxi se dnes používá spíše méně, ale stále slouží jako odrazový můstek pro většinu ostatních přesnějších\textit{ab initio} metod, tudíž si ji zde zopakujeme a probereme hlouběji.
 
-Nejprve je ale důležité ujasnit si notaci, kterou budeme v následujících kapitolách používat, abychom se ve všech těch řeckých písmenech neztratili. Celkovou vlnovou funkci budeme značit symbolem $\phi$.  zatímco molekulové orbitaly (MO) budeme značit $\phi$. Každý MO je součinem prostorové části $\chi$ a spinové části $\alpha$ nebo $\beta$. V rámci aproximace MO-LCAO poté každou prostorovou část MO rozvíjíme do báze atomových orbitalů $\varphi_i$. Abychom si ušetřili práci s psaním rovnic, budeme odteď využívat atomové jednotky.
+Nejprve je ale důležité ujasnit si notaci, kterou budeme v následujících kapitolách používat, abychom se ve všech těch řeckých písmenech neztratili. Celkovou vlnovou funkci budeme značit symbolem $\phi$.  zatímco molekulové orbitaly (MO) budeme značit $\varphi$. Každý MO je součinem prostorové části $\phi$ a spinové části $\alpha$ nebo $\beta$. V rámci aproximace MO-LCAO poté každou prostorovou část MO rozvíjíme do báze atomových orbitalů $\chi_i$. Abychom si ušetřili práci s psaním rovnic, budeme odteď využívat atomové jednotky.
 
+\begin{table}[ht]
+\centering
+\caption{Základní symboly použité následujících kapitolách}
 \begin{tabular}{|c|l|c|}
 \hline 
 \rule[-1ex]{0pt}{2.5ex} Symbol & 	Význam	& Vlastnosti \\ 
 \hline 
-\rule[-1ex]{0pt}{2.5ex} $\psi$ & Celková vlnová funkce  & $\psi$ = $|\phi_1 \phi_2 \cdots \phi_N |$ \\ 
+\rule[-1ex]{0pt}{2.5ex} $\psi$ & Celková el. vln. funkce  & $\psi$ = $|\phi_1 \phi_2 \cdots \phi_N |$ \\ 
 \hline 
-\rule[-1ex]{0pt}{2.5ex} $\phi$ & Molekulový orbital & 4$\phi=\chi \alpha $\\ 
+\rule[-1ex]{0pt}{2.5ex} $\phi$ & Molekulový orbital & $\varphi=\phi \alpha $\\ 
 \hline 
-\rule[-1ex]{0pt}{2.5ex} $\chi$ & Prostorová část MO & $\chi=\sum_{i=1}^N \varphi $ \\ 
+\rule[-1ex]{0pt}{2.5ex} $\phi$ & Prostorová část MO & $\phi=\sum_{i=1}^N \chi $ \\ 
 \hline 
-\rule[-1ex]{0pt}{2.5ex} $\alpha$, $\beta$  & Spin--orbitaly & $\beta(\frac{1}{2})=1$ \\ 
+\rule[-1ex]{0pt}{2.5ex} $\alpha$, $\beta$  & Spin--orbitaly & \\ 
 \hline 
-\rule[-1ex]{0pt}{2.5ex} $\varphi$ & atomové orbitaly & $\int |\varphi|^2 \mathrm{d}\textbf{r} = 1 $ \\
+\rule[-1ex]{0pt}{2.5ex} $\chi$ & atomové orbitaly & $\int |\varphi|^2 \mathrm{d}\textbf{r} = 1 $ \\
 \hline
 \end{tabular} 
+\label{tab:vlnfunkce}
+\end{table}
 
 \subsection{Hartreeho--Fockova metoda}
 
-Zopakujme si nejprve základní předpoklady a odvození HF teorie. Začneme tím, že celkovou vlnovou funkci předpokládáme ve formě Slaterova determinantu (SD):
+Zopakujme si nejprve základní předpoklady a odvození HF teorie. Začneme tím, že celkovou vlnovou funkci předpokládáme ve formě Slaterova determinantu (SD)
 \begin{equation}
-\phi^HF=\frac{1}{\sqrt{N!}}
+\psi^HF=\frac{1}{\sqrt{N!}}\begin{vmatrix}
+\varphi_1(1) & \varphi_1(2) & \cdots & \varphi_1(N) \\
+\varphi_2(1) & \varphi_2(2) & \cdots & \varphi_2(N) \\
+\vdots & \vdots & \vdots & \vdots \\
+\varphi_N(1) & \varphi_N (2) & \cdots & \varphi_N(N)
+\end{vmatrix}.
+\end{equation}
+Jelikož SD má $N!$ členů, kde $N$ je počet elektronů, je třeba použít normalizační faktor $\frac{1}{\sqrt{N!}}$.
+
+Na tento tvar vlnové funkce chceme nyní aplikovat variační princip. Po dosazení do variačního vzahu pro energii by nám po určité námaze vyšel vztah
+\begin{equation}
+E^{HF}=  XXX 
 \end{equation}
 
-
-Na tento tvar vlnové funkce chceme nyní aplikovat variační princpip. Po dosazení do variačního vzahu pro energii by nám po určité námaze vyšel následující vztah
-
+Tento vztah byl odvozen za předpokladu, že jsou molekulové orbitaly ortogonální. Tento požadavek je ryze praktického rázu, ke stejnému výsledku bychom došli i bez něj, ale mnohem obtížněji. Aplikací variačního počtu na předchozí rovnici (více o funkcionálech a variacích si povíme v kapitole o DFT) dostaneme Fockovy rovnice: \textbf{nejsem si jist, zda zde jsou spin orbitaly nebo ne, musim zkontrolovat}
 \begin{equation}
-E^{HF}=
+\hat{F}\phi_i(1) = \epsilon_i \phi_i   
 \end{equation}
 
-Tento vztah byl odvozen za předpokladu, že jsou molekulové orbitaly ortogonální. Tento požadavek je ryze praktického rázu, ke stejnému výsledku bychom došli i bez něj, ale mnohem obtížněji. Aplikací variačního počtu na předchozí rovnici (více o funkcionálech a variacích si povíme v kapitole o DFT) dostaneme Fockovy rovnice:
-\begin{equation}
-\hat{F}\phi_i(1) = \epsilon_i  
-\end{equation}
-
-kde Fockův operátor \hat{F} vypadá následovně:
+kde Fockův operátor $\hat{F}$ vypadá následovně:
 
 \begin{eqnarray}
 \hat{F}_i = \hat{h}_i+\sum_{j\neq i} \hat{J}_j - \delta(s_i,s_j) \hat{K}_j \\
@@ -55,62 +64,151 @@ kde Fockův operátor \hat{F} vypadá následovně:
 \end{eqnarray}
 
 Fockovy rovnice jsou složité integro-diferencíální rovnice pro neznámé funkce $\phi_i$
+Dalším krokem je tedy zavedení báze, do které rozvineme naše molekulové orbitaly
+\begin{equation}
+\phi=\sum_{i=1}^K c_i \chi-i ,
+\end{equation}
+čímž problém rapidně zjednodušíme, jelikož nyní nehledáme funkce, ale jen číselné koeficienty $c_i$.
+Výsledné rovnice se nazývají Roothanovy a vypadají
+\begin{equation}
+ROOTHAN
+\end{equation}
+
+\textbf{Rozkecat se tady o necem dopodrobna?}
 
 Jelikož molekuly jsou složeny z atomů, vhodnou bází jsou atomové orbitaly.
-Dnes se již témeř výhradně používají Gaussovy funkce, o kterých již byla řeč v kapitole XX.
+Dnes se již téměř výhradně používají Gaussovy funkce, o kterých již byla řeč v kapitole XX.
+Pokud bychom použili nekonečnou bázi, získali bychom tzv. Hartreeho--Fockovu limitu a naše MO by měli nejlepší možný tvar. Tato limita ale \textbf{není} přesné řešení původního problému!
+Předpokládali jsme totiž vlnovou funkci ve tvaru Slaterova determinantu, přesná vlnová funkce ale tento tvar nemá! V přesné vlnové funkci by se nám třeba nikdy nemohlo stát, že bychom našli dva elektrony na jednom místě, takovéto uspořádání by totiž dle Coulombova zákona mělo nekonečnou energii.
+Na tomto místě je dobré si uvědomit, že celý koncept molekulových orbitalů, na které jsou chemici již tak zvyklí, je založen na HF teorii, a je tudíž pouze aproximací. Jakmile se budeme snažit dosáhnout přesnějších výsledků, začne se nám úhledný obrázek elektronů sedících v molekulových orbitalech rozpadat.
 
+Jelikož je HF metodou variační, je energie HF limity vyšší než skutečná energie získaná přesným řešení nerelativistické Schr\"{o}dingerovy rovnice.
+Rozdíl mezi těmito dvěma metodami se nazývá korelační energie
+\begin{equation}
+E_{kor}=E_{el} - E^{HF}
+\end{equation}
+a je důsledkem toho, že jsme zanedbali okamžitou mezi--elektronovou repulzi.
 
-Jak je to s přesností HF metody?
+OBRAZEK KORELACNI ENERGIE ATP
 
-Rozdíl přesného řešení nerelativistické Schr\"{o}dingerovy rovnice a HF metody se nazývá korelační energie. Je důsledkem toho, že jsme zanedbali okamžitou mezielektronovou repulzi. Pojďme se na to podívat podrobněji. V reálné molekule bychom neočekávali, že se dva elektrony budou nacházet na stejném místě, takovéto uspořádání by totiž dle Coulombova zákona mělo nekonečnou energii. 
+%TODO rict neco o Fermiho dire????
 
-
-Na konec je třeba podotknout, že celý koncept molekulových orbitalů, na které jsou chemici již tak zvyklí, je založen na HF teorii, a je tudíž pouze aproximací. Jakmile se budeme snažit dosáhnout přesnějších výsledků, začné se nám úhledný obrázek elektronů sedících v molekulových orbitalech rozpadat.
+Pro výpočet korelační energie je třeba použít pokročilejších metod, které popíšeme v následujících kapitolách.
 
 \subsection{Metoda kofigurační interakce}
-První post-HF metoda je založena na variačním principu.
 
+\textbf{nevím, jak přeložit pojem size-consistency}
 
-
+Jednou z možností, jak se dostat ke korelační energii je vyjít z HF metody a opět využít variační princip. Jakou ale použít bázi? Dá se ukázat, že množina všech Slaterových determinantů, které můžeme vytvořit z HF molekulových orbitalů, je úplnou bází daného Hilbertova prostoru, a můžeme tedy do ní expadovat naši hledanou vlnovou funkci, která bude mít tvar
 \begin{equation}
-\Psi_{CI}=c_0\Psi_0+\sum_a\sum_m c_a^m\Psi_a^m+\sum c_{ab}^{mn}\Psi_{ab}^{mn}+\dots
+\psi_{CI}=c_0\psi_0+\sum_a\sum_m c_a^m\psi_a^m+\sum c_{ab}^{mn}\psi_{ab}^{mn}+\dots
+\label{rov:CIrozvoj}
 \end{equation}
-První člen je HF řešení, druhý člen odpovídá monoexcitacím, a druhý člen odpovídá biexcitacím atd.
-Jak nyní určíme koeficienty $c$? Stačí nám k tomu variační princip. Jelikož vlnová funkce na těchto koeficientech závisí lineárně,
-aplikací variačního principu dostaneme již dříve zmíněné sekulární rovnice.
+První člen je HF řešení a další členy odpovídající determinantům, kde jsme excitovali jeden nebo více elektronů z obsazeného do neobsazeného orbitalu (viz obrázek XX). Druhý člen odpovídá mono--excitacím (obr. xx.A), druhý člen odpovídá bi--excitacím (obrázek XX.B) atp. Jednotlivým SD můžeme také říkat konfigurace, odtud název metody konfigurační interakce.
 
-\begin{equation}
+\bigskip
+
+\textbf{Obrazek excitovaných determinantů}
+
+\bigskip
+
+Jak nyní určíme koeficienty $c$? Stačí nám k tomu variační princip. Jelikož vlnová funkce na těchto koeficientech závisí lineárně, aplikací variačního principu dostaneme již dříve zmíněné sekulární rovnice.
+\begin{eqnarray}
 \mathbb{H}\mathbf{c}=E\mathbf{c} \nonumber \\
-\sum_j (H_ij-E_i\delta_{ij})c_i=0 \forall i 
-\end{equation}
+\sum_j (H_ij-E_i\delta_{ij})c_i=0 \quad \forall i
+\end{eqnarray}
+Výsledné matice jsou obrovské (milion a více členů), ale existují efektivní metody výpočetní lineární algebry, které si s nimi dokáží poradit.
 
-Problémy: size consistency a exponeniciální školování FCI
+Pokud bychom použili nekonečnou bázi AO a zahrnuli všechny možné Slaterovy determinanty (kterých by bylo taktéž nekonečné mnoho), dostali bychom přesné řešení Schr\"{o}dingerovy rovnice. V praxi ale musíme použít bázi konečnou, máme tedy i konečný počet molekulových orbitalů. Pokud v rámci této báze budeme uvažovat všechny možné SD, mluvíme o metodě plné konfigurační interakce (\textit{Full Configuration Interaction} -- FCI). Zvětšováním báze se metoda FCI může libovolně přiblížit přesnému řešení. Metoda FCI je ale extrémně výpočetně náročná (škáluje se exponenciálně s počtem orbitalů) a lze ji tedy použít pouze pro malé molekuly s malou bází.
 
-\subsection{Mollerova--Plessetova metoda}
+Pro praktické výpočty tedy musíme počet excitací omezit. Pokud se omezíme pouze jednonásobné a dvojnásobné excitace, dostaneme metodu CISD (\textit{Configuration Interaction Singles}\& \textit{Doubles}), která byla v minulosti hojně využívána.
 
+Dnes se metody konfigurační interakce užívají méně, jelikož mají některé nevýhody oproti jiným metodám. 
+\begin{itemize}
+\item Metoda FCI je sice přesná, ale v praxi díky exponenciálnímu škálování nepoužitelná.
+\item Rozvoj \ref{rov:CIrozvoj} konverguje velmi pomalu. Pro dobrou přesnost bychom chtěli minimálně kvadruple--excitace.
+\item Pokud rozvoj \ref{rov:CIrozvoj} někde utneme, tak výsledná metoda není size--konzistentní. Co tento pojem znamená? Zjednodušeně řečeno, pokud metoda není size--konzistentní, tak její přesnost bude záviset na velikosti systému. Pro malou molekulu můžeme například metodou CISD zachytit přes 90 \% korelační energie, ale pro větší molekulu mnohem méně. Pokud je metoda size--konzistentní, tak by také mělo platit, že pokud ji aplikujeme na dvě nekonečně vzdálené molekuly (není tedy mezi nimi žádná interakce), tak bychom měli dostat přesně dvojnásobek energie jedné molekuly. Na příkladu dvou atomů helia lze ale snadno ukázat, že toto pro metodu CISD není splněno. Pro jeden atom He totiž metoda CISD odpovídá metodě FCI, jelikož máme pouze dva elektrony, které můžeme excitovat. Pro dva nekonečně vzdálené atomy helia již ale toto neplatí, jelikož máme už čtyři elektrony a některé Slaterovy determinanty tudíž nebudou v CISD metodě zahrnuty. (\textbf{obrázek?})
+\end{itemize}
+
+Kvůli těmto nedostatkům se dnes mnohem více používají metody, které si představíme v následujících dvou kapitolách.
+
+\subsection{M\o llerova--Plessetova metoda}
+V minulé kapitole jsme na výpočet korelační energie nasadili variační metodu. Pojďme to nyní zkusit s metodou poruchovou, kterou poprvé na tento problém použili pánove M\o ller a Plesset.
+
+V poruchové metodě je třeba nejprve najít problém, který jsme schopni řešit a který je dostatečně blízko přesnému řešení. K tomuto zde využijeme HF teorie. Nyní je třeba vymyslet, jaký je vlastně Hamiltonián HF metody, abychom poté podle rovnice XX mohli skutečný Hamiltonián rozdělit na poruchu a HF Hamiltonián.
 \begin{equation}
-\hat{H}^0=\sum_i^N\hat{F}_i
+XXX
 \end{equation}
 
+Jelikož Fockovy rovnice XX jsou jednoelektronové, bude se celkový Hamiltonián skládat ze součtu jednoelektronových příspěvků
+\begin{equation}
+HF hamiltonian
+\end{equation}
+pro které platí
+\begin{equation}
+f_i= ...
+\end{equation}
+Energie tohoto hamiltoniánu je potom rovna součtu orbitálních energií
+\begin{equation}
+e^{HF}=\sum_i \epsilon_i .
+\end{equation}
+Pozor, všimněte si, že toto není HF energie, viz rovnice XX. V součtu orbitálních energií jsou mezielektronové interakce započteny dvakrát. Nyní můžeme přejít k dafinici naší poruchy odečtením rovnice XX od eletronového Hamiltoniánu. Jednoelektronové členy se vyruší a vyjde nám
+\begin{equation}
+H^{\prime}=H_{el}-h^{HF}= ...
+\end{equation}
+Vidíme, že naše porucha je rozdíl mezi Coulmbickým členem a efektivním polem eletronů v F teorii, což dává smysl.
 
+Zkusme si nyní podle vzorce XX vypočítat energii do prvního řádu. Platí, že
+\begin{equation}
+E_1=E^{(0)}()E^{(1)}=.....
+\end{equation}
+To jsme se daleko nedostali! Porucha v prvním řádu nám ve výsledku dá původní HF energii.
+Užitečná je tedy až porucha druhého řádu, pro kterou ze vzorce XX platí:
+
+Vypadá to, že budeme muset počítat spoustu maticových elementů mezi základním stavem XX a všemi excitovanými SD. Naštěstí se dá ukázat (díky tzv. Brillouinovu\footnote{Toto jméno výsloví opravdu jen zkušení frankofilové.} teorému a Slaterovým--Condonovým pravidlům), že většina z nich bude nulová a přispívat budou jen dvojitě--excitované determinanty. Výsledný vzorec tudíž bude
+\begin{equation}
+E^{MP2}=\sum \sum \frac{\int \psi_0 hat{V} \psi_{ij}^{rs}}{\epsilon_r+\epsilon_s-\epsilon_i-\epsilon_j} .
+\end{equation}
+Tato metoda se nazývá MP2 a je jednou s nejvíce užívaných metod na výpočet korelační energie.
+Mohli bychom pokračovat a odvodit vzorce pro vyšší řády a dostali bychom pak metody MP3, MP4 atd. 
+Metoda MP3 nepřináší výrazné zlepšení oproti MP2 a tudíž není využívána. Metoda MP4 je velmi přesná, ale také velmi výpočetně náročná. Ani ona se v dnešní dobře příliš nevyužívá, pro velkou přesnost je totiž výhodnější použít metody spřažených klastrů.
 
 \subsection{Metody spřažených klastrů}
+Metody spřažených klastrů (CC -- \textit{Coupled Cluster}) nesou od svého počátku českou stopu. Tyto metody totiž použil v kontextu kvantové chemie poprvé Jiří Čížek a později také Josef Paldus.
 
-Excitační operátor.
+Klíčovým pojmem v této metodě jsou takzvané excitační operátory
 \begin{eqnarray}
-T_1\Psi_0=\sum^N_{a=1}\sum_{m=n+1}^\infty t_a^m\Psi_a^m \\
-T_2\psi_0=\sum_{a=1}^N \sum_{b\neq a}^N\sum_{m=N+1}^\infty \sum_{n=N+1}^\infty t_{ab}^{mn}\psi_{ab}^{mn} \\
-\hat{T}=\hat{T}_1+\hat{T}_2+\cdots
+\hat{T}_1\psi_0=\sum^N_{a=1}\sum_{m=n+1}^\infty t_a^m\psi_a^m \\
+\hat{T}_2\psi_0=\sum_{a=1}^N \sum_{b\neq a}^N\sum_{m=N+1}^\infty \sum_{n=N+1}^\infty t_{ab}^{mn}\psi_{ab}^{mn} \\
+\hat{T}=\hat{T}_1+\hat{T}_2+\cdots \hat{T}_N ,
 \end{eqnarray}
-
+kde $\hat{T_1}$ je generátor mono--excitací, $\hat{T}_2$ je generátor double--excitací atp., $t_x^x$ jsou číselné koeficienty příslušejícím jednotlivým excitovaným SD, a $\hat{T}$ je celkový excitační operátor. Tyto operátory tedy vytváří z referenčního Slaterova determinantu $\psi_0$ (vetšinou získaného metodou HF) sadu excitovaných Slaterových determinantů, s nimiž jsme se již potkali v kapitolce o metodě konfigurační interakce. V tomto případě ovšem vlnovou funkci zapisujeme v poněkud zvláštním tvaru
 \begin{eqnarray}
-\Psi = e^{\hat{T}} \psi_0 \\
-e^{\hat{T}} = 1+\hat{T}+\frac{\hat{T}^2}{2}+\cdots
+\psi^{CC} = e^{\hat{T}} \psi_0 ,  \\
 \end{eqnarray}
+kde $\psi_0$ je referenční funkce, většinou z metody HF. Zde se poprvé setkáváme s podivným pojmem exponenciály operátoru. Není třeba se jej leknout, jen si musíme uvědomit, jak je vlastně definována normálni exponenciální funkce $e^x$. Jedna z možných definic je
+\begin{equation}
+e^x=\sum_{i=1}^\infty \frac{x^n}{n!} .
+\end{equation}
+K tomuto vzorečku lze dojít například aplikací Taylorova rozvoje na $e^x$.
+Tu samou definici nyní můžeme snadno aplikovat i na operátory, musíme jen vědět, jak operátory umocňovat.
+To jsme si ale řekli již v kapitole \ref{kap:OperaceSOperatory}. Operátor umocněný na $n$-tou prostě znamená, že jej aplikujeme $n$-krát za sebou na tu samou funkci.
+Exponenciela excitačního operátoru tedy vyjde jako 
+\begin{equation}
+e^{\hat{T}} = 1+\hat{T}+\frac{\hat{T}^2}{2}+\cdots.
+\end{equation}
+Díky vlastnostem excitačního operátoru je tato řada konečná, neboť máme konečný počet elektronů, které můžeme excitovat.
 
-Pro CCSD metodu platí $\hat{T}=\hat{T}_1+\hat{T}_2$
+Nyní bychom se mohli ptát, jaká je vlastně výhoda takto složitého zápisu.
+Pokud použíjeme úplný excitační operátor, tak dojdeme k exaktnímu řešení stejně jako metoda FCI.
+Výhody se ale objeví, když excitační operátor začneme ořezávat. Když například vezmeme v potaz pouze mono-- a double--excitace, dostaneme metodu CCSD -- \textit{Coupled Cluster Singles Doubles}).
+Narozdíl od metody CISD je ovšem CCSD size-konzistentní a navíc dostaneme větší podíl korelační energie.
+To je dáno právě speciálním tvarem CC vlnové funkce, díky kterému i na úrovni CCSD dostaneme například i částečný příspěvek kvadruple--excitací, jelikož v exponencielní řadě je přítomen operátor $\hat{T}_2^2$.
 
-CCSD(T)..zlatá metoda kvantové chemie
+Vzoreček pro energii CC metod a jeho odvození je složitějši, je třeba řešit složité nelineární rovnice pro koeficienty $t$ excitačního operátoru. Metody spřažených klastrů jsou stejně jako poruchové metody size-konzistnentní, ale nejsou variační. Ukazuje se ale, že v praxi je právě size-konzistence důležitější, a proto se metody konfigurační interakce dnes používají méně často než poruchové metody a metody spřažených klastrů.
+
+Jak jsme si již řekli v předchozí podkapitole, metody konfigurační interakce konvergují dosti pomalu k přesnému řešení. Tvar vlnové funkce v metodě spřažených klastrů tuto konvergenci značně urychluje. Už se zahrnutím trojitých excitací dostáváme výsledky s chemickou přesností (tzn. relativní energie s přesností 1\,kcal/mol což je zhruba 4\,kJ/mol.
+Zlatým standardem kvantové je momentálně metoda CCSD(T), ve které jsou trojité excitace zahrnuty v rámci poruchového počtu. Výpočetní náročnost této metody dovoluje na současné úrovni výpočty molekul s 10-XX atomy. Užitím speciálních technik lineárního škálování lze ale toto použití značně rozšířit, nedávno tak byla tato metoda aplikována na malou molekulu proteinu obsahující stovky atomů. 
 
 \subsection{Multireferenční metody}
 
@@ -123,7 +221,3 @@ Základní stav molekuly vodíku můžeme popsat následujicím Slaterovým dete
 \end{vmatrix}
 =\frac{1}{\sqrt{2}}\sigma_g(1)\sigma_g(2)(\alpha (1)\beta (2)-\alpha (2)\beta (1))
 \end{equation}
-
-\subsection{Metody funkcionálu hustoty}
-
-\input{texty/dft.tex}
