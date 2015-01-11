@@ -1,15 +1,18 @@
-V této kapitole se vrátíme k základní úloze kvantové chemie, tj. k řešení elektronové Schr\"{o}dingerovy rovnice pro danou molekulu. Ukážeme si, jak tuto rovnici můžeme v principu obecně řešit pro atomy a molekuly.  Existují v zásadě tři přístupy k tomuto problému
+V této kapitole se vrátíme k základní úloze kvantové chemie, tj. k řešení elektronové Schr\"{o}dingerovy rovnice pro danou molekulu. Ukážeme si, jak tuto rovnici můžeme v principu obecně řešit pro atomy a molekuly.  Existují v zásadě tři přístupy k tomuto problému:
 
+\begin{itemize}
 
-ïtem Ab initio metody.  Schr\"{o}dingerovy  rovnici řešíme pomocí hierarchie různě chytrých aproximací (obvykle přitom začínáme Harteeho-Fockovou metodou) bez dodatečných parametrů. Tyto metody se nazývají \textit{ab initio} (z lat. \uv{\it{od počátku}}, jelikož k výpočtům nevyužíváme než základních fyzikální konstanty jako je hmotnost a náboj elektronu nebo Planckova konstanta. 
+\item \textit{Ab initio} metody.  Schr\"{o}dingerovy  rovnici řešíme pomocí hierarchie různě chytrých aproximací (obvykle přitom začínáme Harteeho-Fockovou metodou) bez dodatečných parametrů. Tyto metody se nazývají \textit{ab initio} (z lat. \uv{\it{od počátku}}, jelikož k výpočtům nevyužíváme než základních fyzikální konstanty jako je hmotnost a náboj elektronu nebo Planckova konstanta. 
 
-item Semiempirické metody. Tyto metody jsou založeny na principech kvantové mechaniky, některé parametry (typu coulombický či rezonanční integrál) se ale přímo nepočítají, ale nastavují se buď z experimentálních dat nebo z přesnějších \textit{ab initio} výpočtů.
+\item Semiempirické metody. Tyto metody jsou založeny na principech kvantové mechaniky, některé parametry (typu coulombický či rezonanční integrál) se ale přímo nepočítají, ale nastavují se buď z experimentálních dat nebo z přesnějších \textit{ab initio} výpočtů.
 
-item Metody založené na teorii funkcionálu hustoty.  Teorie funkcionálu hustoty (DFT, z angl. \textit{Density Functional Theory}) představuje fundamentálně odlišný přístup od předchozích dvou. Není založen na hledání vlnové funkce, ale soustředí na mnohem jednodušší veličinu -- elektronovou hustotu. DFT metoda je často řazena mezi \textit{ab initio} metody, jelikož v principu vede k přesnému řešení a praktická přesnost je taktéž na úrovni \textit{ab initio} metod. Na druhou stranu ale většina DFT metod obsahuje několik empirických parametrů, které se často fitují na experimentální data.    
+\item Metody založené na teorii funkcionálu hustoty.  Teorie funkcionálu hustoty (DFT, z angl. \textit{Density Functional Theory}) představuje fundamentálně odlišný přístup od předchozích dvou. Není založen na hledání vlnové funkce, ale soustředí na mnohem jednodušší veličinu -- elektronovou hustotu. DFT metoda je často řazena mezi \textit{ab initio} metody, jelikož v principu vede k přesnému řešení a praktická přesnost je taktéž na úrovni \textit{ab initio} metod. Na druhou stranu ale většina DFT metod obsahuje několik empirických parametrů, které se často fitují na experimentální data.    
+
+\end{itemize}
 
 V této kapitole se zaměříme na \textit{ab initio} metody, metody založené na funkcionálu hustoty a semiempirické metody probereme v následujících kapitolách. Nejjednodušší \textit{ab initio} metodou je metoda Hartreeho--Fockova, která již byla stručně představena v kapitolách \textbf{XX} a \textbf{XX}. V praxi se dnes používá spíše méně, ale stále slouží jako odrazový můstek pro většinu ostatních přesnějších\textit{ab initio} metod, tudíž si ji zde zopakujeme a probereme hlouběji.
 
-Bude užitečné ujasnit si na začátku notaci užitou v následujících oddílech, abychom se ve všech těch řeckých písmenech neztratili. Celkovou vlnovou funkci budeme značit symbolem $\phi$.  zatímco molekulové orbitaly (MO) budeme značit $\varphi$. Každý MO je součinem prostorové části $\phi$ a spinové části $\alpha$ nebo $\beta$. V rámci aproximace MO-LCAO poté každou prostorovou část MO rozvíjíme do báze atomových orbitalů $\chi_i$. Abychom si ušetřili práci s psaním rovnic, budeme v této kapitole důsledně využívat atomové jednotky.
+Bude užitečné ujasnit si na začátku notaci užitou v následujících oddílech, abychom se ve všech těch řeckých písmenech neztratili. Celkovou vlnovou funkci budeme značit symbolem $\psi$,  zatímco molekulové orbitaly (MO) budeme značit $\varphi$. Každý MO je součinem prostorové části $\phi$ a spinové části $\alpha$ nebo $\beta$. V rámci aproximace MO-LCAO poté každou prostorovou část MO rozvíjíme do báze atomových orbitalů $\chi_i$. Abychom si ušetřili práci s psaním rovnic, budeme v této kapitole důsledně využívat atomové jednotky.
 
 \begin{table}[ht]
 \centering
@@ -20,7 +23,7 @@ Bude užitečné ujasnit si na začátku notaci užitou v následujících oddí
 \hline 
 \rule[-1ex]{0pt}{2.5ex} $\psi$ & Celková el. vln. funkce  & $\psi$ = $|\phi_1 \phi_2 \cdots \phi_N |$ \\ 
 \hline 
-\rule[-1ex]{0pt}{2.5ex} $\phi$ & Molekulový orbital & $\varphi=\phi \alpha $\\ 
+\rule[-1ex]{0pt}{2.5ex} $\varphi$ & Molekulový orbital & $\varphi=\phi \alpha $\\ 
 \hline 
 \rule[-1ex]{0pt}{2.5ex} $\phi$ & Prostorová část MO & $\phi=\sum_{i=1}^N \chi $ \\ 
 \hline 
@@ -70,7 +73,7 @@ V členu XXX rozpoznáváme kinetickou energii jednoho elektronu a přitažlivou
 Fockovy rovnice jsou složité integro-diferencíální rovnice pro neznámé funkce $\phi_i$
 Tyto rovnice typicky řešíme rozvojem molekulových orbitalů do báze orbitalů atomových
 \begin{equation}
-\phi=\sum_{i=1}^K c_i \chi-i ,
+\phi=\sum_{i=1}^K c_i \chi_i ,
 \end{equation}
 čímž problém rapidně zjednodušíme, jelikož nyní nehledáme funkce, ale jen číselné koeficienty $c_i$.
 Výsledné rovnice se nazývají Roothanovy, což jsou následující algebraické rovnice
@@ -214,8 +217,8 @@ e^{\hat{T}} = 1+\hat{T}+\frac{\hat{T}^2}{2}+\cdots.
 \end{equation}
 Díky vlastnostem excitačního operátoru je tato řada konečná, neboť molekula má pouze konečný počet elektronů, které lze excitovat.
 
-Jaká je vlastně výhoda takto složitého zápisu.
-Pokud použíjeme úplný excitační operátor, tak dojdeme k exaktnímu řešení stejně jako metoda FCI. Budeme ale potřebovat stejné množství parametrů, ať už je nazýváme rozvojovými koeficienty (v metodě CI) nebo amplitudami (v metodě CC).
+Jaká je vlastně výhoda takto složitého zápisu?
+Pokud použijeme úplný excitační operátor, tak dojdeme k exaktnímu řešení stejně jako metoda FCI. Budeme ale potřebovat stejné množství parametrů, ať už je nazýváme rozvojovými koeficienty (v metodě CI) nebo amplitudami (v metodě CC).
 Výhody se ale objeví, když excitační operátor začneme ořezávat. Když například vezmeme v potaz pouze mono-- a double--excitace, dostaneme metodu CCSD  (z angl. \textit{Coupled Cluster Singles Doubles}).
 Na rozdíl od metody CISD je ovšem CCSD \uv{size-konzistentní} a navíc dostaneme větší podíl korelační energie.
 To je dáno právě speciálním tvarem CC vlnové funkce, díky kterému i na úrovni CCSD dostaneme například i částečný příspěvek ctyřnásobných excitací, jelikož v exponencielní řadě je přítomen operátor $\hat{T}_2^2$. K tomu nám ale stačí stejný počet parametrů jako v metodě CISD.

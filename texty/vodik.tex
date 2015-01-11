@@ -1,6 +1,6 @@
-Správné řešení atomu vodíku je jedním z~velkých vítězství kvantové mechaniky. Podle klasické fyziky náboj, který se pohybuje se zrychlením (elektron obíhající vodíkové jádro -- proton), by měl vyzařovat elektromagnetické záření. To ve svém důsledku vede ke ztrátě energie a elektron by nakonec spadl na atomové jádro a došlo by k~jaderné reakci mezi elektronem a protonem. Atom vodíku by tak byl nestabilní, s~dobou života řádově 1~ps. Ovšem to nepozorujeme. Proč jsou atomy, počínaje atomem vodíku stabilní, vysvětluje až kvantová mechanika.
+Správné řešení atomu vodíku je jedním z~velkých vítězství kvantové mechaniky. Podle klasické fyziky náboj, který se pohybuje se zrychlením (elektron obíhající vodíkové jádro -- proton), by měl vyzařovat elektromagnetické záření. To ve svém důsledku vede ke ztrátě energie a elektron by nakonec spadl na atomové jádro. Atom vodíku by tak byl nestabilní, s~dobou života řádově 1~ps. Ovšem to nepozorujeme. Proč jsou atomy, počínaje atomem vodíku stabilní, vysvětluje až kvantová mechanika.
 
-\subsection{Obecný úvod}
+\subsection{Úvod}
 \label{kap:ObecnyUvod}
 
 Řešit atom vodíku znamená nalézt řešení Schrödingerovy rovnice s~příslušným hamiltoniánem
@@ -31,17 +31,17 @@ Začneme tím, že zapíšeme Schrödingerovu rovnici s~hamiltoniánem \eqref{ro
 -\frac{\hbar^2}{2m_e} \left[ \frac{1}{r^2}\frac{\partial \psi}{\partial r} + \frac{1}{r^2 \sin \theta}\frac{\partial}{\partial \theta} \left( \sin \theta \frac{\partial \psi}{\partial \theta} \right) + \frac{1}{r^2 \sin^2 \theta}\frac{\partial^2 \psi}{\partial \phi^2}\right] - \frac{1}{4 \pi \epsilon_0}\frac{e^2}{r}\psi = E \psi \mbox{.}
 \label{rov:Vodik4}
 \end{equation}
-Dále využijeme toho, že víme, že hamiltonián komutuje s~kvadrátem momentu hybnosti a $z$-ovu komponentou momentu hybnosti. Protože dva posledně jmenované operátory nezávisí na proměnné $r$ můžeme předpokládat separaci vlnové funkce \eqref{rov:Vodik2} ve tvaru
+Dále využijeme toho, že víme, že hamiltonián komutuje s~kvadrátem momentu hybnosti a $z$-ovu komponentou momentu hybnosti (viz \eqref{rov:2č-komutatorT}). Protože dva posledně jmenované operátory nezávisí na proměnné $r$ můžeme předpokládat separaci vlnové funkce \eqref{rov:Vodik2} ve tvaru
 \begin{equation}
 \psi(r, \theta, \phi) = R(r)Y_l^m(\theta, \phi) \mbox{,}
 \label{rov:Vodik5}
 \end{equation}
-kde $R(r)$ je radiální část vlnové funkce a $Y_l^m(\theta, \phi)$ jsou sférické harmoniky, se kterými jsme se seznámili v~kapitole \ref{kap:momenthybnosti}. S~využitím separace proměnných a po malé úpravě (viz kapitola \ref{kap:dvecastice}) dostaneme radiální Schrödingerovu rovnici ve tvaru
+kde $R(r)$ je radiální část vlnové funkce a $Y_l^m(\theta, \phi)$ jsou sférické harmoniky, se kterými jsme se seznámili v~kapitole \ref{kap:momenthybnosti}. S~využitím separace proměnných a po malé úpravě (viz kapitola \ref{kap:dvecastice}) dostaneme radiální Schrödingerovu rovnici (viz vztah \eqref{rov:Radialni SCHR}) ve tvaru
 \begin{equation}
 -\frac{\hbar^2}{2m_e} \left[ \frac{1}{r^2}\frac{\mathrm{d}}{\mathrm{d} r} \left( r^2  \frac{\mathrm{d}}{\mathrm{d}r} \right) - \frac{l(l+1)}{r^2}\right]R - \frac{1}{4 \pi \epsilon_0}\frac{e^2}{r}R = E R \mbox{.}
 \label{rov:Vodik6}
 \end{equation}
-Při řešení radiální Schrödingerovy rovnice budeme postupovat tak, že nejprve zavedeme substituci $u=rR(r)$. Rovnice \eqref{rov:Vodik6} tak přejde na tvar
+Pro zájemce načrtneme způsob řešení této rovnice. Budeme postupovat tak, že nejprve zavedeme substituci $u=rR(r)$. Rovnice \eqref{rov:Vodik6} tak přejde na tvar
 \begin{equation}
 \frac{\mathrm{d}^2 u}{\mathrm{d}r^2}+ \frac{2m_e}{\hbar^2}\left[ \frac{e^2}{4 \pi \epsilon_0 r} - \frac{l(l+1)\hbar^2}{2 m_e r^2}\right]u = -\frac{2m_e E}{\hbar^2}u \mbox{.}
 \label{rov:Vodik7}
@@ -74,7 +74,7 @@ u\simeq e^{- \lambda r} \mbox{.}
 \label{rov:Vodik12}
 \end{equation}
 
-Dále budeme předpokládat, že funkci $u$ můžeme zapsat jako
+\noindent Dále budeme předpokládat, že funkci $u$ můžeme zapsat jako
 \begin{equation}
 u = L(r) e^{-\lambda r} \mbox{,}
 \label{rov:Vodik13}
@@ -107,10 +107,10 @@ Aby tato řada vedla k~normalizované vlnové funkci $u$, musíme požadovat, ab
 
 Dosazením výsledku \eqref{rov:Vodik18} do substituce \eqref{rov:Vodik8} dostaneme pro hodnoty energie 
 \begin{equation}
-E_n = - \frac{e^4 m_e}{32 \hbar^2 \pi^2 \epsilon_0^2} \frac{1}{n^2}, \quad n=1, 2, 3, \dots
+\boxed{E_n = - \frac{e^4 m_e}{32 \hbar^2 \pi^2 \epsilon_0^2} \frac{1}{n^2}, \quad n=1, 2, 3, \dots}
 \label{rov:Vodik19}
 \end{equation}
-a kde znaménko mínus plyne z~toho, že řešíme vázané stavy, pro které platí $E<0$, což je v~souladu s~tím, že na ionizaci atomu ve vázaných stavech je potřeba dodat energii, například formou elektromagnetického záření. Zavedeme-li Bohrův atomový poloměr, který je dán vztahem
+Znaménko mínus plyne z~toho, že řešíme vázané stavy, pro které platí $E<0$, což je v~souladu s~tím, že na ionizaci atomu ve vázaných stavech je potřeba dodat energii, například formou elektromagnetického záření. Zavedeme-li Bohrův atomový poloměr, který je dán vztahem
 \begin{equation}
 a_B = 4 \pi \epsilon_0 \frac{\hbar^2}{m_e e^2}
 \label{rov:Vodik20}
@@ -123,12 +123,12 @@ E_n = - \frac{1}{4 \pi \epsilon_0}\frac{e^2}{2a_B}\frac{1}{n^2} \mbox{.}
 
 Vidíme, že energie atomu vodíku závisí pouze na jediném kvantovém čísle $n$, které je spojeno s~radiálním pohybem. Kvantové číslo $n$ označujeme jako hlavní kvantové číslo. Máme-li zadanou hodnotu kvantového čísla $n$, nemůže být hodnota vedlejšího kvantového čísla $l$ libovolná, ale je určená relací
 \begin{equation}
-l = 0, \dots, n-1 \mbox{.}
+\boxed{l = 0, \dots, n-1 \mbox{.}}
 \label{rov:Vodik22}
 \end{equation}
 Současně magnetické kvantové číslo $m$ nabývá hodnot
 \begin{equation}
-m = -l, \dots, 0, \dots, +l \mbox{.}
+\boxed{m = -l, \dots, 0, \dots, +l \mbox{.}}
 \label{rov:Vodik23}
 \end{equation}
 Série tří kvantových čísel parametrizuje daný kvantový stav. Povšimněme si skutečnosti, že pohyb ve 3D prostoru je popsán trojicí kvantových čísel, obdobně jako v~případě třírozměrné jámy v~kapitole \ref{kap:zakladniulohy}.
@@ -140,22 +140,29 @@ Energie základního stavu $E_1$ není degenerována, protože je popsána kvant
 \end{equation}
 a spolu s~Bohrovým atomovým poloměrem tvoří přirozené jednotky při popisu atomů.
 
-Vyšší energetické stavy atomu vodíku $E_n, \,n=2,3,4, \dots$ jsou degenerované, protože jim přísluší více hodnot kvantových čísel $l$ a $m$. Pro každé $l$ máme celkem $2l+1$ hodnot $m$. Proto pro degeneraci hladiny $E_n$ dostaneme
+Vyšší energetické stavy atomu vodíku $E_n, \,n=2,3,4, \dots$ jsou \textbf{degenerované}, protože jim přísluší více hodnot kvantových čísel $l$ a $m$. Pro každé $l$ máme celkem $2l+1$ hodnot $m$. Proto pro degeneraci hladiny $E_n$ dostaneme
 \begin{equation}
 g_n = \sum_{l=0}^{n-1}(2l+1) = n^2 \mbox{.}
 \label{rov:Vodik25}
 \end{equation}
 Dále si můžeme všimnout toho, že energetické hladiny spektra vodíku nejsou od sebe vzdáleny ekvidistantně, jak tomu bylo v~případě harmonického oscilátoru, ale že vzdálenosti jednotlivých hladin se k~sobě blíží, když s~energií jdeme k~disociačnímu limitu, tj. $E_n=0$.
 
-O~tom, že je spektrum vodíku složené z~diskrétních hladin svědčí i spektroskopická měření. Příčinou čárových atomových spekter je právě diskrétní charakter energetických hladin. Aby došlo k~přechodu elektronu mezi hladinami $f$ a $i$ musí dojít k~absorpci nebo emisi fotonu o~frekvenci dané Planckovým zákonem
+O~tom, že je spektrum vodíku složené z~diskrétních hladin svědčí i spektroskopická měření. Příčinou čárových atomových spekter je právě diskrétní charakter energetických hladin. Aby došlo k~přechodu elektronu mezi hladinami $f$ a $i$ musí dojít k~absorpci nebo emisi fotonu o~frekvenci dané rezonanční podmínku
 \begin{equation}
 \nu = \frac{|E_f-E_i|}{h} \mbox{.}
 \label{rov:Vodik26}
 \end{equation}
-Podle toho jaká je hodnota kvantového čísla $n$, ze které pozorovaný přechod vychází, dělíme přechody do několika sérií: $n=1$ odpovídá Lymanově sérii v~UV oblasti, $n=2$ odpovídá Balmerově sérii ve viditelné oblasti a např. $n=3$ odpovídá Paschenově sérii v~IČ oblasti.
+Podle toho jaká je hodnota kvantového čísla $n$, ze které pozorovaný přechod vychází, dělíme přechody do několika sérií: $n=1$ odpovídá Lymanově sérii v~UV oblasti, $n=2$ odpovídá Balmerově sérii ve viditelné oblasti a např. $n=3$ odpovídá Paschenově sérii v~IR oblasti.
 
 \subsection{Vlnová funkce pro atom vodíku}
 \label{kap:VlnovaFunkceVodik}
+
+Celková vlnová funkce vázaných stavů atomu vodíku je součinem radiální části vlnové funkce a~sférických harmonik
+\begin{equation}
+\psi_{nlm}(r,\theta,\psi) = R_{nl}(r)Y_l^m(\theta, \phi)
+\label{rov:Vodik30}
+\end{equation}
+a tvoří pro $n=1,2,3, \dots$, $l=0,\dots,n-1$ a$m=-l,\dots,+l$ úplný ortonormální systém funkcí, do kterého je možné rozvinout řešení nečasové Schrödingerovy rovnice pro vázané stavy.
 
 Z~rekurentního vztahu \eqref{rov:Vodik17} můžeme dostat i vyjádření radiální části vlnové funkce $R_{nl}(\xi)$ ve tvaru
 \begin{equation}
@@ -167,7 +174,7 @@ kde
 \xi = \frac{2r}{n a_B}
 \label{rov:Vodik28}
 \end{equation}
-a $L_{n+l}^{2l+1}(\xi)$ jsou přidružené Laguerrovy polynomy. Normovací koeficient je roven
+a $L_{n+l}^{2l+1}(\xi)$ jsou tzv. \textbf{přidružené Laguerrovy polynomy}. Normovací koeficient je roven
 \begin{equation}
 N_{nl} = \left[ \left( \frac{2}{n a_B} \right)^3 \frac{(n-l-1)!}{2n[(n+l)!]^3}\right]^{1/2} \mbox{.}
 \label{rov:Vodik29}
@@ -183,14 +190,7 @@ a
 \begin{equation}
 R_{21}(r) = \left( \frac{1}{2a_B}\right) ^{3/2} \frac{r}{a_B \sqrt{3}} e^{-r/2a_B} \mbox{.}
 \end{equation}
-Funkce jsou zobrazeny na obrázku \ref{obr:RadialniFunkceVodik}.
-
-Celková vlnová funkce vázaných stavů atomu vodíku je součinem radiální části vlnové funkce a sférických harmonik
-\begin{equation}
-\psi_{nlm}(r,\theta,\psi) = R_{nl}(r)Y_l^m(\theta, \phi)
-\label{rov:Vodik30}
-\end{equation}
-a tvoří pro $n=1,2,3, \dots$, $l=0,\dots,n-1$ a$m=-l,\dots,+l$ úplný ortonormální systém funkcí, do kterého je možné rozvinout řešení nečasové Schrödingerovy rovnice pro vázané stavy.
+Funkce jsou zobrazeny na obrázku~\ref{obr:RadialniFunkceVodik}.
 
 Pravděpodobnost nalezení elektronu v~objemovém elementu $(r, r+ \mathrm{d}r)$, $(\theta,\theta+\mathrm{d}\theta)$ a $(\phi, \phi + \mathrm{d}\phi)$ je rovna
 \begin{equation}
@@ -202,7 +202,7 @@ Integrací vztahu \eqref{rov:Vodik31} přes celý prostorový úhel získáme pr
 \mathrm{d}p (r) = |R_{nl}(r)|^2 r^2 \mathrm{d}r \mbox{,}
 \label{rov:Vodik32}
 \end{equation}
-kde výraz $P_{nl}(r)=|R_{nl}(r)|^2 r^2$ označujeme jako radiální hustotu pravděpodobnosti. Obdobně pro pravděpodobnost nalezení elektronu v~určitém prostorovém úhlu $(\theta,\theta+\mathrm{d}\theta)$ a $(\phi, \phi + \mathrm{d}\phi)$ získáme vztah
+kde faktor $r^2 \sin \theta$ je Jakobián transformace z kartézských do sférických souřadnic. Výraz $P_{nl}(r)=|R_{nl}(r)|^2 r^2$ označujeme jako radiální hustotu pravděpodobnosti. Obdobně pro pravděpodobnost nalezení elektronu v~určitém prostorovém úhlu $(\theta,\theta+\mathrm{d}\theta)$ a $(\phi, \phi + \mathrm{d}\phi)$ získáme vztah
 \begin{equation}
 \mathrm{d}p (\theta, \phi) = |Y_{l}^m(\theta, \phi)|^2 \sin \theta \,\mathrm{d}\theta \mathrm{d}\phi \mbox{.}
 \end{equation}

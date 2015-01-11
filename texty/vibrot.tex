@@ -1,12 +1,14 @@
 Obecná molekula může konat translační, vibrační nebo rotační pohyby. V~této kapitole si ukážeme pouze nejjednodušší příklad, totiž popis vibrace a rotace dvouatomové molekuly.
 
-\noindent V~minulé kapitole jsme si ukázali Schrödingerovu rovnici pro jádra (\ref{rov:mol-jadschr}):
+\noindent V~minulé kapitole jsme si ukázali Schrödingerovu rovnici pro jádra (\ref{rov:mol-jadschr})
 
 \begin{displaymath}
-\left(\hat{T}_R+E_{el}^{(j)}\right)\chi_j = E \chi_j.
+\left(\hat{T}_R+E_{el}^{(j)}\right)\chi_j = E \chi_j,
 \end{displaymath}
 
-\noindent Pro zjednodušení budeme v~následujícím textu uvažovat platnost Bornovy-Oppenheimerovy aproximace a dále pouze základní elektronový stav molekuly:
+\noindent kde $E_{el}$ je elektronová energie jako funkce souřadnic atomového jádra, $\chi$ je vlnová funkce popisující pohyb atomových jader (tedy translaci, vibraci a~rotaci molekuly) a $E$ je celková energie molekuly zahrnující energii pohybu elektronu i jader.  Písmenem $j$ indexujeme elektronový stav.
+
+\noindent Pro zjednodušení budeme v~následujícím textu uvažovat platnost Bornovy-Oppenheimerovy aproximace a dále pouze základní elektronový stav molekuly
 
 \begin{displaymath}
 \left(\hat{T}_R+E_{el}\right)\chi_j = E \chi_j.
@@ -15,11 +17,11 @@ Obecná molekula může konat translační, vibrační nebo rotační pohyby. V~
 \noindent Jelikož uvažujeme dvouatomovou molekulu, bude elektronová energie $E_{el}$ pouze funkcí vzdálenosti dvou jader (označme je jako $\alpha$ a $\beta$)
 
 \begin{displaymath}
-E_{el}=E_{el}(\textbf{R}_{\alpha}-\textbf{R}_{\beta}),
+E_{el}=E_{el} \vert \textbf{R}_{\alpha}-\textbf{R}_{\beta}) \vert - E_{el}(\mathbf{R}),
 \end{displaymath} 
 
 \noindent ne na jejich orientaci.
-Dalším krokem v~našem výkladu by bylo přeformulování kinetické energie na kinetickou energii těžiště molekuly a kinetickou energii odpovídající relativnímu pohybu molekuly. Celý postup je popsán v~kapitole o~problému dvou částic. Zde si uvedeme pouze dvě konečné rovncice, ke kterým bychom se dostali:
+Dalším krokem při řešení Schr\"odingerovy rovnice pro pohyb jader je vyjádření kinetické energie na kinetickou energii těžiště molekuly a kinetickou energii odpovídající relativnímu pohybu molekuly. Celý postup je popsán v~kapitole o~problému dvou částic. Zde si uvedeme pouze dvě konečné rovncice, ke kterým bychom se dostali
 
 \begin{eqnarray}
 \hat{H}_{tr}\psi_{tr}(R)=E_{tr}\psi_{tr}(R)
@@ -29,7 +31,7 @@ Dalším krokem v~našem výkladu by bylo přeformulování kinetické energie n
 E=E_{tr}+E_{int},
 \end{eqnarray}
 
-\noindent přičemž první rovnice (\ref{vibrot:trans}) popisuje translaci molekuly jako celku a druhá (\ref{vibrot:vibrot}) její relativní pohyb, tedy vibraci nebo rotaci. Translaci jsme se  věnovali v~kapitole XX, nyní se v~dalším výkladu budeme věnovat vibracím a rotacím. Rovnici \ref{vibrot:vibrot} představující vnitřní problém si můžeme rozepsat následovně:
+\noindent přičemž platí první rovnice (\ref{vibrot:trans}) popisuje translaci molekuly jako celku a druhá (\ref{vibrot:vibrot}) její relativní pohyb, tedy vibraci nebo rotaci. Translaci jsme se  věnovali v~kapitole~\ref{kap:zakladniulohy}, nyní se v~dalším výkladu budeme věnovat vibracím a rotacím. Rovnici \ref{vibrot:vibrot} představující vnitřní problém si můžeme rozepsat následovně
 
 \begin{equation}
 \left[-\frac{\hbar^2}{2\mu}\Delta_{\textbf{r}}+E_{el}(r)\right]\psi_{int}=E_{int}\psi_{int}
@@ -43,7 +45,7 @@ Tato rovnice představuje molekulu v~centrálním potenciálu. Také centrální
 \psi_{int}(r,\theta,\psi)=R(r)Y^m_l(\theta,\psi).
 \end{equation}
 
-\noindent Takovouto vlnovou funkci můžeme dosadit do Schr\"odingerovy rovnice a posléze vydělit sférickým harmonikem, abychom dostali radiální Schr\"odingerovu rovnici:
+\noindent Takovouto vlnovou funkci můžeme dosadit do Schr\"odingerovy rovnice a posléze vydělit sférickými harmonickými funkcemi, abychom dostali radiální Schr\"odingerovu rovnici
 
 \begin{equation}
 -\frac{\hbar^2}{2\mu}\left(R''+\frac{2}{r}R'\right)+\frac{l\left(l+1\right)\hbar^2}{2\mu r^2}R+\hat{V}R=E_{int}R,
@@ -65,59 +67,59 @@ F(r)=rR(r)
 
 \begin{itemize}
 
-\item Nejprve použijeme Taylorův rozvoj do druhého řádu pro vyjádření elektronové energie:
+\item Nejprve použijeme Taylorův rozvoj do druhého řádu pro vyjádření elektronové energie
 
 \begin{equation}
-E_{el}\approx E_{el}(R_{ekv})+\left(\frac{dE_{el}}{dr}\right)(r-R_{ekv})+\frac{1}{2}\left(\frac{d^2E_{el}}{dr^2}\right)(r-R_{ekv})^2, 
+E_{el}\approx E_{el}(R_{eq})+\left(\frac{dE_{el}}{dr}\right)(r-R_{eq})+\frac{1}{2}\left(\frac{d^2E_{el}}{dr^2}\right)(r-R_{eq})^2, 
 \end{equation}
 
-\noindent kde první člen určuje pouze relativní hladinu energie, a proto si můžeme zvolit $E_{el}(R_{ekv})=0$. Druhý člen je nulový, protože se nacházíme v~minimu a teprve třetí člen bude nenulový. Zavedeme-li si substituci
+\noindent kde $R_{eq}$ je rovnovážná mezijaderná vzdálenost molekuly. První člen určuje pouze relativní hladinu energie, a proto si můžeme zvolit $E_{el}(R_{eq})=0$. Druhý člen je nulový, protože se nacházíme v~minimu (pro $R = R_{eq}$) a teprve třetí člen bude nenulový. Zavedeme-li si substituci
 
 \begin{eqnarray}
 k=\left(\frac{d^2E_{el}}{dr^2}\right)\nonumber \\
-x=r-R_{ekv}\nonumber,
+x=r-R_{eq}\nonumber,
 \end{eqnarray}
 
-\noindent můžeme Taylorův rozvoj energie přepsat na následující tvar:
+\noindent můžeme Taylorův rozvoj energie přepsat do následujícího tvaru
 
 \begin{equation}
-E_{el}\approx\frac{1}{2}\left(\frac{d^2E_{el}}{dr^2}\right)(r-R_{ekv})^2=\frac{1}{2}kx^2.
+E_{el}\approx\frac{1}{2}\left(\frac{d^2E_{el}}{dr^2}\right)(r-R_{eq})^2=\frac{1}{2}kx^2.
 \end{equation}
 
-\item Dále bychom si udělali Taylorův rozvoj ještě pro druhý člen v~závorce rovnice \ref{vibrot:vibrot3}:
+\item Dále uděláme Taylorův rozvoj ještě pro druhý člen v~závorce rovnice \ref{vibrot:vibrot3}
 
 \begin{equation}
 \left(\frac{l\left(l+1\right)\hbar^2}{2\mu}\right)\frac{1}{r^2} =
 \left(\frac{l\left(l+1\right)\hbar^2}{2\mu}\right)
-\left[\frac{1}{R_{ekv}^2}
--\frac{2}{R_{ekv}^3}(r-R_{ekv})
-+\frac{3}{R_{ekv}^4}(r-R_{ekv})^2+...
+\left[\frac{1}{R_{eq}^2}
+-\frac{2}{R_{eq}^3}(r-R_{eq})
++\frac{3}{R_{eq}^4}(r-R_{eq})^2+...
 \right],
 \end{equation}
-ze kterého budeme v~tomto případě uvažovat pouze nultý člen:
+ze kterého budeme v~tomto případě uvažovat pouze nultý člen
 \begin{equation}
-\left(\frac{l\left(l+1\right)\hbar^2}{2\mu}\right)\frac{1}{r^2} \approx \left(\frac{l\left(l+1\right)\hbar^2}{2\mu}\right)\frac{1}{R_{ekv}^2}
+\left(\frac{l\left(l+1\right)\hbar^2}{2\mu}\right)\frac{1}{r^2} \approx \left(\frac{l\left(l+1\right)\hbar^2}{2\mu}\right)\frac{1}{R_{eq}^2}
 \end{equation}
 \end{itemize}
 
 Uvažujeme-li tyto dvě aproximace, rovnice \ref{vibrot:vibrot3} přejde na 
 
 \begin{equation}
--\frac{\hbar^2}{2\mu}F''+\left[\frac{1}{2}kx^2+\frac{l\left(l+1\right)\hbar^2}{2\mu R_{ekv}^2}\right]F=E_{int}F 
+-\frac{\hbar^2}{2\mu}F''+\left[\frac{1}{2}kx^2+\frac{l\left(l+1\right)\hbar^2}{2\mu R_{eq}^2}\right]F=E_{int}F 
 \label{vibrot:vibrot4}
 \end{equation}
 
 \noindent a po změně pořadí členů na 
 
 \begin{equation}
--\frac{\hbar^2}{2\mu}F''+\frac{1}{2}kx^2F=\left(E_{int}-\frac{l\left(l+1\right)\hbar^2}{2\mu R_{ekv}^2}\right)F. 
+-\frac{\hbar^2}{2\mu}F''+\frac{1}{2}kx^2F=\left(E_{int}-\frac{l\left(l+1\right)\hbar^2}{2\mu R_{eq}^2}\right)F. 
 \label{vibrot:vibrot5}
 \end{equation}
 
 \noindent Poslední rovnice je rovnicí pro jednodimenzionální harmonický oscilátor. Přepišme si ji ještě zavedením
 
 \begin{displaymath}
-E'=E_{int}-\frac{l\left(l+1\right)\hbar^2}{2\mu R_{ekv}^2}
+E'=E_{int}-\frac{l\left(l+1\right)\hbar^2}{2\mu R_{eq}^2}
 \end{displaymath}
 
 \noindent na
@@ -127,7 +129,7 @@ E'=E_{int}-\frac{l\left(l+1\right)\hbar^2}{2\mu R_{ekv}^2}
 \label{vibrot:vibrot6}
 \end{equation}
 
-Protože víme, jak vypadá energie harmonického oscilátoru, můžeme dále psát
+Energii harmonického oscilátoru známe a můžeme tedy dále psát
 
 \begin{equation}
 E'=\left(n+\frac{1}{2}\right)h\nu,
@@ -136,18 +138,18 @@ E'=\left(n+\frac{1}{2}\right)h\nu,
 \noindent kde $\nu=\frac{1}{2\pi}\sqrt[]{\frac{k}{\mu}}$. Při uvažování těchto vztahů dostaneme konečný vztah pro vnitřní energii, tedy
 
 \begin{equation}
-E_{int}\approx \left(n+\frac{1}{2}\right) h\nu+\frac{\hbar^2l(l+1)}{2\mu R_{ekv}^2}.
+\boxed{E_{int}\approx \left(n+\frac{1}{2}\right) h\nu+\frac{\hbar^2l(l+1)}{2\mu R_{eq}^2}.}
 \end{equation}
 
 \noindent Dva členy v~poslední rovnici zastupují harmonický oscilátor (vibrace) a tuhý rotor (rotace). 
 
-\noindent V~průběhu odvození jsme použili aproximací harmonického oscilátoru a tuhého rotoru. Obě aproximace mají své limity. Harmonický oscilátor např. předpokládá, že vibrační hladiny jsou ekvidistantní a nedokáže také popsat disociaci vazby. Místo harmonického oscilátoru je možné použít oscilátoru Morseova
+\noindent V~průběhu odvození jsme použili \textbf{aproximací harmonického oscilátoru} a \textbf{tuhého rotoru}. Obě aproximace mají své limity. Harmonický oscilátor např. předpokládá, že vibrační hladiny jsou ekvidistantní a nedokáže také popsat disociaci vazby. Místo harmonického oscilátoru je možné použít oscilátoru Morseova
 
 \begin{equation}
-E_{el}=D_e\left[1-e^{a(r-R_{ekv})}\right],
+E_{el}=D_e\left[1-e^{a(r-R_{eq})}\right],
 \end{equation}
 
-\noindent který už pracuje s~disociací vazby (disociační energie je $D_e$ a $a$ parametr vztahující se k~šířce potenciálu, $a=\sqrt[]{\frac{k}{2D_e}}$).
+\noindent který už uvažuje s~disociací vazby (disociační energie je $D_e$ a $a$ parametr vztahující se k~šířce potenciálu, $a=\sqrt[]{\frac{k}{2D_e}}$).
 \noindent Pokud bychom chtěli vibrace a rotace popsat ještě přesněji, bylo by třeba uvažovat Coriolisovy interakce, tedy skutečnost, že vibrační a rotační pohyb není nezávislý.
 
 

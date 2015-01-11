@@ -1,18 +1,18 @@
-V~této kapitole se ve stručnosti podíváme na základní matematický aparát, se kterým se setkáme v~kvantové mechanice. Klasická mechanika popisuje stav každé částice pomocí šestice proměnných -- tří souřadnic a tří s~ní spojených hybností. Tato šestice vytváří bod v~tzv. fázovém prostoru. Naproti tomu kvantová mechanika popisuje stav systému (např. částice) pomocí vlnové funkce $\psi(x,y,z,t)$, která je funkcí souřadnic a času. Obecně jde o~funkci komplexní a  proto si nejprve stručně připomeneme základní pravidla práce s~komplexními čísly (viz kapitola \ref{kap:KomplexniCisla}).
+V~této kapitole se ve stručnosti podíváme na základní matematický aparát, se kterým se setkáme v~kvantové mechanice. Klasická mechanika popisuje stav každé částice pomocí šestice proměnných -- tří souřadnic a tří s~ní spojených hybností. Tato šestice vytváří bod v~tzv. fázovém prostoru. Naproti tomu kvantová mechanika popisuje stav systému (např. částice) pomocí vlnové funkce $\psi(x,y,z,t)$, která je funkcí souřadnic a času. Obecně jde o~funkci komplexní, a~proto si nejprve stručně připomeneme základní pravidla práce s~komplexními čísly (viz kapitola \ref{kap:KomplexniCisla}).
 
 V~kvantové mechanice každé měřitelné veličině přiřazujeme operátor. Hodnoty, jichž může měřená veličina nabývat, získáme jako vlastní čísla daného operátoru. Většina úloh v~kvantové mechanice vede na řešení vlastního problému daného operátoru. Proto se seznámíme s~potřebnými partiemi lineární algebry, jako jsou lineární prostor, operátor, vlastní funkce, vlastní číslo atd. (viz kapitola \ref{kap:Operatory}).
 
 \subsection{Komplexní čísla}
 \label{kap:KomplexniCisla}
 
-Jako komplexní číslo $Z$ označujeme uspořádanou dvojici reálných čísel $a_1$ a $a_2$. Komplexní číslo $Z = (a_1, a_2)$ nejčastěji zapisujeme v~tzv. algebraickém tvaru $Z = a_1 + i a_2$, kde $i$ je imaginární jednotka, pro kterou platí $i^2 = -1$. Pro imaginární jednotku můžeme psát $i = \sqrt{-1}$, byť to není matematicky zcela korektní, protože druhá odmocnina ze záporného čísla není definována. Číslo $a_1$ je reálná část komplexního čísla $Z$, kterou značíme $\mathbf{Re}\, Z$. Číslo $a_2$ je imaginární část komplexního čísla $Z$, kterou značíme $\mathbf{Im} \, Z$. Všechna komplexní čísla $Z$ tvoří množinu komplexních čísel $\mathbb{C}$, proto můžeme psát $Z \in {\mathbb{C}}$.
+Jako komplexní číslo $Z$ označujeme uspořádanou dvojici reálných čísel $a_1$ a $a_2$. Komplexní číslo $Z = (a_1, a_2)$ nejčastěji zapisujeme v~tzv. algebraickém tvaru $Z = a_1 + i a_2$, kde $i$ je imaginární jednotka, pro kterou platí $i^2 = -1$. Imaginární jednotku definujeme vztahem $i = \sqrt{-1}$. Číslo $a_1$ je reálná část komplexního čísla $Z$, kterou značíme $\mathbf{Re}\, Z$. Číslo $a_2$ je imaginární část komplexního čísla $Z$, kterou značíme $\mathbf{Im} \, Z$. Všechna komplexní čísla $Z$ tvoří množinu komplexních čísel $\mathbb{C}$, proto můžeme psát $Z \in {\mathbb{C}}$.
 
 Z~algebraického tvaru komplexního čísla $Z$ vidíme, že reálná čísla tvoří podmnožinu komplexních čísel a to takových, že pro ně platí $R \equiv Z = a_1 + 0i$, neboli reálné číslo je komplexní číslo ve tvaru $R = (a_1, 0)$. Z~tohoto důvodu platí, že množina reálných čísel $\mathbb{R}$ je podmnožinou komplexních čísel $\mathbb{C}$, což symbolicky zapíšeme jako $\mathbb{R}\subset \mathbb{C}$. Na druhou stranu komplexní číslo, jehož reálná část je rovna nule $J=(0,a_2)$, kde $a_2 \not = 0$ označujeme jako ryze imaginární číslo.
 
-Komplexní čísla můžeme zobrazit jako body v~komplexní rovině, kde kartézskou osu $x$ označujeme jako osu reálných čísel $\mathbf{Re}$ a kartézskou osu $y$ označujeme jako osu ryze imaginární čísel $\mathbf{Im}$ (viz obr.~\ref{obr:RovinaKomplexnichCisel}).
+Komplexní čísla můžeme zobrazit jako body v~komplexní rovině, kde kartézskou osu $x$ označujeme jako osu reálných čísel $\mathbf{Re}$ a kartézskou osu $y$ označujeme jako osu ryze imaginární čísel $\mathbf{Im}$ (viz obrázek~\ref{obr:RovinaKomplexnichCisel}).
 \begin{figure} [ht]
 \centering
-\includegraphics[scale=1]{KomplexniRovina.pdf}
+\includegraphics[scale=1]{KomplexniRovina.eps}
 \caption[Komplexní rovina]{Znázornění komplexní roviny s~vyznačením komplexních čísel. Dále jsou demonstrovány základní operace s~komplexními čísly -- komplexní sdružení a~absolutní hodnota (modul) komplexního čísla.}
 \label{obr:RovinaKomplexnichCisel}
 \end{figure}
@@ -24,7 +24,7 @@ Protože komplexní čísla tvoří komplexní rovinu, není možné je uspořá
 \end{equation}
 Absolutní hodnota komplexního čísla je reálné nezáporné číslo a platí, že $|Z| = 0$ právě tehdy, když $Z = 0$. Komplexní čísla, která mají stejnou absolutní hodnotu, leží na kružnici o~poloměru $r = |Z|$ s~počátkem ve středu souřadného systému (v~obrázku \ref{obr:RovinaKomplexnichCisel} vyznačena červeně).
 
-Pro komplexní čísla definujeme stejně jako pro čísla reálná tyto operace: sčítání, odčítání, násobení a dělení. Všechny operace zde pro úplnost shrneme. Mějme dvě komplexní čísla $Z_1 = a_1 + ia_2$ a $Z_2=b_1 + ib_2$ zapsaná pro jednoduchost v~algebraickém tvaru.
+Pro komplexní čísla definujeme stejně jako pro čísla reálná tyto operace: sčítání, odčítání, násobení a dělení. Všechny operace zde pro úplnost shrneme. Mějme dvě komplexní čísla $Z_1 = \nobreak a_1 + ia_2$ a $Z_2=b_1 + ib_2$ zapsaná pro jednoduchost v~algebraickém tvaru.
 \begin{enumerate}
 \item Při sčítání (odčítání) sčítáme (odčítáme) zvlášť reálnou část a zvlášť imaginární část komplexních čísel.
 \begin{equation}
@@ -52,7 +52,7 @@ nebo podobně v~algebraickém tvaru
 \begin{equation}
 Z^\ast = (a_1 + ia_2)^\ast = a_1 - ia_2 \mbox{.}
 \end{equation}
-Geometrická interpretace komplexního sdružení je následující. Komplexně sdružené číslo $Z^\ast$ je osově souměrné ke komplexnímu číslu $Z$ podle osy reálných čísel $\mathbf{Re}$. Na obrázku \ref{obr:RovinaKomplexnichCisel} je komplexně sdruženo číslo $Z_1$. Vynásobíme-li komplexní číslo s~číslem k~němu komplexně sdruženým, dostaneme kvadrát absolutní hodnoty komplexního čísla, protože
+Geometrická interpretace komplexního sdružení je následující. Komplexně sdružené číslo $Z^\ast$ je osově souměrné ke komplexnímu číslu $Z$ podle osy reálných čísel $\mathbf{Re}$. Na obrázku~\ref{obr:RovinaKomplexnichCisel} je komplexně sdruženo číslo $Z_1$. Vynásobíme-li komplexní číslo s~číslem k~němu komplexně sdruženým, dostaneme kvadrát absolutní hodnoty komplexního čísla, protože
 \begin{displaymath}
 Z \cdot Z^\ast = (a_1, a_2) \cdot (a_1, a_2)^\ast = (a_1, a_2) \cdot (a_1, -a_2) = (a_1^2 + a_2^2, a_1a_2 - a_1a_2) = (a_1^2 + a_2^2, 0) = |Z|^2 \mbox{,}
 \end{displaymath}
@@ -80,17 +80,17 @@ Z = a_1 + ia_2 = |Z| \cos \theta + i (|Z| \sin \theta)
 Z = |Z| (\cos \theta + i\sin \theta) \mbox{.}
 \label{rov:KomplexniCisloGoniomTvar}
 \end{equation}
-Pro větší názornost je odvození goniometrického tvaru komplexního čísla daného vztahem (\ref{rov:KomplexniCisloGoniomTvar}) graficky znázorněno na obrázku  \ref{obr:GoniometrickyTvar}.
+Pro větší názornost je odvození goniometrického tvaru komplexního čísla daného vztahem (\ref{rov:KomplexniCisloGoniomTvar}) graficky znázorněno na obrázku~\ref{obr:GoniometrickyTvar}.
 \begin{figure} [ht]
 \centering
-\includegraphics[scale=1]{GoniomTvar.pdf}
+\includegraphics[scale=1]{GoniomTvar.eps}
 \caption[Goniometrický tvar komplexního čísla]{K~odvození zápisu komplexního čísla v~goniometrickém tvaru.}
 \label{obr:GoniometrickyTvar}
 \end{figure}
 
 V~kvantové mechanice se nám bude často hodit tzv. Eulerova identita
 \begin{equation}
- e^{i \theta} = \cos \theta + i \sin \theta \mbox{,}
+\boxed{e^{i \theta} = \cos \theta + i \sin \theta \mbox{,}}
 \label{rov:EulerovaIdentita}
 \end{equation}
 která je základem komplexní analýzy, oboru matematiky studujícím funkce komplexní proměnné. Pro zájemce nyní dodáváme její odvození. Nejprve si připomeneme Taylorovu rozvoj funkce $e^{x}$ okolo bodu $x_0 = 0$. Hledaná Taylorova řada je
@@ -140,7 +140,7 @@ Zapíšeme-li komplexní číslo v~exponenciálním tvaru, je intuitivní defino
 Z^n = |Z|^n e^{in\theta} \mbox{,}
 \label{rov:MocninaKomplexnihoCisla}
 \end{equation}
-což je hledaná n-tá mocnina komplexního čísla $Z$. Dosazením Eulerovy identity (\ref{rov:EulerovaIdentita}) do rovnice (\ref{rov:MocninaKomplexnihoCisla}) můžeme odvodit známou Moivreovu větu
+což je hledaná $n$-tá mocnina komplexního čísla $Z$. Dosazením Eulerovy identity (\ref{rov:EulerovaIdentita}) do rovnice (\ref{rov:MocninaKomplexnihoCisla}) můžeme odvodit známou Moivreovu větu
 \begin{equation}
 (e^{i\theta})^n = e^{i n \theta} \quad \mbox{tj.} \quad (\cos \theta + i \sin \theta )^n = \cos n\theta + i \sin n\theta \mbox{.}
 \label{rov:MoivreovaVeta}
@@ -227,7 +227,7 @@ V~obecném případě pohybu částice v~třírozměrném prostoru má Hamilton�
 \hat{H} \equiv \left( -\frac{\hbar^2}{2m}\Delta + V(x) \right) \mbox{,}
 \label{rov:Hamiltonian3D}
 \end{equation}
-kde symbol $\Delta$ zastupuje Laplaceův operátor, který je druhou mocninou operátoru nabla $\Delta = \nabla^2$  a v~kartézských souřadnicích má tvar
+kde symbol $\Delta$ představuje Laplaceův operátor, který je druhou mocninou operátoru nabla $\Delta = \nabla^2$  a v~kartézských souřadnicích má tvar
 \begin{equation}
 \Delta = \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2} \mbox{.}
 \label{rov:LaplaceuvOperator}
@@ -256,14 +256,14 @@ Vraťme se ještě jednou k~rovnici \eqref{rov:SCHR-operator}, ta je totiž spec
 \boxed{\hat{O} f = \lambda f}
 \label{rov:VlastniProblem}
 \end{equation}
-se označuje jako vlastní problém operátoru $\hat{O}$. Funkci $f$ pak nazýváme vlastní funkce operátoru $\hat{O}$ s~vlastním číslem $\lambda$. Jinak řečeno vlastní funkce $f$ operátoru $\hat{O}$ je taková funkce, že působí-li na ni operátor $\hat{O}$, pak výsledkem tohoto působení je funkce $f$ vynásobená číslem $\lambda$. V~případě rovnice \eqref{rov:SCHR-operator} je vlastní funkcí operátoru $\hat{H}$ vlnová funkce $\Psi(x)$ s~vlastním číslem $E$, celková energie systému. Vlastní problém operátoru má ústřední postavení v~kvantové mechanice, protože řešení většiny úloh znamená hledání vlastních čísel a vlastních funkcí příslušného operátoru. 
+se označuje jako \textbf{vlastní problém operátoru} $\hat{O}$. Funkci $f$ pak nazýváme \textbf{vlastní funkce} operátoru $\hat{O}$ s~vlastním číslem $\lambda$. Jinak řečeno vlastní funkce $f$ operátoru $\hat{O}$ je taková funkce, že působí-li na ni operátor $\hat{O}$, pak výsledkem tohoto působení je funkce $f$ vynásobená číslem $\lambda$. V~případě rovnice \eqref{rov:SCHR-operator} je vlastní funkcí operátoru $\hat{H}$ vlnová funkce $\Psi(x)$ s~vlastním číslem $E$, celková energie systému. Vlastní problém operátoru má ústřední postavení v~kvantové mechanice, protože řešení většiny úloh znamená hledání vlastních čísel a vlastních funkcí příslušného operátoru. 
 
 
 
 \subsubsection{Operace s~operátory}
 \label{kap:OperaceSOperatory}
 
-Podobně jako funkce můžeme mezi sebou sčítat, násobit, dělit atd. definujeme tyto operace i pro počítání s~operátory. Vyjdeme ze vztahu (\ref{rov:Operator}), který definuje působení operátoru na funkci $f$ a ve stručnosti si představíme základní operace s~operátory.
+Podobně jako funkce můžeme mezi sebou sčítat, násobit, dělit atd. definujeme tyto operace i~pro počítání s~operátory. Vyjdeme ze vztahu (\ref{rov:Operator}), který definuje působení operátoru na funkci $f$ a ve stručnosti si představíme základní operace s~operátory.
 
 Součtem dvou operátorů budeme rozumět operátor
 \begin{equation}
@@ -291,7 +291,7 @@ Stejně jako v~případě násobení čísel figuruje číslo $1$ jako jednotkov
 \label{rov:JednotkovyOperator}
 \end{equation}
 
-Pomocí definice násobení operátorů (\ref{rov:SoucinOperatoru1}) můžeme definovat kvadrát operátoru
+\noindent Pomocí definice násobení operátorů (\ref{rov:SoucinOperatoru1}) můžeme definovat druhá mocnina operátoru
 \begin{equation}
 \hat{A}^2 = \hat{A}\hat{A} \mbox{.}
 \label{rov:KvadratOperatoru} 
@@ -307,7 +307,7 @@ Obecně platí, že násobení operátorů (\ref{rov:SoucinOperatoru1}) není ko
 \hat{A}\hat{B} = \hat{B}\hat{A} \mbox{.}
 \label{rov:KomutativnostOperatoru}
 \end{equation}
-Abychom mohli vyšetřovat komutativnost operátorů, zavádí se nový operátor -- komutátor
+Abychom mohli vyšetřovat komutativnost operátorů, zavádí se nový operátor -- \textbf{komutátor}
 \begin{equation}
 \boxed{[\hat{A},\hat{B}] \equiv \hat{A}\hat{B}-\hat{B}\hat{A} \mbox{.}}
 \label{rov:KomutatorOperatoru}
@@ -354,12 +354,12 @@ kde poslední rovnost je splněna tehdy, když funkce $f$ má spojité všechny 
 Vidíme, že výsledkem působení komutátoru je nulový operátor, proto můžeme uzavřít, že operátory $\hat{A}$ a $\hat{B}$ spolu komutují.
 \end{priklad}
 
-Z~definice komutátoru (\ref{rov:KomutatorOperatoru}) vyplývají tři důležité vlastnosti komutátorů. První (antisymetrie)
+Z~definice komutátoru (\ref{rov:KomutatorOperatoru}) vyplývají tři důležité vlastnosti komutátorů. První vlastností je \textbf{antisymetrie}
 \begin{equation}
-[\hat{A},\hat{B}] = -[\hat{B},\hat{A}]
+[\hat{A},\hat{B}] = -[\hat{B},\hat{A}],
 \label{rov:VlastnostKomutatoru1}
 \end{equation}
-se týká toho, že záleží na pořadí operátorů v~komutátoru. To souvisí s~tím, že operátory obecně nekomutují. Například platí
+která se týká toho, že záleží na pořadí operátorů v~komutátoru. To souvisí s~tím, že operátory obecně nekomutují. Například platí
 \begin{equation}
 [\hat{r},\hat{p}]= i \hbar,
 \nonumber
@@ -369,12 +369,12 @@ ale
 [\hat{p},\hat{r}]= - i \hbar.
 \nonumber
 \end{equation}
-Druhou vlastností je linearita v~druhém argumentu
+Druhou vlastností je \textbf{linearita} v~druhém argumentu
 \begin{equation}
 [\hat{A},\hat{B}+\hat{C}] = [\hat{A},\hat{B}] + [\hat{A},\hat{C}].
 \label{rov:VlastnostKomutatoru2}
 \end{equation}
-Ta souvisí s~tím, že komutátor je lineární operátor (viz další kapitola \ref{kap:OperatorySpecifickychVlastnosti}). Třetí vlastnost (linearita)
+Ta souvisí s~tím, že komutátor je lineární operátor (viz další kapitola \ref{kap:OperatorySpecifickychVlastnosti}). Třetí vlastnost
 \begin{equation}
 [\alpha \cdot \hat{A},\hat{B}] = \alpha \cdot [\hat{A},\hat{B}]
 \label{rov:VlastnostKomutatoru3}
@@ -411,7 +411,7 @@ což je výsledek, který jsme chtěli ukázat. Důkaz tvrzení je tak proveden.
 \subsubsection{Prostory funkcí a Hilbertův prostor}
 \label{kap:ProstoryFunkci}
 
-Matematické objekty jako funkce nebo operátory jsou definovány na určitém prostoru $\mathcal{V}$. Prostor je v~matematice definován jako množina prvků, s~kterými je možné provádět jisté operace. Ze základního kurzu matematiky znáte lineární vektorový prostor $\mathcal{V}$ s~dvěma operacemi, sčítáním $+$ a násobením číslem $\cdot$, kde prvky prostoru jsou vektory, neboli uspořádané N-tice čísel.
+Matematické objekty jako funkce nebo operátory jsou definovány na určitém prostoru $\mathcal{V}$. Prostor je v~matematice definován jako množina prvků, s~kterými je možné provádět jisté operace. Ze základního kurzu matematiky znáte lineární vektorový prostor $\mathcal{V}$ s~dvěma operacemi, sčítáním $+$ a násobením číslem $\cdot$, kde prvky prostoru jsou vektory, neboli uspořádané $N$-tice čísel.
 
 Omezme se nyní v~našich úvahách na lineární vektorový prostor $\mathbb{R}^3$, který můžeme chápat jako 3D eukleidovský prostor. Pak libovolný vektor $\mathbf{v} = (v_1, v_2, v_3)$ můžeme pravoúhle promítnout do tří souřadných os, neboli reprezentovat tento vektor pomocí souboru vektorů souřadných os $e_1 = (1, 0, 0)$, $e_2 = (0, 1, 0)$ a $e_3 = (0, 0, 1)$.
 
@@ -444,7 +444,7 @@ kde funkce $\varphi_i$ tvoří úplný soubor funkcí $\{\varphi_i\}$ a $c_i$ js
 
 V~kvantové mechanice je ústředním funkčním prostorem Hilbertův prostor, jehož prvky jsou kvadraticky integrovatelné komplexní funkce  splňující
 \begin{equation}
-\int_{-\infty}^{\infty} |f(x)|^2 \,\mathrm{d}x < \infty
+\boxed{\int_{-\infty}^{\infty} |f(x)|^2 \,\mathrm{d}x < \infty}
 \label{rov:KvandarickaIntegrovatelnost}
 \end{equation} 
 a dále je na tomto prostoru definována další vlastnost, skalární součin dvou funkcí
@@ -452,7 +452,7 @@ a dále je na tomto prostoru definována další vlastnost, skalární součin d
 \boxed{\braket{f|g} \equiv \int_{-\infty}^{\infty} f^{\ast}(x) g(x) \mathrm{d}x,}
 \label{rov:SkalarniSoucinFci}
 \end{equation}
-kde $^{\ast}$ značí komplexně sdruženou funkci. Zápis skalárního součinu ve tvaru $\braket{f|g}$, kde symbol $\bra{f}$ označovaný jako bra-vektor znamená komplexně sdruženou funkci $f^{\ast}$, symbol $\ket{g}$ označovaný jako ket-vektor znamená funkci $g$ a celý uzavřený symbol neboli braket chápeme jako integraci součinu funkcí $f^{\ast}g$, pochází od britského teoretického fyzika P.\,A.\,M.\,Diraca. Tato tzv. braketová notace se v~kvantové mechanice hojně využívá pro svou eleganci a úsporné zkrácení zápisu, který by byl jinak velmi složitý.
+kde $^{\ast}$ značí komplexně sdruženou funkci. Zápis skalárního součinu ve tvaru $\braket{f|g}$, kde symbol $\bra{f}$ označovaný jako bra-vektor znamená komplexně sdruženou funkci $f^{\ast}$, symbol $\ket{g}$ označovaný jako ket-vektor znamená funkci $g$ a celý uzavřený symbol neboli braket chápeme jako integraci součinu funkcí $f^{\ast}g$, pochází od britského teoretického fyzika P.\,A.\,M.\,Diraca. Tato tzv. braketová notace se v~kvantové mechanice hojně využívá pro svou eleganci a úsporné zkrácení zápisu, který by byl jinak velmi složitý. V našem textu se této notaci spíše vyhýbáme.
 
 
 
@@ -468,7 +468,7 @@ kde $\alpha$ a $\beta$ jsou obecně komplexní čísla.
 
 Nejdůležitější operátory kvantové mechaniky jsou tzv. Hermitovy operátory $\hat{H}$ definované tak, že působí stejně na obou stranách skalárního součinu \eqref{rov:SkalarniSoucinFci}
 \begin{equation}
-\boxed{\int f^{\ast} \hat{H} g \,\mathrm{d}x = \int \hat{H}^{\ast} f^{\ast} g \,\mathrm{d}x,}
+\boxed{\int f^{\ast} \hat{H} g \,\mathrm{d}x = \int g \hat{H}^{\ast} f^{\ast} \,\mathrm{d}x,}
 \label{rov:DefiniceHermitovaOperatoru}
 \end{equation}
 což můžeme v~braketové notaci zapsat jako
@@ -476,7 +476,7 @@ což můžeme v~braketové notaci zapsat jako
 \braket{\hat{H}f|g} = \braket{f|\hat{H}g} \mbox{.}
 \nonumber
 \end{equation}
-Z~definiční rovnice \eqref{rov:DefiniceHermitovaOperatoru} Hermitova operátoru vyplývá, že sdružený operátor se rovná původnímu operátoru
+Z~definiční rovnice \eqref{rov:DefiniceHermitovaOperatoru} Hermitova operátoru vyplývá, že
 \begin{equation}
 \hat{H}^{\ast} = \hat{H} \mbox{.}
 \nonumber
@@ -535,7 +535,7 @@ Dále ukážeme, že vlastní funkce hermitovského operátoru příslušející
 \boxed{\int_{-\infty}^{\infty} f_j^\ast f_i \,\mathrm{d}x = \delta_{ij},}
 \label{rov:OrtogonalniVlastniFunkce}
 \end{equation}
-kde symbol $\delta_{ij}$ značí Kroneckerovo delta, které nabývá hodnoty $1$, když $i=j$ a hodnoty $0$, když $i \not = j$. Pomocí braketové symboliky můžeme vztah \eqref{rov:OrtogonalniVlastniFunkce} zapsat elegantně ve tvaru
+kde symbol $\delta_{ij}$ značí Kroneckerovo delta, které nabývá hodnoty $1$, když $i=j$ a hodnoty $0$, když $i \not = j$. Pomocí braketové symboliky můžeme vztah \eqref{rov:OrtogonalniVlastniFunkce} zapsat ve tvaru
 \begin{equation}
 \braket{f_i|f_j} = \delta_{ij}.
 \nonumber
@@ -602,9 +602,9 @@ kde integrace se provádí přes celý dostupný prostor. V~duchu braketové not
 \nonumber
 \end{equation}
 
-Jestliže vlnová funkce $\psi$ je vlastní funkcí hermitovského operátoru $\hat{A}$ s~vlastním číslem $a$ pak
+Jestliže vlnová funkce $\psi$ je vlastní funkcí hermitovského operátoru $\hat{A}$ s~vlastním číslem $a$~pak
 \begin{equation}
-\bar{A} = \braket{\psi|\hat{A}\psi} = \braket{\psi|a\psi} = a \braket{\psi|\psi}=a \mbox{.}
+\bar{A} = \int \psi^{\ast} \hat{A} \psi \,\mathrm{d}x = \int \psi^{\ast} a \psi \,\mathrm{d}x = a \int \psi^{\ast} \psi \,\mathrm{d}x.
 \label{rov:MerenaHodnota1}
 \end{equation}
 Výsledek (\ref{rov:MerenaHodnota1}) můžeme interpretovat následovně. Připravíme-li systém tak, že je charakterizovaný vlnovou funkcí, která je vlastní funkcí příslušného operátoru $\hat{A}$, poskytne opakované měření veličiny příslušné k~operátoru $\hat{A}$ vždy stejnou hodnotu fyzikální veličiny -- vlastní číslo~$a$.

@@ -128,23 +128,23 @@ a
 \end{equation}
 
 %odvozeni vztahu pro vlastni cisla operatoru momentu hybnosti
-Nyní si odvodíme relace \eqref{rov:VlastniProblemKvadratu} a \eqref{rov:VlastniProblemZslozka}. Vraťme se zpět k~rovnici (\ref{rov:Hybnost14}) a zapišme si vlastní problémy příslušných operátorů
+Pro zájemce nyní odvodíme relace \eqref{rov:VlastniProblemKvadratu} a \eqref{rov:VlastniProblemZslozka}. Vraťme se zpět k~rovnici (\ref{rov:Hybnost14}) a zapišme si vlastní problémy příslušných operátorů
 \begin{equation}
-\hat{L^2}\ket{lm} = \lambda_l \ket{lm}
+\hat{L^2} Y_l^m = \lambda_l Y_l^m
 \tag{O-\theOdvozeni}\stepcounter{Odvozeni}
 \label{rov:Odvozeni1}
 \end{equation}
 a
 \begin{equation}
-\hat{L_z}\ket{lm} = m \ket{lm} \mbox{,}
+\hat{L_z}Y_l^m = m Y_l^m \mbox{,}
 \tag{O-\theOdvozeni}\stepcounter{Odvozeni}
 \label{rov:Odvozeni2}
 \end{equation}
-kde $\ket{lm}$ je v~braketové notaci zapsaná vlastní funkce operátorů $\hat{L^2}$ a~$\hat{L_z}$. Abychom si při odvození usnadnili zápis vztahů, předpokládáme, že pracujeme v~takové soustavě jednotek, kde můžeme položit $\hbar=1$.
+kde $Y_l^m$ je vlastní funkce operátorů $\hat{L^2}$ a~$\hat{L_z}$. Abychom si při odvození usnadnili zápis vztahů, předpokládáme, že pracujeme v~takové soustavě jednotek, kde můžeme položit $\hbar=1$.
 
 Naším cílem je odvodit výrazy pro vlastní čísla $\lambda_l$ a $m$. Zaveďme nový operátor $\hat{L_x^2} + \hat{L_y^2} = \hat{L^2}-\hat{L_z^2}$, který vznikne přepsáním operátoru kvadrátu momentu hybnosti (\ref{rov:Hybnost11}). Pak s~využitím vztahů \eqref{rov:Odvozeni1} a \eqref{rov:Odvozeni2} dostaneme
 \begin{equation}
-(\hat{L_x^2} + \hat{L_y^2}) \ket{lm} = (\lambda_l - m^2) \ket{lm} \mbox{.}
+(\hat{L_x^2} + \hat{L_y^2}) Y_l^m = (\lambda_l - m^2) Y_l^m \mbox{.}
 \tag{O-\theOdvozeni}\stepcounter{Odvozeni}
 \label{rov:Odvozeni3}
 \end{equation}
@@ -164,15 +164,15 @@ Aplikací rovnic (\ref{rov:Hybnost10}) a (\ref{rov:Hybnost14}) odvodíme přísl
 \end{equation}
 
 
-Necháme-li působit operátor $\hat{L_{\pm}}$ na stav $\ket{lm}$ dostaneme
+Necháme-li působit operátor $\hat{L_{\pm}}$ na stav $Y_l^m$ dostaneme
 \begin{equation}
-\hat{L^2}\hat{L_{\pm}} \ket{lm} \stackrel {a}{=} \hat{L_{\pm}}\hat{L^2}\ket{lm} = \lambda_l \hat{L_{\pm}} \ket{lm}
+\hat{L^2}\hat{L_{\pm}} Y_l^m \stackrel {a}{=} \hat{L_{\pm}}\hat{L^2} Y_l^m = \lambda_l \hat{L_{\pm}} Y_l^m
 \tag{O-\theOdvozeni}\stepcounter{Odvozeni}
 \label{rov:Odvozeni6}
 \end{equation}
 a
 \begin{equation}
-\hat{L_z}\hat{L_{\pm}} \ket{lm} \stackrel {b}{=} (\hat{L_{\pm}}\hat{L_z} \pm \hat{L_{\pm}})\ket{lm} \stackrel{c}{=} (m \pm 1) \hat{L_{\pm}} \ket{lm} \mbox{.}
+\hat{L_z}\hat{L_{\pm}} Y_l^m \stackrel {b}{=} (\hat{L_{\pm}}\hat{L_z} \pm \hat{L_{\pm}})Y_l^m \stackrel{c}{=} (m \pm 1) \hat{L_{\pm}} Y_l^m \mbox{.}
 \tag{O-\theOdvozeni}\stepcounter{Odvozeni}
 \label{rov:Odvozeni7}
 \end{equation}
@@ -184,21 +184,21 @@ a
 \end{equation}
 Šikovným přeuspořádáním komutátoru \eqref{rov:Odvozeni8} dostaneme úpravu $b$. Úpravu $c$ pro přehlednost rozepíšeme
 \begin{equation}
-(\hat{L_{\pm}}\hat{L_z} \pm \hat{L_{\pm}})\ket{lm} = (\hat{L_{\pm}}\hat{L_z})\ket{lm} \pm \hat{L_{\pm}}\ket{lm} = m\hat{L_{\pm}}\ket{lm} \pm \hat{L_{\pm}}\ket{lm} = (m \pm 1) \hat{L_{\pm}} \ket{lm} \mbox{.}
+(\hat{L_{\pm}}\hat{L_z} \pm \hat{L_{\pm}})Y_l^m = (\hat{L_{\pm}}\hat{L_z}) Y_l^m \pm \hat{L_{\pm}} Y_l^m = m\hat{L_{\pm}} Y_l^m \pm \hat{L_{\pm}} Y_l^m = (m \pm 1) \hat{L_{\pm}} Y_l^m \mbox{.}
 \tag{O-\theOdvozeni}\stepcounter{Odvozeni}
 \label{rov:Odvozeni9}
 \end{equation}
-Z~výrazu \eqref{rov:Odvozeni6} plyne, že $\hat{L_{\pm}}\ket{lm}$ je vlastní funkcí operátoru $\hat{L^2}$ s~vlastním číslem $\lambda_l$. Ze vztahu \eqref{rov:Odvozeni7} obdobně dostaneme, že $\hat{L_{\pm}}\ket{lm}$ je vlastní funkcí operátoru $\hat{L_z}$ s~vlastním číslem $m \pm 1$. Schopnost operátorů $\hat{L_{\pm}}$ měnit hodnotu $m$ o~$\pm 1$ jim dala jejich jméno -- posuvné.
+Z~výrazu \eqref{rov:Odvozeni6} plyne, že $\hat{L_{\pm}} Y_l^m$ je vlastní funkcí operátoru $\hat{L^2}$ s~vlastním číslem $\lambda_l$. Ze vztahu \eqref{rov:Odvozeni7} obdobně dostaneme, že $\hat{L_{\pm}} Y_l^m$ je vlastní funkcí operátoru $\hat{L_z}$ s~vlastním číslem $m \pm 1$. Schopnost operátorů $\hat{L_{\pm}}$ měnit hodnotu $m$ o~$\pm 1$ jim dala jejich jméno -- posuvné.
 
 Protože hodnota $m$ je ohraničená mezi $m_{min}$ a $m_{max}$ je logické, že
 \begin{equation}
-\hat{L_+}\ket{lm_{max}} = 0
+\hat{L_+} Y_l^{m_{max}} = 0
 \tag{O-\theOdvozeni}\stepcounter{Odvozeni}
 \label{rov:Odvozeni10}
 \end{equation}
 a
 \begin{equation}
-\hat{L_-}\ket{lm_{min}} = 0 \mbox{,}
+\hat{L_-} Y_l^{m_{min}} = 0 \mbox{,}
 \tag{O-\theOdvozeni}\stepcounter{Odvozeni}
 \label{rov:Odvozeni11}
 \end{equation}
@@ -241,19 +241,19 @@ Když se vrátíme zpět ke klasické soustavě jednotek, tj. $\hbar \not = 1$, 
 což je výraz \eqref{rov:VlastniCislaKvadratu}, který jsme chtěli odvodit. \hfill {\footnotesize $\blacksquare$}
 %konec odvozeni
 
-Na závěr této kapitoly se zastavme u~toho, jak se komutační relace mezi operátory a~z~nich plynoucí současně měřitelné veličiny, projeví u~měření momentu hybnosti. Z~komutačních relací (\ref{rov:Hybnost10}) vidíme, že operátor $z$-ové složky momentu hybnosti nekomutuje se zbylými dvěma operátory složek momentu hybnosti. To znamená, že současně nemůžeme změřit všechny tři složky vektoru momentu hybnosti. Ale protože operátor $z$-ové složky momentu hybnosti komutuje s~operátorem kvadrátu momentu hybnosti (viz relace (\ref{rov:Hybnost14})), můžeme současně změřit  jednu složku, typicky $z$-ovou, vektoru momentu hybnosti a kvadrát velikosti vektoru momentu hybnosti. Grafická reprezentace výše uvedeného se označuje jako vektorový model momentu hybnosti $\mathbf{L}$. Vektorový model (obrázek \ref{obr:VektorovyModel}) je vhodnou reprezentací prostorového kvantování, tj. faktu, že velikost a prostorová orientace vektoru momentu hybnosti nemůže být libovolná, ale nabývá diskrétních hodnot daných vlastními čísly operátorů $\hat{L^2}$ a $\hat{L_z}$.
+Na závěr této kapitoly se zastavme u~toho, jak se komutační relace mezi operátory a~z~nich plynoucí současně měřitelné veličiny, projeví u~měření momentu hybnosti. Z~komutačních relací (\ref{rov:Hybnost10}) vidíme, že operátor $z$-ové složky momentu hybnosti nekomutuje se zbylými dvěma operátory složek momentu hybnosti. To znamená, že současně nemůžeme změřit všechny tři složky vektoru momentu hybnosti. Ale protože operátor $z$-ové složky momentu hybnosti komutuje s~operátorem kvadrátu momentu hybnosti (viz relace (\ref{rov:Hybnost14})), můžeme současně změřit  jednu složku, typicky $z$-ovou, vektoru momentu hybnosti a kvadrát velikosti vektoru momentu hybnosti. Grafická reprezentace výše uvedeného se označuje jako vektorový model momentu hybnosti $\mathbf{L}$. Vektorový model (obrázek~\ref{obr:VektorovyModel}) je vhodnou reprezentací prostorového kvantování, tj. faktu, že velikost a prostorová orientace vektoru momentu hybnosti nemůže být libovolná, ale nabývá diskrétních hodnot daných vlastními čísly operátorů $\hat{L^2}$ a $\hat{L_z}$.
 \begin{figure} [!ht]
 \centering
-\includegraphics[scale=1]{vektorovymodel.pdf}
+\includegraphics[scale=1]{vektorovymodel.eps}
 \caption[Vektorový model momentu hybnosti]{Vektorový model momentu hybnosti. Protože jednotlivé složky vektoru momentu hybnosti spolu nekomutují, nemůžeme současně změřit více než jednu složku, konvenčně se volí $z$-ová složka. Ostatní složky, $x$-ová a $y$-ová, jsou tudíž neurčené, což se znázorňuje pomocí rotačního kužele. Velikost $|\mathbf{L}|$ vektoru momentu hybnosti komutuje se všemi složkami, proto je současně měřitelná spolu s~jednou složkou. To znamená, že o~vektoru momentu hybnosti z~měření dostaneme údaje o~velikosti a průmětu do $z$-ové osy. Prostorové kvantování momentu hybnosti je pak dáno vlastními čísly operátorů $\hat{L^2}$ a $\hat{L_z}$.}
 \label{obr:VektorovyModel}
 \end{figure}
 
-Na průmětu 3D vektorového modelu, například do roviny $zy$, si můžeme graficky vysvětlit význam posuvných operátorů (obrázek \ref{obr:ZebrickoveOperatory}). Operátor $\hat{L_+}$ posouvá kvantový stav $\ket{lm}$ do nového stavu s~hodnotou kvantového čísla $m$ o~jedničku větší, tj. stavu $\ket{l(m+1)}$. Na druhou stranu operátor  $\hat{L_-}$ posouvá kvantový stav $\ket{lm}$ do nového stavu s~hodnotou kvantového čísla $m$ o~jedničku menší, tj. do stavu $\ket{l(m-1)}$.
+Na průmětu 3D vektorového modelu, například do roviny $zy$, si můžeme graficky vysvětlit význam posuvných operátorů (obrázek~\ref{obr:ZebrickoveOperatory}). Operátor $\hat{L_+}$ posouvá kvantový stav $Y_l^m$ do nového stavu s~hodnotou kvantového čísla $m$ o~jedničku větší, tj. stavu $Y_l^{m+1}$. Na druhou stranu operátor  $\hat{L_-}$ posouvá kvantový stav $Y_l^m$ do nového stavu s~hodnotou kvantového čísla $m$ o~jedničku menší, tj. do stavu $Y_l^{(m-1)}$.
 \begin{figure} [!ht]
 \centering
-\includegraphics[scale=1]{zebrickoveoperatory.pdf}
-\caption[Posuvné operátory ve vektorovém modelu]{Činnost posuvných operátorů si můžeme představit tak, že operátor $\hat{L_+}$ mění kvantový stav $\ket{lm}$ na kvantový stav $\ket{l(m+1)}$ a operátor $\hat{L_-}$ mění kvantový stav $\ket{lm}$ na stav $\ket{l(m-1)}$.}
+\includegraphics[scale=1]{zebrickoveoperatory.eps}
+\caption[Posuvné operátory ve vektorovém modelu]{Činnost posuvných operátorů si můžeme představit tak, že operátor $\hat{L}_{+}$ mění kvantový stav $Y_l^m$ na kvantový stav $Y_l^{m+1}$ a operátor $\hat{L}_{-}$ mění kvantový stav $Y_l^m$ na stav $Y_l^{m-1}$.}
 \label{obr:ZebrickoveOperatory}
 \end{figure}
 
@@ -342,12 +342,12 @@ a
 \hat{L_z}\psi(r, \theta, \phi) = m \hbar \psi(r, \theta, \phi) \mbox{,}
 \label{rov:Hybnost53}
 \end{equation}
-kde jsme za vlastní čísla dosadili ze vztahů \eqref{rov:VlastniCislaKvadratu} a \eqref{rov:VlastniCislaZSlozky}. Protože operátor $\hat{L^2}$ ani operátor $\hat{L_z}$ nepůsobí na souřadnici $r$, můžeme provést následující separaci proměnných
+kde jsme za vlastní čísla dosadili ze vztahů \eqref{rov:VlastniCislaKvadratu} a \eqref{rov:VlastniCislaZSlozky}. Protože operátor $\hat{L}^2$ ani operátor $\hat{L}_z$ nepůsobí na souřadnici $r$, můžeme provést separaci proměnných
 \begin{equation}
-\psi(r, \theta, \phi) = R(r)Y(\theta, \phi) \mbox{,}
+\psi(r, \theta, \phi) = R(r) Y (\theta, \phi),
 \label{rov:Hybnost54}
-\end{equation} 
-kde $R(r)$ je radiální část vlnové funkce a $Y(\theta, \phi)$ je angulární část vlnové funkce, kterou označujeme jako sférické harmoniky. Díky separaci proměnných se problém pohybu částice v~3D prostoru rozpadl na pohyb částice po kulové sféře, popsaný pomocí sférické harmoniky a na vyšetření pohybu částice po daném orbitu ve vzdálenosti $r$ od zvoleného počátku, který je popsaný radiální částí vlnové funkce. Separace proměnných (\ref{rov:Hybnost54}) umožňuje zvlášť vyšetřit pohyb po kulové sféře a zvlášť radiální pohyb. V~tuto chvíli nás zajímá pouze pohyb po kulové sféře, proto budeme dále pracovat jen s~vlnovou funkcí ve tvaru sférické harmoniky $Y(\theta, \phi)$.
+\end{equation}
+kde $R(r)$ je radiální část vlnové funkce a $Y(\theta,\phi)$ je angulární část vlnové funkce, kterou označujeme jako sférické harmoniky. Díky separaci proměnných se problém pohybu částice v~3D prostoru rozpadl na pohyb částice po kulové sféře, popsaný pomocí sférické harmoniky a na vyšetření pohybu částice po daném orbitu ve vzdálenosti $r$ od zvoleného počátku, který je popsaný radiální částí vlnové funkce. Separace proměnných (\ref{rov:Hybnost54}) umožňuje zvlášť vyšetřit pohyb po kulové sféře a zvlášť radiální pohyb. V~tuto chvíli nás zajímá pouze pohyb po kulové sféře, proto budeme dále pracovat jen s~vlnovou funkcí ve tvaru sférické harmoniky $Y(\theta, \phi)$.
 
 Operátor $\hat{L_z}$ působí pouze na souřadnici $\phi$ (viz vztah (\ref{rov:Hybnost50})), proto můžeme předpokládat, že i sférické harmoniky můžeme separovat
 \begin{equation}
@@ -355,7 +355,7 @@ Y(\theta, \phi) = \Theta (\theta) \Phi (\phi) \mbox{.}
 \label{rov:Hybnost55}
 \end{equation}
 
-Vyřešme nejprve vlastní problém (\ref{rov:Hybnost53}), kde za operátor $\hat{L_z}$ dosadíme ze vztahu (\ref{rov:Hybnost50}) a dále využijeme separaci proměnných (\ref{rov:Hybnost55})
+Vyřešme nejprve vlastní problém (\ref{rov:Hybnost53}), kde za operátor $\hat{L_z}$ dosadíme ze vztahu (\ref{rov:Hybnost50}) a~dále využijeme separaci proměnných (\ref{rov:Hybnost55})
 \begin{equation}
 -i \hbar \Theta \frac{\partial \Phi}{\partial \phi} = m \hbar \Theta \Phi \mbox{.}
 \label{rov:Hybnost56}
@@ -404,7 +404,7 @@ N_{lm} = \sqrt{\frac{(l-|m|)! (2l+1)}{4\pi(l+|m|)!}}\mbox{.}
 
 Závěr našeho snažení je následující. Pohyb částice po kulové sféře můžeme popsat pomocí sférických harmonik, neboli angulární část vlnové funkce $\psi(r,\theta,\phi)$. Sférické harmoniky $Y_l^{m}(\theta, \phi)$ závisí pouze na úhlech $\theta$ a $\phi$ a jsou parametrizovány dvojicí kvantových číslech $l$ a $m$. Obecně se jedná o~komplexní funkce, na jejichž zobrazení bychom potřebovali 6-ti dimenzionální prostor (jedná se o~3D funkce v~komplexní rovině). Proto nezobrazujeme přímo sférické harmoniky, ale jejich lineární kombinace.
 
-\subsection{Energie pohybu po kulové sféře}
+\subsection{Energie pohybu po sféře}
 \label{kap:EnergiePohybSfera}
 
 Budeme-li chtít určit energii částice, která se pohybuje po kulové sféře, zapíšeme vlastní problém pro energii, tj. Schrödingerovu rovnici s~hamiltoniánem ve tvaru
@@ -440,3 +440,15 @@ Porovnáním rovnic (\ref{rov:Hybnost68}) a (\ref{rov:Hybnost69}) dostaneme pro 
 \label{rov:Hybnost70}
 \end{equation}
 kde každý energetický stav $E_{lm}$ je $2l+1$ degenerovaný.
+
+\begin{priklad}
+\textbf{Zadání}: Délky vazeb jsou určovány ze spektroskopických měření, která jsou velice přesná. Z rotačního spektra HCl jsme odvodili, že $B=10{,}59342$~cm$^{-1}$. Hmotnosti $^1$H a $^{35}$Cl jsou $1{,}0078250$ a $34{,}9688527$~a.u. Odvoďte délku vazby v molekule HCl.\\[0.1cm]
+\textbf{Řešení:} Pro rotační konstantu $B$ platí
+\begin{displaymath}
+B = \frac{h}{8 \pi^2 \mu c r_0^2},
+\end{displaymath} 
+kde $\mu$ je redukovaná hmotnost. Pak
+\begin{displaymath}
+r_0 = \sqrt{\frac{h}{8 \pi^2 \mu c B}} = 1{,}274553 \cdot 10^{-10} \mbox{ m}.
+\end{displaymath} \vspace{-0.7cm}
+\end{priklad}

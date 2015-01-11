@@ -1,4 +1,4 @@
-Elektronový spin je veličina poněkud záhadná, veličina, která nemá obdoby v~klasickém světe. Do kvantové mechaniky se spin dostal jako experimentální fakt: z~řady experimentů totiž vyplývalo, že kromě orbitálního momentu má elektron ještě nějaký dodatečný moment hybnosti. V~nerelativistické kvantové teorii jeho existenci prostě postulujeme. Elektronový spin ovšem přirozeným způsobem vyplynul ze snahy vytvořit relativistickou kvantovou teorii. Toto téma jde však za rámec našeho stručného textu.
+Elektronový spin je veličina poněkud záhadná, veličina, která nemá obdoby v~klasickém světe. Do kvantové mechaniky se spin dostal jako experimentální fakt: z~řady experimentů totiž vyplývalo, že kromě orbitálního momentu má elektron ještě nějaký dodatečný moment hybnosti. V~nerelativistické kvantové teorii jeho existenci prostě postulujeme. Elektronový spin ovšem přirozeným způsobem vyplynul ze snahy vytvořit relativistickou kvantovou teorii, viz kapitola~\ref{kap:relativita}. Toto téma jde však za rámec našeho stručného textu.
 
 \subsection{Pojem spinu}
 \label{kap:PojemSpinu}
@@ -19,27 +19,25 @@ Vztah (\ref{rov:Spin2}) je uveden pro případ elektronu -- hmotnost $m_e$ a ná
 
 Uvažujme nyní atom, ve kterém rotuje elektron. Takovýto atom může mít nenulový magnetický moment, který jsme schopni změřit například pomocí vychylování směru atomu v~nehomogenním magnetickém poli. Potenciální energie interakce magnetického momentu s~vnějším magnetickým polem je
 \begin{equation}
-V_m = - \mu B \cos \theta,
+U_{int} = - \vec{\mu} \cdot \vec{B} = - \vert \vec{\mu} \vert B \cos \theta,
 \nonumber
 \end{equation}
-kde $\mu$ je magnetický moment, $B$ je magnetická indukce vnějšího pole a $\theta$ je úhel, který svírají tyto vektory. Dosazením ze vztahu \eqref{rov:Spin2} dostaneme
+kde $\vec{\mu}$ je magnetický moment, $B$ je magnetická indukce vnějšího pole a $\theta$ je úhel, který svírají tyto vektory. Bez újmy na obecnosti zvolme směr magnetického pole ve směru osy $z$, pak dostaneme
 \begin{equation}
-V_m = \left( \frac{e}{2m_e} \right) LB \cos \theta.
-\label{rov:Spin25}
-\end{equation}
-Význam vnějšího magnetické pole je ten, že určuje experimentálně význačný směr, s~jehož pomocí můžeme určit $L_z$, neboli $z$-ovou složku momentu hybnosti. Z~kapitoly \ref{kap:momenthybnosti} víme, že velikost vektoru momentu hybnosti i jeho $z$-ová složka jsou kvantovány. Pak pro $\cos \theta$ můžeme odvodit (viz obrázek \ref{obr:VektorovyModel})
-\begin{equation}
-\cos \theta = \frac{m}{\sqrt{l(l+1)}}.
-\nonumber
-\end{equation}
-Výraz \eqref{rov:Spin25} tak můžeme přepsat do tvaru
-\begin{equation}
-V_m = m \left(\frac{e \hbar}{2 m_e} \right) B,
+U_{int} = - \mu_z B = \left( \frac{e \hbar}{2 m_e} \right) m B
 \label{rov:Spin26}
 \end{equation}
-kde jsme využili toho, že platí $L = \sqrt{l(l+1)}\hbar$. Výraz v~závorce ve vztahu \eqref{rov:Spin26} se označuje jako Bohrův magneton a má hodnotu $\mu_B = 9,27 \cdot 10^{-24} \joule \tesla^{-1}$. Vidíme, že ve vnějším magnetickém poli závisí energie elektronu na magnetickém kvantovém čísle $m$.
 
-Tak například elektronový stav s~vedlejším kvantovým číslem $l = 1$ (p-orbital) se ve vnějším magnetickém poli rozštěpí do tří různých stavů s~různou energií podle hodnot magnetického kvantového čísla $m = -1, 0, 1$. To vede k~rozštěpení původní jediné spektrální čáry v~atomovém spektru do tripletu, přičemž vzdálenost mezi čárami závisí na velikosti magnetického pole, tj. magnetické indukci $\mathbf{B}$. Štěpení spektrálních čar v~magnetickém poli se nazývá Zeemanův jev po svém objeviteli holandském fyzikovi Zeemanovi, který ho poprvé pozoroval v~roce 1896. Zeemanův jev je tak přímým experimentálním potvrzením prostorového kvantování momentu hybnosti.
+\noindent Výraz v~závorce ve vztahu \eqref{rov:Spin26} se označuje jako Bohrův magneton a má hodnotu $\mu_B = 9,27 \cdot 10^{-24} \joule \tesla^{-1}$. Vidíme, že ve vnějším magnetickém poli závisí energie elektronu na magnetickém kvantovém čísle $m$.
+
+Tak například elektronový stav s~vedlejším kvantovým číslem $l = 1$ (p-orbital) by se měl ve vnějším magnetickém poli rozštěpit do tří různých stavů s~různou energií podle hodnot magnetického kvantového čísla $m = -1, 0, 1$. To vede k~rozštěpení původní jediné spektrální čáry v~atomovém spektru do tripletu, přičemž vzdálenost mezi čárami závisí na velikosti magnetického pole, tj. magnetické indukci $\mathbf{B}$ (viz obrázek~\ref{obr:Zeeman}). Štěpení spektrálních čar v~magnetickém poli se nazývá Zeemanův jev po svém objeviteli holandském fyzikovi Zeemanovi, který ho poprvé pozoroval v~roce 1896. Zeemanův jev je tak přímým experimentálním potvrzením prostorového kvantování momentu hybnosti.\footnote{Ve skutečnosti je štěpení čar v magnetickém poli komplikovanější díky spinu.}
+
+\begin{figure} [htb]
+\centering
+\includegraphics[scale=1]{Zeeman.eps}
+\caption{Štěpení čar v magnetickém poli.}
+\label{obr:Zeeman}
+\end{figure}
 
 Ve skutečnosti se ukázalo, že štěpení atomových hladin v~magnetickém poli může být o~dost složitější, než předpovídala kvantová mechanika. Toto  anomální chování (anomální Zeemanův jev) bylo možno vysvětlit zavedením dodatečného momentu hybnosti elektronu, tedy spinu. Nejjasnější experimentální důkaz existence spinu podal experiment provedený v~roce 1922 Otto Sternem a Walterem Gerlachem. Tento experiment si proto probereme důkladněji.    
 
@@ -47,7 +45,7 @@ Ve skutečnosti se ukázalo, že štěpení atomových hladin v~magnetickém pol
 \subsection{Sternův - Gerlachův experiment}
 \label{kap:SG experiment}
 
-Experimentální aparatura (viz obrázek \ref{obr:SCH-experiment}) Sternova-Gerlachova experimentu sestávala z~pícky, ve které se zahřívaly atomy stříbra. Páry stříbra opouštěly pícku malým otvorem a~vytvářely paprsek atomů. Paprsek procházel nehomogenním magnetickým polem a dopadal na vhodné stínítko, které sloužilo k~vizualizaci výsledků. Předpokladem experimentu je, že atomy stříbra mají nenulový dipólový moment. Atomy s~nenulovým dipólovým momentem interagují s~nehomogenním magnetickým polem a jsou vychýleny z~přímého směru v~závislosti na prostorové orientaci magnetického momentu. Zvolme orientaci nehomogenního magnetického pole ve směru osy $z$. Pak pro sílu, která způsobuje vychýlení atomů z~přímé dráhy platí
+Experimentální aparatura (viz obrázek~\ref{obr:SCH-experiment}) Sternova-Gerlachova experimentu sestávala z~pícky, ve které se zahřívaly atomy stříbra. Páry stříbra opouštěly pícku malým otvorem a~vytvářely paprsek atomů. Paprsek procházel nehomogenním magnetickým polem a dopadal na vhodné stínítko, které sloužilo k~vizualizaci výsledků. Předpokladem experimentu je, že atomy stříbra mají nenulový magnetický moment. Atomy s~nenulovým magnetickým momentem interagují s~nehomogenním magnetickým polem a jsou vychýleny z~přímého směru v~závislosti na prostorové orientaci magnetického momentu. Zvolme orientaci nehomogenního magnetického pole ve směru osy $z$. Pak pro sílu, která způsobuje vychýlení atomů z~přímé dráhy platí
 \begin{equation}
 F_z = - \frac{\partial U}{\partial z } \mbox{,}
 \label{rov:Spin5}
@@ -71,12 +69,12 @@ Podle představ klasické fyziky bude magnetický moment stříbrných atomů or
 \mu_z = \pm \mu_B, \quad \mu_B = \frac{e\hbar}{2m_e}\mbox{,}
 \label{rov:Spin7}
 \end{equation}
-kde $\mu_B$ je Bohrův magneton. Stern s~Gerlachem byli nadšeni, neboť tento experiment potvrzoval kvantování momentu hybnosti ve směru osy z, jak předpovídala kvantová teorie. Jenže pozornější pohled už ukazuje, že zde něco nesouhlasí.  Atomy stříbra mají 47 elektronů, z~nichž 46 je spárovaných, a tudíž nepřispívají k~orbitálnímu momentu hybnosti. Zbývající 1 nespárovaný elektron má také nulový orbitální mement hybnosti, protože obsazuje $5s$ orbital. Celkový orbitální moment hybnosti atomů stříbra je tedy $\mathbf{L}=0$, a tak neexistuje žádný magnetický moment vyvolaný tímto momentem hybnosti. Můžeme připustit, že onen nespárovaný elektron se z~nějakých důvodu bude nacházet v~p orbitalu. V~této situaci by se ale měl svazek stříbra rozpadat na tři, nikoliv na dva podsvazky. pozorovaný nenulový magnetický moment atomů stříbra musí být vyvolán dalším momentem hybnosti -- spinem. Sternův - Gerlachův experiment tak představuje přímou experimentální metodu umožňující měřit jednu z~komponent spinu, v~našem případě $z$-ovou komponentu. Koncept spinu elektronu byl zaveden až v~roce 1925 holandskými fyziky Georgem Uhlenbeckem a Samuelem Goudsmitem, kteří analyzovali atomová spektra. I~přesto je Sternův - Gerlachův experiment považován za experimentální důkaz existence elektronového spinu.
+kde $\mu_B$ je Bohrův magneton. Stern s~Gerlachem byli nadšeni, neboť tento experiment potvrzoval kvantování momentu hybnosti ve směru osy z, jak předpovídala kvantová teorie. Jenže pozornější pohled už ukazuje, že zde něco nesouhlasí.  Atomy stříbra mají 47 elektronů, z~nichž 46 je spárovaných, a tudíž nepřispívají k~orbitálnímu momentu hybnosti. Zbývající 1 nespárovaný elektron má také nulový orbitální mement hybnosti, protože obsazuje $5s$ orbital. Celkový orbitální moment hybnosti atomů stříbra je tedy $\mathbf{L}=0$, a tak neexistuje žádný magnetický moment vyvolaný tímto momentem hybnosti. Můžeme připustit, že onen nespárovaný elektron se z~nějakých důvodu bude nacházet v~p orbitalu. V~této situaci by se ale měl svazek stříbra rozpadat na tři, nikoliv na dva podsvazky. Pozorovaný nenulový magnetický moment atomů stříbra musí být vyvolán dalším momentem hybnosti -- spinem. Sternův - Gerlachův experiment tak představuje přímou experimentální metodu umožňující měřit jednu z~komponent spinu, v~našem případě $z$-ovou komponentu. Koncept spinu elektronu byl zaveden až v~roce 1925 holandskými fyziky Georgem Uhlenbeckem a Samuelem Goudsmitem, kteří analyzovali atomová spektra. I~přesto je Sternův - Gerlachův experiment považován za experimentální důkaz existence elektronového spinu.
 
 
 \subsection{Spin a rotace elektronu kolem své osy}
 
-Samotné slovo "spin" je odvozeno z~anglického slovesa "to spin", tedy točiti se, vířiti, vrtěti se. Odkazuje na představu, že spin je moment hybnosti spojený s~vlastní rotací částice. Takový výklad je ovšem pochybený. Budeme-li si představovat spin jako moment hybnosti spojený s~rotujícím objektem (například pohyb planety Země otáčející se kolem své osy je spojen s~momentem hybnosti, můžeme příslušný moment hybnosti určit pomocí vztahu
+Samotné slovo \uv{spin} je odvozeno z~anglického slovesa \uv{\textit{to spin}}, tedy točiti se, vířiti, vrtěti se. Odkazuje na představu, že spin je moment hybnosti spojený s~vlastní rotací částice. Takový výklad je ovšem pochybený. Budeme-li si představovat spin jako moment hybnosti spojený s~rotujícím objektem (například pohyb planety Země otáčející se kolem své osy je spojen s~momentem hybnosti, můžeme příslušný moment hybnosti určit pomocí vztahu
 \begin{equation}
 \mathbf{S} = I \omega \mbox{,}
 \label{rov:Spin3}
@@ -108,42 +106,42 @@ kde $m_l$ je magnetické kvantové číslo. Kvantování složky orbitálního m
 
 Je logické předpokládat, že pro spin budou platit obdobné relace, jako pro orbitální moment hybnosti. Proto velikost spinového momentu hybnosti $\mathbf{S}$ je kvantována jako
 \begin{equation}
-S = \sqrt{s(s+1)}\hbar, \quad s=0,1/2,1,3/2 \dots \mbox{,}
+\boxed{S = \sqrt{s(s+1)}\hbar, \quad s=0,1/2,1,3/2 \dots \mbox{,}}
 \label{rov:Spin10}
 \end{equation}
 kde $s$ je spinové kvantové číslo, které v~případě elektronu má hodnotu $s=1/2$, a tak velikost spinu elektronu je $S = \sqrt{3/4}\hbar$. Podobně i jedna z~komponent spinu, konvenčně $S_z$, je kvantována
 \begin{equation}
-S_z = m_s \hbar, \quad m_s= -s, \dots, 0, \dots, +s \mbox{,}
+\boxed{S_z = m_s \hbar, \quad m_s= -s, \dots, 0, \dots, +s \mbox{,}}
 \label{rov:Spin11}
 \end{equation}
 kde $m_s$ je magnetické spinové kvantové číslo, které v~případě elektronu nabývá hodnot $m_s=\pm 1/2$. Elektron se tak může nacházet ve dvou stavech lišících se průmětem momentu hybnosti do osy z, plně v~souladu se Sternovým-Gerlachovým experimentem. Vidíme, že vztahy (\ref{rov:Spin10}) a (\ref{rov:Spin11}) pro spin jsou obdobou vztahů (\ref{rov:Spin8}) a (\ref{rov:Spin9}) pro orbitální moment hybnosti s~tím rozdílem, že v~případě spinu nabývá spinové kvantové číslo $s$ poločíselných hodnot. 
 
 V~úvodu jsme poznali, že moment hybnosti je příčinou nenulového magnetického momentu (viz vztahy (\ref{rov:Spin2}) a (\ref{rov:Spin4})). Mezi spinovým momentem a magnetickým momentem platí vztah
 \begin{equation}
-\mu_S = g_e \frac{e}{2m_e}\mathbf{S} \mbox{,}
+\boxed{\mu_S = g_e \frac{e}{2m_e}\mathbf{S} \mbox{,}}
 \label{rov:Spin12}
 \end{equation}
 kde $g_e$ je tzv. gyromagnetický poměr, který pro elektron má hodnotu $g_e\doteq2$. Gyromagnetický poměr je v~nerelativistické kvantové mechanice veličinou, která musí být změřena, v~rámci relativistické kvantové teorie elektronu je ovšem možné jej vypočítat. Gyromagnetický poměr vyjadřuje podíl magnetického dipólového momentu a orbitálního momentu hybnosti.
 
 Z~experimentu vyplývá toliko hodnota velikosti momentu hybnosti a průmětu momentu hybnosti do osy z. Abychom teorii učinili úplnou, můžeme formálně zapsat operátorové rovnice pro operátory spinového momentu $\hat{S^2}$ a $\hat{S_z}$. Jednotlivé rovnice jsou
 \begin{equation}
-\hat{S^2}\alpha = \hbar^2 s(s+1)\alpha \mbox{,}
+\boxed{\hat{S^2}\alpha = \hbar^2 s(s+1)\alpha \mbox{,}}
 \label{rov:Spin17}
 \end{equation}
 \begin{equation}
-\hat{S^2}\beta = \hbar^2 s(s+1)\beta \mbox{,}
+\boxed{\hat{S^2}\beta = \hbar^2 s(s+1)\beta \mbox{,}}
 \label{rov:Spin18}
 \end{equation}
 \begin{equation}
-\hat{S_z}\alpha= \frac{1}{2}\hbar \alpha \mbox{,}
+\boxed{\hat{S_z}\alpha= \frac{1}{2}\hbar \alpha \mbox{,}}
 \label{rov:Spin19}
 \end{equation}
 \begin{equation}
-\hat{S_z}\beta= -\frac{1}{2}\hbar \beta \mbox{.}
+\boxed{\hat{S_z}\beta= -\frac{1}{2}\hbar \beta \mbox{.}}
 \label{rov:Spin20}
 \end{equation}
 
-\noindent kde $\alpha$ a $\beta$ jsou tzv. spinové vlnová funkce. Vlnová funkce $\alpha$ nám neříká nic jiného, než je elektron má spin mířící "nahoru", tedy s~$m_s=1/2$, vlnová funkce $\beta$ má zase spin orientovaný "dolů", tedy je charakterizována spinovým magnetickým číslem  $m_s=1/2$. Formálně tuto skutečnost zapíšeme následujícími rovnicemi: 
+\noindent kde $\alpha$ a $\beta$ jsou tzv. spinové vlnová funkce. Vlnová funkce $\alpha$ nám neříká nic jiného, než je elektron má spin mířící \uv{nahoru}, tedy s~$m_s=1/2$, vlnová funkce $\beta$ má zase spin orientovaný \uv{dolů}, tedy je charakterizována spinovým magnetickým číslem  $m_s=1/2$. Formálně tuto skutečnost zapíšeme následujícími rovnicemi: 
 
 \begin{equation}
 \alpha(m_s=1/2)=1, \quad \alpha(m_s=-1/2)=0
@@ -195,8 +193,20 @@ Rovnice (\ref{rov:Spin23}) je základem experimentálních technik EPR (elektron
 \end{equation}
 kde $m_N$ a $g_N$ jsou po řadě hmotnost daného jádra a jeho gyromagnetický poměr.
 
+\begin{priklad}
+\textbf{Zadání:} Spočítejte dvě možné energie nukleárního spinu pro jádro $^1$H v magnetickém poli 5,50~T.\\[0.1cm]
+\textbf{Řešení:} Energie jsou dány vztahem
+\begin{displaymath}
+U_{int} = \gamma_N \hbar m_s B_z = \pm 7{,}76 \cdot 10^{-26} \mbox{ J}.
+\end{displaymath}
 
-XXX
-Prosim o~doplneni vhodnym prikladem
-XXXXXX
-
+\textbf{Zadání:} Spočítejte energetický rozdíl těchto dvou stavů. Jakou vlnovou délku by muselo být elektromagnetické záření, aby došlo k absorpci z jednoho stavu do druhého? \\[0.1cm]
+\textbf{Řešení:} Energetický rozdíl bude
+\begin{displaymath}
+\Delta E = 2 \cdot U_{int} = 1{,}55 \cdot 10^{-25} \mbox{ J}.
+\end{displaymath}
+Vlnová délka fotonu pak je
+\begin{displaymath}
+\lambda = \frac{c}{\nu} = \frac{c}{\frac{\Delta E}{h}} = 1{,}282 \mbox{ m}.
+\end{displaymath} \vspace{-0.5cm}
+\end{priklad}

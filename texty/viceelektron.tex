@@ -11,16 +11,16 @@ V~atomu helia na sebe působí tři částice, jádro helia s~protonovým (resp.
 
 \noindent kde hamiltonián zapisujeme v~souřadnicové soustavě umístěné do jádra helia.
 \begin{equation}
-\Delta e_1 \equiv \frac{\partial^2}{\partial x_{e1}^2} + \frac{\partial^2}{\partial y_{e1}^2}+\frac{\partial^2}{\partial z_{e1}^2} \nonumber
+\Delta_{e_1} \equiv \frac{\partial^2}{\partial x_{e1}^2} + \frac{\partial^2}{\partial y_{e1}^2}+\frac{\partial^2}{\partial z_{e1}^2} \nonumber
 \end{equation}
 je Laplaceův operátor prvního elektronu popisující kinetickou energii prvního elektronu,
 \begin{equation}
-\Delta e_2 \equiv \frac{\partial^2}{\partial x_{e2}^2} + \frac{\partial^2}{\partial y_{e2}^2}+\frac{\partial^2}{\partial z_{e2}^2} \nonumber
+\Delta_{e_2} \equiv \frac{\partial^2}{\partial x_{e2}^2} + \frac{\partial^2}{\partial y_{e2}^2}+\frac{\partial^2}{\partial z_{e2}^2} \nonumber
 \end{equation}
-je Laplaceův operátor příslušející druhému elektronu, $r_1$ je vzdálenost mezi jádrem helia a prvním elektronem, $r_2$ je vzdálenost mezi jádrem helia a druhým elektronem,a $r_{12}$ je vzdálenost mezi oběma elektrony. Schr\"odingerova rovnice je v~tomto případě parciální diferenciální rovnicí druhého řádu, jejímž řešením je (vlnová) funkce šesti proměnných, kupříkladu kartézských souřadnic obou elektronů $x_1$, $y_1$, $z_1$, $x_2$, $y_2$ a $z_2$ nebo sférických souřadnic těchto elektronů $r_1$, $\theta_1$, $\phi_1$, $r_2$, $\theta_2$, $\phi_2$. Bohužel, ani v~jedné sadě souřadnice se nám nepodaří hamiltonián separovat, nemůžeme jej napsat jakou součet členu závisejících na souřadnicích pouze jednoho elektronu a členu závisejícího pouze na souřadnicích elektronu druhého. Hamiltonián můžeme zapsat následujícím způsobem
+je Laplaceův operátor příslušející druhému elektronu, $r_1$ je vzdálenost mezi jádrem helia a~prvním elektronem, $r_2$ je vzdálenost mezi jádrem helia a druhým elektronem,a $r_{12}$ je vzdálenost mezi oběma elektrony. Schr\"odingerova rovnice je v~tomto případě parciální diferenciální rovnicí druhého řádu, jejímž řešením je (vlnová) funkce šesti proměnných, kupříkladu kartézských souřadnic obou elektronů $x_1$, $y_1$, $z_1$, $x_2$, $y_2$ a $z_2$ nebo sférických souřadnic těchto elektronů $r_1$, $\theta_1$, $\phi_1$, $r_2$, $\theta_2$, $\phi_2$. Bohužel, ani v~jedné sadě souřadnice se nám nepodaří hamiltonián separovat, nemůžeme jej napsat jakou součet členu závisejících na souřadnicích pouze jednoho elektronu a členu závisejícího pouze na souřadnicích elektronu druhého. Hamiltonián můžeme zapsat následujícím způsobem
 
 \begin{equation}
-\hat{H} = \hat{H}_1 + \hat{H}_2 + \hat{H}_{12}
+\hat{H} = \hat{H}_1 + \hat{H}_2 + \hat{H}_{12},
 \label{rov:VE-2}
 \end{equation}
 
@@ -45,7 +45,7 @@ je Laplaceův operátor příslušející druhému elektronu, $r_1$ je vzdáleno
 \label{rov:VE-5}
 \end{equation}
 
-Pokud bychom mohli zanedbat tento člen, byla by situace růžová. Celkovou vlnovou funkci pak snadno zapíšeme jako součin dvou vlnových funkcí $\phi_1$ a $\phi_2$ (metoda separace proměnných, srov. rovnici XX v~kapitole XXX):
+Pokud bychom mohli zanedbat tento člen, byla by situace růžová. Celkovou vlnovou funkci pak snadno zapíšeme jako součin dvou vlnových funkcí $\phi_1$ a $\phi_2$ (metoda separace proměnných, srov. rovnici \eqref{rov:2č-nez3}
 
 \begin{equation}
 \psi = \phi_1 \cdot \phi_2,
@@ -59,14 +59,14 @@ Pokud bychom mohli zanedbat tento člen, byla by situace růžová. Celkovou vln
 \label{rov:VE-7}
 \end{equation}
 
-Tato rovnice ale není než  Schr\"odingerova rovnice pro atom vodíkového typu! Její řešení tudíž známe:
+Tato rovnice ale není než  Schr\"odingerova rovnice pro atom vodíkového typu! Její řešení tudíž známe
 
 \begin{equation}
 \phi_1 = \frac{1}{\sqrt{\pi}} \left(\frac{Z}{a_0} \right)^{3/2} e^{-\frac{Z r_1}{a_0}},
 \label{rov:VE-8}
 \end{equation}
 
-\noindent kde Bohrův poloměr lze vyjádřit pomocí fundamentálních fyzikálních konstant:
+\noindent kde Bohrův poloměr lze vyjádřit pomocí fundamentálních fyzikálních konstant
 
 \begin{equation}
 a_0 = \frac{4 \pi \epsilon_0 \hbar^2}{m_e e^2}.
@@ -88,7 +88,7 @@ E = E_1 + E_2 = -13{,}6 \left(\frac{Z^2}{n^2} + \frac{Z^2}{n^2} \right) \mbox{ e
 \label{rov:VE-11}
 \end{equation}
 
-Tato hodnota je po čertech vzdálena od hodnoty změřené experimentálně ($-$79~eV). Čtenář může být navíc znejistěn skutečností, že vypočítaná hodnota je nižší než hodnota experimentální. Neprotiví se tento výsledek variačnímu principu? Po bližším ohledání zjistíme, že nikoliv. Variační princip praví, že energie vypočítaná s~přibližnou vlnovou funkcí pomocí správného hamiltoniánu je vždy vyšší než energie skutečná. Naše zjednodušení ale nespočívalo v~nalezení přibližné vlnové funkce pro přesný hamiltonián, nýbrž v~nalezení přesného řešení pro přibližný hamiltonián. 
+Tato hodnota je po čertech vzdálena od hodnoty změřené experimentálně ($-$79,0~eV). Čtenář může být navíc znejistěn skutečností, že vypočítaná hodnota je nižší než hodnota experimentální. Neprotiví se tento výsledek variačnímu principu? Po bližším ohledání zjistíme, že nikoliv. Variační princip praví, že energie vypočítaná s~přibližnou vlnovou funkcí pomocí správného hamiltoniánu je vždy vyšší než energie skutečná. Naše zjednodušení ale nespočívalo v~nalezení přibližné vlnové funkce pro přesný hamiltonián, nýbrž v~nalezení přesného řešení pro přibližný hamiltonián. 
 
 Z~předchozího výpočtu vyplývá, že mezi-elektronové odpuzování v~našich úvahách zanedbat nemůžeme. V~následujících oddílech si ukážeme, kterak elektronovou energii atomu helia vypočítat s~využitím dvou cest, pomocí poruchového i variačního přístupu.
 
@@ -126,13 +126,13 @@ E= E^{(0)} + E^{(1)} = -108{,}8 + 34=-74{,}8 \mbox{ eV}.
 Souhlas s~experimentem již tedy není úplně špatný! V~poruchovém metodě bychom mohli pokračovat do vyšších řádů. Pro helium vychází korekce vyšších řádů
 
 \begin{eqnarray*}
-E^{(2)} &=& -4{,}29 \mbox{ eV}\\
-E^{(3)} &=& 0{,}12 \mbox{ eV}
+E^{(2)} &=& -4{,}3 \mbox{ eV}\\
+E^{(3)} &=& 0{,}1 \mbox{ eV}
 \end{eqnarray*}
 
 Postupně tak v~rámci poruchové metody konvergujeme k~experimentální hodnotě.
 
-\subsubsection{Výpočet elektronové energie atomu helia poruchovým přístupem}
+\subsubsection{Výpočet elektronové energie atomu helia variačním přístupem}
 
 Při variačním řešení potřebujeme najít nějakou přibližnou (ale rozumnou) vlnovou funkci, která má nedourčené parametry. Vyjděme z~funkce ve tvaru
 
@@ -151,7 +151,7 @@ Musíme začít vyjádření funkcionál energie, tj. závislosti energie na kon
 \label{rov:VE-17}
 \end{equation}
 
-\noindent kdy přitom pro hamiltonián $\hat{H}_0^{\prime}$ zjevně platí 
+\noindent kdy přitom pro hamiltonián $\hat{H}_0^{\prime}$ zjevně platí\footnote{Jde totiž o hamiltonián atomu vodíkového typu, pro nějž řešení známe.}
 
 \begin{equation}
 \hat{H}_0^{\prime} \Phi = E^{\prime} \Phi,
@@ -174,7 +174,7 @@ E = \left( (Z^{\prime})^2 - 2 Z Z^{\prime} + \frac{5}{8} Z^{\prime} \right) \fra
 \label{rov:VE-20}
 \end{equation}
 
-\noindent Všimněme si, že ve funkcionálu energie nám vystupuje jak nábojové číslo $Z$ (z~hamiltoniánu, nejde o~variační parametr), tak efektivní nábojové číslo $Z^{\prime}$. Optimální hodnotu $Z^{\prime}$ nalezneme jako minimum funkcionálu energie, tj. položením derivace tohoto funkcionálu nule:
+\noindent Všimněme si, že ve funkcionálu energie nám vystupuje jak nábojové číslo $Z$ (z~hamiltoniánu, nejde o~variační parametr), tak efektivní nábojové číslo $Z^{\prime}$. Optimální hodnotu $Z^{\prime}$ nalezneme jako minimum funkcionálu energie, tj. položením derivace tohoto funkcionálu nule
 
 \begin{equation}
 2 Z^{\prime} - 2Z + \frac{5}{8} = 0 \nonumber
@@ -210,7 +210,7 @@ Poté, co jsme se naladili úspěchem kvantových výpočtů pro atom helia, mů
 \label{rov:VE-23}
 \end{equation}
 
-Výpočet vede k~energii lithia $-$230 eV. Experimentální hodnota je ovšem pouze $-203{,}5$~eV. Tento výsledek se jeví být v~přímém rozporu s~variačním principem. Zjevně je něco špatně, buď s~variačním principem nebo s~přírodou. Řada čtenářů asi tuší, že problém nastal ignorováním Pauliho vylučovacího  principu. Vlnovou funkci předpokládáme ve formě
+Výpočet vede k~energii lithia $-$230 eV. Experimentální hodnota je ovšem pouze $-203{,}5$~eV. Tento výsledek se jeví být v~přímém rozporu s~variačním principem. Je snad něco špatně s~variačním principem nebo s~přírodou? Poučený čtenář asi tuší, že problém nastal ignorováním Pauliho vylučovacího  principu. Vlnovou funkci předpokládáme ve formě
 
 \begin{equation}
 \psi = 1\mathrm{s}(1) 1\mathrm{s}(2) 1\mathrm{s}(3)
@@ -236,7 +236,7 @@ Kvantově-mechanické částice (jako jsou elektrony) jsou nerozlišitelné, nem
 \label{rov:VE-25}
 \end{equation}
 
-\noindent Tato rovnice nám říká, že pravděpodobnost, že se na místě A~bude nacházet první částice a na místě B druhá částice, musí být stejná, jako pravděpodobnost nalezení částice 1 na místě B a~částice 2 na místě A. Tato identita může být realizovaná dvěma způsoby:
+\noindent Tato rovnice nám říká, že pravděpodobnost, že se na místě A~bude nacházet první částice a~na místě B druhá částice, musí být stejná, jako pravděpodobnost nalezení částice 1 na místě B a~částice 2 na místě A. Tato identita může být realizovaná dvěma způsoby
 
 \begin{equation}
 \psi(1,2) = \psi(2,1)
@@ -251,13 +251,13 @@ Kvantově-mechanické částice (jako jsou elektrony) jsou nerozlišitelné, nem
 \end{equation}
 
 
-\noindent V~prvním případě říkáme, že vlnová funkce je symetrická vůči permutaci dvou částic. Částice, které splňují toto pravidlo, se nazývají Boseho částice nebo prostě bosony. Ukazuje se, že jde o~částice s~celočíselnou hodnotou spinu a že pro tyto částice neplatí Pauliho vylučovací princip (viz dále). Naproti tomu částice s~vlnovou funkcí antisymetrickou vůči permutaci částic nazýváme Fermiho částicemi (nebo fermiony). Fermiony mají poločíselný spin a Pauliho vylučovací princip pro ně platí. K~bosonům náleží kupříkladu foton, k~fermionům pak elektron. To, zda je daná částice fermion nebo boson, je dáno experimentálně. V~kvantové mechanice tuto skutečnost zavádíme jako postulát.
+\noindent V~prvním případě říkáme, že vlnová funkce je symetrická vůči permutaci dvou částic. Částice, které splňují toto pravidlo, se nazývají Boseho částice nebo prostě \textbf{bosony}. Ukazuje se, že jde o~částice s~celočíselnou hodnotou spinu a že pro tyto částice neplatí Pauliho vylučovací princip (viz dále). Naproti tomu částice s~vlnovou funkcí antisymetrickou vůči permutaci částic nazýváme Fermiho částicemi (nebo \textbf{fermiony}). Fermiony mají poločíselný spin a \textbf{Pauliho vylučovací princip} pro ně platí. K~bosonům náleží kupříkladu foton, k~fermionům pak elektron. To, zda je daná částice fermion nebo boson, je dáno experimentálně. V~kvantové mechanice tuto skutečnost zavádíme jako postulát.
 
 \bigskip
 \textbf{Postulát číslo 6: Při záměně dvou elektronů musí vlnová funkce změnit znaménko. (Spinově-statistický postulát)}
 \bigskip
 
-Ukažme si nyní souvislost mezi antisymetrií vlnové funkce vylučovacím principem. Představme si elektrony, které jsou charakterizovány polohou a průmětem spinu do osy $z$:
+Ukažme si nyní souvislost mezi antisymetrií vlnové funkce vylučovacím principem. Představme si elektrony, které jsou charakterizovány polohou a průmětem spinu do osy $z$
 
 \begin{equation}
 q_i = (\vec{r_1},m_{s,i}).
@@ -285,7 +285,7 @@ Uvažme nyní situaci, kdy oba elektrony mají přesně stejnou polohu a také s
 \label{rov:VE-31}
 \end{equation}
 
-\noindent Pravděpodobnost, že by se dva elektrony se stejnou projekcí spinu do osy $z$ (nadále budeme užívat výrazu \uv{se stejným spinem}) mohly nacházet na stejném místě je nulová. Toto "odpuzování" elektronů nesouvisí s~elektrostatickými silami, je přímým důsledkem antisymetrie vlnové funkce. Mluvíme o~Pauliho repulzi.
+\noindent Pravděpodobnost, že by se dva elektrony se stejnou projekcí spinu do osy $z$ (nadále budeme užívat výrazu \uv{se stejným spinem}) mohly nacházet na stejném místě je nulová. Toto \uv{odpuzování} elektronů nesouvisí s~elektrostatickými silami, je přímým důsledkem antisymetrie vlnové funkce. Mluvíme o~\textbf{Pauliho repulzi}.
 
 V~našem výkladu atomu helia jsme s~výhodou hledali řešení Schr\"odingerovy rovnice ve tvaru součinu
 
@@ -298,7 +298,7 @@ který pro případ dvou elektronů
 \psi(1,2) = \phi_1(1) \phi_2(2). \nonumber
 \end{equation}
 
-\noindent Takto zapsaná vlnová funkce ale není antisymetrická (dokonce ani ne symetrická, permutací elektronů získáme úplně jinou funkci). Nejjednodušší funkce ve tvaru součinu jedno elektronových funkcí bude mít následující tvar:
+\noindent Takto zapsaná vlnová funkce ale není antisymetrická (dokonce ani ne symetrická, permutací elektronů získáme úplně jinou funkci). Nejjednodušší funkce ve tvaru součinu jedno elektronových funkcí bude mít následující tvar
 
 \begin{equation}
 \psi(1,2) = \frac{1}{\sqrt{2}} \left[ \phi_1(1)\phi_2(2) - \phi_1(2)\phi_2(1) \right].
@@ -306,7 +306,7 @@ který pro případ dvou elektronů
 \end{equation}
 kde faktor $1/\sqrt{2}$ přidáváme z důvodů normalizace.
 
-\noindent Vlnová funkce dvou elektronů popsaných stejnou jedno-elektronovou funkci (tj. stejným orbitalem $\phi_1 = \phi_2$) ale nezbytně musí být identicky rovna nule:
+\noindent Vlnová funkce dvou elektronů popsaných stejnou jedno-elektronovou funkci (tj. stejným orbitalem $\phi_1 = \phi_2$) ale nezbytně musí být identicky rovna nule
 
 \begin{equation}
 \psi(1,2) = \frac{1}{\sqrt{2}} \left[ \phi_1(1)\phi_1(2) - \phi_1(2)\phi_1(1) \right] = 0.
@@ -315,14 +315,14 @@ kde faktor $1/\sqrt{2}$ přidáváme z důvodů normalizace.
 
 \noindent Právě toto tvrzení známe z~chemických učebnic jako Pauliho vylučovací princip. Zde vidíme, že tento původně na základě spektroskopických experimentů odvozený princip úzce souvisí s~antisymetrií vlnové funkce. 
 
-Zmiňme na tomto místě, že jedno-elektronová vlnová funkce $\phi$ má svou prostorovou část $\chi$ a spinovou část $\alpha$ $\beta$:
+Zmiňme na tomto místě, že jedno-elektronová vlnová funkce $\phi$ má svou prostorovou část $\chi$ a spinovou část $\alpha$ $\beta$
 
 \begin{equation}
 \phi = \chi \cdot \alpha \mbox{ nebo } \phi = \chi \cdot \beta.
 \label{rov:VE-35}
 \end{equation}
 
-\noindent Mluvíme pak o~tzv. spinorbitalu. Vlnová funkce atomu helia v~základním stavu by pak vypadala takto:
+\noindent Mluvíme pak o~tzv. \textbf{spinorbitalu}. Vlnová funkce atomu helia v~základním stavu by pak vypadala takto
 
 \begin{eqnarray}
 \phi_1 &=& 1\mathrm{s} \cdot \alpha \\ \nonumber
@@ -330,7 +330,7 @@ Zmiňme na tomto místě, že jedno-elektronová vlnová funkce $\phi$ má svou 
 \psi &=& \frac{1}{\sqrt{2}} \left[1\mathrm{s}(1) \alpha(1) 1 \mathrm{s}(2) \beta (2) - 1 \mathrm{s}(2) \alpha(2) 1\mathrm{s}(1) \beta(1) \right] = \frac{1}{\sqrt{2}} 1\mathrm{s}(1) 1 \mathrm{s}(2) \left[\alpha(1) \beta (2) - \alpha(2) \beta(1) \right].
 \end{eqnarray}
 
-\noindent Celková vlnová funkce je tak dána součinem prostorové části a části spinové. V~hamiltoniánu se ale spin nevyskytuje a my nakonec řešíme Schr\"odingerovu rovnici pouze pro prostorovou část vlnové funkce:
+\noindent Celková vlnová funkce je tak dána součinem prostorové části a části spinové. V~hamiltoniánu se ale spin nevyskytuje a my nakonec řešíme Schr\"odingerovu rovnici pouze pro prostorovou část vlnové funkce
 
 \begin{equation}
 \hat{H} 1\mathrm{s}(1) 1\mathrm{s}(2) = E 1\mathrm{s}(1) 1 \mathrm{s}(2).
@@ -339,7 +339,7 @@ Zmiňme na tomto místě, že jedno-elektronová vlnová funkce $\phi$ má svou 
 
 \noindent Na našich předchozích výpočtech se tak nic nezměnilo. V~případě obecné mnoha-elektronové vlnové funkce spin ignorovat nemůžeme a díky tomu má třeba tripletní stav jinou energii než stav singletní. 
 
-Nejjednodušší obecný tvar antisymetrické vlnové funkce pro $N$-elektronový systém získáme ve formě tzv. Slaterova determinantu:
+Nejjednodušší obecný tvar antisymetrické vlnové funkce pro $N$-elektronový systém získáme ve formě tzv. \textbf{Slaterova determinantu}
 
 \begin{equation}
 \psi = \frac{1}{\sqrt{N!}}
@@ -383,14 +383,14 @@ kde
 E = - 201{,}2 \mbox{ eV}. \nonumber
 \end{equation}
 
-\noindent Tedy hodnotu vyšší v~porovnání s~hodnotou experimentální. 
+\noindent Tedy hodnotu vyšší (ale zároveň relativně blízko) v~porovnání s~hodnotou experimentální, $-203{,}5$~eV. 
 
 
-\subsection{Hartreeho a Hartreeho-Fockova metoda pro více-elektronové atomy}
+\subsection{Hartreeho a Hartreeho-Fockova metoda pro atomy}
  
 Zformulujeme nyní obecný způsob, který nám umožní systematickým způsobem řešit Schr\"odingerovu rovnici pro $N$-elektronový atom (a obecně $N$-elektronovou molekulu) pomocí variačního principu. Budeme promýšlet opět případ atomu helia, rozšíření na více-elektronové atomy je ale přímočaré. 
 
-V~předchozích oddílech jsme viděli, že je rozumné hledat vlnovou funkci atomu helia ve formě součinu:
+V~předchozích oddílech jsme viděli, že je rozumné hledat vlnovou funkci atomu helia ve formě součinu
  
 \begin{equation}
 \psi = g_1(r_1, \theta_1, \phi_1) g_2(r_2,\theta_2, \phi_2).
@@ -435,7 +435,7 @@ Takovouto rovnici už jsme schopni řešit, byť by se tak dělo numerickými me
  
 \noindent a velikost momentu hybnosti i projekce momentu hybnosti do jedné z~os se budou zachovávat. Kvantová čísla $l$ a $m$ budou tudíž \uv{dobrá kvantová čísla}. Jedno-elektronové vlnové funkce budou i tentokráte charakterizovány kvantovými čísly $n$, $l$ a $m$, nicméně nebudou již platit degenerace mezi hladinami o~stejném hlavním kvantovém čísle $n$.
  
-Máme ale jednu potíž. Celou dobu předpokládáme, že známe vlnovou funkci $g_2$. Jenže my ji ve skutečnosti neznáme! V~rovnici \eqref{rov:VE-42} se nám tak objevuje neznámá funkce $g_2$. Mohli bychom celou úvahu provést i naopak, budeme předpokládat, že známe vlnovou funkci $g_1$ a budeme se snažit vypočítat vlnovou funkci $g_2$. Dostaneme tak soustavu dvou rovnic pro dvě neznámé funkce, $g_1$ a $g_2$. Jde o~složitou soustavu integro-diferenciálních (a k~tomu nelineárních) rovnic. Řešení pak hledáme iterativním způsobem, pomocí tzv. metody samo-souhlasného pole (SCF, z~angl. \textit{Self-Consistent Field}). Výpočet začneme hrubým odhadem tvaru vlnových funkcí $g_1$ a~$g_2$. Pomocí těchto odhadů vlnových funkcí určíme efektivní pole, ve kterých se oba elektrony pohybují (jinými slovy použijeme tyto funkce ke konstrukci jedno-elektronových hamiltoniánů v~rovnici \eqref{rov:VE-42}). Vyřešením rovnice \eqref{rov:VE-42} získáme novou sadu funkcí $g_1$ a $g_2$. Celé kolečko se může opakovat, do doby, než se funkce již dále nemění (viz Obr. \ref{obr:SCFcycle}).
+Máme ale jednu potíž. Celou dobu předpokládáme, že známe vlnovou funkci $g_2$. Jenže my ji ve skutečnosti neznáme! V~rovnici \eqref{rov:VE-42} se nám tak objevuje neznámá funkce $g_2$. Mohli bychom celou úvahu provést i naopak, budeme předpokládat, že známe vlnovou funkci $g_1$ a~budeme se snažit vypočítat vlnovou funkci $g_2$. Dostaneme tak soustavu dvou rovnic pro dvě neznámé funkce, $g_1$ a $g_2$. Jde o~složitou soustavu integro-diferenciálních (a k~tomu nelineárních) rovnic. Řešení pak hledáme iterativním způsobem, pomocí tzv. metody samo-souhlasného pole (SCF, z~angl. \textit{Self-Consistent Field}). Výpočet začneme hrubým odhadem tvaru vlnových funkcí $g_1$ a~$g_2$. Pomocí těchto odhadů vlnových funkcí určíme efektivní pole, ve kterých se oba elektrony pohybují (jinými slovy použijeme tyto funkce ke konstrukci jedno-elektronových hamiltoniánů v~rovnici \eqref{rov:VE-42}). Vyřešením rovnice \eqref{rov:VE-42} získáme novou sadu funkcí $g_1$ a $g_2$. Celé kolečko se může opakovat, do doby, než se funkce již dále nemění (viz obrázek~\ref{obr:SCFcycle}).
 
 \begin{figure} [ht]
 \centering
@@ -465,7 +465,7 @@ V_1 (r_1, \theta_1,\phi_1) = \sum_{j=2}^N \frac{e^2}{4 \pi \epsilon_0} \int \fra
 \label{rov:VE-46}
 \end{equation}
 
-Jak vypočítáme celkovou energii? Naivně bychom se mohli domnívat, že stačí sečíst energie jednotlivých elektronů $E = \sum_i \varepsilon_i$. udělali bychom ale chybu, energie $\epsilon_1$ v~sobě zahrnuje coulombovské odpuzování s~druhým až $N$-tým elektronem. Energie interakce mezi prvním a druhým elektronem se ale vyskytuje i ve členu $\epsilon_2$. Mezi-elektronovou repulzi bychom tak započítali dvakráte. Celková energie bude proto dána vztahem:
+Jak vypočítáme celkovou energii? Naivně bychom se mohli domnívat, že stačí sečíst energie jednotlivých elektronů $E = \sum_i \varepsilon_i$. udělali bychom ale chybu, energie $\epsilon_1$ v~sobě zahrnuje coulombovské odpuzování s~druhým až $N$-tým elektronem. Energie interakce mezi prvním a druhým elektronem se ale vyskytuje i ve členu $\epsilon_2$. Mezi-elektronovou repulzi bychom tak započítali dvakráte. Celková energie bude proto dána vztahem
 
 \begin{equation}
 E = sum_{i=1}^N \varepsilon_i - \sum_{i=1}^N \sum_{j=i+1}^N \int \int \frac{\vert g_i(i) \vert^2 \vert g_j(j)\vert^2}{4 \pi \epsilon_0 r_{ij}} \mathrm{d}\tau_i \mathrm{d}\tau_j = \sum_{i=1}^N \varepsilon_i - \sum_{i=1}^N \sum_{j=i+1}^N J_{ij},
@@ -475,7 +475,7 @@ E = sum_{i=1}^N \varepsilon_i - \sum_{i=1}^N \sum_{j=i+1}^N \int \int \frac{\ver
 \noindent kde druhý člene představuje odpuzování mezi dvěma oblaky elektronů, který odečítáme, aby nebyl započítán dvakrát.
 
 
-Hartreeho metoda je bohužel pro elektrony nepoužitelná. V~minulé kapitole jsme si vysvětlili, že vlnová funkce popisující elektrony musí být antisymetrická vůči permutaci elektronů. Musíme ji tedy zapsat ve formě Slaterova determinantu:
+Hartreeho metoda je bohužel pro elektrony nepoužitelná. V~minulé kapitole jsme si vysvětlili, že vlnová funkce popisující elektrony musí být antisymetrická vůči permutaci elektronů. Musíme ji tedy zapsat ve formě Slaterova determinantu
 
 \begin{equation}
 \Phi = \frac{1}{N!}
@@ -489,14 +489,14 @@ g_N(1) \beta (1) & g_N(2) \beta (2) & \cdots &g_N(N) \beta (N)
 \end{equation}
 
 
-Tvar jedno-elektronových vlnových funkcí (orbitalů) určíme opět pomocí variační počtu, který nás znovu dovede k~soustavě jedno-elektronových  Schr\"odingerových rovnic, k~tzv. Fockovým rovnicím:
+Tvar jedno-elektronových vlnových funkcí (orbitalů) určíme opět pomocí variační počtu, který nás znovu dovede k~soustavě jedno-elektronových  Schr\"odingerových rovnic, k~tzv. Fockovým rovnicím
 
 \begin{equation}
 \hat{F}\phi_i = \varepsilon_i \phi_i,
 \label{rov:VE-49}
 \end{equation}
 
-\noindent kde se ovšem kromě coulombovských členů vyskytují i tzv. výměnné členy (více viz v~kapitole XXX). Mluvíme o~tzv. Hartreeho-Fockových rovnicích. Celkovou energii vypočítáme podobně jako v~Hartreeho metodě:
+\noindent kde se ovšem kromě coulombovských členů vyskytují i tzv. výměnné členy. Mluvíme o~tzv. Hartreeho-Fockových rovnicích. Celkovou energii vypočítáme podobně jako v~Hartreeho metodě
 
 \begin{equation}
 E = \sum_{i}^N \varepsilon_i - \sum_{i=1}^N \sum_{j=i+1}^N (J_{ij} - \delta_{ms_i,ms_j} K_{ij}),
@@ -513,24 +513,24 @@ K_{ij} = \int \int g_j^{\ast} (\vec{r_1}) g_i^{\ast}(\vec{r_2})) \frac{1}{r_{12}
 
 
 \subsection{Roothanovy rovnice}
-Jednoelektronové funkce $g_j$ (tedy atomové orbitaly více-elektronových atomů) většinou hledáme ve formě lineární kombinace nějakých známých funkcí $\chi_i$:
+Jednoelektronové funkce $g_j$ (tedy atomové orbitaly více-elektronových atomů) většinou hledáme ve formě lineární kombinace nějakých známých funkcí $\chi_i$
 
 \begin{equation}
 g_j = \sum_i c_{ij} \chi_i.
 \label{rov:VE-52}
 \end{equation}
 
-\noindent Výhoda je zřejmá, nemusíme hledat neznámé funkce $g_j$, ale pouze neznámá čísla $c_ji$. Místo soustavy nelineárních integro-diferenciálních rovnic (Fockových rovnic) řešíme pouze soustavu (nelineárních) algebraických rovnic. Jde o~nám již dobře známé sekulární rovnice
+\noindent Výhoda je zřejmá, nemusíme hledat neznámé funkce $g_j$, ale pouze neznámá čísla $c_{ji}$. Místo soustavy nelineárních integro-diferenciálních rovnic (Fockových rovnic) řešíme pouze soustavu (nelineárních) algebraických rovnic. Jde o~nám již dobře známé sekulární rovnice
 
 \begin{equation}
-\sum_j (F_{ij} \varepsilon S_{ij}) c_j = 0
+\sum_j (F_{ij} - \varepsilon S_{ij}) c_j = 0
 \label{rov:VE-53}
 \end{equation}
 
 \noindent resp. ve vektorovém zápisu
 
 \begin{equation}
-\mathbf{F} \vec{c} = \mathbf{S} \vec{c}.
+\mathbf{F} \vec{c} = \varepsilon \mathbf{S} \vec{c}.
 \label{rov:VE-54}
 \end{equation}
 
@@ -551,9 +551,9 @@ Výše uvedené rovnice se nazývají rovnicemi Roothanovými.
 Množinu funkcí $\chi_i$ nazýváme bází atomových orbitalů.  Tyto funkce mohou být například:
  
 \begin{itemize}
-\item Orbitaly atomů vodíkového typu. Bohužel tyto funkce jsou pro vyšší hodnoty hlavních kvantových čísel dosti komplikované. Navíc je třeba řada integrálů provádět numericky.
+\item \textbf{Orbitaly atomů vodíkového typu}. Bohužel tyto funkce jsou pro vyšší hodnoty hlavních kvantových čísel dosti komplikované. Navíc je třeba řada integrálů provádět numericky.
 
-\item Orbitaly tzv. Slaterova typu (STO, z~angl. \textit{Slater Type Orbitals}). Jde o~exponenciální funkce
+\item \textbf{Orbitaly tzv. Slaterova typu} (STO, z~angl. \textit{Slater Type Orbitals}). Jde o~exponenciální funkce
 
 \begin{equation}
 \chi(r) = (2 \xi)^{n+\frac{1}{2}} \left[ (2n)! \right]^{-1/2} r^{n-1} e^{-\xi r}.
@@ -577,13 +577,13 @@ Množinu funkcí $\chi_i$ nazýváme bází atomových orbitalů.  Tyto funkce m
 Z~praktického hlediska je užitečné seznámit se ještě s~některými pojmy:
 
 \begin{itemize}
-\item Minimální báze. V~minimální bázi jsou obsaženy pouze funkce popisující orbitaly obsazené pouze v~základním stavu stavu příslušného atomu. Minimální báze pro atom helia tak obsahuje pouze funkce popisující 1s orbitaly.
+\item \textbf{Minimální báze}. V~minimální bázi jsou obsaženy pouze funkce popisující orbitaly obsazené pouze v~základním stavu stavu příslušného atomu. Minimální báze pro atom helia tak obsahuje pouze funkce popisující 1s orbitaly.
 
-\item Rozšířená báze. Tato báze obsahuje funkce jdoucí za rámec minimální báze. Například tzv. polarizační funkce (funkce s~vyšším kvantovým číslem) či funkce difúzní, tj. funkce s~velmi malým exponentem. Tyto funkce jsou důležité kupříkladu pro popis aniontů nebo pro popis slabých mezimolekulárních interakcí. 
+\item \textbf{Rozšířená báze}. Tato báze obsahuje funkce jdoucí za rámec minimální báze. Například tzv. polarizační funkce (funkce s~vyšším kvantovým číslem) či funkce difúzní, tj. funkce s~velmi malým exponentem. Tyto funkce jsou důležité kupříkladu pro popis aniontů nebo pro popis slabých mezimolekulárních interakcí. 
  
 \end{itemize}
 
-Značení bází atomových orbitalů není nikterak systematické a je zapleveleno historickým vývojem oboru. Z~pohledu uživatele je užitečné mít přehled o~často užívaných zkratkách, jako STO-3G, 6-31g* či aug-cc-pVDZ. Laskavého čtenáře v~té oblasti odkazujeme kupříkladu na XXXX. \textbf{PSnote: Otazka, zda se o~tomto nevypindat vice. A~nebo odkazat na nekterou z~referencnich prirucek, kam se ale asi nikdo nepodiva}
+Značení bází atomových orbitalů není nikterak systematické a je zapleveleno historickým vývojem oboru. Z~pohledu uživatele je užitečné mít přehled o~často užívaných zkratkách, jako STO-3G, 6-31g* či aug-cc-pVDZ. Pro detailnější diskusi odkazujeme čtenáře například na Levinovu učebnici kvantové chemie.
 
 
 \subsection{Periodicita atomů pohledem kvantové teorie}
@@ -593,18 +593,18 @@ Periodický zákon říká, že vlastnosti prvků jsou periodickou funkcí jeho 
 Zopakujme si nejdříve, jakým způsobem jsou staveny z~elektronů a jader atomy. Základním principům porozumíme v~rámci Hartreeho-Fockovy teorie. Většinou se jako se základními principy setkáme s~následujícími pojmy
 
 \begin{itemize}
-\item Výstavbový princip. U~atomů vodíkového typu je energie jedno-elektronového stavu dána výhradně hlavním kvantovým číslem $n$. V~atomech je již degenerace různých stavů se stejným kvantovým číslem sejmuta. Pořadí jednoelektronových stavů, které typicky nalézáme u~neutrálních atomů, nazýváme výstavbovým principem. Podotkněme ovšem, že výstavbový princip není nenarušitelné dogma a pořadí orbitalů je obecně v~různých atomech a~iontech různé, viz Obr. \ref{obr:Aufbau}.
+\item \textbf{Výstavbový princip}. U~atomů vodíkového typu je energie jedno-elektronového stavu dána výhradně hlavním kvantovým číslem $n$. V~atomech je již degenerace různých stavů se stejným kvantovým číslem sejmuta. Pořadí jednoelektronových stavů, které typicky nalézáme u~neutrálních atomů, nazýváme výstavbovým principem. Podotkněme ovšem, že výstavbový princip není nenarušitelné dogma a pořadí orbitalů je obecně v~různých atomech a~iontech různé, viz obrázek~\ref{obr:Aufbau}.
 
-\begin{figure} [ht]
+\begin{figure} [htb]
 \centering
-%\includegraphics[scale=0.3]{Aufbau.pdf}
-\caption[Výstavbový princip]{Pořadí orbitalů, které typicky nacházíme v~neutrálních atomech, se nazývá výstavbovým principem}
+\includegraphics[scale=1]{VystavbovyPrincip.eps}
+\caption[Výstavbový princip]{Pořadí orbitalů, které typicky nacházíme v~neutrálních atomech, se nazývá výstavbovým principem.}
 \label{obr:Aufbau}
 \end{figure}
 
-\item Pauliho vylučovací princip. Zcela fundamentální princip, bez něj by periodická tabulka neexistovala, všechny prvky by v~základním stavu byly jenom různě vypasené atomy vodíku.
+\item \textbf{Pauliho vylučovací princip}. Zcela fundamentální princip, bez něj by periodická tabulka neexistovala, všechny prvky by v~základním stavu byly jenom různě vypasené atomy vodíku.
 
-\item Pravidlo maximální multiplicity. O~Hundových pravidlech bude řečeno více dále.   
+\item \textbf{Pravidlo maximální multiplicity}. O~Hundových pravidlech bude řečeno více dále.   
  
 \end{itemize}
 
@@ -629,7 +629,7 @@ IE \sim \frac{(Z^{\prime})^2}{n^2}.
 \label{rov:VE-60}
 \end{equation}
 
-\noindent Vnitřní elektrony ale velmi efektivně stíní náboj jádra, takže HOMO elektron cítí náboj zmenšený o~počet elektronů ve vnitřních slupkách. Jestliže se budeme pohybovat v~periodě od lithia k~neonu, očekávali bychom rostoucí ionizační energii: roste totiž protonové číslo a náboj jádra není ještě stíněn. Jestliže ale od neonu přejdeme k~sodíku, vzroste najednou skokově hlavní kvantové číslo $n$ a navíc efektivní protonové číslo se zmenší díky stínění náboje jádra vnitřními elektrony. Ionizační energie by se proto měla spíše blížit lithiu nežli neonu. To skutečně pozorujeme (pohleď, čtenáři, na Obrázek \ref{obr:Period}). Podobné úvahy vysvětlí i periodické změny poloměru atomů, který je pro jedno-elektronové atomy dán vztahem
+\noindent Vnitřní elektrony ale velmi efektivně stíní náboj jádra, takže HOMO elektron cítí náboj zmenšený o~počet elektronů ve vnitřních slupkách. Jestliže se budeme pohybovat v~periodě od lithia k~neonu, očekávali bychom rostoucí ionizační energii: roste totiž protonové číslo a náboj jádra není ještě stíněn. Jestliže ale od neonu přejdeme k~sodíku, vzroste najednou skokově hlavní kvantové číslo $n$ a navíc efektivní protonové číslo se zmenší díky stínění náboje jádra vnitřními elektrony. Ionizační energie by se proto měla spíše blížit lithiu nežli neonu. To skutečně pozorujeme (pohleď, čtenáři, na obrázek~\ref{obr:Period}). Podobné úvahy vysvětlí i periodické změny poloměru atomů, který je pro jedno-elektronové atomy dán vztahem
 
 \begin{equation}
 R \sim \frac{n^2}{Z^{\prime}},
@@ -643,9 +643,9 @@ R \sim \frac{n^2}{Z^{\prime}},
 \label{rov:VE-62}
 \end{equation}
 
-\begin{figure} [ht]
+\begin{figure} [htb]
 \centering
-%\includegraphics[scale=0.3]{Period.pdf}
+\includegraphics[scale=1]{PeriodicitaVlastnosti.eps}
 \caption[Periodicita vlastností prvků]{Ionizační energie, elektronové afinity či poloměry atomů se s~protonovým číslem periodicky mění. Tato periodicita je důsledkem základních kvantově-mechanických zákonů.}
 \label{obr:Period}
 \end{figure}
@@ -654,7 +654,7 @@ R \sim \frac{n^2}{Z^{\prime}},
 \subsection{Sčítání momentu hybnosti a atomové termy}
 Jedno-elektronové atomy jsou charakterizovány nejen energií, ale také hodnotou velikosti momentu hybnosti (kvantové číslo $l$) a projekcí momentu hybnosti do určité osy (konvenčně do osy z, kvantové číslo $m$). Jestliže studujeme atomy s~více elektrony, mohlo a mělo by nás zajímat, jakým způsobem se momenty hybností jednotlivých elektronů sčítají do celkového momentu hybnosti.
 
-Celkový moment hybnosti XXX by měl splňovat kvantově-mechanická pravidla jako jakýkoliv jiný moment hybnosti. Pro jeho velikost tak bude platit
+Celkový moment hybnosti $\vec{L}$ by měl splňovat kvantově-mechanická pravidla jako jakýkoliv jiný moment hybnosti. Pro jeho velikost tak bude platit
 
 \begin{equation}
 \vert \vec{L} \vert = \hbar \sqrt{L(L+1)}
@@ -721,11 +721,12 @@ Stav atomu potom zapisujeme pomocí tzv. atomového termu
 \label{obr:ATerm}
 \end{figure}
 
+\begin{priklad}
+\textbf{Zadání:} Při plamenných zkouškách je nejsnadnější poznat přítomnost sodíku díky vyzařování intenzivního žlutého světla. Toto světlo odpovídá přechodu nepárového elektronu z 2p orbitalu sodíku do orbitalu 2s. Už v 19. století se zjistilo, že jde o~dvě velmi blízko ležící čáry,  jedna u 589,0~nm a druhá u 589,6~nm. Jakým dvěma přechodům tyto emisní čáry odpovídají?\\[0.1cm]
+\textbf{Řešení:} Sodík s nepárovým  elektronem v 2p orbitalu se může nacházet ve dvou stavech lišícím se kvantovým číslem J. Kvantové číslo $L=1$, kvantové číslo $S=1/2$, pak $J=|L-S|,\, L+S$ tedy dá $J=1/2,\,3/2$.
 
-XXXXX Priklad 1: Sodíkový dubletXXXXX
-
-XXXX Příklad 2: Stavy atomu uhlíku XXX
-
+Půjde tedy o přechody ze stavů $^2$P$_{1/2}$ a $^2$P$_{3/2}$ do $^2$S$_0$ stavu, což je základní stav atomu sodíku. Dle Hundových pravidel bude energeticky níže stav $^2$P$_{1/2}$, tj. přechod u 589,6~nm odpovídá deexcitaci z tohoto stavu.
+\end{priklad}
 
 Musíme mít ovšem na paměti, že ne všechny součty jsou v~atomech možné (díky Pauliho vylučovacímu principu).
 
@@ -743,8 +744,22 @@ Pořadí jednotlivých atomových termů dle energie je dáno tzv. Hundovými pr
  
 \end{itemize}
 
+\begin{priklad}
+\textbf{Zadání:} S pomocí Hundových pravidel odvoďte základní stav atomu uhlíku a~zapište dovolené termy.\\[0.1cm]
+\textbf{Řešení:} Základní elektronový stav má plnou elektronovou konfiguraci
+\begin{displaymath}
+1\mathrm{s}^2 \, 2\mathrm{s}^2 \, 2\mathrm{p}^2
+\end{displaymath}
+nebo ve zkrácené podobě
+\begin{displaymath}
+^{2} \mathrm{He}: 2\mathrm{s}^2 \, 2\mathrm{p}^2.
+\end{displaymath}
+Dále víme, že plně zaplněné slupky nemusíme uvažovat. Došli jsme tak k~závěru, že základní stav atomu uhlíku odpovídá elektronové konfiguraci 2p$^2$. Tomu odpovídají termy
+\begin{displaymath}
+^{1}\mathrm{S}_0, \, ^{3}\mathrm{P}_0, \, ^{3}\mathrm{P}_1, \, ^{3}\mathrm{P}_2 \mbox{ a } ^{1}\mathrm{D}_2.
+\end{displaymath} \vspace{-0.7cm}
+\end{priklad}
 
-XXXXX Příklad: Asi zase seradit atom uhliku? XXXXXX
 
 V~nerelativistické kvantové mechanice by se energie stavů lišících se pouze hodnotou celkového momentu hybnosti $J$ neměla lišit. Rozdíl energií je způsoben tzv. spin-orbitální vazbou. Zhruba řečeno, elektron rotující kolem jádra generuje magnetické pole. Spin elektronu je vůči tomuto poli různým způsobem orientován a tím je ovlivněna i jeho energie. V~hamiltoniánu tak přibývá člen
 
@@ -753,12 +768,12 @@ V~nerelativistické kvantové mechanice by se energie stavů lišících se pouz
 \label{rov:VE-67}
 \end{equation}
 
-\noindent Parametr XXX představuje pro lehká jádra jenom velmi malý člen, Ten však rychle roste a pro těžká jádra je třeba tento jev brát v~potaz. Sčítání momentů hybnosti se dá provádět dvojím způsobem
+\noindent Parametr $\xi$ představuje pro lehká jádra jenom velmi malý člen, Ten však rychle roste a pro těžká jádra je třeba tento jev brát v~potaz. Sčítání momentů hybnosti se dá provádět dvojím způsobem
 
 \begin{itemize}
-\item L-S vazba (Russelova-Saundersova). Zde nejdříve sčítáme orbitální moment hybnosti pro celý atom, zvláště spinový moment pro celý atom a teprve na konci sečteme oba momenty. Uplatňuje se v~situacích, kdy je mezi-elektronová repulze významnějším efektem v~porovnání se spin-orbitální vazbou.  
+\item \textbf{L-S vazba (Russelova-Saundersova)}. Zde nejdříve sčítáme orbitální moment hybnosti pro celý atom, zvláště spinový moment pro celý atom a teprve na konci sečteme oba momenty. Uplatňuje se v~situacích, kdy je mezi-elektronová repulze významnějším efektem v~porovnání se spin-orbitální vazbou.  
 
-\item j-j vazba. Zde nejdříve sčítáme orbitální a spinový moment pro jednotlivé elektrony a~sčítáme teprve výsledný moment hybnosti. 
+\item \textbf{j-j vazba}. Zde nejdříve sčítáme orbitální a spinový moment pro jednotlivé elektrony a~sčítáme teprve výsledný moment hybnosti. 
 
 \end{itemize}     
 

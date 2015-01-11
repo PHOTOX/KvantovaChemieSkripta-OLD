@@ -1,53 +1,6 @@
 V~této kapitole se podíváme na řešení Schrödingerovy rovnice pro některé jednoduché situace vedoucí k~analyticky řešitelným úlohám. Takových situací, které by byly zároveň fyzikálně zajímavé není mnoho. Proto se při popisu složitějších problémů musíme uchýlit k~jistým zjednodušením a aproximacím, kterým se budeme blíže věnovat v~kapitole \ref{kap:pribliznemetody}.
 
-Nejprve se podíváme na jednoduchý experiment s~dvojštěrbinou, který je ve své klasické podobě dobře znám z~optiky a~na kterém si blíže objasníme význam interferencí v~kvantové mechanice. Poté budeme studovat volnou částici. Na tomto triviálním případě si vysvětlíme přístup k~řešení úloh pomocí časově nezávislé Schrödingerovy rovnice. Na volnou částici plynule navážeme popisem částice v~nekonečně hluboké potenciálové jámě. Zde si vysvětlíme odkud se bere kvantování energie a hybnosti. Na závěr kapitoly se ve stručnosti podíváme na velmi důležitý problém řešení kvantového harmonického oscilátoru, který slouží jako modelový fyzikální systém například pro vibrační pohyby molekul.
-
-\subsection{Rozptyl na dvojštěrbině}
-\label{kap:RozptylSterbina}
-
-Z~optiky je znám Youngův experiment. Mějme dvojici paralelních štěrbin (dvojštěrbinu), na které dopadá monochromatické záření. Záření prochází dvojštěrbinou a  dopadá na stínítko. Výsledkem našeho pozorování bude interferenční obrazec střídajících se světlých a tmavých proužků, které po řadě odpovídají maximům a minimům intenzity dopadajícího světla. Pozorujeme tzv. interferenční obrazec. Maxima odpovídají konstruktivní interferenci, minima naopak interferenci destruktivní. Vysvětlení pozorovaného je následující. Světlo se prostorem šíří jako vlna, jako taková vyplňuje celý dostupný prostor. A~tak nás nepřekvapí, že jedna vlna projde v~jeden okamžik oběma štěrbinami zároveň. Proto je vlna procházející jednou štěrbinou ovlivněn vlnou z~druhé štěrbiny a naopak. Vycházející paprsky spolu interagují, skládají se, což je podstatou pozorované interference.
-
-Proveďme teď stejný experiment jen s~tím rozdílem, že na dvojštěrbinu bude dopadat tok klasických částic. Protože částice je podle klasické mechaniky lokální objekt, zdá se být samozřejmé, že v~daný okamžik může částice projít jen jednou štěrbinou, nikoliv oběma štěrbinami zároveň. Z~klasické mechaniky pak pro intenzitu dopadajících částic vyplývá, že intenzita v~daném bodě stínítka je součtem intenzit, které bychom dostali při otevření pouze první nebo druhé štěrbiny
-\begin{equation}
-I_{12} = I_1 + I_2 \mbox{.}
-\label{rov:IntenzitaKlasickeCastice}
-\end{equation}
-Rovnice (\ref{rov:IntenzitaKlasickeCastice}) vyjadřuje skutečnost, že přítomnost jedné štěrbiny nijak neovlivňuje to, jakým způsobem částice procházejí druhou štěrbinou.
-
-V~případě světla (Youngův experiment) je situace složitější, protože jak víme, dochází k~interferenci. Tu lze popsat tak, že v~daném bodě na stínítku  se sčítají intenzity (v~případě světla) elektrického pole od obou štěrbin
-\begin{equation}
-\mathbf{E}_{12} = \mathbf{E}_1 + \mathbf{E}_2 \mbox{.}
-\label{rov:IntenzitaSvetla-E}
-\end{equation}
-Intenzita světla je úměrná kvadrátu velikosti odpovídající intenzity pole, proto v~případě světla dostaneme namísto rovnice (\ref{rov:IntenzitaKlasickeCastice})
-\begin{equation}
-I_{12} \not = I_1 + I_2 \mbox{.}
-\label{rov:IntenzitaSvetla-I}
-\end{equation}
-Nerovnost ve výrazu (\ref{rov:IntenzitaSvetla-I}) je důsledkem interference světelných paprsků. Světlo v~tomto případě reprezentujeme jako vlnu, takže přítomnost jedné štěrbiny ovlivní průchod světla druhou štěrbinou. Výsledkem je existence interferenčního členu, který způsobí například to, že při otevření obou štěrbin může být intenzita v~daném místě nižší než při otevření jen jedné štěrbiny.
-
-Experiment ještě dále pozměňme. Snižujme intenzitu dopadajícího světla natolik, až proti stínítku bude v~jeden okamžik dopadat vždy jen jeden foton (kvantum elektromagnetického záření). Při dopadu fotonu na stínítko dojde k~ozáření jen jednoho bodu, podobně jako tomu je v~případě klasických částic, kde každá může dopadnout jen na jediné místo na stínítku. Ovšem necháme-li experiment probíhat dostatečně dlouho, začne se z~jednotlivých bodů na stínítku vytvářen stejný interferenční obrazec, jaký bychom dostali v~případě dopadajících světelných vln, analogicky jako v~případě Youngově experimentu. Toto chování nemůžeme vysvětlit jinak, než že i jeden jediný foton je ovlivňován existencí druhé štěrbiny, stejně jako monochromatická vlna.
-
-Podobně jako fotony můžeme nechat na stínítko dopadat tok jiných elementárních částic, například neutronů či elektronů. Výsledek bude totožný tomu, který jsme dostali při experimentu s~fotony. Pozorované interferenční chování částic nemůžeme vysvětlit pomocí teoretického aparátu klasické fyziky. Podle klasické fyziky projde-li částice jednou štěrbinou, nemá na ni přítomnost druhé štěrbiny žádný vliv. Ovšem pozorované interferenční chování částic je experimentálním faktem, který nemůžeme přehlížet. Elegantním řešením je připustit, že částice mají obdobný vlnový charakter jako monochromatické záření. Tento závěr jako první vyslovil Louis de Broglie ve své hypotéze o~dualitě částic a vlnění (viz kapitola \ref{kap:historie}).
-
-U~částic tedy můžeme pozorovat kvantověmechanické interference, které lze popsat tak, že každé částici přiřadíme vlnovou funkci $\psi(x, t)$, která je funkcí prostorových souřadnic a~času. Přidržíme-li se i nadále analogie s~optikou, můžeme hustotu pravděpodobnosti $\rho$ nalezení částice v~daném místě $x$ a čase $t$ vyjádřit jako
-\begin{equation}
-\rho(x, t) = |\psi(x,t)|^2 \mbox{.}
-\label{rov:VlnovaFce-castice}
-\end{equation}
-Vzhledem k~tomu, že kvadrát vlnové funkce interpretujeme jako pravděpodobnost (viz Bornova pravděpodobnostní interpretace kvantové mechaniky v~kapitole \ref{kap:historie}), musí platit rovnice
-\begin{equation}
-\int_{x=-\infty}^\infty |\psi(x,t)|^2 \,\mathrm{d}x = 1 \mbox{,}
-\label{rov:Normalizace}
-\end{equation}
-která vyjadřuje skutečnost, že částice se musí někde vyskytovat. Rovnice (\ref{rov:Normalizace}) vyjadřuje tzv. normalizační podmínku.
-
-Pokud zavedeme po řadě pro pravděpodobnosti dopadu částice na stínítko při otevřené první nebo druhé štěrbině označení $p_1$ a $p_2$, pak pravděpodobnost dopadu na dané místo stínítka při obou otevřených štěrbinách se nerovná součtu pravděpodobností $p_1$ a $p_2$
-\begin{equation}
-p_{12} \not = p_1 + p_2 \mbox{,}
-\label{rov:Pravdepodobnosti-Stinitko}
-\end{equation}
-ale pravděpodobnost bude záviset na interferenčním členu. Můžeme dokonce dostat výsledek takový, že $p_{12} = 0$, přestože $p_1 \not =  0$ a $p_2 \not = 0$, což vede k~minimu intenzity na stínítku (analogie s~destruktivní interferencí).
+Začneme s volnou částicí. Na tomto triviálním případě si vysvětlíme přístup k~řešení úloh pomocí časově nezávislé Schrödingerovy rovnice. Na volnou částici plynule navážeme popisem částice v~nekonečně hluboké potenciálové jámě. Zde si vysvětlíme odkud se bere kvantování energie a hybnosti. Na závěr kapitoly se ve stručnosti podíváme na velmi důležitý problém řešení kvantového harmonického oscilátoru, který slouží jako modelový fyzikální systém například pro vibrační pohyby molekul.
 
 \subsection{Volná částice}
 \label{kap:VolnaCastice}
@@ -79,7 +32,7 @@ kde $k\geq0$ je reálné číslo, obvykle označované jako vlnový vektor. S~vy
 \left( \frac{\mathrm{d}^2}{\mathrm{d}x^2} + k^2 \right) \psi(x) = 0 \mbox{,}
 \label{rov:Volna4}
 \end{equation}
-což je obyčejná diferenciální rovnice s~konstantními koeficienty. Rovnice tohoto typu řešíme metodou charakteristické rovnice -- polynomu. V~tomto případě je příslušný charakteristický polynom
+což je obyčejná diferenciální rovnice s~konstantními koeficienty. Rovnice tohoto typu řešíme metodou charakteristického polynomu. V~tomto případě je příslušný charakteristický polynom
 \begin{equation}
 \lambda^2 + k^2 = 0 \mbox{.}
 \label{rov:Volna5}
@@ -106,12 +59,12 @@ p = \pm \hbar k \mbox{.}
 \end{equation}
 Vlnovou funkci volné částice proto můžeme zapsat jako
 \begin{equation}
-\psi(x) = e^{-px/(i\hbar)} \mbox{.}
+\boxed{\psi(x) = e^{-px/(i\hbar)} \mbox{.}}
 \label{rov:Volna10}
 \end{equation}
 Vyjádříme-li celkovou energii částice pomocí hybnosti $p$, dostaneme výraz pro energii ve tvaru
 \begin{equation}
-E = \frac{p^2}{2m} = \frac{\hbar^2k^2}{2m} \mbox{.}
+\boxed{E = \frac{p^2}{2m} = \frac{\hbar^2k^2}{2m} \mbox{.}}
 \label{rov:Volna11}
 \end{equation}
 Vidíme, že ani hybnost ani energie volné částice nejsou kvantovány.
@@ -174,7 +127,7 @@ První podmínku splníme tak, že položíme $A = -B$, tj. místo obecné vlnov
 \psi(x)=N \sin(kx) \mbox{,}
 \label{rov:Jama7}
 \end{equation}
-kde $N$ je normovací konstanta. Využili jsme přitom Eulerovu identitu. Druhou podmínku (\ref{rov:Jama6}) splníme tak, že položíme
+kde $N$ je normovací konstanta. Využili jsme přitom Eulerovu identitu \eqref{rov:EulerovaIdentita}. Druhou podmínku (\ref{rov:Jama6}) splníme tak, že položíme
 \begin{equation}
 ka = \pi n, \quad n= 1,2,3, \dots \mbox{,}
 \label{rov:Jama8}
@@ -187,12 +140,12 @@ k_n = \frac{\pi}{a}n \quad n=1,2,3, \dots \mbox{,}
 \label{rov:Jama9}
 \end{equation}
 \begin{equation}
-E_n = \frac{\pi^2\hbar^2}{2ma^2}n^2, \quad n=1,2,3, \dots 
+\boxed{E_n = \frac{\pi^2\hbar^2}{2ma^2}n^2, \quad n=1,2,3, \dots }
 \label{rov:Jama10}
 \end{equation}
 a že kvantování vyplývá z~okrajových podmínek (\ref{rov:Jama5}) a (\ref{rov:Jama6}). Vlnové funkce příslušející energiím daným vztahem (\ref{rov:Jama10}) jsou
 \begin{equation}
-\psi_n(x) = N \sin \frac{\pi n x}{a}, \quad n=1,2,3,\dots \mbox{.}
+\boxed{\psi_n(x) = N \sin \frac{\pi n x}{a}, \quad n=1,2,3,\dots \mbox{.}}
 \label{rov:Jama11}
 \end{equation}
 
@@ -316,10 +269,10 @@ kde čárka naznačuje derivaci podle $\xi$. Diferenciální rovnice (\ref{rov:L
 \end{equation}
 S~přihlédnutím ke vztahu (\ref{rov:LHO6}) dostaneme pro energií stacionárních stavů
 \begin{equation}
-E_n = \hbar \omega (n+ 1/2), \quad n=0,1,2, \dots \mbox{.}
+\boxed{E_n = \hbar \omega (n+ 1/2), \quad n=0,1,2, \dots \mbox{.}}
 \label{rov:LHO13}
 \end{equation}
-Vidíme, že kvantování energií je opět dáno okrajovými podmínkami kladenými na uvažovaný systém. Z~rovnice (\ref{rov:LHO13}) také plyne, že když za $n$ dosadíme $n=0$, neboli počítáme energii nulové hladiny LHO, dostaneme
+Vidíme, že kvantování energií je opět dáno okrajovými podmínkami kladenými na uvažovaný systém. Z~rovnice (\ref{rov:LHO13}) také plyne, že když za $n$ dosadíme $n=0$, neboli počítáme \textbf{energii nulové hladiny} LHO, dostaneme
 \begin{equation}
 E_0 = \frac{\hbar \omega}{2} \mbox{.}
 \label{rov:LHO16}
@@ -337,4 +290,11 @@ H_n(\xi) = (-1)^n e^{\xi^2} \frac{\mathrm{d}^n}{\mathrm{d}\xi^n}e^{-\xi^2} \mbox
 \label{rov:LHO15}
 \end{equation}
 
+\begin{priklad}
+\textbf{Zadání:} Molekula HCl silně absorbuje v infračervené oblasti spektra u $2991$~cm$^{-1}$. Spočtěte silovou konstantu $k$ pro tuto molekulu.\\[0.1cm]
+\textbf{Řešení:} Zapíšeme $\Delta E = h \nu = h c / \lambda = \hbar \sqrt{k/\mu}$ a vyjádříme $k$
+\begin{displaymath}
+k = 4 \pi^2 \left( \frac{c}{\lambda} \right)^2 \mu = 516{,}3 \mbox{ N m}^{-1}.
+\end{displaymath} \vspace{-0.7cm}
+\end{priklad}
 

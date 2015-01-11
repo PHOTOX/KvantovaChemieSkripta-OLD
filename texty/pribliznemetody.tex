@@ -6,29 +6,29 @@ Přírodní zákony mohou být často formulovány různými způsoby. Principy 
 
 \subsubsection{Variační princip v~kvantové mechanice}
 
-Dle variační teorému je vlastní hodnota Hamiltoniánu pro jakoukoli přibližnou normovanou vlnovou funkci větší nebo rovna energii základního stavu systému:
+Dle variační teorému je vlastní hodnota Hamiltoniánu pro jakoukoli \textbf{přibližnou normovanou vlnovou funkci} větší nebo rovna energii základního stavu systému
 
 \begin{equation}
-\int\phi^*\hat{H}\phi d\tau\geq E_0,
+\boxed{\int\phi^*\hat{H}\phi d\tau\geq E_0,}
 \label{rov:aprox-variacniteorem}
 \end{equation}
 
 \noindent kde $ \phi $ je přibližná vlnová funkce a $ E_0 $ energie základního stavu. Toto tvrzení je nesmírně užitečné. Představme si, že jsme nějakým způsobem odhadli přibližné řešení Schr\"{o}dingerovy rovnice. Variační princip nám umožní rozhodnout, zda toto naše řešení je lepší nebo horší než nějaké jiné přibližné řešení: správnější bude řešení s~nižší energií. Jak uvidíme níže, variační princip nám navíc umožňuje přibližné řešení efektivně nalézt. 
 
 
- Ukažme si nyní, že variační princip je ekvivalentní se Schr\"{o}dingerovou rovnicí. Neznámou vlnovou funkci můžeme zapsat ve tvaru lineární kombinace vlastních funkcí Hamiltonova operátoru:
+ Ukažme si nyní, že variační princip je ekvivalentní se Schr\"{o}dingerovou rovnicí. Neznámou vlnovou funkci můžeme zapsat ve tvaru lineární kombinace vlastních funkcí Hamiltonova operátoru
 
 \begin{equation}
 \phi=\sum_k c_k \psi_k. 
 \label{rov:aprox-rozvojbaze}
 \end{equation}
 
-\noindent Připomeňme si zde, že vlastní funkce Hamiltonova operátoru vytváří úplný soubor funkcí, takže výše uvedený rozvoj můžeme určitě udělat. Rozvoj nyní dosadíme do levé strany rovnice \ref{rov:aprox-variacniteorem}: 
+\noindent Připomeňme si zde, že vlastní funkce Hamiltonova operátoru vytváří úplný soubor funkcí, takže výše uvedený rozvoj můžeme určitě udělat. Rozvoj nyní dosadíme do levé strany rovnice \ref{rov:aprox-variacniteorem}
 \begin{equation}
 \int\phi^*\hat{H}\phi d\tau=\int\left( \sum_k c_k^* \psi_k^*\hat{H}\sum_l c_l\psi_l\right)d\tau =\sum_k \sum_l c_k^*c_l\int\psi_k^*\hat{H}\psi_l d\tau=\sum_k \sum_l c_k^*c_lE_k\delta_{kl}.
 \end{equation}
 
-\noindent Rovnici si nyní můžeme přepsat do jednoduššího tvaru:
+\noindent Rovnici si nyní můžeme přepsat do jednoduššího tvaru
 \begin{equation}
 \int\phi^*\hat{H}\phi d\tau=\sum_k |c_k|^2E_k.
 \label{rov:aprox-vari2}
@@ -46,108 +46,109 @@ Při praktickém použití uvažujeme většinou  přibližnou vlnovou funkci z�
 \noindent vůči těmto parametrům pak umožní nalezení jejich optimálních hodnot. Jmenovatel ve výše uvedeném výrazu je samozřejmě pro normované funkce $ \phi $ jednotkový.
 
 \begin{priklad}
- Použití variačního principu si ukážeme na příkladu jednorozměrné potenciálové jámy. Analytické řečení této úlohy vede k~hodnotám energie $ E_n=\frac{n^2h^2}{8mL^2}$. Přibližná vlnová funkce musí splňovat okrajové podmínky, tedy $ \phi(0)=0 $ a $ \phi(L)=0 $. Nejjednodušší takovou funkcí bude nejspíš kvadratická funkce. Nechť má tedy přibližná funkce $\phi$ následující tvar:
+Platnost variačního principu si ukážeme na příkladu jednorozměrné potenciálové jámy. Analytické řečení této úlohy vede k~hodnotám energie $ E_n=\frac{n^2h^2}{8mL^2}$. Přibližná vlnová funkce musí splňovat okrajové podmínky, tedy $ \phi(0)=0 $ a $ \phi(L)=0 $. Nejjednodušší takovou funkcí bude nejspíš kvadratická funkce. Nechť má tedy přibližná funkce $\phi$ následující tvar
  
 \begin{displaymath} 
 \phi=x(L-x).
 \end{displaymath}
  
-Funkce $\phi$ není normovaná, proto nejprve určíme normu:
+Funkce $\phi$ není normovaná, proto nejprve určíme normu
  
 \begin{displaymath} 
-N=\int_0^L \phi^*\phi dx=\int_0^L (x(L-x))^2 dx=\frac{L^5}{30} 
+N=\int_0^L \phi^*\phi dx=\int_0^L (x(L-x))^2 dx=\frac{L^5}{30}.
 \end{displaymath}
  
- Normovaná přibližná funkce tedy vypadá následovně,
+\noindent Normovaná přibližná funkce tedy vypadá následovně,
  
 \begin{displaymath} 
 \sqrt{\frac{30}{L^5}} x(L-x).
 \end{displaymath}
  
- Připomeňme si ještě, jak vypadá Hamiltonián pro částici v~jednodimenzionální potenciálové jámě:
+Připomeňme si ještě, jak vypadá hamiltonián pro částici v~jednodimenzionální potenciálové jámě
  
-   \begin{displaymath} 
+\begin{displaymath} 
 \hat{H}=\frac{-\hbar^2}{2m}\frac{d^2}{d x^2}.
 \end{displaymath}
  
-Nyní můžeme uplatnit vztah \ref{rov:aprox-variacniteorem}:
+Nyní můžeme uplatnit vztah \ref{rov:aprox-variacniteorem}
 
    \begin{displaymath} 
 E_k=\int\phi^*\hat{H}\phi dx=\frac{-\hbar^2}{2m}\frac{30}{L^5}\int_0^L x(L-x)\left(\frac{d^2 [x(L-x)]}{d x^2}\right)dx
 \end{displaymath}
  
- Po vyčíslení dostaneme:
+ Po vyčíslení dostaneme
  
     \begin{displaymath} 
 E_k=\frac{5h^2}{4\pi^2 mL^2}\geq \frac{h^2}{8mL^2}=E_0.    
 \end{displaymath}
  
 Na konkrétním příkladu jsme si tak ukázali platnost variačního teorému. 
- \end{priklad}
+\end{priklad}
  
- \subsubsection{Rayleighova-Ritzova metoda}
+\subsubsection{Lineární variační funkcionál}
+\label{kap:Lin Var funkcional}
  
- V~kvantové chemii je užitečné hledat řešení jako lineární kombinaci předem definovaných funkcí a optimalizovat pouze příspěvky jednotlivých bázových funkcí k~celkové vlnové funkci, tj. optimalizovat tzv. rozvojové koeficienty. Tak v~chemii jsme si kupříkladu navykli hledat molekulové orbitaly jako lineární kombinace atomových orbitalů. Zapišme tedy vlnovou funkci pomocí lineární kombinace bázových funkcí:
+ V~kvantové chemii je užitečné hledat řešení jako lineární kombinaci předem definovaných funkcí a optimalizovat pouze příspěvky jednotlivých bázových funkcí k~celkové vlnové funkci, tj. optimalizovat tzv. rozvojové koeficienty. Tak v~chemii jsme si kupříkladu navykli hledat molekulové orbitaly jako lineární kombinace atomových orbitalů. Zapišme tedy vlnovou funkci pomocí lineární kombinace bázových funkcí
  
  \begin{equation}
  \phi=\sum_k c_k f_k,
  \label{rov:aprox-Rayleigh-Ritz} 
  \end{equation}
  
-\noindent kde $ f_k $ je sada nám známých vhodných funkcí a $ c_k $ jsou rozvojové koeficienty. Ty budeme variačně optimalizovat. Takto definovanou vlnovou funkci nyní dosadíme do výrazu variačního integrálu, \ref{rov:aprox-variacniintegrál}:
+\noindent kde $ f_k $ je sada nám známých vhodných funkcí a $ c_k $ jsou rozvojové koeficienty. Ty budeme variačně optimalizovat. Takto definovanou vlnovou funkci nyní dosadíme do výrazu variačního integrálu, \ref{rov:aprox-variacniintegrál}
  
  \begin{equation}
-\epsilon=\frac{\int\sum_k c_k f_k\hat{H}\sum_l c_l f_l d\tau}{\int\sum_k c_k f_k\sum_l c_l f_l d\tau}=\frac{\sum_{k,l} c_k c_l \int f_k \hat{H} f_ld\tau}{\sum_{k,l} c_k c_l \int f_k f_ld\tau}.
+\epsilon = \frac{\int \phi^{\ast}\hat{H}\phi \mathrm{d} \tau}{\int \phi^{\ast} \phi \mathrm{d} \tau}=\frac{\int\sum_k c_k f_k\hat{H}\sum_l c_l f_l d\tau}{\int\sum_k c_k f_k\sum_l c_l f_l d\tau}=\frac{\sum_{k,l} c_k c_l \int f_k \hat{H} f_ld\tau}{\sum_{k,l} c_k c_l \int f_k f_ld\tau}.
 \label{rov:aprox-variacniintegrál2}
 \end{equation}
  
- \noindent Definujme si nyní matici překryvu \textit{S}:
+ \noindent Definujme si nyní matici překryvu $\mathbf{S}$ pomocí jejich maticových elementů
  \begin{equation}
  S_{kl}=\int f_k f_ld\tau
 \end{equation}  
  
-\noindent  a Hamiltonovu matici \textit{H}
+\noindent  a Hamiltonovu matici $\mathbf{H}$ s elementy
  
   \begin{equation}
- H_{kl}=\int f_k \hat{H} f_ld\tau,
+ H_{kl}=\int f_k \hat{H} f_ld\tau.
 \end{equation}  
  
- \noindent Variační integrál pak nabude tvaru:
+ \noindent Variační integrál pak nabude tvaru
  
    \begin{equation}
  \epsilon=\frac{\sum_{k,l}c_k c_l H_{kl}}{\sum_{k,l}c_k c_l S_{kl}}.
 \end{equation}  
  
- \noindent Nejlepší řešení dostaneme pro funkci, pro který bude variační integrál minimální. To vede k~podmínce:
+ \noindent Nejlepší řešení dostaneme pro funkci, pro který bude variační integrál minimální. To vede k~podmínce
  \begin{equation}
  \frac{\partial \epsilon}{\partial c_i}=0.
  \label{rov:aprox-derivace} 
  \end{equation}
  
- \noindent Derivaci čitatele si rozepíšeme následovně:
+ \noindent Derivaci čitatele si rozepíšeme následovně
  
  \begin{equation}
  \frac{\partial}{\partial c_i} \sum_{k,l}c_k c_l H_{kl}=\sum_{k,l} \frac{\partial}{\partial c_i} (c_k c_l H_{kl})=\sum_{k,l} \left(\frac{\partial c_k}{\partial c_i}c_l H_{kl} + \frac{\partial c_l}{\partial c_i}c_k H_{kl} \right)
    \end{equation}
  
-\noindent  Derivace jednotlivých členů se dále zjednoduší, uvažujeme-li:
+\noindent  Derivace jednotlivých členů se dále zjednoduší, uvažujeme-li
   \begin{equation}
  \frac{\partial c_k}{\partial c_i}=\delta_{ki}.
    \end{equation}
  
- \noindent Dostaneme tak konečný výraz pro derivaci čitatele z~rovnice \ref{rov:aprox-derivace}:
+ \noindent Dostaneme tak konečný výraz pro derivaci čitatele z~rovnice \ref{rov:aprox-derivace}
  
   \begin{equation}
  \frac{\partial}{\partial c_i} \sum_{k,l}c_k c_l H_{kl}=\sum_{k} c_k H_{ki}+\sum_{l} c_l H_{li}.
    \end{equation}
  
- \noindent Použitím posledního vztahu a uplatněním vztahu pro derivaci podílu nakonec dostaneme upravený tvar rovnice \ref{rov:aprox-derivace}:
+ \noindent Použitím posledního vztahu a uplatněním vztahu pro derivaci podílu nakonec dostaneme upravený tvar rovnice \ref{rov:aprox-derivace}
  
   \begin{equation}
  \frac{\partial\epsilon}{\partial c_i}=\frac{\sum_{k} c_k H_{ki}+\sum_{l} c_l H_{li}}{\sum_{k,l}c_kc_lS_{kl}}-\frac{\left(\sum_{k} c_k S_{ki}+\sum_{l} c_l S_{li}\right)\sum_{k,l}c_k c_l H_{kl}}{\left(\sum_{k,l}c_k c_l\right)^2}
    \end{equation}
  
- \noindent Protože hledáme minimum funkce, položíme variační integrál roven nule (použili jsme znovu definice variačního integrálu \ref{rov:aprox-variacniintegrál2}):
+ \noindent Protože hledáme minimum funkce, položíme variační integrál roven nule (použili jsme znovu definice variačního integrálu \ref{rov:aprox-variacniintegrál2})
  
   \begin{equation}
  \frac{\partial\epsilon}{\partial c_i}=\frac{\sum_k c_{k}\left(H_{ik}-\epsilon S_{ik}\right)+\sum_l c_{l}\left(H_{li}-\epsilon S_{li}\right)}{\sum_{k,l}c_k c_l}=0
@@ -157,66 +158,20 @@ Na konkrétním příkladu jsme si tak ukázali platnost variačního teorému.
  \frac{\partial\epsilon}{\partial c_i}=\frac{2\sum_k c_{k}\left(H_{ik}-\epsilon S_{ik}\right)}{\sum_{k,l}c_k c_l}=0
 \end{equation}
  
-\noindent Derivace bude nulová, pokud je nulový čitatel. Tím dostáváme soustavu tzv. sekulárních rovnic:
+\noindent Derivace bude nulová, pokud je nulový čitatel. Tím dostáváme soustavu tzv. sekulárních rovnic
 
   \begin{equation}
  \sum_k c_{k}\left(H_{ik}-\epsilon S_{ik}\right)=0
      \end{equation}
  
-Jde o~soustavu lineárních rovnic, jejímž řešením jsou rozvojové koeficienty $c_k$. To ovšem za předpokladu, že známe $\epsilon$. To je ale hodnota, kterou hledáme! Všimněme si, že jedno řešení známe okamžitě $c_k=0$. Jde o~tzv. triviální řešení. To nás ale nezajímá, nulové řešení totiž nepředstavuje vlnovou funkci. Lineární algebra nás učí, že soustava rovnic s~nulovou pravou stranou má netriviální řešení pouze tehdy, jestliže je determinant soustavy (v~tomto případě sekulární determinant) nulový:
+Jde o~soustavu lineárních rovnic, jejímž řešením jsou rozvojové koeficienty $c_k$. To ovšem za předpokladu, že známe $\epsilon$. To je ale hodnota, kterou hledáme! Všimněme si, že jedno řešení známe okamžitě $c_k=0$. Jde o~tzv. triviální řešení. To nás ale nezajímá, nulové řešení totiž nepředstavuje vlnovou funkci. Lineární algebra nás učí, že soustava rovnic s~nulovou pravou stranou má netriviální řešení pouze tehdy, jestliže je determinant soustavy (v~tomto případě sekulární determinant) nulový
  
    \begin{equation}
- |H_{ik}-\epsilon S_{ik}|=0
+ |H_{ik}-\epsilon S_{ik}|=0.
      \end{equation}
  
-Sekulární determinant představuje algebraickou rovnici pro neznámou hodnotu $\epsilon$. Pro rozvoj  vlnové funkce do dvou bázových funkcí půjde o~rovnici kvadratickou, pro rozsáhlejší rozvoje půjde o~rovnice vyšších řádů. 
- 
- \begin{priklad}
- Použití variačního principu si ukážeme na zápisu molekulového orbitalu homodiatomika (např. H$_{2}$) jako lineární kombinace dvou atomových orbitalů (A~a B) ležících na jednotlivých atomech:  
-  \begin{displaymath} 
-\phi = c_A\chi_A+c_B\chi_B.    
-\end{displaymath}
-Nyní si můžeme vyčíslit maticové elementry $H_{kl}$ a $S_{kl}$:
+Sekulární determinant představuje algebraickou rovnici pro neznámou hodnotu $\epsilon$. Pro rozvoj  vlnové funkce do dvou bázových funkcí půjde o~rovnici kvadratickou, pro rozsáhlejší rozvoje půjde o~rovnice vyšších řádů.
 
-\begin{eqnarray}
-H_{AB}&=&\int \chi_A\hat{H}\chi_Bd\tau\nonumber\\
-H_{AA}&=&\int \chi_A\hat{H}\chi_Ad\tau=H_{BB}\nonumber\\
-S_{AB}&=&\int \chi_A \chi_B d\nonumber\tau
-\end{eqnarray}   
-
-Dalším krokem bude sestavení sekulárního determinantu:
- \begin{displaymath}
-    \left|\begin{array}{cc@{\quad}r}
-     H_{AA} -\epsilon & H_{AB}-\epsilon S_{AB}  \\
-     H_{AB} -\epsilon S_{AB} & H_{BB}-\epsilon  \\
-    \end{array}\right |=0.
-    \end{displaymath}
-
-Sekulární determinant posléze vyřešíme a dostaneme vztah pro $\epsilon$:
-
-\begin{displaymath}
-\epsilon_{1,2}=\frac{H_{AA}\pm H_{AB}}{1\pm S_{AB}}.
-\end{displaymath}
-
-Dále vyřešíme sekulární rovnice:
-\begin{eqnarray}
-c_A(H_{AA}-\epsilon S_{AA})+c_B(H_{AB}-\epsilon S_{AB})&=&
-c_A(H_{AA}-\epsilon)+c_B(H_{AB}-\epsilon S_{AB})=0\nonumber\\
-c_A(H_{BA}-\epsilon S_{BA})+c_B(H_{BB}-\epsilon S_{BB})&=&
-c_A(H_{AB}-\epsilon S_{AB})+c_B(H_{AA}-\epsilon)=0.\nonumber
-\end{eqnarray}
-
-Do sekulárních rovnic si dosadíme vztahy za $ \epsilon_{1,2} $
-a po vyčíslení dostaneme pro  $c_A=c_B$ (pro $ \epsilon_1 $) a $c_A=-c_B$ (pro $ \epsilon_2 $). Ze dvou atomových orbitalů tedy dostaneme vazebný molekulový orbital $ \phi_1 $:
-\begin{displaymath}
-\phi_1=c_A(\chi_A+\chi_B)
-\end{displaymath}
-a antivazebný molekulový orbital $ \phi_2 $:
-\begin{displaymath}
-\phi_2=c_A(\chi_A-\chi_B).
-\end{displaymath}
-\end{priklad}
- 
 \begin{priklad}
 Jednodimenzionální potenciálovou jámu si nyní vyřešíme i pomocí bázového rozvoje \ref{rov:aprox-Rayleigh-Ritz}. Vlnovou funkci definujeme ve tvaru $ \phi=c_1x^2(L-x)+c_2x(L-x)^2 $. Postup je následující:
 
@@ -232,17 +187,64 @@ Příklad vyřešený v~programu Mathematica je dostupný na webových stránká
 
 \end{priklad} 
  
+\begin{priklad}
+\label{priklad var princip}
+Použití variačního principu si ukážeme na zápisu molekulového orbitalu homodiatomika (např. H$_{2}$) jako lineární kombinace dvou atomových orbitalů (A~a B) ležících na jednotlivých atomech
+\begin{displaymath} 
+\phi = c_A\chi_A+c_B\chi_B.    
+\end{displaymath}
+Nyní si můžeme vyčíslit maticové elementry $H_{kl}$ a $S_{kl}$
+
+\begin{eqnarray}
+H_{AB}&=&\int \chi_A\hat{H}\chi_Bd\tau\nonumber\\
+H_{AA}&=&\int \chi_A\hat{H}\chi_Ad\tau=H_{BB}\nonumber\\
+S_{AB}&=&\int \chi_A \chi_B d\nonumber\tau
+\end{eqnarray}   
+
+Dalším krokem bude sestavení sekulárního determinantu
+ \begin{displaymath}
+    \left|\begin{array}{cc@{\quad}r}
+     H_{AA} -\epsilon & H_{AB}-\epsilon S_{AB}  \\
+     H_{AB} -\epsilon S_{AB} & H_{BB}-\epsilon  \\
+    \end{array}\right |=0.
+    \end{displaymath}
+
+Sekulární determinant posléze s využitím $H_{AA} = H_{BB}$ vyřešíme a dostaneme vztah pro $\epsilon$
+
+\begin{displaymath}
+\epsilon_{1,2}=\frac{H_{AA}\pm H_{AB}}{1\pm S_{AB}}.
+\end{displaymath}
+
+Dále vyřešíme \textbf{sekulární rovnice}
+\begin{eqnarray}
+c_A(H_{AA}-\epsilon S_{AA})+c_B(H_{AB}-\epsilon S_{AB})&=&
+c_A(H_{AA}-\epsilon)+c_B(H_{AB}-\epsilon S_{AB})=0\nonumber\\
+c_A(H_{BA}-\epsilon S_{BA})+c_B(H_{BB}-\epsilon S_{BB})&=&
+c_A(H_{AB}-\epsilon S_{AB})+c_B(H_{AA}-\epsilon)=0.\nonumber
+\end{eqnarray}
+
+Do sekulárních rovnic si dosadíme vztahy za $ \epsilon_{1,2} $
+a po vyčíslení dostaneme pro  $c_A=c_B$ (pro $ \epsilon_1 $) a $c_A=-c_B$ (pro $ \epsilon_2 $). Ze dvou atomových orbitalů tedy dostaneme vazebný molekulový orbital $ \phi_1 $
+\begin{displaymath}
+\phi_1=c_A(\chi_A+\chi_B)
+\end{displaymath}
+a antivazebný molekulový orbital $ \phi_2 $
+\begin{displaymath}
+\phi_2=c_A(\chi_A-\chi_B).
+\end{displaymath} \vspace{-0.9cm}
+\end{priklad}
+ 
 \subsection{Poruchová teorie}
 \label{kap:PoruchovaTeorie}
  
-Předpokládejme, že řešíme Schrödingerovy rovnici pro nějaký složitý problém:
+Předpokládejme, že řešíme Schr\"odingerovy rovnici pro nějaký složitý problém
 
 \begin{equation}
 \hat{H}\psi_n=E_n \psi_n,
 \end{equation}
 
 
-\noindent Známe přitom řešení jednoduššího problému, který se od původního problému moc neliší:
+\noindent Známe přitom řešení jednoduššího problému, který se od původního problému moc neliší
  
 \begin{equation}
 \hat{H}^{(0)}\psi_n^{(0)}=E_n^{(0)} \psi_n^{(0)}.
@@ -251,21 +253,21 @@ Předpokládejme, že řešíme Schrödingerovy rovnici pro nějaký složitý p
 \noindent Jinými slovy, od jednoduchého problému přejdeme k~problému složitějšímu přidáním malé poruchy. K~řešení problémů tohoto typu používáme poruchovou teorii.
  
 \begin{priklad} 
-Chceme popsat vibraci molekuly v~anharmonickém potenciálu s~kubickým a kvartickým členem:
+Chceme popsat vibraci molekuly v~anharmonickém potenciálu s~kubickým a kvartickým členem
   
 \begin{equation}
 \hat{H}=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\frac{1}{2}kx^2+cx^3+dx^4
 \nonumber
 \end{equation}
  
-Přičemž jsme schopni vyřešit problém pro harmonický potenciál:
+Přičemž jsme schopni vyřešit problém pro harmonický potenciál
  
 \begin{equation}
 \hat{H}^{(0)}=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\frac{1}{2}kx^2.
 \nonumber
 \end{equation}
  
-Hamiltonián harmonického systému tak representuje neporušený systém a kubické a kvartické členy jsou malá porucha:
+Hamiltonián harmonického systému tak representuje neporušený systém a kubické a kvartické členy jsou malá porucha
  
 \begin{equation}
 \hat{H}=\hat{H}^{(0)}+cx^3+dx^4.
@@ -274,7 +276,7 @@ Hamiltonián harmonického systému tak representuje neporušený systém a kubi
 Doufáme přitom, že se řešení pro systém s~neporušený systém nebude dramaticky lišit od plného řešení, které získáme malou korekcí neporušeného řešení.
 \end{priklad}
 
-Obecně si tedy Hamiltonián definujeme pomocí přibližného Hamiltoniánu a poruchy:
+Obecně si tedy Hamiltonián definujeme pomocí přibližného Hamiltoniánu a poruchy
 
 \begin{equation}
 \hat{H}=\hat{H}^{(0)}+\lambda\hat{H}',
@@ -282,7 +284,7 @@ Obecně si tedy Hamiltonián definujeme pomocí přibližného Hamiltoniánu a p
 
 \noindent přičemž $ \lambda $ je parametr sloužící k~postupnému zapnutí poruchy ($ \lambda = 0 $ znamená, že máme neporušený systém, $ \lambda=1 $ je naopak plně zapnutá porucha).
 
-Protože Hamiltonián závisí na poruchovém parametru $\lambda$, bude na poruše záviset také vlnová funkce a energie. Vlnovou funkci a energii si rozepíšeme ve formě Taylorova rozvoje okolo poruchového parametru:
+Protože Hamiltonián závisí na poruchovém parametru $\lambda$, bude na poruše záviset také vlnová funkce a energie. Vlnovou funkci a energii si rozepíšeme ve formě Taylorova rozvoje okolo poruchového parametru
 
 \begin{equation}
 \psi_{n}=\psi^{(0)}_{n}+\lambda \psi^{(1)}_{n}+\lambda^2 \psi^{(2)}_{n}+...
@@ -293,18 +295,18 @@ Protože Hamiltonián závisí na poruchovém parametru $\lambda$, bude na poru�
 E_{n}=E^{(0)}_{n}+\lambda E^{(1)}_{n}+\lambda^2 E^{(2)}_{n}+...
 \end{equation}
 
-V~dalším odvození budeme pracovat s~tím, že vlnová funkce neporušeného systému $\psi^{(0)}_n$ je normalizovaná:
+V~dalším odvození budeme pracovat s~tím, že vlnová funkce neporušeného systému $\psi^{(0)}_n$ je normalizovaná
 \begin{equation}
-\left <\psi^{(0)}_n |\psi^{(0)}_n\right >=1.
+\int \psi_n^{(0)\ast} \psi_N^{(0)} \mathrm{d} \tau  = \left <\psi^{(0)}_n |\psi^{(0)}_n\right >=1.
 \end{equation}
-Místo uvažování normalizované vlnové funkce se všemi poruchami budeme uvažovat následující normalizační relaci:
+Místo uvažování normalizované vlnové funkce se všemi poruchami budeme uvažovat následující normalizační relaci
 
 \begin{equation}
-\left <\psi^{(0)}_n |\psi_n\right >=1.
+\int \psi_n^{(0) \ast} \psi_n^{(0)} \mathrm{d} \tau =\left <\psi^{(0)}_n |\psi_n\right >=1.
 \label{rov:aprox:IntermediateNormalization}
 \end{equation}
 
-\noindent Tímto způsobem nebude celková poruchová vlnová funkce normalizovaná. To ale nevadí, protože vynásobení vlnové funkce konstantou (normou) nemá vliv na hodnotu energie ze Schrödingerovy rovnice $ \hat{H}\psi_n=E_n\psi_n $. Nyní do normalizační podmínky (\ref{rov:aprox:IntermediateNormalization}) dosadíme poruchovou vlnovou funkci \ref{rov:aprox:poruchawf}:
+\noindent Tímto způsobem nebude celková poruchová vlnová funkce normalizovaná. To ale nevadí, protože vynásobení vlnové funkce konstantou (normou) nemá vliv na hodnotu energie ze Schrödingerovy rovnice $ \hat{H}\psi_n=E_n\psi_n $. Nyní do normalizační podmínky (\ref{rov:aprox:IntermediateNormalization}) dosadíme poruchovou vlnovou funkci \ref{rov:aprox:poruchawf} (pro ušetření místa použijeme braketovou notaci)
 
 \begin{equation}
 1=\left <\psi^{(0)}_n |\psi^{(0)}_n \right >+
@@ -312,14 +314,14 @@ Místo uvažování normalizované vlnové funkce se všemi poruchami budeme uva
 \lambda^2 \left <\psi^{(0)}_n |\psi^{(2)}_n \right > + ...
 \end{equation}
 
-První člen pravé strany poslední rovnice je jednotkový, protože vlnová funkce neporušeného systému je normalizovaná. Proto musí být další členy nulové:
+První člen pravé strany poslední rovnice je jednotkový, protože vlnová funkce neporušeného systému je normalizovaná. Proto musí být další členy nulové
 
 \begin{eqnarray}
 \left <\psi^{(0)}_n |\psi^{(1)}_n \right >=0\\
 \left <\psi^{(0)}_n |\psi^{(2)}_n \right >=0. 
 \end{eqnarray}
 
-\noindent Nyní si Hamiltonián, energii i vlnovou funkci dosadíme do Schrödingerovy rovnice:
+\noindent Nyní si Hamiltonián, energii i vlnovou funkci dosadíme do Schrödingerovy rovnice
 
 \begin{eqnarray}
 \lefteqn{ \left(\hat{H}^{(0)}+\lambda \hat{H}'\right)\left(\psi^{(0)}_{n}+\lambda \psi^{(1)}_{n}+\lambda^2 \psi^{(2)}_{n}+...\right)=}
@@ -327,7 +329,7 @@ První člen pravé strany poslední rovnice je jednotkový, protože vlnová fu
 &&=\left(E^{(0)}_{n}+\lambda E^{(1)}_{n}+\lambda^2 E^{(2)}_{n}+...\right)\left(\psi^{(0)}_{n}+\lambda \psi^{(1)}_{n}+\lambda^2 \psi^{(2)}_{n}+...\right)
 \end{eqnarray}
 
-\noindent Vytkneme-li z~poslední rovnice člen $\lambda^n$, můžeme si nyní rovnici přepsat do následujícího tvaru:
+\noindent Rovnici si přepíšeme do následujícího tvaru
 
 \begin{eqnarray}
 \lefteqn{ \lambda^0\left(\hat{H}^{(0)}\psi^{0}_{n}-E^{(0)}_{n}\psi^{(0)}_{n}\right)+
@@ -337,7 +339,7 @@ První člen pravé strany poslední rovnice je jednotkový, protože vlnová fu
 \lambda^2\left(\hat{H}^{(0)}\psi^{(2)}_{n}+\hat{H}'\psi^{(1)}_{n}+E^{(0)}_{n}\psi^{(2)}_{n}-E^{(1)}_{n}\psi^{(1)}_{n}-E^{(2)}_{n}\psi^{(0)}_{n}\right)+...=0.
 \end{eqnarray}
 
-\noindent Vzhledem k~tomu, že rovnice musí platit pro libovolnou hodnotu parametru $\lambda$, musí se každá závorka zároveň rovnat nule. Schrödingerova rovnice se tedy rozpadá na následující rovnice:
+\noindent Vzhledem k~tomu, že rovnice musí platit pro libovolnou hodnotu parametru $\lambda$, musí se každá závorka zároveň rovnat nule. Schrödingerova rovnice se tedy rozpadá na následující rovnice
 
 \begin{eqnarray}
 \hat{H}^{(0)}\psi^{(0)}_{n} &=&E^{(0)}_{n}\psi^{(0)}_{n}\\
@@ -347,8 +349,8 @@ První člen pravé strany poslední rovnice je jednotkový, protože vlnová fu
 \left(\hat{H}^{(0)}-E^{(0)}_{n}\right)\psi^{(2)}_{n} &=&E^{(2)}_{n}\psi^{(0)}_{n}+\left(E^{(1)}_{n}-\hat{H}'\right)\psi^{(1)}_{n}
 \end{eqnarray}
 
-Nyní si odvodíme, jak bude vypadat korekce k~energii z~prvního řádu poruchové metody. Využijeme rovnice \ref{rov:aprox-lambda1} Předpokládejme, že funkce $\psi_n^{(0)}$ tvoří úplnou bázi.
-Rovnici \ref{rov:aprox-lambda1} nyní vynásobíme komplexně sdruženou funkcí $ \psi_m^{(0)*} $ a přepíšeme do braketové notace:
+Nyní si odvodíme, jak bude vypadat korekce k~energii z~prvního řádu poruchové metody. Využijeme rovnice \ref{rov:aprox-lambda1} Předpokládejme, že funkce $\psi_n^{(0)}$ tvoří úplný soubor funkcí.
+Rovnici \ref{rov:aprox-lambda1} nyní vynásobíme komplexně sdruženou funkcí $ \psi_m^{(0)*} $ a přepíšeme do braketové notace
 
 \begin{equation}
 \left < \psi_m^{(0)}|\hat{H}^{(0)}|\psi_n^{(1)} \right >-
@@ -358,7 +360,7 @@ E_n^{(1)}\left < \psi_m^{(0)}|\psi_n^{(0)} \right >-
 \label{rov:aprox:poruchaenergie1}
 \end{equation}
 
-\noindent První člen v~předchozí rovnici si můžeme upravit s~využitím hermiticity operátoru $\hat{H}^{(0)}$:
+\noindent První člen v~předchozí rovnici si můžeme upravit s~využitím hermiticity operátoru $\hat{H}^{(0)}$
 \begin{equation}
 \left < \psi_m^{(0)}|\hat{H}^{(0)}|\psi_n^{(1)} \right >=
 \int \psi_m^{(0)*}\hat{H}^{(0)}\psi_n^{(1)}d\tau=
@@ -377,11 +379,11 @@ E_n^{(1)}\left < \psi_m^{(0)}|\psi_n^{(0)} \right >-
 \noindent Nyní mohou nastavit dva případy:
 \begin{itemize}
 \item $m=n$:
-Pokud $m=n$, dostaneme okamžitě korekci k~energii:
+Pokud $m=n$, dostaneme okamžitě korekci k~energii
 
 
 \begin{equation}
-E_n^{(1)}=\left < \psi_n^{(0)}|\hat{H}'|\psi_n^{(0)} \right >
+\boxed{E_n^{(1)}=\left < \psi_n^{(0)}|\hat{H}'|\psi_n^{(0)} \right >.}
 \label{rov:PorusenaEnergie}
 \end{equation} 
 
@@ -393,7 +395,7 @@ rovnice \ref{rov:aprox:poruchaenergie2} v~tomto případě přejde na tvar
 \left(E_m^{(0)}-E_n^{(0)}\right)\left < \psi_m^{(0)}|\psi_n^{(1)} \right >=
 -\left < \psi_m^{(0)}|\hat{H}'|\psi_n^{(0)} \right >.
 \end{equation}
- Poruchu ve vlnové funkci prvního řádu si vyjádříme jako lineární kombinaci bázových funkcí:
+ Poruchu ve vlnové funkci prvního řádu si vyjádříme jako lineární kombinaci bázových funkcí
 
 \begin{equation}
 \psi_n^{(1)}=\sum_i c_i \psi^{(0)}_i, 
@@ -416,21 +418,21 @@ a po úpravě
 Korekci prvního řádu k~vlnové funkci tedy dostaneme pomocí následujícího vztahu 
 
 \begin{equation}
-\psi_n^{(1)}=\sum_m \frac{\left < \psi_m^{(0)}|\hat{H}'|\psi_n^{(0)} \right >}{E_n^{(0)}-E_m^{(0)}}\psi_m^{(0)}.
+\boxed{\psi_n^{(1)}=\sum_m \frac{\left < \psi_m^{(0)}|\hat{H}'|\psi_n^{(0)} \right >}{E_n^{(0)}-E_m^{(0)}}\psi_m^{(0)}.}
 \end{equation} 
 
 \end{itemize}
 
-Podobným způsobem, jaký jsme si zde ukázali pro korekce prvního řádu k~energii a vlnové funkci lze odvodit i vztahy pro vyšší řády poruchové energie. Zde uvedeme pouze konečný vztah pro energii s~poruchou druhého řádu:
+Podobným způsobem, jaký jsme si zde ukázali pro korekce prvního řádu k~energii a vlnové funkci lze odvodit i vztahy pro vyšší řády poruchové energie. Zde uvedeme pouze konečný vztah pro energii s~poruchou druhého řádu, energie $E_n$ pak bude
 
 \begin{eqnarray}
-E_n\approx E_n^{(0)}+H'_{nn}+\sum_{m\neq n} \frac{\left | H'_{mn} \right |^2}{E_n^{(0)}-E_m^{(0)}},
+E_n\approx E_n^{(0)}+E_n^{(1)}+\sum_{m\neq n} \frac{\left | H'_{mn} \right |^2}{E_n^{(0)}-E_m^{(0)}},
 \label{rov:aprox:energiePT2}
 \end{eqnarray}
 
-\noindent kde $H'_{mn}=\left < \psi_m^{(0)}|H'|\psi_n^{(0)}\right >$. Jistý problém zde představuje skutečnost, že k~výpočtu poruchové energie potřebujeme znát celé spektrum (tj. energii základního i všech excitovaných stavů) energií neporušeného systému. To je v~mnoha případech značně nepraktický požadavek. Pokud víme, jak energie systému přibližně vypadají, můžeme v~některý případech nahradit sumu ve jmenovateli rovnice \ref{rov:aprox:energiePT2} průměrnou excitační energii a dospět k~uzavírací aproximaci (??? CLOSURE APPROXIMATION), která dále zjednodušší tvar rovnice pro energii. 
+\noindent kde $H'_{mn}=\left < \psi_m^{(0)}|H'|\psi_n^{(0)}\right >$. Jistý problém zde představuje skutečnost, že k~výpočtu poruchové energie potřebujeme znát celé energetické spektrum (tj. energii základního i všech excitovaných stavů) energií neporušeného systému. To je v~mnoha případech značně nepraktický požadavek. Pokud víme, jak energie systému přibližně vypadají, můžeme v~některý případech nahradit sumu ve jmenovateli rovnice \ref{rov:aprox:energiePT2} průměrnou excitační energii a dospět k~tzv. uzavírací aproximaci, která dále zjednodušší tvar rovnice pro energii. 
 
-Poslední problém, jemuž jsme se zde nevěnovali jsou degenerované stavy. Pro degenerované stavy poruchová teorie, jak jsme si ji zde formulovali neplatí, protože člen $E_m^{(0)}-E_n^{(0)}$ bude nulový a vztahy pro rozvojové koeficienty $c_i$ budou divergovat. Pro degenerované vztahy existuje mírně odlišná formulace poruchové teorie, kterou je možné najít v~odborné literatuře. 
+Poslední problém, jemuž jsme se zde nevěnovali jsou degenerované stavy. Pro degenerované stavy poruchová teorie, jak jsme si ji zde formulovali nefunguje, protože člen $E_m^{(0)}-E_n^{(0)}$ bude nulový a vztahy pro rozvojové koeficienty $c_i$ budou divergovat. Pro degenerované vztahy existuje mírně odlišná formulace poruchové teorie, kterou je možné najít v~odborné literatuře. 
 
 
 
