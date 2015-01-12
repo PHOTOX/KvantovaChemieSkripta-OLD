@@ -1,60 +1,105 @@
 Jak již bylo řečeno v úvodu k minulé kapitole, teorie funkcionálu hustoty (dále jen DFT) je zásadně odlišná od jiných metod kvantové chemie, neboť nepracuje s elektronovou vlnovou funkcí, ale s elektronovou hustotou. DFT metody se staly v posledních zhruba 15 letech obrovsky populární, jelikož přesností leckdy odpovídají korelovaným metodám, ale výpočetní náročnost odpovídá zhruba metodě Hartreho--Focka. Dříve než se pustíme do této zajímavé teorie, musíme si uvést některé nezbytné matematické pojmy. 
 
-Nejprve si musíme říct, co je to vlastně ten funkcionál.
+Nejprve si musíme říct, co je to vlastně onen \textbf{funkcionál}. Pojďme si nejprve připomenout, jak funguje funkce. Do funkce vložíme nezávislé proměnou, tedy nějaké číslo, a na oplátku dostaneme číslo jiné, neboli závisle proměnnou. Jde tedy o zobrazení z prostoru reálných čísel opět do prostoru reálných čísel. U funkcionálu je to velmi podobné, akorát na vstupu není číslo, ale funkce. Pokud to tedy řekneme více matematicky, funkcionál je zobrazení z prostoru funkcí na prostor reálných čísel.
 
-Nejjednodušším příkladem funkcionálu je
+Asi nejjednodušším příkladem je notoricky známý funkcionál
 $$
-F[f(x)] = \int f(x) \mathrm{d}x, 
+F[f(x)] = \int_a^b f(x) \mathrm{d}x, 
 $$
-nejedná se o nic jiného než starý dobrý určitý integrál! 
+nejedná se o nic jiného než o starý dobrý určitý integrál! Určitý integrál potřebuje dodat vstupní funkci a po jeho vyčíslení dostaneme jedno jediné číslo! (Všimněte si zápisu funkcionálu pomocí hranatých závorek.)  
 Pro složitější příklad funkcionálu nemusíme chodit daleko, stačí se podívat, jak vypadá funkcionál energie v kvantové mechanice.
 $$
 E[\psi] = \int \psi^*\hat{H}\psi \mathrm{d}\tau .
 $$
-Vidíme, že jsme se s funkcionály již setkali, akorát nám autoři těchto skript zamlčeli.
+Je vidět, že jste se již s některými funkcionály setkali, akorát vám to nikdo neprozradil.
 
-Podobně jako funkce můžeme derivovat, podobná operace existuje i pro funkcionály, říká se jí variace funkcionálu.
+Mezi funkcemi a funkcionály existují i další podobnosti. Pojmy jako minimum a maximum funkcionálu mají prakticky stejný význam. Existuje i funkcionální analogie k dobře známé derivaci funkce --- mluvíme o \textbf{variaci funkcionálu}.
 Když děláme derivaci funkce, tak se vlastně díváme, co se děje se závisle proměnnou, když trochu změníme nezávisle proměnnou.
-U variace je to podobné. Zajímá nás, jak se změní hodnota funkcionálu, když mírně změníme naši funkci. Přesná definice je složitější a neuvádime ji zde. Bude ale pro nás důležité, že pro variace platí podobné vztahy, jako pro derivace. Dá se například ukázat, že v minimu funkcionálu je jeho variace nulová. Již dobře známý variační princip (konečnš víme, proč se mu tak říká!) pak můžeme napsat jednoduše pomocí variace tohoto funkcionálu energie jako
+U variace je to podobné. Zajímá nás, jak se změní hodnota funkcionálu, když mírně změníme naši funkci. Přesná definice je složitější a neuvádíme ji zde. Bude ale pro nás důležité, že pro variace platí podobné vztahy, jako pro derivace. Dá se například ukázat, že v minimu funkcionálu je jeho variace nulová. Již dobře známý variační princip (konečně víme, proč se mu tak říká!) pak můžeme napsat jednoduše pomocí variace tohoto funkcionálu energie jako
 $$
-\delta E[\Psi] = 0
+\delta E[\Psi] = 0 .
 $$
 
-Nyní již můžeme přejít k definici ústřední veličiny této kapitoly --- elektronové hustoty $\rho(\mathbf{r}$.
-Elektronová hustota má narozdíl od vlnové funkce přímý fyzikální význam. Jedná se o pravděpodobnost, že v nějakém bodě prostoru najdeme \textbf{elektron}. Je důležité si uvědomit rozdíl mezí elektronovou hustotou a čtvercem vlnové funkce, který taktéž udává hustotu pravděpodobnosti. 
+Nyní již můžeme přejít k definici ústřední veličiny této kapitoly --- elektronové hustoty $\rho(\mathbf{r})$.
+Elektronová hustota má na rozdíl od vlnové funkce přímý fyzikální význam. Jedná se o pravděpodobnost, že v nějakém bodě prostoru najdeme \textbf{nějaký elektron}. Je důležité si uvědomit rozdíl mezi elektronovou hustotou a čtvercem vlnové funkce, který taktéž udává hustotu pravděpodobnosti. Čtverec vlnové funkce nám udává pravděpodobnost, že první elektron má spin $m_{s1}$ a je v bodě $\mathbf{r}_1$, druhý elektron má spin $m_{s2}$ a je v bodě ($\mathbf{r}_2$) atd. Jedná se tedy o mnohem složitější veličinu, která závisí na celkem $4N$ proměnných, zatímco elektronová hustota závisí jen na třech proměnných.
 
-Elektronová hustota souvisí s vlnovou funkcí systému následovně
+Elektronová hustota souvisí s vlnovou funkcí systému dle vztahu
 \begin{equation}
 \rho=N \int |\psi(\textbf{r}_1,\textbf{r}_2,...,\textbf{r}_n)|^2 \mathrm{d}\textbf{r}_2\dots\mathrm{d}\textbf{r}_n .
 \end{equation}
 Z této definice hned plyne několik důležitých vlastností.
 
 \begin{itemize}
-\item Elektronová hustota je nezáporná veličina.
+\item Elektronová hustota je nezáporná veličina, platí tedy
 \begin{equation}
-\rho(\mathbf{r})  > 0
+\rho(\mathbf{r})  > 0 .
 \end{equation}
-\item Pokud zintegrujeme elektronovou hustotu přes celý prostor, dostaneme počet elektronů v systému.
+\item Pokud zintegrujeme elektronovou hustotu přes celý prostor, dostaneme počet elektronů v systému jako
 \begin{equation}
 \int \rho\mathrm{d}r = N
 \end{equation}
 
-Platí také následující dva vztahy.
-
 \item V poloze jader má elektronová hustota maxima.
-\item Pro toto maximum platí, že
+\item Pro tato maxima platí (XXX teorém), že
 \begin{equation}
-\lim_{r_i \to 0} \left[ \frac{\delta}{\delta r}+2Z_A\right]\rho(r)=0
+\lim_{r_i \to 0} \left[ \frac{\delta}{\delta r}+2Z_A\right]\hat{\rho(r)}=0, 
 \end{equation}
-
+kde $\hat{\rho}$ je angulárně zprůměrovaná hodnota elektronové hustoty a $Z_A$ je náboj příslušného atomového jádra.
 \end{itemize}
 
+Z těchto vlastností vidíme, že pokud známe elektronovou hustotu, tak zároveň také můžeme zjistit počet elektronů, polohu jader i jejich náboj. To jsou ale přesně ty informace, které jsou potřeba ke specifikaci molekulárního hamiltoniánu
+\begin{equation}
+\hat{H}=\sum_{i=1}^N -\frac{1}{2}\Delta_i+\sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}}-\sum_{i=1}^N\sum_{A=1}^K \frac{Z_A}{r_{iA}} ,
+\label{rov:ham_dft}
+\end{equation}
+kde jsme vynechali pro jednoduchost člen popisující odpuzování jader, jenž je stejně v rámci Bornovy--Oppenheimerovy aproximace roven konstantě. Pokud ale elektronová hustota jednoznačně určuje hamiltonián, tak poté z řešení SCHR taky energii a vlnovou funkci, a tudíž všechny potřebné veličiny. Podobným způsobem se zřejmě ubíraly úvahy Hohenberga a Kohna, kteří postavili teorii DFT na pevné fyzikální základy.
 
 \subsection{Hohenbergovy--Kohnovy teorémy}
 
+V roce 1964 publikovali Hohenberg s Kohnem slavný článek, který odstartoval vývoj DFT metod.
+V tomto článku byly dokázány dva důležité teorémy. K jejich lepšímu pochopení si ještě musíme definovat pojem tzv. externího potenciálu $\nu_{ext}$. Ten má pro případ hamiltoniánu \eqref{rov:ham_dft} tvar
+\begin{equation}
+\nu_{ext} = \sum_{i=1}^N\sum_{A=1}^K \frac{Z_A}{r_{iA}} .
+\end{equation} 
+Jedná se tedy o celkovou interakci elektronů s coulombickým potenciálem atomových jader. Jelikož se v DFT na vše díváme z pohledu elektronů, tak se tomu potenciálu říká externí, jelikož nepochází ze samotných elektronů. Je důležité si uvědomit, že externí potenciál vlastně definuje hamiltonián \ref{rov:ham_dft}, neboť ostatní členy triviálně závisejí pouze na počtu elektronů v systému. Nyní již můžeme přejít ke slíbeným teorémům.
 
+První Hohenbergův--Kohnův teorém je existenční. Zní takto:
+\uv{\textbf{Pro libovolný systém interagujících elektronů je externí potenciál $\nu_{ext}$} jednoznačně určen elektronovou hustotou (až na konstantu) }
 
-2. HK teorém 
+Důsledek tohoto tvrzení jsme si již naznačili dříve. Pokud máme jednoznačně daný externí potenciál, pak také známe hamiltonián a tudíž můžeme v principu spočítat vlnovou funkci i energii, které jsou tudíž jednoznačně určeny pouze elektronovou hustotou. \textbf{Elektronová energie je tedy jednoznačným funkcionálem elektronové hustoty} neboli
+\begin{equation}
+E_{el}=E_{el}[\rho] .
+\end{equation}
+
+Pro důkaz tohoto tvrzení si musíme ještě odvodit pomocn vztah pro integraci externího potenciálu vynásobeného vlnovou funkcí:
+
+Důkaz tohoto teorému se provádí sporem. Předpokládejme, že jedné dané hustotě $\rho$ přísluší dva různé externí potenciály $\nu_{ext1}$ a $\nu_{ext2}$, kterým přísluší hamiltoniány vlnové funkce $\psi_1$ a $\psi_2$  Pak díky variačnímu principu musí platit
+
+\begin{equation}
+E_1 = \int \psi_1^* \hat{H}_1 \psi_1 \mathrm{d}\tau < \int \psi_2^* \hat{H}_1 \psi_2 . \mathrm{d}\tau
+\end{equation}
+Když do hamiltoniánu $\hat{H_1}$ přiřadíme funkci $\Psi_1$, která ji nepřísluší, tak musíme dostat větší energii. Nyní chytře přepíšeme pravou stranu nerovnosti jako  
+\begin{equation}
+\int \psi_2^* \hat{H}_1 \psi_2 = \int \psi_2^* \hat{H}_2 \psi_2\mathrm{d}\tau  + \int \psi_2 \left[\hat{H}_1-\hat{H}_2\right] \psi_2\mathrm{d}\tau = E_2 + \int \rho(\mathbf{r})(\nu_1-\nu_2)\mathrm{d}\mathbf{r}  
+\end{equation}
+V poslední rovnosti jsme využili toho, že oba hamiltoniány se liší pouze externím potenciálem.
+
+Vyšlo nám tedy, že
+\begin{equation}
+E_1 < E_2+\int \rho(\mathbf{r})(\nu_1-\nu_2)\mathrm{d}\mathbf{r}
+\label{rov:HK1_1}
+\end{equation}
+Tu samou argumentaci bychom ale mohli také aplikovat opačně, a dostali bychom
+\begin{equation}
+E_2 < E_1+\int \rho(\mathbf{r})(\nu_1-\nu_2)\mathrm{d}\mathbf{r} .
+\label{rov:HK1_2}
+\end{equation}
+Sečtením obou rovnic \eqref{rov:HK1_1} a \eqref{rov:HK1_2} tedy dostáváme
+\begin{equation}
+
+\end{equation}
+
+\item 2. HK teorém 
 Předpokládejme, že pro daný externí potenciál $\nu_{ext,0}$ je správná elektronová hustota $\rho_0$. Pak pro jakoukoli funkci $\rho$ bude platit: $$ E[\rho_0] < E[\rho] $$
 
 Důkaz:
@@ -63,25 +108,26 @@ Z prvního HK teorému plyne, že každá funkce $\rho$ jednoznačně definuje e
 E^\prime=\int \psi^{\prime *} \hat{H} \psi^{\prime} \mathrm{d}\tau = E[\rho] > E_0 = E_0 [\rho_0] ,
 \end{equation}
 což jsme chtěli dokázat.
+\end{itemize}
 
-\subsection{Kohnovy--Shamovy rovnice}
 
-Pojdme si napsat ještě jednou elektronový Hamiltonián molekuly s N elektrony. Vynecháme člen popisujicí repulzi jader, jelikož ten je stejně v rámci BO aproximace konstantní. 
+Formálně můžeme funkcionál energie napsat jako
 \begin{equation}
-\hat{H}=\sum_{i=1}^N -\frac{1}{2}+\sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}}-\sum_{i=1}^N\sum_{A=1}^K \frac{Z_A}{r_{iA}}
+E=\int \psi^*\hat{H}\psi \mathrm{d}\tau = \int \psi^*\hat{T}\psi\mathrm{d}\tau \int \psi^*\hat{V_{el}}\psi\mathrm{d}\tau \int \psi^*\nu_{ext}\psi\mathrm{d}\tau=\hat{T}[\rho]+\hat{V}_{ee}[\rho]+\hat{V}_{ne}[\rho] .
 \end{equation}
-
-Formálně můžeme funkcionál energie napsat následovně:
-\begin{equation}
-E=\int \psi^*\hat{H}\psi \mathrm{d}\tau = \int \psi^*\hat{T}\psi\mathrm{d}\tau \int \psi^*\hat{V_{el}}\psi\mathrm{d}\tau \int \psi^*\nu_{ext}\psi\mathrm{d}\tau=T[\rho]+V_{ee}[\rho]+V_{ne}[\rho]
-\end{equation}
-Funkcionál energie jsme tedy rozdělili na funkcionál kinetické energie elektronů, funkcionál repulze elektronů a funkcionál interakce elektronů s jádry. Jelikož externí potenciál $\nu_{ext}$ nezávisí na polohách elektronů, můžeme si posledně jmenovaný funkcionál jednoduše přepsat do tvaru, ve kterém již vystupuje elektronová hustota:
+Funkcionál energie jsme tedy rozdělili na funkcionál kinetické energie elektronů $\hat{T}[\rho]$, funkcionál repulze elektronů a funkcionál interakce elektronů s jádry. Jelikož externí potenciál $\nu_{ext}$ nezávisí na polohách elektronů, můžeme si posledně jmenovaný funkcionál jednoduše přepsat do tvaru, ve kterém již vystupuje elektronová hustota:
 \begin{equation}
 V_{ne}=\int \psi^*\nu_{ext}\psi\mathrm{d}\tau = \int \rho(\textbf{r})\nu_{ext}(\textbf{r}) \mathrm{d}\textbf{r} 
 \end{equation} 
 
 
+Hohenbergovy--Kohnovi teorémy dávají DFT solidní fyzikální základ, moc nás ale neposunují k praktické aplikaci, jelikož nemáme přesný funkcionál.
+Praktickou cestu k DFT výpočtům ukázali až o pár let později Kohn s Shamem.
 
+\subsection{Kohnovy--Shamovy rovnice}
+První teorie, která byla založena na elektronové hustotě, spatřila světlo světa již v roce XXXX díky pánům Thomase a Fermiho. Později byla rozšířena Diracem. 
+
+Jedním z hlavních problémů Thomase--Fermiho teorie byl nepřesný funkcionál pro kinetickou energii elektronů. Zde proto Kohn s Shamem učinila zásadní úkrok stranou.   
 
 \subsection{Aproximace lokální hustoty}
 
