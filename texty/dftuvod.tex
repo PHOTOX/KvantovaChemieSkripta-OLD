@@ -1,17 +1,18 @@
-Jak již bylo řečeno v úvodu k minulé kapitole, teorie funkcionálu hustoty (dále jen DFT) je zásadně odlišná od jiných metod kvantové chemie, neboť nepracuje s elektronovou vlnovou funkcí, ale s elektronovou hustotou. DFT metody se staly v posledních zhruba 15 letech obrovsky populární, jelikož přesností leckdy odpovídají korelovaným metodám, ale výpočetní náročnost odpovídá zhruba metodě Hartreho--Focka. Dříve než se pustíme do této zajímavé teorie, musíme si uvést některé nezbytné matematické pojmy. 
+Pomocí metod založených na teorii funkcionálu hustoty(dále jen DFT metod) se v posledních zhruba dvaceti let provádí většina výpočtů elektronové struktury. Popularita DFT metod je dána jejich přijatelnou výpočetní náročností, která o mnoho nepřevyšuje Hartreeho-Fockovu 
+metodu. Výpočty jsou ale typicky daleko přesnější, neboť DFT metody zahrnují korelační energii. Efektivita DFT je dána tím, že nepracuje s poměrně složitou vlnovou funkcí (tj. funkcí 3N souřadnic elektronů), ale s tzv. elektronovou hustotou, což je funkce pouze tří prostorových souřadnic. 
 
-Nejprve si musíme říct, co je to vlastně onen \textbf{funkcionál}. Pojďme si nejprve připomenout, jak funguje funkce. Do funkce vložíme nezávislé proměnou, tedy nějaké číslo, a na oplátku dostaneme číslo jiné, neboli závisle proměnnou. Jde tedy o zobrazení z prostoru reálných čísel opět do prostoru reálných čísel. U funkcionálu je to velmi podobné, akorát na vstupu není číslo, ale funkce. Pokud to tedy řekneme více matematicky, funkcionál je zobrazení z prostoru funkcí na prostor reálných čísel.
+Představme si základní pojmy. Začněme pojmem \textbf{funkcionál}. Pojďme si nejprve připomenout, jak funguje funkce. Do funkce vložíme nezávislé proměnou, tedy nějaké číslo, a na oplátku dostaneme číslo jiné, neboli závisle proměnnou. Jde tedy o zobrazení z prostoru (kupř. reálných) čísel opět do prostoru reálných čísel. U funkcionálu je to velmi podobné, akorát na vstupu není číslo, ale funkce. Pokud to tedy řekneme více matematicky, funkcionál je zobrazení z prostoru funkcí na prostor(kupř. reálných) čísel.
 
-Asi nejjednodušším příkladem je notoricky známý funkcionál
+Takovým jednoduchým funkcionálem je určitý integrál
 $$
 F[f(x)] = \int_a^b f(x) \mathrm{d}x, 
 $$
-nejedná se o nic jiného než o starý dobrý určitý integrál! Určitý integrál potřebuje dodat vstupní funkci a po jeho vyčíslení dostaneme jedno jediné číslo! (Všimněte si zápisu funkcionálu pomocí hranatých závorek.)  
+Určitý integrál potřebuje dodat vstupní funkci a po jeho vyčíslení dostaneme jedno jediné číslo. Povšimněte si zde zápisu funkcionálu pomocí hranatých závorek.  
 Pro složitější příklad funkcionálu nemusíme chodit daleko, stačí se podívat, jak vypadá funkcionál energie v kvantové mechanice.
 $$
 E[\psi] = \int \psi^*\hat{H}\psi \mathrm{d}\tau .
 $$
-Je vidět, že jste se již s některými funkcionály setkali, akorát vám to nikdo neprozradil.
+S některými funkcionály jsme se tak již setkali.
 
 Mezi funkcemi a funkcionály existují i další podobnosti. Pojmy jako minimum a maximum funkcionálu mají prakticky stejný význam. Existuje i funkcionální analogie k dobře známé derivaci funkce --- mluvíme o \textbf{variaci funkcionálu}.
 Když děláme derivaci funkce, tak se vlastně díváme, co se děje se závisle proměnnou, když trochu změníme nezávisle proměnnou.
@@ -20,14 +21,14 @@ $$
 \delta E[\Psi] = 0 .
 $$
 
-Nyní již můžeme přejít k definici ústřední veličiny této kapitoly --- elektronové hustoty $\rho(\mathbf{r})$.
+Nyní se můžeme vrátit k definici ústřední veličiny této kapitoly --- elektronové hustoty $\rho(\mathbf{r})$.
 Elektronová hustota má na rozdíl od vlnové funkce přímý fyzikální význam. Jedná se o pravděpodobnost, že v nějakém bodě prostoru najdeme \textbf{nějaký elektron}. Je důležité si uvědomit rozdíl mezi elektronovou hustotou a čtvercem vlnové funkce, který taktéž udává hustotu pravděpodobnosti. Čtverec vlnové funkce nám udává pravděpodobnost, že první elektron má spin $m_{s1}$ a je v bodě $\mathbf{r}_1$, druhý elektron má spin $m_{s2}$ a je v bodě ($\mathbf{r}_2$) atd. Jedná se tedy o mnohem složitější veličinu, která závisí na celkem $4N$ proměnných, zatímco elektronová hustota závisí jen na třech proměnných.
 
 Elektronová hustota souvisí s vlnovou funkcí systému dle vztahu
 \begin{equation}
 \rho=N \int |\psi(\textbf{r}_1,\textbf{r}_2,...,\textbf{r}_n)|^2 \mathrm{d}\textbf{r}_2\dots\mathrm{d}\textbf{r}_n .
 \end{equation}
-Z této definice hned plyne několik důležitých vlastností.
+\textbf{Chce to okomentovat, proc tomu tak je} Z této definice hned plyne několik důležitých vlastností.
 
 \begin{itemize}
 \item Elektronová hustota je nezáporná veličina, platí tedy
