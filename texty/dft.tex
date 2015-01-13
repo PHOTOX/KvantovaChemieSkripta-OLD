@@ -78,8 +78,6 @@ Důsledek tohoto tvrzení jsme si již naznačili dříve. Pokud máme jednozna�
 \begin{equation}
 E_{el}=E_{el}[\rho] .
 \end{equation}
-Tvar tohoto funkcionálu je nezávislý na externím potenciálu a je tedy univerzální pro všechny atomy a molekuly.
-\textbf{ToPS:Z čeho plyne ta univerzalita?}
 Pokud bychom tedy tento funkcionál znali a znali také správnou hustotu, tak bychom mohli získat energii i bez řešení Sch\"{o}dingerovy rovnice a hledání vlnových funkcí.
 
 \bigskip
@@ -222,72 +220,103 @@ Ten sice neznáme, ale existuje spousta vztahů přibližných, o kterých pojed
 
 
 \subsection{Aproximace lokální hustoty}
+Problém, který KS metoda přímo neřeší je nalezení tvaru výměnně--korelačního potenciálu.
+V zásadě existují dva přístupy k tomuto problému. Buď se snažíme odvodit vhodný funkcionál Exc čistě pomocí teoretických argumentů z pokročilejších partií DFT. Druhý přístup je pragmatičtější, kokrétní tvar funkcionálu může obsahovat parametry, které se určují z experimentálních dat.
 
-LDA (Local density Approximation)
+Většina DFT metod rozděluje výměnně--korelační 
+
+Existuje několik různých rodin funkcionálů, které se liší mírou přesnosti, výpočetními nároky i svým zaměřením.
+
+\subsubsection{Aproximace lokální hustoty}
+Aproximace lokální hustoty (angl. \textit{Local Density Approximation}, LDA) vychází z tzv. modelu \textbf{homogenního elektronového plynu} (HEG). Je to hypotetický fyzikální stav, kdy máme všude konstantní elektronovou hustotu, vyváženou rovnoměrným pozitivním pozadím. Tento model je pro teorii DFT velmi užitečný, neboť pro něj máme přesné výpočty. Tento model byl ale kdysi užitečný i pro chemiky, dájí se takto třeba popsat valenční elektrony v kovech (teorie elektronového plynu). Jak ale tento model použít na atomy nebo molekuly, které mají elektronovou hustotu značně nehomogenní?
+
+Můžeme si představit, že prostor objem atomu/molekuly rozdělíme na malinké krychličky. Ve středu každé krychličky zjistíme elektronovou hustotu, kterou poté dosadíme do vztahů plynoucích z teorie HEG.
+Získáme tím elektronovou energii v této malé krychličce a celkovou energii získáme součtem přes všechny krychličky. Matematicky rigorózně to můžeme zapsat pomocí trojného integrálu přes celý prostor
 \begin{equation}
-E_{xc}^{LDA}=\int \rho(\textbf{r})V_{xc}(\rho(\textbf{r}))\mathrm{d}\textbf{r} 
+E_{XC}^{LDA}[\rho]=\int \rho(\textbf{r}) \varepsilon(\rho(\textbf{r})) \mathrm{d}\textbf{r} ,
+\end{equation}
+kde $\varepsilon(\rho(\textbf{r}))$ je výměnně--korelační energie HEG o hustotě $\rho$ vztažená na jeden elektron. Tato rovnice definuje výše zmíněnou aproximaci lokální hustoty.
+
+Jaký je konkrétní tvar $\varepsilon(\rho(\textbf{r}))$? Nejprve jej rozdělíme na korelační a výměnnou část (takto to dělá většina DFT metod)
+\begin{equation}
+\varepsilon(\rho(\textbf{r}))=\varepsilon_x(\rho)+\varepsilon_c(\rho) .
 \end{equation}
 
-
+\noindent Pro výměnnou část se dá odvodit následující analytický vztah
 \begin{equation}
-V_{xc}(\rho)=V_x(\rho)+V_c(\rho)
+V_x[\rho]=-\frac{3}{4}\left((\frac{3}{\pi}\right)^{\frac{1}{3}}\rho^{\frac{1}{3}}
 \end{equation}
-Pro výměnný člen platí pro homogenní plyn následující vztah:
+Tento vztah je spojen s jménem Slater\footnote{Ano, je ten ten samý pan Slater, podle kterého jsou pojmenované naše oblíbené determinanty.}, označuje se tedy zkratkou S.
+
+Pro korelační energii HEG nelze získat analytický výraz. Příslušné výpočty lze ale provést numericky a výsledek poté nafitovat. Výsledný korelační funkcionál je znám jako VWN (dle pánů Vosko--Wilk--Nusair). V kombinaci se Slaterovým výrazem pro výměnnou část získáme metodu SVWN (výměnná část se ve zkratce uvádí vždy první).
+
+Mírným vylepšením je metoda spinově závislé aproximace lokální hustoty (angl. \textit{Local Spin Density Approximation}, LSDA), které pracují zvlášť s elektronovou hustotou elektronů se spinem $\alpha$ a zvlášť se spinem $\beta$.
+
+Metoda LDA byla prvním větším úspěchem DFT teorie. Její výsledky jsou typicky typicky o něco lepší než metoda Hartreeho--Focka a můžeme ji s úspěchem použít pro stanovení geometrii, vybračních frekvencí nebo dipólových momentů. Na druhou stranu funguje méně dobře co se týče chemických reakcí. Dnes se metoda LDA používá zřídka, nahradily ji pokročilejší metody.
+
+\subsection{GGA funkcionály}
+Jednou z nevýhod DFT je absence jasné cesty k přesnějším výsledku, neboť neznáme tvar výměnně--korelačního členu, narozdíl od \textit{ab initio} metod, kde jasně víme, jak alespoň v principu dospět k přesnému výsledku (např. metodou Full CI ve velké bázi).
+
+Jednou z možností postupu, která se nám po předchozí kapitole nabízí, je zkusit vyjít z aproximace lokální hustoty a tu se snažit dále vylepšit. V LDA je v daném bodě využívali pouze hodnotu elektronové hustoty. Taylorův rozvoj nám napovídá, že by mohlo být užitečné využít informaci o \textbf{gradientu hustoty} $\nabla\rho(\textbf{r})$. 
+Tím se dostaneme k metodám \textbf{generalizovaného gradientu} (z angl. \textit{Generalized Gradient Approximation}, GGA), pro které má výměnně--korelační funkcionál obecný tvar
 \begin{equation}
-V_x(\rho)=-\frac{3}{4}\left(\frac{3}{\pi}\right)^{\frac{1}{3}}\rho^{\frac{1}{3}}
+E_{xc}^{GGA}=\int \rho(\textbf{r})f(\rho,\Delta\rho) \mathrm{d}\textbf{r} .
 \end{equation}
-Pro korelační energii UEG nelze získat analytický výraz. Příslušné výpočty lze ale provést numericky a výsledek poté nafitovat. Výsledný korelační funkcionál je znám jako VWN (dle pánů Vosko-Wilk-Nusair).
+Konkrétní tvar těchto funkcionálů již bývá značně složitý a často obsahuje nastavitelné parametry. Mezi nejznámější výměnné GGA funkcionály patří například Beckeho výměnný funkcionál (zkratka \textbf{B88}, nebo jen B), který obsahuje jeden parametr. Mezi známé korelační funkcionály patříl například \textbf{LYP} (od pánů Lee, Yang a Paara) nebo \textbf{P86} (autor Perdew). Jejich kombinací pak získáme známe často užívané metody \textbf{BP86} a \textbf{BLYP}. Dalším výměnně--korelačním funkcionálem je \textbf{PBE}(Perdew, Burke, Erzenhof), který neobsahuje žádné parametry.
 
-LSDA....$E_{xc}=E_{xc}[\rho_\alpha\rho_\beta]$ 
+GGA funkcionály jsou značně přesnější než LDA, a proto právě tyto funkcionály odstartovaly masové používání DFT v kvantové chemii.
 
+Dalším logickým krokem ke zlepšení je využití dalších informací kromě gradientu, například druhé derivace. Mluvíme potom o meta-GGA funkcionálech, mezi které patří například korelační funkcionál B95 nebo výměnně--korelační funkcionál TPSS.
 
-\subsection{GGA a hybridní funkcionály}
-GGA 
+\subsection{Hybridní funkcionály}
+Pozorný čtenář by se mohl ptát, proč vlastně k výpočtu výměnné energie nevyužijeme Kohn--Shamovy orbitaly, když je konec konců používáme pro výpočet kinetické energie. Využily bychom vzoreček známý z HF teorie 
 \begin{equation}
-E_{xc}^{GGA}=\int \rho(\textbf{r})f(\rho,\Delta\rho\mathrm{d}\textbf{r} 
+E_X^{exact}=-\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N K_{ij} . 
 \end{equation}
+Bohužel se ukázalo, že použití tohoto vzorce (spolu s nějakým korelačním funkcionálem) nevede k dobrým výsledkům, jelikož se tím naruší delikátní kompenzace chyb v současných funkcionálech.
 
-Becke: B88, LYP (Lee-Yang-Parr),
-kombinace: BP86, BLYP, PBE
-
-meta-GGA
-
-\textbf{Hybridní funkcionály}
-\begin{equation}
-E_X^{exact}=-\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N K_{ij}
-\end{equation}
-
-B3LYP:
+Tím dostaneme takzvané hybridní funkcionály, které představují další výrazné zlepšení přesnosti.
+Mezi hybridní funkcionály patří i funkcionál \textbf{B3LYP}, který je v současnosti suverénně nejpoužívanější kvantově--chemickou metodou (přestože byl vyvinut už v roce 1993)
+Jeho přesný tvar je
 \begin{equation}
 E_{xc}^{B3LYP}=(1-a_0-a_x)E_x^{LDA}+a_0E_x^{exact}+a_xE_x^{B88}+(1-a_c)E_c^{VWN}+a_c E_c^{LYP}
 \end{equation}
-$a_0=0,2$; $a_x=0,72$; $a_c=0,81$
+a nastavitelné parametry mají hodnotu $a_0=0,2$, $a_x=0,72$ a $a_c=0,81$.
+Parametr $a_0$ určuje procento přesné výměnné energie; B3LYP má tedy 20\% podíl HF výměnné energie.
 
-PBE0 (25\,\%), BMK,BHandHLYP(50\,\%)
+Z dalších mnoha hybridních funkcionálů uveďme alespoň (v závorkách úvádíme procento HF výměnné energie): PBE0 (25\,\%), BMK (50,BHandHLYP(50\,\%)
 
-\textbf{Long-range corrected funkcionály}
-Mělo by platit, že $lim_{V_x\to \infty}=\frac{1}{r}$
+\subsubsection{Moderní funkcionály}
+Oblast DFT metod je jednou z nejbouřlivěji vyvíjejících se částí kvantové chemie. V současnosti už existují stovky různých funkcionálů. V posledních letech se objevilo mnoho různých nových typů kromě výše zmíněných. Pro výpočet excitovaných stavů se například hodí takzvané \textit{range--separated funkcionály}. 
+%Mělo by platit, že $lim_{V_x\to \infty}=\frac{1}{r}$
+%zmínka o self-interakční chybě.
 
-\textbf{Disperzní korekce}
+Pro výpočet slabých mezimolekulových interakcí existují speciální empirické korekce.
 
-Grimmeho empirická korekce
-\begin{equation}
-E_{vdw}=-s_6\sum c^{ij}r_{ij}^{-6}
-\end{equation}
-Koeficient $s_6$ závisí na použitém funkcionálu, zatímco koeficienty $c_{ij}$ závisí na typu interagujících atomů.
+I přes své stáří však pro rutinní výpočty stále dominuje funkcionál B3LYP díky jeho velké univerzalitě a přesnosti.
+Pro detailní přehled starších i moderních funkcionálů lze nahlédnout do návodu k programu Gaussian\footnote{\textit{http://www.gaussian.com/g\_ tech/g\_ ur/k\_ dft.htm}}.
 
-\textbf{Dvojitě hybridní funkcionály}
-S.Grimme 
-\begin{equation}
-E_{xc}^{hybrid}=a_1E_x^{GGA}+(1-a_1)E_x^{EXACT}+a_2E_c^{GGA}
-\end{equation}
-Pro tento tvar se vyřeší KS rovnice a získají KS orbitaly. Z těchto orbitalů se poté vypočítá MP2 korekce
-ze vzorečku XX a přídá se k $E_{xc}^{hybrid}$
 
-\begin{equation}
-E_{xc}^{DH}=E_{xc}^{hybrid}+(1-a_2)E_c^{KS-MP2}
-\end{equation}
+%\textbf{Disperzní korekce}
 
-Příkladem může být B2LYP s parametry $a_1=0,47$ a $a_2$=0,73
+%Grimmeho empirická korekce
+%\begin{equation}
+%E_{vdw}=-s_6\sum c^{ij}r_{ij}^{-6}
+%\end{equation}
+%Koeficient $s_6$ závisí na použitém funkcionálu, zatímco koeficienty $c_{ij}$ závisí na typu interagujících atomů.
 
-\textbf{Jakobův žebřík, obrázek (Genesis 28:10-12)}
+%\textbf{Dvojitě hybridní funkcionály}
+%S.Grimme 
+%\begin{equation}
+%E_{xc}^{hybrid}=a_1E_x^{GGA}+(1-a_1)E_x^{EXACT}+a_2E_c^{GGA}
+%\end{equation}
+%Pro tento tvar se vyřeší KS rovnice a získají KS orbitaly. Z těchto orbitalů se poté vypočítá MP2 korekce
+%ze vzorečku XX a přídá se k $E_{xc}^{hybrid}$
+
+%\begin{equation}
+%E_{xc}^{DH}=E_{xc}^{hybrid}+(1-a_2)E_c^{KS-MP2}
+%\end{equation}
+
+%Příkladem může být B2LYP s parametry $a_1=0,47$ a $a_2$=0,73
+
+%\textbf{Jakobův žebřík, obrázek (Genesis 28:10-12)}
