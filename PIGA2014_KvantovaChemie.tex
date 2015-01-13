@@ -18,6 +18,7 @@
 \captionsetup{textfont=it, font=small} %úprava fontů u obrázků, text bude menší a italikou
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}  %footnote jako symboly
 
+\renewcommand{\thefootnote}{\alph{footnote}} %footnote jako mala pismenka
 
 %\usepackage[inline]{showlabels} %vizualizace popisku rovnic
 %\usepackage{showframe}	%ramecky kolem textu - jen pro kontrolu
@@ -158,6 +159,7 @@ pdfstartview=FitV]{hyperref}
 
 \clearpage
 \section{Molekulární vlastnosti}
+\label{kap:vlastnosti}
 \input{texty/vlastnosti.tex}
 
 \clearpage
@@ -173,6 +175,7 @@ pdfstartview=FitV]{hyperref}
 
 \clearpage
 \section{Relativistické efekty}
+\label{kap:relativita}
 \input{texty/relativita.tex}
 
 %%% Vytvoření seznamu literatury.
