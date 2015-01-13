@@ -99,15 +99,22 @@ $$ \epsilon_4 = \alpha-1,62\beta $$
 Zpětným dosazením do sekulárních rovnic bychom poté dopočítali koeficienty $c_i$ a tím získali molekulové orbitaly. Ty potom obsadíme elektrony v souladu s Pauliho vylučovacím principem a celkovou energii dostaneme jako součet orbitálních energií. 
 Jak nyní získáme parametry $\alpha$ a $\beta$? Vyjdeme z experimentálních dat. Parametr $\alpha$ má jednoduchou fyzikální interpretaci; jedná se o ionizační energii atomového orbitalu $p_z$, která je experimentálně známá. Důležitější je parametr $\beta$, který určuje vzájemnou separaci molekulových orbitalů. Můžeme jej získat v zásadě dvěma způsoby:
 \begin{enumerate}
-\item \textbf{Ze spektroskopických dat.} Parametr zvolíme tak, aby nám seděly zvolené elektronové přechody (podrobnosti viz níže). Například fitováním na molekulu naftalenu získáme hodnotu $\beta=3,48 eV$.
+\item \textbf{Ze spektroskopických dat.} Parametr zvolíme tak, aby nám seděly zvolené elektronové přechody (podrobnosti viz níže). Například fitováním na molekulu naftalenu získáme hodnotu $\beta=-3,48 eV$.
 \item \textbf{Z termochemických dat.} K tomu se využívá konceptu delokalizační energie dvojných vazeb. Tuto energii můžeme experimentálně naměřit například pomocí hydrogenačního tepla. Její teoretický výpočet v rámci HM si ukážeme níže. 
 \end{enumerate}
 
 Pojďme se nyní podívat na výpočet některých vlastností butadienu pomocí HM. 
 
+\begin{figure}
+\centering
+\includegraphics[scale=1]{HMbuta.eps}
+\caption[Energetické hladiny butadienu]{Energetické hladiny budadienu dle H\"{u}ckelovy metody a znázonění excitovaného stavu.}
+\label{obr:HMbuta}
+\end{figure}
+
 \subsubsection{Excitační energie}
 
-Jak můžeme pomocí HM spočítat excitační energii? Formálně excitujeme jeden elektron z obsazeného do neobsazeného orbitalu a potom spočítáme celkovou energii a od ní odečteme celkovou energii základního stavu. Pokud chceme spočítat nejnižší excitační energii butadienu, přesuneme jeden elektron z orbitalu 3 do orbitalu 2. Výsledná energie potom bude
+Jak můžeme pomocí HM spočítat excitační energii? Formálně excitujeme jeden elektron z obsazeného do neobsazeného orbitalu (viz obrázek \ref{obr:HMbuta}) a potom spočítáme celkovou energii a od ní odečteme celkovou energii základního stavu. Pokud chceme spočítat nejnižší excitační energii butadienu, přesuneme jeden elektron z orbitalu 3 do orbitalu 2. Výsledná energie potom bude
 $$
 \Delta E = \epsilon_3-\epsilon_4 = 1,24 \beta = \frac{hc}{\nu} 
 $$
@@ -150,7 +157,7 @@ což je v dobrém souladu s námi vypočtenou hodnotou.
 
 \subsubsection{Cyklické systémy a aromaticita}
 
-Asi největším úspěchem HM bylo vysvětlení aromaticity cyklických molekul. Na obrázku XXXX jsou znázorněny energetické hladiny cyklických systémů typu C$_n$H$_n$. Parametr $\alpha$ představuje energii elektronu v samostatném atomu uhlíku. jestliže elektron má energii nižší než  $\alpha$, interakce s okolními atomu vede k poklesu energie. Jinými slovy, dochází ke vzniku chemické vazby. energie větši než $\alpha$ indikuje destabilizaci. Pohled na diagram přitom pěkně ukazuje, odkud se vzalo známé  H\"{u}ckelovo pravidlo $4n+2$. Je totiž hned patrné, že
+Asi největším úspěchem HM bylo vysvětlení aromaticity cyklických molekul. Na obrázku \ref{obr:HMcykly} jsou znázorněny energetické hladiny cyklických systémů typu C$_n$H$_n$. Parametr $\alpha$ představuje energii elektronu v samostatném atomu uhlíku. jestliže elektron má energii nižší než  $\alpha$, interakce s okolními atomu vede k poklesu energie. Jinými slovy, dochází ke vzniku chemické vazby. energie větši než $\alpha$ indikuje destabilizaci. Pohled na diagram přitom pěkně ukazuje, odkud se vzalo známé  H\"{u}ckelovo pravidlo $4n+2$. Je totiž hned patrné, že
 
 \begin{itemize}
 \item molekuly s 4$n$+2 elektrony jsou stabilní,
@@ -165,10 +172,15 @@ Asi největším úspěchem HM bylo vysvětlení aromaticity cyklických molekul
 \textbf{Řešení:} V cyklopropenylu máme tři elektrony v $p_z$ orbitalech, stabilnější tedy bude cyklopropenylový kation. V cyklopentadienylu máme elektronů pět, stabilnější tedy bude cyklopendienylový anion, který se opravdu často vyskytuje jako ligand v komplexech kovů.
 \end{priklad}
 
-\textbf{obrazek}
+\begin{figure}
+\centering
+\includegraphics[scale=1]{HMcykly.eps}
+\caption[Energetické hladiny cyklických uhlovodíků]{Energetické hladiny cyklických uhlovodíků obecného vzorce C$_n$H$_n$ dle H\"{u}ckelovy metody. Degenerované hladiny jsou znázorněné těsně nad sebou.}
+\label{obr:HMcykly}
+\end{figure}
 \bigskip
 
-\subsubsection{Vlnová funkce z H\"uckelovy metody}
+%\subsubsection{Vlnová funkce z H\"uckelovy metody}
 
 
 \subsection{Rozšířená H\"{u}ckelova metoda}
@@ -194,19 +206,31 @@ Podobně jako v původní H\"{u}ckelově metodě tvar sekulárních rovnic nezá
 \subsection{Moderní semiempirické metody}
 
 Modernější semiempirické metody již ve svém hamiltoniánu nezanedbávají mezielektronovou repulzi.
-Hamiltonián je potom téměř totožný s HF Hamiltoniánem, akorát se soustředíme stále jen na valenční elektrony. Tyto metody poté iterativně řeší Roothanovy rovnice. Výpočetně nejnákladnější částí Hartreeho-Fockovy metody jsou dvouelektronové integrály (viz rovnice \textbf{XX}), a proto se právě pro ně zavádí další aproximace.
-
-Asi nejjednodušší metodou z této třídy je metoda CNDO (z angl. \textit{Complete Neglect of Differential Overlap}), která zavádí následující aproximaci pro všechny dvojice různých orbitalů
+Hamiltonián je potom téměř totožný s HF hamiltoniánem, akorát se soustředíme stále jen na valenční elektrony. Tyto metody poté iterativně řeší Roothanovy rovnice. Výpočetně nejnákladnější částí jsou stejně jako v Hartreeho-Fockově metodě dvouelektronové integrály,
 \begin{equation}
-\phi_i(\mathbf{r}) \phi_j(\mathbf{r}) \mathrm{d}\mathbf{r} = 0 \quad i\neq j.
+\int \int \chi_i^*\chi_j\frac{1}{r_{12}}\chi_k^*\chi_l \mathrm{d}\textbf{r}_1\mathrm{d}\textbf{r}_2
 \end{equation}
+a proto se právě pro ně zavádí další aproximace. Velká část metod vychází z aproximace 
+\begin{equation}
+\phi_i(\mathbf{r}) \phi_j(\mathbf{r}) \mathrm{d}\mathbf{r} = 0 \quad i\neq j,
+\label{rov:semiemp:4e}
+\end{equation}
+které se říká zanedbání diferenciálního překryvu. Jednotlivé semiempirické metody se liší mimo jiné tím, na které orbitaly tuto aproximaci uplatňují. Pojďme si některé přiblížit:
 
-To vede k tomu, že většina dvouelektronových integrálů bude nulová, kromě integrálů typu (ii|ii). \textbf{Tento symbol tady nikde neni vysvetlen} Méně drastickou aproximaci představuje metoda INDO (z angl. \textit{Intermediate Neglect of Differential Overlap}), která výše uvedený vztah neaplikuje na dvouelektronové integrály, ve kterých jsou všechny čtyři orbitaly na stejném atomu. Tato metoda byla Zernerem modifikována pro spektroskopické účely (metoda ZINDO).
-Obě metody byly vyvinuty ve skupině Johna Popla a byly parametrizovány tak, aby výsledky odpovídaly \textit{ab initio} HF výpočtům pro minimální bázi. 
+\begin{itemize}
+\item Asi nejjednodušší metodou z této třídy je metoda \textbf{CNDO} (z angl. \textit{Complete Neglect of Differential Overlap}), která zavádí ZDO aproximaci důsledně pro všechny dvojice atomových orbitalů.
+
+\item Méně drastickou aproximaci představuje metoda \textbf{INDO} (z angl. \textit{Intermediate Neglect of Differential Overlap}), která výše uvedený vztah neaplikuje na dvouelektronové integrály, ve kterých jsou všechny čtyři orbitaly na stejném atomu. Tato metoda byla Zernerem modifikována pro spektroskopické účely (metoda ZINDO).
+
+Výše zmíněné metody byly vyvinuty ve skupině Johna Popla a byly parametrizovány tak, aby výsledky odpovídaly \textit{ab initio} HF výpočtům pro minimální bázi. 
+
+\item Jiný přistup zvolil M. Dewar, který semiempirické metody začal parametrizovat tak, aby odpovídaly experimentálním hodnotám, a tím dosáhl přesnosti často větší než samotná Hartreeho-Fockova metoda. Metody AM1 (y angl. \textbf{Austin Model 1}), PM3 (z angl. \textbf{Parametric Model 3}) a jejich novější verze PM6 a PM7 jsou využívány a rozvíjeny dodnes (jejich implementace je k nalezení například ve volně dostupném programu MOPAC).
+
+\item Kromě výše zmíněných metod existuje také hojně využívaná semiempirická metoda založená na DFT, takzvaná \textbf{DFTB} (DFT Tight Binding) a řada dalších metod, občas využívaných ke speciálním případům.
+
+\end{itemize}
  
-Jiný přistup zvolil M. Dewar, který semiempirické metody začal parametrizovat tak, aby odpovídaly experimentálním hodnotám, a tím dosáhl přesnosti často větší než samotná Hartreeho-Fockova metoda. Metody AM1 (y angl. \textbf{Austin Model 1}), PM3 (z angl. \textbf{Parametric Model 3}) a jejich novější verze PM6 a PM7 jsou využívány a rozvíjeny dodnes (jejich implementace je k nalezení například ve volně dostupném programu MOPAC).
 
-Kromě výše zmíněných metod existuje také hojně využívaná semiempirická metoda založená na DFT, takzvaná DFTB (DFT Tight Binding) a řada dalších metod, občas využívaných ke speciálním případům.
 
 
  
