@@ -1,38 +1,70 @@
+Jak již bylo řečeno v úvodu k minulé kapitole, teorie funkcionálu hustoty (dále jen DFT) je zásadně odlišná od jiných metod kvantové chemie, neboť nepracuje s elektronovou vlnovou funkcí, ale s elektronovou hustotou. DFT metody se staly v posledních zhruba 15 letech obrovsky populární, jelikož přesností leckdy odpovídají korelovaným metodám, ale výpočetní náročnost odpovídá zhruba metodě Hartreho--Focka. Dříve než se pustíme do této zajímavé teorie, musíme si uvést některé nezbytné matematické pojmy. 
 
-Nejprve úvod:
-pojem funkcionalu
+Nejprve si musíme říct, co je to vlastně ten funkcionál.
+
+Nejjednodušším příkladem funkcionálu je
 $$
-F[]=
+F[f(x)] = \int f(x) \mathrm{d}x, 
 $$
+nejedná se o nic jiného než starý dobrý určitý integrál! 
+Pro složitější příklad funkcionálu nemusíme chodit daleko, stačí se podívat, jak vypadá funkcionál energie v kvantové mechanice.
+$$
+E[\psi] = \int \psi^*\hat{H}\psi \mathrm{d}\tau .
+$$
+Vidíme, že jsme se s funkcionály již setkali, akorát nám autoři těchto skript zamlčeli.
+
 Podobně jako funkce můžeme derivovat, podobná operace existuje i pro funkcionály, říká se jí variace funkcionálu.
-Když děláme derivaci funkce, tak se vlastně díváme, co se děje se závisle proměnnou, když trochu změníme závisle proměnnou.
-U variace je to podobné. Zajímá nás, jak se změní hodnota funkcionálu, když mírně změníme naši funkci. Přesná definice je složitější a neuvádime ji zde. Bude ale pro nás důležité, že pro variace platí podobné vztahy, jako pro derivace. Dá se například ukázat, že v minimu funkcionlu je jeho variace nulová.
+Když děláme derivaci funkce, tak se vlastně díváme, co se děje se závisle proměnnou, když trochu změníme nezávisle proměnnou.
+U variace je to podobné. Zajímá nás, jak se změní hodnota funkcionálu, když mírně změníme naši funkci. Přesná definice je složitější a neuvádime ji zde. Bude ale pro nás důležité, že pro variace platí podobné vztahy, jako pro derivace. Dá se například ukázat, že v minimu funkcionálu je jeho variace nulová. Již dobře známý variační princip (konečnš víme, proč se mu tak říká!) pak můžeme napsat jednoduše pomocí variace tohoto funkcionálu energie jako
+$$
+\delta E[\Psi] = 0
+$$
 
-Pro příklad funkcionálu nemusíme chodit daleko, stačí se podívat, jak vypadá funkcionál energie v kvantové mechanice. 
-$$
-E[\psi] = \int \psi^*\hat{H}\psi \mathrm{d}\tau
-$$
-Variační princip pak můžeme napsat jednoduše pomocí variace tohoto funkcionálu:
-$$
-\delta E = 0
-$$
+Nyní již můžeme přejít k definici ústřední veličiny této kapitoly --- elektronové hustoty $\rho(\mathbf{r}$.
+Elektronová hustota má narozdíl od vlnové funkce přímý fyzikální význam. Jedná se o pravděpodobnost, že v nějakém bodě prostoru najdeme \textbf{elektron}. Je důležité si uvědomit rozdíl mezí elektronovou hustotou a čtvercem vlnové funkce, který taktéž udává hustotu pravděpodobnosti. 
+
+Elektronová hustota souvisí s vlnovou funkcí systému následovně
 \begin{equation}
-\rho=N \int |\psi(\textbf{r}_1,\textbf{r}_2,...,\textbf{r}_n)|^2 \mathrm{d}\textbf{r}_2\dots\mathrm{d}\textbf{r}_n
+\rho=N \int |\psi(\textbf{r}_1,\textbf{r}_2,...,\textbf{r}_n)|^2 \mathrm{d}\textbf{r}_2\dots\mathrm{d}\textbf{r}_n .
 \end{equation}
+Z této definice hned plyne několik důležitých vlastností.
 
-Vlastnosti:
 \begin{itemize}
+\item Elektronová hustota je nezáporná veličina.
+\begin{equation}
+\rho(\mathbf{r})  > 0
+\end{equation}
 \item Pokud zintegrujeme elektronovou hustotu přes celý prostor, dostaneme počet elektronů v systému.
 \begin{equation}
 \int \rho\mathrm{d}r = N
 \end{equation}
-\item V poloze jader má elektronová hustota maxima, pro které se dá ukázat...
-\item 
+
+Platí také následující dva vztahy.
+
+\item V poloze jader má elektronová hustota maxima.
+\item Pro toto maximum platí, že
 \begin{equation}
 \lim_{r_i \to 0} \left[ \frac{\delta}{\delta r}+2Z_A\right]\rho(r)=0
 \end{equation}
 
 \end{itemize}
+
+
+\subsection{Hohenbergovy--Kohnovy teorémy}
+
+
+
+2. HK teorém 
+Předpokládejme, že pro daný externí potenciál $\nu_{ext,0}$ je správná elektronová hustota $\rho_0$. Pak pro jakoukoli funkci $\rho$ bude platit: $$ E[\rho_0] < E[\rho] $$
+
+Důkaz:
+Z prvního HK teorému plyne, že každá funkce $\rho$ jednoznačně definuje externí potenciál (který je odlišný od $v_{ext,0}$), a tudíž i nějakou vlnovou funkci $\psi$. Pokud ale pro tuto vlnovou funkci vyčíslíme energii, pak nám z již známého variačního principu plyne:
+\begin{equation}
+E^\prime=\int \psi^{\prime *} \hat{H} \psi^{\prime} \mathrm{d}\tau = E[\rho] > E_0 = E_0 [\rho_0] ,
+\end{equation}
+což jsme chtěli dokázat.
+
+\subsection{Kohnovy--Shamovy rovnice}
 
 Pojdme si napsat ještě jednou elektronový Hamiltonián molekuly s N elektrony. Vynecháme člen popisujicí repulzi jader, jelikož ten je stejně v rámci BO aproximace konstantní. 
 \begin{equation}
@@ -49,20 +81,9 @@ V_{ne}=\int \psi^*\nu_{ext}\psi\mathrm{d}\tau = \int \rho(\textbf{r})\nu_{ext}(\
 \end{equation} 
 
 
-2. HK teorém 
-Předpokládejme, že pro daný externí potenciál $\nu_{ext,0}$ je správná elektronová hustota $\rho_0$. Pak pro jakoukoli funkci $\rho$ bude platit: $$ E[\rho_0] < E[\rho] $$
-
-Důkaz:
-Z prvního HK teorému plyne, že každá funkce $\rho$ jednoznačně definuje externí potenciál (který je odlišný od $v_{ext,0}$), a tudíž i nějakou vlnovou funkci $\psi$. Pokud ale pro tuto vlnovou funkci vyčíslíme energii, pak nám z již známého variačního principu plyne:
-\begin{equation}
-E^\prime=\int \psi^{\prime *} \hat{H} \psi^{\prime} \mathrm{d}\tau = E[\rho] > E_0 = E_0 [\rho_0] ,
-\end{equation}
-což jsme chtěli dokázat.
-
-\textbf{Kohn-Shamovy rovnice}
 
 
-\textbf{Aproximace lokální hustoty}
+\subsection{Aproximace lokální hustoty}
 
 LDA (Local density Approximation)
 \begin{equation}
@@ -81,6 +102,8 @@ Pro korelační energii UEG nelze získat analytický výraz. Příslušné výp
 
 LSDA....$E_{xc}=E_{xc}[\rho_\alpha\rho_\beta]$ 
 
+
+\subsection{GGA a hybridní funkcionály}
 GGA 
 \begin{equation}
 E_{xc}^{GGA}=\int \rho(\textbf{r})f(\rho,\Delta\rho\mathrm{d}\textbf{r} 
