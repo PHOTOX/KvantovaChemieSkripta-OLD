@@ -108,7 +108,7 @@ Pojďme se nyní podívat na výpočet některých vlastností butadienu pomocí
 \begin{figure}
 \centering
 \includegraphics[scale=1]{HMbuta.eps}
-\caption[Energetické hladiny butadienu]{Energetické hladiny budadienu dle H\"{u}ckelovy metody a znázonění excitovaného stavu.}
+\caption[Energetické hladiny butadienu]{Energetické hladiny butadienu dle H\"{u}ckelovy metody a znázornění excitovaného stavu.}
 \label{obr:HMbuta}
 \end{figure}
 
@@ -151,13 +151,13 @@ Pro butadien poté vychází delokalizační energie $E_D=0,472\beta=35,4 kJ/mol
 Experimentálně můžeme míru delokalizace určit pomocí hydrogenačních tepel butadienu a ethenu.
 Hydrogenační teplo ethenu (tj. entalpie reakce ethen + H$_2$ = ethan) je -136,94\,kJ/mol, zatímco hydrogenační teplo butadienu je -240\,kJ/mol. Experimentální delokalizační energie je tedy:
 $$
-E_D^{exp}=2\cdot139,9-240 = 33,8 kJ/mol,
+E_D^{exp}=2\cdot139,9-240 = 33,8\,kJ/mol,
 $$
 což je v dobrém souladu s námi vypočtenou hodnotou.
 
 \subsubsection{Cyklické systémy a aromaticita}
 
-Asi největším úspěchem HM bylo vysvětlení aromaticity cyklických molekul. Na obrázku \ref{obr:HMcykly} jsou znázorněny energetické hladiny cyklických systémů typu C$_n$H$_n$. Parametr $\alpha$ představuje energii elektronu v samostatném atomu uhlíku. jestliže elektron má energii nižší než  $\alpha$, interakce s okolními atomu vede k poklesu energie. Jinými slovy, dochází ke vzniku chemické vazby. energie větši než $\alpha$ indikuje destabilizaci. Pohled na diagram přitom pěkně ukazuje, odkud se vzalo známé  H\"{u}ckelovo pravidlo $4n+2$. Je totiž hned patrné, že
+Asi největším úspěchem HM bylo vysvětlení aromaticity cyklických molekul. Na obrázku \ref{obr:HMcykly} jsou znázorněny energetické hladiny cyklických systémů typu C$_n$H$_n$. Parametr $\alpha$ představuje energii elektronu v samostatném atomu uhlíku. jestliže elektron má energii nižší než  $\alpha$, interakce s okolními atomu vede k poklesu energie. Jinými slovy, dochází ke vzniku chemické vazby. energie větší než $\alpha$ indikuje destabilizaci. Pohled na diagram přitom pěkně ukazuje, odkud se vzalo známé  H\"{u}ckelovo pravidlo $4n+2$. Je totiž hned patrné, že
 
 \begin{itemize}
 \item molekuly s 4$n$+2 elektrony jsou stabilní,
@@ -175,7 +175,7 @@ Asi největším úspěchem HM bylo vysvětlení aromaticity cyklických molekul
 \begin{figure}
 \centering
 \includegraphics[scale=1]{HMcykly.eps}
-\caption[Energetické hladiny cyklických uhlovodíků]{Energetické hladiny cyklických uhlovodíků obecného vzorce C$_n$H$_n$ dle H\"{u}ckelovy metody. Degenerované hladiny jsou znázorněné těsně nad sebou.}
+\caption[Energetické hladiny cyklických uhlovodíků]{Energetické hladiny cyklických uhlovodíků obecného vzorce C$_n$H$_n$ dle H\"{u}ckelovy metody. Degenerované hladiny jsou pro přehlednost znázorněné jako dvě hladiny těsně nad sebou.}
 \label{obr:HMcykly}
 \end{figure}
 \bigskip
@@ -185,7 +185,7 @@ Asi největším úspěchem HM bylo vysvětlení aromaticity cyklických molekul
 
 \subsection{Rozšířená H\"{u}ckelova metoda}
 
-Hlavním vylepšením rožšířené H\"{u}ckelovy metody (RHM) je zavrhnutí $\pi$-elektronové aproximace.
+Hlavním vylepšením rozšířené H\"{u}ckelovy metody (RHM) je zavrhnutí $\pi$-elektronové aproximace.
 Stále používáme jednoelektronový Hamiltonián a molekulové orbitaly rozvíjíme podobně jako v rovnici \eqref{rov:HM_MO}, ale zahrnujeme všechny valenční orbitaly. Atom uhlíku tedy do báze přispěje atomovými orbitaly 2s, 2p$_x$,2p$_y$ a 2p$_z$. 
 Zde jsou další pravidla pro RHM:
 
@@ -222,15 +222,11 @@ které se říká zanedbání diferenciálního překryvu. Jednotlivé semiempir
 
 \item Méně drastickou aproximaci představuje metoda \textbf{INDO} (z angl. \textit{Intermediate Neglect of Differential Overlap}), která výše uvedený vztah neaplikuje na dvouelektronové integrály, ve kterých jsou všechny čtyři orbitaly na stejném atomu. Tato metoda byla Zernerem modifikována pro spektroskopické účely (metoda ZINDO).
 
-Výše zmíněné metody byly vyvinuty ve skupině Johna Popla a byly parametrizovány tak, aby výsledky odpovídaly \textit{ab initio} HF výpočtům pro minimální bázi. 
+Metody CNDO a INDO byly vyvinuty ve skupině Johna Popla a byly parametrizovány tak, aby výsledky odpovídaly \textit{ab initio} HF výpočtům pro minimální bázi. 
 
 \item Jiný přistup zvolil M. Dewar, který semiempirické metody začal parametrizovat tak, aby odpovídaly experimentálním hodnotám, a tím dosáhl přesnosti často větší než samotná Hartreeho-Fockova metoda. Metody AM1 (y angl. \textbf{Austin Model 1}), PM3 (z angl. \textbf{Parametric Model 3}) a jejich novější verze PM6 a PM7 jsou využívány a rozvíjeny dodnes (jejich implementace je k nalezení například ve volně dostupném programu MOPAC).
 
-\item Kromě výše zmíněných metod existuje také hojně využívaná semiempirická metoda založená na DFT, takzvaná \textbf{DFTB} (DFT Tight Binding) a řada dalších metod, občas využívaných ke speciálním případům.
+\item Kromě výše zmíněných metod existuje také hojně využívaná semiempirická metoda založená na DFT, takzvaná \textbf{DFTB} (DFT Tight Binding), a řada dalších metod, občas využívaných ke speciálním případům.
 
 \end{itemize}
- 
-
-
-
  
