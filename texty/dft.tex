@@ -1,32 +1,36 @@
-Jak již bylo řečeno v úvodu k minulé kapitole, teorie funkcionálu hustoty (dále jen DFT) je zásadně odlišná od jiných metod kvantové chemie, neboť nepracuje s elektronovou vlnovou funkcí, ale s elektronovou hustotou. DFT metody se staly v posledních zhruba 15 letech obrovsky populární, jelikož přesností leckdy odpovídají korelovaným metodám, ale výpočetní náročnost odpovídá zhruba metodě Hartreho--Focka. Dříve než se pustíme do této zajímavé teorie, musíme si uvést některé nezbytné matematické pojmy. 
+Pomocí metod založených na teorii funkcionálu hustoty (dále jen DFT metod) se v posledních zhruba dvaceti let provádí většina výpočtů elektronové struktury. Popularita DFT metod je dána jejich přijatelnou výpočetní náročností, která o mnoho nepřevyšuje náročnost Hartreeho-Fockovy 
+metody. Výpočty jsou ale typicky daleko přesnější, neboť DFT metody zahrnují korelační energii. Efektivita DFT je dána tím, že nepracuje s poměrně složitou vlnovou funkcí (tj. funkcí 3$N$ souřadnic elektronů), ale s tzv. elektronovou hustotou, což je funkce pouze tří prostorových souřadnic (a k tomu jedné spinové souřadnice). 
 
-Nejprve si musíme říct, co je to vlastně onen \textbf{funkcionál}. Pojďme si nejprve připomenout, jak funguje funkce. Do funkce vložíme nezávislé proměnou, tedy nějaké číslo, a na oplátku dostaneme číslo jiné, neboli závisle proměnnou. Jde tedy o zobrazení z prostoru reálných čísel opět do prostoru reálných čísel. U funkcionálu je to velmi podobné, akorát na vstupu není číslo, ale funkce. Pokud to tedy řekneme více matematicky, funkcionál je zobrazení z prostoru funkcí na prostor reálných čísel.
+Představme si základní pojmy. Začněme pojmem \textbf{funkcionál}. Pojďme si nejprve připomenout, jak funguje funkce. Do funkce vložíme nezávislé proměnou, tedy nějaké číslo, a na oplátku dostaneme číslo jiné, neboli závisle proměnnou. Jde tedy o zobrazení z prostoru čísel opět do prostoru čísel. U funkcionálu je to velmi podobné, akorát na vstupu není číslo, ale funkce. Pokud to tedy řekneme více matematicky, funkcionál je zobrazení z prostoru funkcí na prostor (kupř. reálných) čísel.
 
-Asi nejjednodušším příkladem je notoricky známý funkcionál
+Takovým jednoduchým funkcionálem je určitý integrál
 $$
 F[f(x)] = \int_a^b f(x) \mathrm{d}x, 
 $$
-nejedná se o nic jiného než o starý dobrý určitý integrál! Určitý integrál potřebuje dodat vstupní funkci a po jeho vyčíslení dostaneme jedno jediné číslo! (Všimněte si zápisu funkcionálu pomocí hranatých závorek.)  
-Pro složitější příklad funkcionálu nemusíme chodit daleko, stačí se podívat, jak vypadá funkcionál energie v kvantové mechanice.
+Určitý integrál potřebuje dodat vstupní funkci a po jeho vyčíslení dostaneme jedno jediné číslo. Povšimněte si zde zápisu funkcionálu pomocí hranatých závorek.  
+Pro příklad funkcionálu v kvantové mechanice nemusíme chodit daleko, stačí se podívat na výraz pro energii
 $$
 E[\psi] = \int \psi^*\hat{H}\psi \mathrm{d}\tau .
+\label{rov:dft:efunkc}
 $$
-Je vidět, že jste se již s některými funkcionály setkali, akorát vám to nikdo neprozradil.
+
 
 Mezi funkcemi a funkcionály existují i další podobnosti. Pojmy jako minimum a maximum funkcionálu mají prakticky stejný význam. Existuje i funkcionální analogie k dobře známé derivaci funkce --- mluvíme o \textbf{variaci funkcionálu}.
-Když děláme derivaci funkce, tak se vlastně díváme, co se děje se závisle proměnnou, když trochu změníme nezávisle proměnnou.
-U variace je to podobné. Zajímá nás, jak se změní hodnota funkcionálu, když mírně změníme naši funkci. Přesná definice je složitější a neuvádíme ji zde. Bude ale pro nás důležité, že pro variace platí podobné vztahy, jako pro derivace. Dá se například ukázat, že v minimu funkcionálu je jeho variace nulová. Již dobře známý variační princip (konečně víme, proč se mu tak říká!) pak můžeme napsat jednoduše pomocí variace tohoto funkcionálu energie jako
+Když provádíme derivování funkce, tak se vlastně díváme, co se děje se závisle proměnnou při malé změně nezávisle proměnné.
+U variace je to podobné. Zajímá nás, jak se změní hodnota funkcionálu, když mírně změníme naši funkci. Přesná definice je složitější a neuvádíme ji zde. Bude ale pro nás důležité, že pro variace platí podobné vztahy, jako pro derivace. Dá se například ukázat, že v minimu funkcionálu je jeho variace nulová. Již dobře známý variační princip (konečně víme, proč se mu tak říká!) pak můžeme napsat jednoduše pomocí variace funkcionálu energie \eqref{rov:dft:efunkc} jako
 $$
 \delta E[\Psi] = 0 .
 $$
 
-Nyní již můžeme přejít k definici ústřední veličiny této kapitoly --- elektronové hustoty $\rho(\mathbf{r})$.
-Elektronová hustota má na rozdíl od vlnové funkce přímý fyzikální význam. Jedná se o pravděpodobnost, že v nějakém bodě prostoru najdeme \textbf{nějaký elektron}. Je důležité si uvědomit rozdíl mezi elektronovou hustotou a čtvercem vlnové funkce, který taktéž udává hustotu pravděpodobnosti. Čtverec vlnové funkce nám udává pravděpodobnost, že první elektron má spin $m_{s1}$ a je v bodě $\mathbf{r}_1$, druhý elektron má spin $m_{s2}$ a je v bodě ($\mathbf{r}_2$) atd. Jedná se tedy o mnohem složitější veličinu, která závisí na celkem $4N$ proměnných, zatímco elektronová hustota závisí jen na třech proměnných.
+Nyní se můžeme vrátit k definici ústřední veličiny této kapitoly --- elektronové hustoty $\rho(\mathbf{r})$.
+Elektronová hustota má na rozdíl od vlnové funkce přímý fyzikální význam. Jedná se o pravděpodobnost, že v nějakém bodě prostoru najdeme \textbf{nějaký elektron}. Je důležité si uvědomit rozdíl mezi elektronovou hustotou a čtvercem vlnové funkce, který taktéž udává hustotu pravděpodobnosti. Čtverec vlnové funkce nám udává pravděpodobnost, že první elektron má spin $m_{s1}$ a nachází se v bodě $\mathbf{r}_1$, druhý elektron má spin $m_{s2}$ a nachází se v bodě $\mathbf{r}_2$ atd. Jedná se tedy o mnohem složitější veličinu, která závisí na celkem $4N$ proměnných ($4N$ je počet elektronů), zatímco elektronová hustota závisí jen na třech proměnných.
 
 Elektronová hustota souvisí s vlnovou funkcí systému dle vztahu
 \begin{equation}
 \rho=N \int |\psi(\textbf{r}_1,\textbf{r}_2,...,\textbf{r}_n)|^2 \mathrm{d}\textbf{r}_2\dots\mathrm{d}\textbf{r}_n .
+\label{rov:dft:defrho}
 \end{equation}
+Integrujeme tedy čtverec vlnové funkce přes všechny elektrony kromě prvního. Zopakujme, že nás zajímá pravděpodobnost nalezení jakéhokoli elektronu, poloha ostatních nás nezajímá, a musíme tedy přes ně prointegrovat. První elektron ale není nijak odlišný od ostatních, stejně dobře bychom ale mohli udělat to samé pro druhý elektron. Jelikož je vlnová funkce antisymetrická, došli bychom ke stejnému výsledku. Z toho vyplývá násobící faktor $N$ před integrálem.
 Z této definice hned plyne několik důležitých vlastností.
 
 \begin{itemize}
@@ -39,163 +43,297 @@ Z této definice hned plyne několik důležitých vlastností.
 \int \rho\mathrm{d}r = N
 \end{equation}
 
-\item V poloze jader má elektronová hustota maxima.
-\item Pro tato maxima platí (XXX teorém), že
+\item V poloze jader má elektronová hustota maxima. Elektrony se totiž budou chtít pohybovat co nejblíže kladně nabitým jádrům. \textbf{PSnote: Zde bych bezostysne dal obrazek z Holthausena, ten, co ma Petr Nachtigall ve svych prednaskach}
+\item Pro tato maxima platí
+%TOPETR: v poznamkach mas, ze to je nejaky teorem, ale neprectl jsem jaky....
 \begin{equation}
 \lim_{r_i \to 0} \left[ \frac{\delta}{\delta r}+2Z_A\right]\hat{\rho(r)}=0, 
 \end{equation}
-kde $\hat{\rho}$ je angulárně zprůměrovaná hodnota elektronové hustoty a $Z_A$ je náboj příslušného atomového jádra.
+kde $\hat{\rho}$ je angulárně zprůměrovaná hodnota elektronové hustoty a $Z_A$ je náboj příslušného atomového jádra. Toto tvrzení asi není na první pohled zřejmé, ale nechť nám je čtenář pro teď věří.
 \end{itemize}
 
 Z těchto vlastností vidíme, že pokud známe elektronovou hustotu, tak zároveň také můžeme zjistit počet elektronů, polohu jader i jejich náboj. To jsou ale přesně ty informace, které jsou potřeba ke specifikaci molekulárního hamiltoniánu
 \begin{equation}
 \hat{H}=\sum_{i=1}^N -\frac{1}{2}\Delta_i+\sum_{i=1}^N\sum_{j=i+1}^N\frac{1}{r_{ij}}-\sum_{i=1}^N\sum_{A=1}^K \frac{Z_A}{r_{iA}} ,
-\label{rov:ham_dft}
+\label{rov:dft:molham}
 \end{equation}
-kde jsme vynechali pro jednoduchost člen popisující odpuzování jader, jenž je stejně v rámci Bornovy--Oppenheimerovy aproximace roven konstantě. Pokud ale elektronová hustota jednoznačně určuje hamiltonián, tak poté z řešení SCHR taky energii a vlnovou funkci, a tudíž všechny potřebné veličiny. Podobným způsobem se zřejmě ubíraly úvahy Hohenberga a Kohna, kteří postavili teorii DFT na pevné fyzikální základy.
+\textbf{Melo by byt vysvetleni symbolu}kde jsme vynechali pro jednoduchost člen popisující odpuzování jader, jenž je stejně v rámci Bornovy--Oppenheimerovy aproximace roven konstantě. Pokud ale elektronová hustota jednoznačně určuje hamiltonián, tak poté z řešení Schr\"odingerovy rovnice získáme taky energii a vlnovou funkci, a tudíž všechny potřebné veličiny. Podobným způsobem se zřejmě ubíraly úvahy Hohenberga a Kohna, kteří postavili teorii DFT na pevné fyzikální základy.
 
 \subsection{Hohenbergovy--Kohnovy teorémy}
 
 V roce 1964 publikovali Hohenberg s Kohnem slavný článek, který odstartoval vývoj DFT metod.
-V tomto článku byly dokázány dva důležité teorémy. K jejich lepšímu pochopení si ještě musíme definovat pojem tzv. externího potenciálu $\nu_{ext}$. Ten má pro případ hamiltoniánu \eqref{rov:ham_dft} tvar
+V tomto článku byly dokázány dva důležité teorémy. K jejich lepšímu pochopení si ještě musíme definovat pojem \textbf{externího potenciálu} $\nu_{ext}$, který nám říká, v jakém vnějším poli se elektrony pohybují. Externí potenciál má hamiltonián \eqref{rov:dft:molham} tvar
 \begin{equation}
-\nu_{ext} = \sum_{i=1}^N\sum_{A=1}^K \frac{Z_A}{r_{iA}} .
+\nu_{ext} = \sum_{i=1}^N\sum_{A=1}^K \frac{Z_A}{r_{iA}} ,
 \end{equation} 
-Jedná se tedy o celkovou interakci elektronů s coulombickým potenciálem atomových jader. Jelikož se v DFT na vše díváme z pohledu elektronů, tak se tomu potenciálu říká externí, jelikož nepochází ze samotných elektronů. Je důležité si uvědomit, že externí potenciál vlastně definuje hamiltonián \ref{rov:ham_dft}, neboť ostatní členy triviálně závisejí pouze na počtu elektronů v systému. Nyní již můžeme přejít ke slíbeným teorémům.
+tj. jde o celkovou interakci elektronů s coulombickým potenciálem atomových jader. Jelikož se v DFT na vše díváme z pohledu elektronů, tak se tomu potenciálu říká externí, jelikož nepochází ze samotných elektronů. Je důležité si uvědomit, že externí potenciál vlastně definuje hamiltonián \eqref{rov:dft:molham}, neboť ostatní členy triviálně závisí pouze na počtu elektronů v systému. Molekula od molekuly či geometrie od jiné geometrie se liší právě externím potenciálem. Nyní již můžeme přejít ke slíbeným teorémům.
 
-První Hohenbergův--Kohnův teorém je existenční. Zní takto:
-\uv{\textbf{Pro libovolný systém interagujících elektronů je externí potenciál $\nu_{ext}$} jednoznačně určen elektronovou hustotou (až na konstantu) }
+\textbf{První Hohenbergův--Kohnův teorém} hovoří o významnosti elektronové hustoty. Zní takto:
 
-Důsledek tohoto tvrzení jsme si již naznačili dříve. Pokud máme jednoznačně daný externí potenciál, pak také známe hamiltonián a tudíž můžeme v principu spočítat vlnovou funkci i energii, které jsou tudíž jednoznačně určeny pouze elektronovou hustotou. \textbf{Elektronová energie je tedy jednoznačným funkcionálem elektronové hustoty} neboli
+\bigskip
+\noindent \uv{\textbf{Pro libovolný systém interagujících elektronů je externí potenciál $\nu_{ext}$ jednoznačně určen elektronovou hustotou} (až na konstantu)}
+
+\bigskip
+Důsledek tohoto tvrzení jsme si již naznačili dříve. Pokud máme jednoznačně daný externí potenciál, pak také známe hamiltonián a můžeme v principu spočítat vlnovou funkci i energii, které jsou tudíž jednoznačně určeny pouze elektronovou hustotou. \textbf{Elektronová energie je tedy jednoznačným funkcionálem elektronové hustoty} neboli v matematickém zápisu
 \begin{equation}
 E_{el}=E_{el}[\rho] .
 \end{equation}
+Pokud bychom tedy tento funkcionál znali a znali také správnou hustotu, tak bychom mohli získat energii i bez řešení Sch\"{o}dingerovy rovnice a hledání vlnových funkcí.
 
-Pro důkaz tohoto tvrzení si musíme ještě odvodit pomocn vztah pro integraci externího potenciálu vynásobeného vlnovou funkcí:
+\bigskip
+Dokažme si nyní toto tvrzení. 
 
-Důkaz tohoto teorému se provádí sporem. Předpokládejme, že jedné dané hustotě $\rho$ přísluší dva různé externí potenciály $\nu_{ext1}$ a $\nu_{ext2}$, kterým přísluší hamiltoniány vlnové funkce $\psi_1$ a $\psi_2$  Pak díky variačnímu principu musí platit
+\textbf{Pomocné tvrzení}Nejdříve si musíme odvodit pomocný vztah pro integraci externího potenciálu vynásobeného vlnovou funkcí.
+Rozepišme si nejprve externí potenciál na součet jednoelektronových příspěvků:
+\begin{equation}
+\nu_{ext}=\sum_{i=1}^N \nu_i = \sum_{i=1}^N \sum_{A=1}^K \frac{Z_A}{r_{iA}}  
+\label{rov:dft:nui}
+\end{equation}
+Pojďme si nyní vyčíslit integrál
+\begin{equation}
+\int \nu_{ext} \psi(\textbf{r}_1,...,\textbf{r}_N)^2\mathrm{d}\tau .
+\end{equation}
+Dosazením vztahu \eqref{rov:dft:nui} a vhodným přeuspořádáním mnohonásobného integrálu dostaneme
+\begin{equation}
+\sum_i^N \int \nu_i \left[\int \psi(\mathbf{r}_1,...,\mathbf{r}_N)\prod_{j\neq i}\mathrm{d}\textbf{r}_j\right] \mathrm{d}\textbf{r}_i .
+\end{equation}
+Výraz v hranaté závorce není ale nic jiného než elektronová hustota $\rho$ (až na násobný faktor $N$), dostáváme tedy finální vztah
+\begin{equation}
+\int \nu_{ext} \psi(\textbf{r}_1,...,\textbf{r}_N)^2\mathrm{d}\tau = \sum_{i=1}^N \int \nu_i(\textbf{r}_1)\frac{\rho(\textbf{r}_i)}{N}= \int \nu_i(\textbf{r})\rho(\textbf{r}) \mathrm{d}r ,
+\label{rov:dft:intnupsi}
+\end{equation}
+neboť potenciál $\nu_i$, ve kterém se pohybuje $i$-tý elektron je pro každý elektron identický.
+
+\bigskip 
+\textbf{Důkaz HK1:} Důkaz se provádí sporem. Předpokládejme, že jedné dané hustotě $\rho$ přísluší dva různé externí potenciály $\nu_{ext1}$ a $\nu_{ext2}$, kterým přísluší hamiltoniány $\hat{H}_1$ a $\hat{H}_2$ a vlnové funkce $\psi_1$ a $\psi_2$.  Pak díky variačnímu principu musí platit
 
 \begin{equation}
-E_1 = \int \psi_1^* \hat{H}_1 \psi_1 \mathrm{d}\tau < \int \psi_2^* \hat{H}_1 \psi_2 . \mathrm{d}\tau
+E_1 = \int \psi_1^* \hat{H}_1 \psi_1 \mathrm{d}\tau < \int \psi_2^* \hat{H}_1 \psi_2 . \mathrm{d}\tau ,
 \end{equation}
-Když do hamiltoniánu $\hat{H_1}$ přiřadíme funkci $\Psi_1$, která ji nepřísluší, tak musíme dostat větší energii. Nyní chytře přepíšeme pravou stranu nerovnosti jako  
+protože když ve funkcionálu energie k hamiltoniánu $\hat{H_1}$ přiřadíme funkci $\psi_2$, která není jeho vlastní funkcí základního stavu, tak musíme dostat větší energii než při použití skutečné vlastní funkce $\psi_1$. Nyní mazaně přepíšeme pravou stranu nerovnosti jako  
 \begin{equation}
-\int \psi_2^* \hat{H}_1 \psi_2 = \int \psi_2^* \hat{H}_2 \psi_2\mathrm{d}\tau  + \int \psi_2 \left[\hat{H}_1-\hat{H}_2\right] \psi_2\mathrm{d}\tau = E_2 + \int \rho(\mathbf{r})(\nu_1-\nu_2)\mathrm{d}\mathbf{r}  
+\int \psi_2^* \hat{H}_1 \psi_2 = \int \psi_2^* \hat{H}_2 \psi_2\mathrm{d}\tau  + \int \psi_2^* \left[\hat{H}_1-\hat{H}_2\right] \psi_2\mathrm{d}\tau = E_2 + \int \rho(\mathbf{r})(\nu_1-\nu_2)\mathrm{d}\mathbf{r}  
 \end{equation}
-V poslední rovnosti jsme využili toho, že oba hamiltoniány se liší pouze externím potenciálem.
+V poslední rovnosti jsme využili toho, že oba hamiltoniány se liší pouze externím potenciálem, a použili jsme vztah \eqref{rov:dft:intnupsi}.
 
-Vyšlo nám tedy, že
+\noindent Vyšlo nám tedy, že platí nerovnost
 \begin{equation}
 E_1 < E_2+\int \rho(\mathbf{r})(\nu_1-\nu_2)\mathrm{d}\mathbf{r}
 \label{rov:HK1_1}
 \end{equation}
-Tu samou argumentaci bychom ale mohli také aplikovat opačně, a dostali bychom
+Tu samou argumentaci bychom ale mohli také aplikovat opačně a dostali bychom
 \begin{equation}
-E_2 < E_1+\int \rho(\mathbf{r})(\nu_1-\nu_2)\mathrm{d}\mathbf{r} .
+E_2 < E_1+\int \rho(\mathbf{r})(\nu_2-\nu_1)\mathrm{d}\mathbf{r} .
 \label{rov:HK1_2}
 \end{equation}
 Sečtením obou rovnic \eqref{rov:HK1_1} a \eqref{rov:HK1_2} tedy dostáváme
 \begin{equation}
-
+E_1 + E_2 < E_2 + E_1 ,
 \end{equation}
-
-\item 2. HK teorém 
-Předpokládejme, že pro daný externí potenciál $\nu_{ext,0}$ je správná elektronová hustota $\rho_0$. Pak pro jakoukoli funkci $\rho$ bude platit: $$ E[\rho_0] < E[\rho] $$
-
-Důkaz:
-Z prvního HK teorému plyne, že každá funkce $\rho$ jednoznačně definuje externí potenciál (který je odlišný od $v_{ext,0}$), a tudíž i nějakou vlnovou funkci $\psi$. Pokud ale pro tuto vlnovou funkci vyčíslíme energii, pak nám z již známého variačního principu plyne:
-\begin{equation}
-E^\prime=\int \psi^{\prime *} \hat{H} \psi^{\prime} \mathrm{d}\tau = E[\rho] > E_0 = E_0 [\rho_0] ,
-\end{equation}
-což jsme chtěli dokázat.
-\end{itemize}
-
+což nemůže platit, a tedy náš původní předpoklad o existenci dvou různých externích potenciálů je také chybný.
+\hfill {\footnotesize $\blacksquare$}
 
 Formálně můžeme funkcionál energie napsat jako
 \begin{equation}
-E=\int \psi^*\hat{H}\psi \mathrm{d}\tau = \int \psi^*\hat{T}\psi\mathrm{d}\tau \int \psi^*\hat{V_{el}}\psi\mathrm{d}\tau \int \psi^*\nu_{ext}\psi\mathrm{d}\tau=\hat{T}[\rho]+\hat{V}_{ee}[\rho]+\hat{V}_{ne}[\rho] .
+E=\int \psi^*\hat{H}\psi \mathrm{d}\tau = \int \psi^*\hat{T}\psi\mathrm{d}\tau + \int \psi^*\hat{V_{el}}\psi\mathrm{d}\tau + \int \psi^*\nu_{ext}\psi\mathrm{d}\tau=\hat{T}[\rho]+\hat{V}_{ee}[\rho]+\hat{V}_{ne}[\rho] .
 \end{equation}
-Funkcionál energie jsme tedy rozdělili na funkcionál kinetické energie elektronů $\hat{T}[\rho]$, funkcionál repulze elektronů a funkcionál interakce elektronů s jádry. Jelikož externí potenciál $\nu_{ext}$ nezávisí na polohách elektronů, můžeme si posledně jmenovaný funkcionál jednoduše přepsat do tvaru, ve kterém již vystupuje elektronová hustota:
+Vidíme, že funkcionál energie se stejně jako příslušný hamiltonián \eqref{rov:dft:molham} skládá ze tří různých příspěvků: funkcionálu kinetické energie elektronů $\hat{T}[\rho]$, funkcionálu repulze elektronů $\hat{V}_{ee}[\rho]$ a funkcionálu interakce elektronů s jádry (obecně s externím potenciálem) $\hat{V}_{ne}[\rho]$. 
+Explicitní tvar posledně jmenovaného funkcionálu jsme si již vlastně odvodili rovnicí \eqref{rov:dft:intnupsi} a platí tedy
 \begin{equation}
-V_{ne}=\int \psi^*\nu_{ext}\psi\mathrm{d}\tau = \int \rho(\textbf{r})\nu_{ext}(\textbf{r}) \mathrm{d}\textbf{r} 
-\end{equation} 
+\hat{V}_{ne}[\rho] = \int \nu_i(\textbf{r})\rho(\textbf{r}) \mathrm{d}r .
+\end{equation}
+Součet zbylých dvou funkcionál nazýváme Hohenbergovým--Kohnovým funkcionálem a značíme $F_{HK}[\rho]$. 
+Celkový funkcionál energie tedy můžeme zapsat jako
+\begin{equation}
+E[\rho] = \hat{T}[\rho]+\hat{V}_{ee}[\rho]+\hat{V}_{ne}[\rho] = F_{HK}[\rho] + \int \nu_i(\textbf{r})\rho(\textbf{r}) \mathrm{d}r .
+\end{equation}
 
+Přesný tvar Hohenbergova--Kohnova funkcionálu $F_{HK}[\rho]$ bohužel není dodnes znám. 
+Ovšem i kdybychom jej znali, tak nám stále něco schází k jeho úspěšného použití. Nevíme totiž, jak získat pro daný systém správnou elektronovou hustotu $\rho$, kterou bychom do něj mohli dosadit. Samozřejmě kdybychom znali vlnovou funkci, tak stačí dosadit do definičního vztahu \eqref{rov:dft:defrho}. Tomu se ale právě chceme vyhnout! Smyslem celé teorie funkcionálu hustoty je vyhnout se přímému řešení elektronové Schr\"odingerovy rovnice.
 
-Hohenbergovy--Kohnovi teorémy dávají DFT solidní fyzikální základ, moc nás ale neposunují k praktické aplikaci, jelikož nemáme přesný funkcionál.
+Cestu k elektronové hustotě nám dává druhý teorém od Hohenberga a Kohna, který zní takto:
+
+\bigskip
+\textbf{Předpokládejme, že danému externímu potenciálu $\nu_{ext}$ přísluší elektronová hustota $\rho_0$. Pak pro jakoukoli jinou elektronovou hustotu\footnote{Přesněji řečeno, daná elektronová hustota musí být takzvaně $\nu$--{reprezentovatelná}, neboli musí k ní příslušet nějaký externí potenciál. Pro funkce, které toto nesplňují, 2. HK teorém neplatí.} $\rho^{\prime}$ bude platit:}
+\begin{equation}
+E[\rho_0] < E[\rho^{\prime}]
+\label{rov:dft:HK2}
+\end{equation}
+
+Nejedná se o nic jiného než variantu variačního principu, který taky využijeme k důkazu.
+
+\bigskip
+\textbf{Důkaz:} Z prvního HK teorému plyne, že jakákoli funkce $\rho^{\prime}$ patří k externí potenciálu $\nu_{ext}^{\prime}$, který je odlišný od $v_{ext}$, a přísluší k němu vlnová funkci $\psi^{\prime}$. Pokud ale pro tuto vlnovou funkci vyčíslíme energii, pak nám z již známého variačního principu plyne
+\begin{equation}
+\int \psi^{\prime *} \hat{H} \psi^{\prime} \mathrm{d}\tau = E[\rho] > E [\rho_0],
+\end{equation}
+což jsme chtěli dokázat. \hfill {\footnotesize $\blacksquare$}
+
+Druhý HK teorém nám tedy dává principiální návod, jak hledat elektronovou hustotu. Budeme hledat přes všechny možné hustoty a správná bude ta, která nám dá nejnižší energii.
+
+Hohenbergovy--Kohnovy teorémy dávají DFT solidní fyzikální základ, moc nás ale neposunují k praktické aplikaci, jelikož neznáme přesný funkcionál $F_{HK}[\rho]$.
 Praktickou cestu k DFT výpočtům ukázali až o pár let později Kohn s Shamem.
 
 \subsection{Kohnovy--Shamovy rovnice}
-První teorie, která byla založena na elektronové hustotě, spatřila světlo světa již v roce XXXX díky pánům Thomase a Fermiho. Později byla rozšířena Diracem. 
 
-Jedním z hlavních problémů Thomase--Fermiho teorie byl nepřesný funkcionál pro kinetickou energii elektronů. Zde proto Kohn s Shamem učinila zásadní úkrok stranou.   
+Nyní stojíme před zásadním problémem nalezení alespoň přibližného funkcionálu $F_{HK}[\rho]$, ve kterém je zahrnuta kinetická energie elektronů, klasická coulombická interakce mezi elektrony a dále korelační a výměnné efekty. 
+%Obecně bychom chtěli spočítat co největší část energie pomocí známých dobře definovaných přibližných vztahů a zbylé části poté můžeme modelovat a odchylky poté můžeme modelovat třeba semiempiricky.(\footnote{Tento přístup by se dal přirovnat k situaci v chemické termodynamice, ve které počítáme se vzorečky platnými pro ideální chování a odchylky schováváme do aktivitních koeficientů).
+Ukázalo se, že největší potíže činí dostatečně přesné vyjádření funkcionálu pro kinetickou energii.
+Tento problém je tak zásadní, že budeme muset částečně obětovat náš původní cíl a vrátit se k molekulovým orbitalům popisujícím neávislý pohyb elektronů.
+Pokud totiž máme $N$ elektronů, kde $i$-tý elektron je umístěn v molekulovém orbitalu $\varphi_i$, můžeme vyčíslit kinetickou energii dle vztahu
+\begin{equation}
+E_{kin}=\sum_{i=1}^N \int \varphi\frac{1}{2} \Delta_i \varphi \mathrm{d}\textbf{r}_i .
+\end{equation}
+Tj. spočítáme kinetickou energii pro každý elektron popsaný jednoelektronovou vlnovou funkcí-orbitalem-a energie sečteme. S takto postavenou teorií přišli v roce 1965 Kohn s Shamem.
+
+Obecná strategie odvození Kohnovy--Shamovy procedury je následující. Definuje se fiktivní systém neinteragujících elektronů (podobně jako v Hartreeho--Fockově teorii zde elektrony interagují pouze skrze efektivní potenciál), který je zvolen tak, aby jeho elektronová hustota bylo rovna elektronové hustotě reálného systému. 
+Funkcionál energie se rozepíše následujícím způsobem:
+\begin{equation}
+E[\rho]= T_{n}[\rho] + \frac{1}{2}\int \int \frac{\rho(\textbf{r}_1)\rho(\textbf{r}_2)}{r_{12}} + V_{nekl}(\rho) +\left[T[\rho]-T_{n}[\rho]\right] + \int \nu \rho \mathrm{d}\textbf{r},
+\label{rov:dft:KSfunkc}
+\end{equation}
+kde $T_{n}[\rho]$ kinetická energie neinteragujícího systému, druhý člen odpovídá klasické mezi-elektronové repulzi (násobí se jednou polovinou, aby se interakce nezapočítávaly dvakrát), $V_{nekl}$ zahrnuje korelační a výměnnou energii elektronů, člen v hranaté závorce je rozdíl kinetických energií reálného a neinteragujícího systému  a poslední člen odpovídá interakci elektronů s jádry. Pokud všechny neznámé členy dáme dohromady dostaneme tzv. korelačně--výměnný potenciál
+\begin{equation}	
+E_{XC}[\rho]=\left[T[\rho]-T_{n}[\rho]\right] +  V_{nekl} .
+\label{rov:dft:exc}
+\end{equation}
+% V_{ee}(\rho) - \frac{1}{2}\int \int \frac{\rho(\textbf{r}_1)\rho}{\textbf{r_{12}}}
+Pokud na funkcionál \eqref{rov:dft:KSfunkc} nyní aplikujeme variační princip, tak dostaneme rovnice, které mají stejný tvar jako rovnice
+pro systém neinteragujících elektronů. Jenže pro tento systém známe řešení! Stačí vyřešit vyřešit příslušnou jedno--elektronovou  	 Schr\"{o}dingerovu rovnici
+\begin{equation}
+\left(-\frac{1}{2}\Delta_i + V_{eff} \right) \varphi_i =\epsilon_i \varphi_i ,
+\label{rov:dft:KSeq}
+\end{equation}
+kde $V_{eff}$ je efektivní potenciál, pro který platí
+\begin{equation}
+V_{eff}=\nu_{ext}+\frac{1}{2}\frac{\rho(\textbf{r}^{\prime})}{|\textbf{r}-\textbf{r}^{\prime}|}\mathrm{d}\textbf{r}^{\prime}+u_{xc} ,
+\end{equation}
+kde $u_{xc}$ je funkcionální derivace (variace) výměnně--korelačního funkcionálu \ref{rov:dft:exc}.\footnote{V našem odvození postupujeme dosti svižně. Pro případného zájemce o podorbnější pohled na DFT doporučujeme klasickou publikaci R. G. Parr, W. Yang \textit{Density-Functional Theory of Atoms and Molecules.} Oxford University Press, 1989} Tvar tohoto potenciálu byl odvozen tak, aby byly elektronové hustoty reálného i fiktivního systému stejné.
+Rovnice \ref{rov:dft:KSeq} se nazývají Kohnovy--Shamovy a řeší se podobně jako rovnice Hartreeho--Fockovy rozvojem do báze AO.
+Získáme tak sadu molekulových orbitalů, ze kterých pak dostaneme elektronovou hustotu dle vztahu (uvádíme bez důkazu)
+\begin{equation}
+\rho(\textbf{r}) = \sum_{i=1}^N |\varphi|_i^2
+\label{rov:dft:KSrho}
+\end{equation}
+%Jelikož neinteragující systém byl definován tak, aby 
+Tuto hustotu pak můžeme dosadit do funkcionálu \eqref{rov:dft:KSfunkc} a získáme tak požadovanou energii.
+
+Kohn--Shamův přístup je v principu přesný, pokud bychom znali přesný tvar výměnně--korelačního funkcionálu $E_{XC}[\rho]$.
+Ten sice neznáme, ale existuje spousta vztahů přibližných, o kterých pojednávají další kapitoly.
+
 
 \subsection{Aproximace lokální hustoty}
+\textbf{PSnote: Tady mi vubec neni jasne, co zamyslis, kapitola i podkapitola maji stejny nazev}
 
-LDA (Local density Approximation)
+Problém, který KS metoda přímo neřeší je nalezení tvaru výměnně--korelačního potenciálu.
+V zásadě existují dva přístupy k tomuto problému. Buď se snažíme odvodit vhodný funkcionál $E_{xc}$ čistě pomocí teoretických argumentů z pokročilejších partií DFT. Druhý přístup je pragmatičtější, kokrétní tvar funkcionálu může obsahovat parametry, které se určují z experimentálních dat.
+
+Většina DFT metod rozděluje výměnně--korelační 
+
+Existuje několik různých rodin funkcionálů, které se liší mírou přesnosti, výpočetními nároky i svým zaměřením.
+
+\subsubsection{Aproximace lokální hustoty}
+Aproximace lokální hustoty (angl. \textit{Local Density Approximation}, LDA) vychází z tzv. modelu \textbf{homogenního elektronového plynu} (HEG). Je to hypotetický fyzikální stav, kdy máme všude konstantní elektronovou hustotu, vyváženou rovnoměrným pozitivním pozadím. Tento model je pro teorii DFT velmi užitečný, neboť pro něj existují přesné výpočty a simulace. Tento model byl ale kdysi užitečný i pro chemiky, dájí se takto třeba popsat valenční elektrony v kovech (teorie elektronového plynu). Jak ale tento model použít na atomy nebo molekuly, které mají elektronovou hustotu značně nehomogenní (elektronová hustota je velká v oblasti jader a pak postupně pravděpodobnost nalezení elektronů klesá)?
+
+Můžeme si představit, že prostor objem atomu/molekuly rozdělíme na malinké krychličky. Ve středu každé krychličky zjistíme elektronovou hustotu, kterou poté dosadíme do vztahů plynoucích z teorie HEG.
+Získáme tím elektronovou energii v této malé krychličce a celkovou energii získáme součtem přes všechny krychličky. Matematicky rigorózně to můžeme zapsat pomocí trojného integrálu přes celý prostor
 \begin{equation}
-E_{xc}^{LDA}=\int \rho(\textbf{r})V_{xc}(\rho(\textbf{r}))\mathrm{d}\textbf{r} 
+E_{XC}^{LDA}[\rho]=\int \rho(\textbf{r}) \varepsilon(\rho(\textbf{r})) \mathrm{d}\textbf{r} ,
+\end{equation}
+kde $\varepsilon(\rho(\textbf{r}))$ je výměnně--korelační energie HEG o hustotě $\rho$ vztažená na jeden elektron. Tato rovnice definuje výše zmíněnou aproximaci lokální hustoty.
+
+Jaký je konkrétní tvar $\varepsilon(\rho(\textbf{r}))$? Nejprve jej rozdělíme na korelační a výměnnou část (takto to dělá většina DFT metod)
+\begin{equation}
+\varepsilon(\rho(\textbf{r}))=\varepsilon_x(\rho)+\varepsilon_c(\rho) .
 \end{equation}
 
-
+\noindent Pro výměnnou část se dá odvodit následující analytický vztah \textbf{
 \begin{equation}
-V_{xc}(\rho)=V_x(\rho)+V_c(\rho)
+V_x[\rho]=-\frac{3}{4}\left(\frac{3}{\pi}\right)^{\frac{1}{3}}\rho^{\frac{1}{3}}
 \end{equation}
-Pro výměnný člen platí pro homogenní plyn následující vztah:
+Tento vztah je spojen s jménem Slater\footnote{Ano, je ten ten samý pan Slater, podle kterého jsou pojmenované naše oblíbené determinanty.}, označuje se tedy zkratkou S.
+
+Pro korelační energii HEG nelze získat analytický výraz. Příslušné výpočty lze ale provést numericky a výsledek poté nafitovat. Výsledný korelační funkcionál je znám jako VWN (dle pánů Voska, Wilka a Nusaira). V kombinaci se Slaterovým výrazem pro výměnnou část získáme metodu SVWN (výměnná část se ve zkratce uvádí vždy první).
+
+Mírným vylepšením je metoda spinově závislé aproximace lokální hustoty (angl. \textit{Local Spin Density Approximation}, LSDA), které pracují zvlášť s elektronovou hustotou elektronů se spinem $\alpha$ a zvlášť se spinem $\beta$.
+
+Metoda LDA byla prvním větším úspěchem DFT teorie. Její výsledky jsou typicky typicky o něco lepší než metoda Hartreeho--Focka a můžeme ji s úspěchem použít pro stanovení geometrii, vybračních frekvencí nebo dipólových momentů. Na druhou stranu funguje méně dobře pro energetiku chemických reakcí. Dnes se metoda LDA používá zřídka, nahradily ji pokročilejší metody.
+
+\subsection{GGA funkcionály}
+Jednou z nevýhod DFT je absence jasné cesty k přesnějším výsledku, neboť neznáme tvar výměnně--korelačního členu. U \textit{ab initio} metod naproti tomu jasně víme, jak alespoň v principu dospět k přesnému výsledku (např. metodou Full CI ve velké bázi).
+
+Jednou z možností postupu, která se nám po předchozí kapitole nabízí, je zkusit vyjít z aproximace lokální hustoty a tu se snažit dále vylepšit. V LDA je v daném bodě využívali pouze hodnotu elektronové hustoty. Taylorův rozvoj nám napovídá, že by mohlo být užitečné využít informaci o \textbf{gradientu hustoty} $\nabla\rho(\textbf{r})$. 
+Tím se dostaneme k metodám \textbf{zobecněného gradientu} (z angl. \textit{Generalized Gradient Approximation}, GGA), pro které má výměnně--korelační funkcionál obecný tvar
 \begin{equation}
-V_x(\rho)=-\frac{3}{4}\left(\frac{3}{\pi}\right)^{\frac{1}{3}}\rho^{\frac{1}{3}}
+E_{xc}^{GGA}=\int \rho(\textbf{r})f(\rho,\Delta\rho) \mathrm{d}\textbf{r} .
 \end{equation}
-Pro korelační energii UEG nelze získat analytický výraz. Příslušné výpočty lze ale provést numericky a výsledek poté nafitovat. Výsledný korelační funkcionál je znám jako VWN (dle pánů Vosko-Wilk-Nusair).
+Konkrétní tvar těchto funkcionálů již bývá značně složitý a často obsahuje nastavitelné parametry. Mezi nejznámější výměnné GGA funkcionály patří například Beckeho výměnný funkcionál (zkratka \textbf{B88}, nebo jen B), který obsahuje jeden parametr. Mezi známé korelační funkcionály patříl například \textbf{LYP} (od pánů Lee, Yang a Paara) nebo \textbf{P86} (autor Perdew). Jejich kombinací pak získáme známe často užívané metody \textbf{BP86} a \textbf{BLYP}. Dalším výměnně--korelačním funkcionálem je \textbf{PBE}(Perdew, Burke, Erzenhof) z roku 1996, který neobsahuje žádné parametry.
 
-LSDA....$E_{xc}=E_{xc}[\rho_\alpha\rho_\beta]$ 
+GGA funkcionály jsou značně přesnější než LDA, a proto právě tyto funkcionály odstartovaly masové používání DFT v kvantové chemii.
 
+Dalším logickým krokem ke zlepšení je využití dalších informací kromě gradientu, například druhé derivace. Mluvíme potom o \textbf{meta-GGA funkcionálech}, mezi které patří například korelační funkcionál B95 nebo výměnně--korelační funkcionál TPSS.
 
-\subsection{GGA a hybridní funkcionály}
-GGA 
+\subsection{Hybridní funkcionály}
+Pozorný čtenář by se mohl ptát, proč vlastně k výpočtu výměnné energie nevyužijeme Kohn--Shamovy orbitaly, když je konec konců používáme pro výpočet kinetické energie. Využily bychom vzoreček známý z HF teorie 
 \begin{equation}
-E_{xc}^{GGA}=\int \rho(\textbf{r})f(\rho,\Delta\rho\mathrm{d}\textbf{r} 
+E_X^{exact}=-\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N K_{ij} . 
 \end{equation}
+Bohužel se ukázalo, že použití tohoto vzorce (spolu s nějakým korelačním funkcionálem) nevede k dobrým výsledkům, jelikož se tím naruší kompenzace chyb v současných funkcionálech.
 
-Becke: B88, LYP (Lee-Yang-Parr),
-kombinace: BP86, BLYP, PBE
-
-meta-GGA
-
-\textbf{Hybridní funkcionály}
-\begin{equation}
-E_X^{exact}=-\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N K_{ij}
-\end{equation}
-
-B3LYP:
+Tím dostaneme takzvané hybridní funkcionály, které představují další výrazné zlepšení přesnosti.
+Mezi hybridní funkcionály patří i funkcionál \textbf{B3LYP}, který je v současnosti suverénně nejpoužívanější kvantově--chemickou metodou (přestože byl vyvinut už v roce 1993)
+Jeho přesný tvar je
 \begin{equation}
 E_{xc}^{B3LYP}=(1-a_0-a_x)E_x^{LDA}+a_0E_x^{exact}+a_xE_x^{B88}+(1-a_c)E_c^{VWN}+a_c E_c^{LYP}
 \end{equation}
-$a_0=0,2$; $a_x=0,72$; $a_c=0,81$
+a nastavitelné parametry mají hodnotu $a_0=0,2$, $a_x=0,72$ a $a_c=0,81$.
+Parametr $a_0$ určuje procento přesné výměnné energie; B3LYP má tedy 20\% podíl HF výměnné energie.
 
-PBE0 (25\,\%), BMK,BHandHLYP(50\,\%)
+Z dalších mnoha hybridních funkcionálů uveďme alespoň (v závorkách úvádíme procento HF výměnné energie): PBE0 (25\,\%), BMK (50\,\%) ,BHandHLYP(50\,\%)
 
-\textbf{Long-range corrected funkcionály}
-Mělo by platit, že $lim_{V_x\to \infty}=\frac{1}{r}$
+\subsubsection{Moderní funkcionály}
+Oblast DFT metod patří díky užitečnosti DFT k stále velmi aktivním oblastem výzkumu v kvantové chemii. V současnosti už existují stovky různých funkcionálů. V posledních letech se objevilo mnoho různých nových typů kromě výše zmíněných. Za zmínku stojí kupříkladu tzv. \textbf{dvojitě hybridní funkcionály}. Ty v sobě kombinují metodu DFT s poruchovou metodou. V prvním kroku vypočítáme Kohnovy-Shamovy orbitaly pomocí hybirdního funkcionálu
 
-\textbf{Disperzní korekce}
 
-Grimmeho empirická korekce
-\begin{equation}
-E_{vdw}=-s_6\sum c^{ij}r_{ij}^{-6}
-\end{equation}
-Koeficient $s_6$ závisí na použitém funkcionálu, zatímco koeficienty $c_{ij}$ závisí na typu interagujících atomů.
+\textbf{Rovnice 16.69 z Levina}
 
-\textbf{Dvojitě hybridní funkcionály}
-S.Grimme 
-\begin{equation}
-E_{xc}^{hybrid}=a_1E_x^{GGA}+(1-a_1)E_x^{EXACT}+a_2E_c^{GGA}
-\end{equation}
-Pro tento tvar se vyřeší KS rovnice a získají KS orbitaly. Z těchto orbitalů se poté vypočítá MP2 korekce
-ze vzorečku XX a přídá se k $E_{xc}^{hybrid}$
+v roku druhém pak zformulujeme vylepšený funkcionál
 
-\begin{equation}
-E_{xc}^{DH}=E_{xc}^{hybrid}+(1-a_2)E_c^{KS-MP2}
-\end{equation}
+\textbf{Rovnice 16.70 z Levina}
 
-Příkladem může být B2LYP s parametry $a_1=0,47$ a $a_2$=0,73
+kde XXX je vypočítáno jako MP2 korekce energie s použitím Kohnových-Shamovýh orbitalů. S tímto výměnně-korelačním členem pak vypočítáme energii molekuly. Parametry XXX jso kupříkladu por metodu B2PLY zvoleny takto: XXXXX. Výsledky získané touto metodou jsou poměrně kvalitní, ale na druhou stranu metoda je výpočetně také značně náročná. 
 
-% Jakobův žebřík, obrázek (Genesis 28:10-12)
+
+Viděli jsme také, že s kvalitou výsledku dokáže hodně pohnout přídavek výměnného členu toho typu, který nacházíme v HF metodě. V hybridních funcionálech tento člen přidáváme pro všechny mezielektronové vzdálenosti. Jinou možnost je použít lokální funkcionály pro malé mezielektronové vzdálenosti a HF výměnný člen pro velké mezielektronové vzdálenosti. Mluvíme pak o tzv. \textbf{range--separated funkcionálech}. Ty jsou užitečné například při výpočtech excitovaných stavů. 
+%Mělo by platit, že $lim_{V_x\to \infty}=\frac{1}{r}$
+%zmínka o self-interakční chybě.
+
+Jedním ze slabých míst DFT je omezená schopnost této teorie popsat tzv. disperzní interakci (víze viz kapitola XXX). Existují různě složité cesty k nápravě. Vůbec nejjednodušší metodou je použít funkcionál, se kterým disperzní příspěvek vůbec přítomen není a tento příspěvek pak modelovat empiricky (\textit{Dispersion-corrected functional}).  
+
+I přes své stáří však pro rutinní výpočty stále dominuje funkcionál B3LYP díky jeho velké univerzalitě a přesnosti.
+Pro detailní přehled starších i moderních funkcionálů lze nahlédnout do návodu k programu Gaussian\footnote{\textit{http://www.gaussian.com/g\_ tech/g\_ ur/k\_ dft.htm}}.
+
+
+%\textbf{Disperzní korekce}
+
+%Grimmeho empirická korekce
+%\begin{equation}
+%E_{vdw}=-s_6\sum c^{ij}r_{ij}^{-6}
+%\end{equation}
+%Koeficient $s_6$ závisí na použitém funkcionálu, zatímco koeficienty $c_{ij}$ závisí na typu interagujících atomů.
+
+%\textbf{Dvojitě hybridní funkcionály}
+%S.Grimme 
+%\begin{equation}
+%E_{xc}^{hybrid}=a_1E_x^{GGA}+(1-a_1)E_x^{EXACT}+a_2E_c^{GGA}
+%\end{equation}
+%Pro tento tvar se vyřeší KS rovnice a získají KS orbitaly. Z těchto orbitalů se poté vypočítá MP2 korekce
+%ze vzorečku XX a přídá se k $E_{xc}^{hybrid}$
+
+%\begin{equation}
+%E_{xc}^{DH}=E_{xc}^{hybrid}+(1-a_2)E_c^{KS-MP2}
+%\end{equation}
+
+%Příkladem může být B2LYP s parametry $a_1=0,47$ a $a_2$=0,73
+
+%\textbf{Jakobův žebřík, obrázek (Genesis 28:10-12)}
