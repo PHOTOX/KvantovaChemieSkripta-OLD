@@ -105,9 +105,7 @@ E_{kor}=E_{el} - E^{HF}
 a je důsledkem toho, že jsme zanedbali okamžitou mezi-elektronovou repulzi.
 
 %OBRAZEK KORELACNI ENERGIE ATP
-
 %TODO rict neco o Fermiho dire????
-
 %TODO: zminit resitricted a unrestricted pripady
 
 Pro výpočet korelační energie je třeba použít pokročilejších metod, které popíšeme v následujících kapitolách.
@@ -158,7 +156,7 @@ Metoda MP3 nepřináší výrazné zlepšení oproti MP2 a tudíž není využí
 
 Alternativní cestu ke korelační energii nabízí variační princip. Dá se ukázat, že množina všech Slaterových determinantů, které můžeme vytvořit z HF molekulových orbitalů, vytváří úplný soubor funkcí. Můžeme tak do něj rozvinout přesnou vlnovou funkci 
 \begin{equation}
-\psi^{CI}=C_0\psi_0+\sum_a\sum_m C_a^m\psi_a^m+\sum C_{ab}^{mn}\psi_{ab}^{mn}+\dots
+\psi^{CI}=C_0\psi_0+\sum_a\sum_m C_a^m\psi_a^m+\sum_m \sum_n \sum_a \sum_b C_{ab}^{mn}\psi_{ab}^{mn}+\dots
 \label{rov:CIrozvoj}
 \end{equation}
 kde první člen je Slaterův determinant základního stavu a další členy odpovídající determinantům, kde jsme excitovali jeden nebo více elektronů z obsazeného do neobsazeného orbitalu (viz obrázek \ref{obr:abinitio:ci}). Druhý člen odpovídá jednonásobným excitacím (monoexcitacím, viz obr. \ref{obr:abinitio:ci}A), třetí člen odpovídá dvojnásobným excitacím (biexcitacím,
@@ -166,8 +164,8 @@ viz obr.\,\ref{obr:abinitio:ci}B) atp. Jednotlivým Slaterovým determinantům m
 
 \begin{figure}
 \centering
-%\includegraphics[scale=1]{CIkonfigurace.eps}
-\caption[Excitované Slaterovy determinanty]{Ukázka mono-excitovaných (\textbf{A}) a bi-excitovaných (\textbf{B}) Slaterových determinantů.}
+\includegraphics[scale=1]{CIkonfigurace.eps}
+\caption[Excitované Slaterovy determinanty]{Ukázka monoexcitovaných (\textbf{A}) a biexcitovaných (\textbf{B}) Slaterových determinantů.}
 \label{obr:abinitio:ci}
 \end{figure}
 
@@ -242,7 +240,7 @@ atomy. Užitím speciálních technik lineárního škálování lze ale toto po
 
 \subsection{Multireferenční metody}
 
-Všechny metody, které jsme probrali výše, vychází z Hartreeho-Fockovy aproximace. Předpokládají, že popis molekuly pomocí jednoho Slaterova determinantu je v zásadě v pořádku, jenom je potřeba udělat menší \uv{facelift}. Někdy je ale popis jediným Slaterovým determinantem z gruntu špatně. Kupodivu se se selháním Hartreeho-Fockovy metody můžeme setkat i v jednoduchých situacích Uvažme molekulu vodíku H$_2$ v základním stavu. Na Obr. \ref{obr:multiref} je ukázán diagram orbitálních energií pro rovnovážnou geometrii a pro disociovanou strukturu. Uvažme první případ. Zde bez potíží umístíme dva elektrony do nejnižšího orbitalu $\sigma_g=1s_A+1s_B$, což odpovídá Slaterovu determinantu
+Všechny metody, které jsme probrali výše, vychází z Hartreeho-Fockovy aproximace. Předpokládají, že popis molekuly pomocí jednoho Slaterova determinantu je v zásadě v pořádku, jenom je potřeba udělat menší \uv{facelift}. Někdy je ale popis jediným Slaterovým determinantem z gruntu špatně. Kupodivu se se selháním Hartreeho-Fockovy metody můžeme setkat i v jednoduchých situacích Uvažme molekulu vodíku H$_2$ v základním stavu. Na Obr. \ref{obr:abinitio:multirefH2} je ukázán diagram orbitálních energií pro rovnovážnou geometrii a pro disociovanou strukturu. Uvažme první případ. Zde bez potíží umístíme dva elektrony do nejnižšího orbitalu $\sigma_g=1s_A+1s_B$, což odpovídá Slaterovu determinantu
 
 \begin{equation}
 \Psi (1,2)=\frac{1}{\sqrt{2}}
@@ -254,13 +252,20 @@ Všechny metody, které jsme probrali výše, vychází z Hartreeho-Fockovy apro
 \label{rov:abinitio:SDH2}
 \end{equation}
 
+\begin{figure}
+\centering
+\includegraphics[scale=1]{multirefH2.eps}
+\caption[Disociace molekuly vodíku]{Ukázka monoexcitovaných (\textbf{A}) a biexcitovaných (\textbf{B}) Slaterových determinantů.}
+\label{obr:abinitio:multirefH2}
+\end{figure}
+
 Jenomže pro disociovanou strukturu (což je v tomto  případě triviálně řešitelný problém metodou separace proměnných s řešením $1s_A(1)1s_B(2)$ a $E=2E_H=-27,2\,eV$) teď nevíme, jaký orbital vlastně dosadit do Slaterova determinantu \ref{rov:abinitio:SDH2}. Vazebný nebo antivazebný? Vždyť mají oba stejnou energii. Pokud si vybereme stejně jako v předchozím případě symetrický $\sigma_g$, získáme vlnovou funkci (pro jednoduchost zde neuvádíme spinovou část)
 \begin{equation}
 1s_A(1)1s_B(2)+1s_B(1)1s_A(2)+1s_A(1)1s_A(2)+ 1s_B(1)1s_B(2)
 \end{equation}
 První dva členy zde odpovídají (správně) kovalentní struktuře, ale druhé dva členy popisují ionty, H$^+\cdots$H$^-$ a H$-\cdots$H$^+$. Tomu bude odpovídat energie, která bude z poloviny dána jako neutrálními atomu a z poloviny ionty. Správná vlnová funkce je ale dána rozvojem
 \begin{equation}
-\psi= (\sigma_g+\sigma_u), 
+\psi= \sqrt{\frac{1}{2}} (\sigma_g+\sigma_u), 
 \end{equation}
 je tedy vidět, že v případě rozštěpení chemické vazby za vzniku bi-radikálové struktury je potřeba použít více než jeden Slaterův determinant. Metoda HF kvalitativně selhává. Ŕešením je použít velmi omezený rozvoj typu konfigurační interakce do kterého zahrneme pouze excitace z orbitalů v blízkosti nejvyššího obsazeného molekulového orbitalu HOMO (z angl. \textit{Highest Occupied Molecular Orbital}) a z nejnižšího neobsazeného molekulového orbitalu LUMO (a angl. \textit{Lowest Unoccupied Molecular Orbital}). Tuto množinu orbitalů, ze kterých a do kterých excitujeme, nazýváme aktivním prostorem. Tato metoda má zkratku CASSCF (z angl. \textit{Complete Active Space-Slef Consistent Field}). Narozdíl od metody CI u CASSCF metody optimalizujeme obě sady koeficientů $C$ a $c_{ij}$ zároveň. 
 
