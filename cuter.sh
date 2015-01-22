@@ -1,28 +1,29 @@
 #!/bin/bash
 
-nchapters=20
+nchapters=21
 
 page[1]=0
-page[2]=10
-page[3]=24
-page[4]=30
-page[5]=38
-page[6]=44
-page[7]=49
-page[8]=54
-page[9]=62
-page[10]=77
-page[11]=83
-page[12]=86
-page[13]=96
-page[14]=103
-page[15]=105
-page[16]=110
-page[17]=115
-page[18]=117
-page[19]=121
-page[20]=124
-page[21]=127
+page[2]=8
+page[3]=22
+page[4]=36
+page[5]=42
+page[6]=51
+page[7]=57
+page[8]=62
+page[9]=67
+page[10]=75
+page[11]=90
+page[12]=96
+page[13]=99
+page[14]=110
+page[15]=119
+page[16]=128
+page[17]=134
+page[18]=139
+page[19]=143
+page[20]=146
+page[21]=149
+page[22]=153
 
 if [[ ! -d PDF ]];then
 	mkdir PDF

@@ -16,8 +16,7 @@
 \usepackage[bf]{caption}   %tucne "Figure" a "table'
 \captionsetup{width=0.9\textwidth} %úprava šířky popisků
 \captionsetup{textfont=it, font=small} %úprava fontů u obrázků, text bude menší a italikou
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}  %footnote jako symboly
-
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}  %footnote jako symboly
 \renewcommand{\thefootnote}{\alph{footnote}} %footnote jako mala pismenka
 
 %\usepackage[inline]{showlabels} %vizualizace popisku rovnic
@@ -36,6 +35,9 @@
 
 %kontrola vdov a sirotku
 \usepackage[defaultlines=4,all]{nowidow}
+
+%lepsi pozicovani
+\usepackage{float}
 
 
 \usepackage[pdftitle={Kvantová chemie},
@@ -62,30 +64,51 @@ pdfstartview=FitV]{hyperref}
 \begin{document}
 \pagestyle{empty}
 \pagenumbering{gobble}
-\maketitle
+%\maketitle
+\begin{titlepage}
+\pagenumbering{gobble}
+\begin{center}
+\vspace*{5cm}
+{\Huge \textbf{Kvantová chemie: První čtení}} \\[1cm]
+\begin{figure} [H]
+\centering
+\includegraphics[scale=0.5]{logo.png}
+\end{figure}
+\rule{0.8\textwidth}{0.02cm}\\
+{\large Dan Hollas $\bullet$  Vít Svoboda $\bullet$ Ondřej Svoboda $\bullet$ Petr Slavíček} \\
+\end{center}
+\vfill
+\begin{flushright}
+\rule{7cm}{0.01cm} \\
+Vysázeno programem \LaTeX \\
+\copyright \hspace{0.1cm} Slavíček a kol., Praha 2014
+\vspace{2cm}
+\end{flushright}
+\end{titlepage}
 \uvodnistrana
 %\renewcommand{\thetable}{\Roman{table}} 
 
 
 \tableofcontents
-\uvodnistrana \uvodnistrana
+\uvodnistrana \uvodnistrana \uvodnistrana %pocet musi odpovidat poctu stran s obsahem
 \listoffigures
 \uvodnistrana
 \pagestyle{plain}
 \pagenumbering{arabic}
 \setcounter{page}{\thestranky} %nastaveni cislovani od teto stranky ale s cislem podle poctu listu od zacatku dokumentu
+
 %\section{Návod a pravidla pro psaní}
 %\label{kap:navod}
 %\input{texty/navod.tex}
 
-\section*{Literatura}
-\label{kap:literatura}
-\input{texty/Literatura.tex}
+\section{Úvodní slovo}
+\label{kap:uvod}
+\input{texty/uvod.tex}
 
 \clearpage
 \section{Historický nástin kvantové mechaniky}
 \label{kap:historie}
-\input{texty/uvod.tex}
+\input{texty/historie.tex}
 
 \clearpage
 \section{Matematika kvantové mechaniky}
@@ -148,9 +171,9 @@ pdfstartview=FitV]{hyperref}
 \input{texty/abinitio.tex}
 
 \clearpage
-\section{Metody založené na teorii funkcionálu hustoty}
-\label{sec:dft}
-\input{texty/dft}
+\section{DFT metody}
+\label{kap:dft}
+\input{texty/dft.tex}
 
 \clearpage
 \section{Semiempirické přístupy}
@@ -158,21 +181,24 @@ pdfstartview=FitV]{hyperref}
 \input{texty/semiemp.tex}
 
 \clearpage
-\section{Molekulární vlastnosti}
+\section{Vlastnosti molekul}
 \label{kap:vlastnosti}
 \input{texty/vlastnosti.tex}
-
-\clearpage
-\section{Výpočty elektronově excitovaných stavů}
-\input{texty/excitace.tex}
 
 \clearpage
 \section{Mezimolekulové interakce}
 \label{kap:mezimolsily}
 \input{texty/mezimolsily.tex}
 
-\section{Výpočty v kondenzované fázi}
+\clearpage
+\section{Výpočty v roztoku}
+\label{kap:solvatace}
 \input{texty/solvatace.tex}
+
+\clearpage
+\section{Excitované stavy}
+\label{kap:excitace}
+\input{texty/excitace.tex}
 
 \clearpage
 \section{Relativistické efekty}
@@ -196,6 +222,7 @@ pdfstartview=FitV]{hyperref}
 %\begin{tabular}{ll}
 %\bf HF & Hartreeho-Fockova metoda \\
 %\bf PES & povrch potenciální energie (Potential Energy Surface)\\	
+
 %\end{tabular}
 
 \end{document}
