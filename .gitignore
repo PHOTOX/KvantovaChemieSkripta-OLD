@@ -1,4 +1,5 @@
 PDF/*
+build/*
 obrazky/*converted*pdf
 ## Core latex/pdflatex auxiliary files:
 *.aux
