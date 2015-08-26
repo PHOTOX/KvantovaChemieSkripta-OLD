@@ -1,3 +1,5 @@
+%% Je třeba zkontrolovat rovnice a hlavně značení proměných. Je třeba lépe definovat co je r, R atp.
+
 Obecná molekula může konat translační, vibrační nebo rotační pohyby. V~této kapitole si ukážeme pouze nejjednodušší příklad, totiž popis vibrace a rotace dvouatomové molekuly.
 
 \noindent V~minulé kapitole jsme si ukázali Schrödingerovu rovnici pro jádra (\ref{rov:mol-jadschr})
@@ -14,30 +16,28 @@ Obecná molekula může konat translační, vibrační nebo rotační pohyby. V~
 \left(\hat{T}_R+E_{el}\right)\chi_j = E \chi_j.
 \end{displaymath}
  
-\noindent Jelikož uvažujeme dvouatomovou molekulu, bude elektronová energie $E_{el}$ pouze funkcí vzdálenosti dvou jader (označme je jako $\alpha$ a $\beta$)
+\noindent Jelikož uvažujeme dvouatomovou molekulu, bude elektronová energie $E_{el}$ pouze funkcí vzdálenosti dvou jader (označme je jako $\alpha$ a $\beta$) a tudíž nezávislá na jejich orientaci:
 
 \begin{displaymath}
-E_{el}=E_{el} \vert \textbf{R}_{\alpha}-\textbf{R}_{\beta}) \vert - E_{el}(\mathbf{R}),
+	E_{el}=E_{el} (\vert \textbf{R}_{\alpha}-\textbf{R}_{\beta} \vert ) = E_{el}(r).
 \end{displaymath} 
 
-\noindent ne na jejich orientaci.
-Dalším krokem při řešení Schr\"odingerovy rovnice pro pohyb jader je vyjádření kinetické energie na kinetickou energii těžiště molekuly a kinetickou energii odpovídající relativnímu pohybu molekuly. Celý postup je popsán v~kapitole o~problému dvou částic. Zde si uvedeme pouze dvě konečné rovncice, ke kterým bychom se dostali
+Dalším krokem při řešení Schr\"odingerovy rovnice pro pohyb jader je rozdělení kinetické energie na kinetickou energii těžiště molekuly a kinetickou energii odpovídající relativnímu pohybu molekuly. Celý postup je popsán v~kapitole o~problému dvou částic. Zde si uvedeme pouze dvě konečné rovnice, ke kterým bychom se dostali
 
 \begin{eqnarray}
 \hat{H}_{tr}\psi_{tr}(R)=E_{tr}\psi_{tr}(R)
 \label{vibrot:trans}\\
-\hat{H}_{int}\psi_{int}(r)=E_{int}\psi_{tr}(r)
+\hat{H}_{int}\psi_{int}(r)=E_{int}\psi_{int}(r)
 \label{vibrot:vibrot}\\
 E=E_{tr}+E_{int},
 \end{eqnarray}
 
-\noindent přičemž platí první rovnice (\ref{vibrot:trans}) popisuje translaci molekuly jako celku a druhá (\ref{vibrot:vibrot}) její relativní pohyb, tedy vibraci nebo rotaci. Translaci jsme se  věnovali v~kapitole~\ref{kap:zakladniulohy}, nyní se v~dalším výkladu budeme věnovat vibracím a rotacím. Rovnici \ref{vibrot:vibrot} představující vnitřní problém si můžeme rozepsat následovně
+\noindent přičemž první rovnice \eqref{vibrot:trans} popisuje translaci molekuly jako celku (R je zde poloha těžiště) a druhá \eqref{vibrot:vibrot} její relativní pohyb, tedy vibraci nebo rotaci. Translaci jsme se  věnovali v~kapitole~\ref{kap:zakladniulohy}, nyní se v~dalším výkladu budeme věnovat vibracím a rotacím. Rovnici \ref{vibrot:vibrot} představující vnitřní problém si můžeme rozepsat následovně
 
 \begin{equation}
 \left[-\frac{\hbar^2}{2\mu}\Delta_{\textbf{r}}+E_{el}(r)\right]\psi_{int}=E_{int}\psi_{int}
 \label{vibrot:vibrot2}
 \end{equation}
-
 
 Tato rovnice představuje molekulu v~centrálním potenciálu. Také centrálnímu potenciálu jsme se věnovali v~kapitole s~problémem dvou částic. Ukázali jsme si, že řešení hledáme ve tvaru součinu sférické harmonické funkce a radiální vlnové funkce
 
@@ -86,7 +86,9 @@ x=r-R_{eq}\nonumber,
 E_{el}\approx\frac{1}{2}\left(\frac{d^2E_{el}}{dr^2}\right)(r-R_{eq})^2=\frac{1}{2}kx^2.
 \end{equation}
 
-\item Dále uděláme Taylorův rozvoj ještě pro druhý člen v~závorce rovnice \ref{vibrot:vibrot3}
+\noindent Vidíme tedy, že jsme složitý mezimolekulový potenciál nahradili parabolou. Aproximujeme chemickou vazbu modelem harmonického oscilátoru.
+
+\item Dále uděláme Taylorův rozvoj ještě pro druhý člen (odpovídající rotaci) v~závorce rovnice \ref{vibrot:vibrot3}
 
 \begin{equation}
 \left(\frac{l\left(l+1\right)\hbar^2}{2\mu}\right)\frac{1}{r^2} =
@@ -101,6 +103,8 @@ ze kterého budeme v~tomto případě uvažovat pouze nultý člen
 \left(\frac{l\left(l+1\right)\hbar^2}{2\mu}\right)\frac{1}{r^2} \approx \left(\frac{l\left(l+1\right)\hbar^2}{2\mu}\right)\frac{1}{R_{eq}^2}
 \end{equation}
 \end{itemize}
+\noindent To se může zdát jako dosti drastická aproximace. Fyzikálně to znamená, že během rotačního pohybu máme fixní vzdálenosti jader a tudíž zanedbáváme vliv vibrace. Tomuto se říká aproximace tuhého rotoru.
+
 
 Uvažujeme-li tyto dvě aproximace, rovnice \ref{vibrot:vibrot3} přejde na 
 
@@ -143,20 +147,31 @@ E'=\left(n+\frac{1}{2}\right)h\nu,
 
 \noindent Dva členy v~poslední rovnici zastupují harmonický oscilátor (vibrace) a tuhý rotor (rotace). 
 
-\noindent V~průběhu odvození jsme použili \textbf{aproximací harmonického oscilátoru} a \textbf{tuhého rotoru}. Obě aproximace mají své limity. Harmonický oscilátor např. předpokládá, že vibrační hladiny jsou ekvidistantní a nedokáže také popsat disociaci vazby. Místo harmonického oscilátoru je možné použít oscilátoru Morseova
+\noindent Aproximace harmonického oscilátoru a tuhého rotoru mají své limity. Harmonický oscilátor nepopisuje disociaci molekuly a má ekvidistantní vibrační hladiny, kdežto z experimentálních vibračních spekter víme, že tomu tak u skutečných molekul není. Místo harmonického oscilátoru je možné použít oscilátoru Morseova
 
 \begin{equation}
 E_{el}=D_e\left[1-e^{a(r-R_{eq})}\right],
 \end{equation}
 
-\noindent který už uvažuje s~disociací vazby (disociační energie je $D_e$ a $a$ parametr vztahující se k~šířce potenciálu, $a=\sqrt[]{\frac{k}{2D_e}}$).
+\noindent který už uvažuje s~disociací vazby (disociační energie je $D_e$ a parametr $a$ se vztahuje k~šířce potenciálu, $a=\sqrt[]{\frac{k}{2D_e}}$).
 \noindent Pokud bychom chtěli vibrace a rotace popsat ještě přesněji, bylo by třeba uvažovat Coriolisovy interakce, tedy skutečnost, že vibrační a rotační pohyb není nezávislý.
 
+% Zde by ještě chtělo krátkou diskusi výběrových pravidel.
 
+% Z pohledu spektroskopie nám nestačí znát pouze energii jednotlivých hladin, ale také pravděpodobnost přechodu mezi nimi. Zatímce energetické rozdíly určují pozici píku, pravděpodobnost přechodu určuje jeho výšku. 
 
+% Z časově závislé poruchové teorie (kterou se v těchto skriptech nezabýváme) vyplývá, že pravděpodobnost světlem iniciovaného přechodu mezi dvěma stavy je úměrná maticovým elementům:
+%\begin{equation}
+%XXX
+%\end{equation}
+%Výpočtem těchto integrálů pak lze odvodit výběrová pravidla, která platí pro daný typ spektroskopie. Například dosazením vlnových funkci HO a výpočtem integrálu se dá odvodit výběrové pravidlo pro IR spektroskopii:
+%\begin{equation}
+%\Delta n = \pm 1
+%\end{equation}  
+%Pro rotační spektroskopii platí:
+%\begin{equation}
+%\delta l = 
+%\end{equation}
 
-
-
-
-
+%Je třeba si ale uvědomit, že dané výběrové pravidla platí pouze na úrovni dané aproximace. Pokud bychom například Taylorův rozvoj "XX" utli až po čtvrtém členu, byly by povoleny i přechody ($\Delta n =\pm 2). Těmto přechodům se říká overtonové a běžně je ve spektrech můžeme najít, i když s nižší intenzitou.
 
