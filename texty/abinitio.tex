@@ -6,11 +6,11 @@ V~této kapitole se vrátíme k~základní úloze kvantové chemie, tj. k~řeše
 
 \item Semiempirické metody. Tyto metody jsou založeny na principech kvantové mechaniky, některé parametry (typu coulombický či rezonanční integrál) se ale přímo nepočítají, ale nastavují se buď z~experimentálních dat nebo z~přesnějších \textit{ab initio} výpočtů.
 
-\item Metody založené na teorii funkcionálu hustoty.  Teorie funkcionálu hustoty (DFT, z~angl. \textit{Density Functional Theory}) představuje fundamentálně odlišný přístup od předchozích dvou. Není založen na hledání vlnové funkce, ale soustředí na mnohem jednodušší veličinu -- elektronovou hustotu. DFT metoda je často řazena mezi \textit{ab initio} metody, jelikož v~principu vede k~přesnému řešení a praktická přesnost je taktéž na úrovni \textit{ab initio} metod. Na druhou stranu ale většina DFT metod obsahuje několik empirických parametrů (mnohem méně než semiempirické metody), které se často fitují na experimentální data.
+\item Metody založené na teorii funkcionálu hustoty.  Teorie funkcionálu hustoty (DFT, z~angl. \textit{Density Functional Theory}) představuje fundamentálně odlišný přístup od předchozích dvou. Není založen na hledání vlnové funkce, ale soustředí se na mnohem jednodušší veličinu -- elektronovou hustotu. DFT metoda je často řazena mezi \textit{ab initio} metody, jelikož v~principu vede k~přesnému řešení a praktická přesnost je taktéž na úrovni \textit{ab initio} metod. Na druhou stranu ale většina DFT metod obsahuje několik empirických parametrů (mnohem méně než semiempirické metody), které se často fitují na experimentální data.
 
 \end{itemize}
 
-V~této kapitole se zaměříme na \textit{ab initio} metody, metody založené na funkcionálu hustoty a~semiempirické metody probereme v~následujících kapitolách. Nejjednodušší \textit{ab initio} metodou je metoda Hartreeho--Fockova, která již byla stručně představena v~kapitolách \ref{kap:viceelektron} a \ref{kap:elstruktmol}
+V~této kapitole se zaměříme na \textit{ab initio} metody, metody založené na funkcionálu hustoty a~semiempirické metody probereme v~následujících kapitolách. Nejjednodušší \textit{ab initio} metodou je metoda Hartreeho--Fockova, která již byla stručně představena v~kapitolách \ref{kap:viceelektron} a \ref{kap:elstruktmol}.
 V~praxi se dnes používá spíše méně, ale stále slouží jako odrazový můstek pro většinu ostatních přesnějších \textit{ab initio} metod, tudíž si ji zde zopakujeme a probereme hlouběji.
 
 Bude užitečné ujasnit si na začátku notaci užitou v~této kapitole, abychom se ve všech těch řeckých písmenech neztratili. Celkovou vlnovou funkci budeme značit symbolem $\psi$,  zatímco molekulové \textbf{spinorbitaly} (MO) budeme značit $\varphi$. Každý MO je součinem \textbf{prostorové části} $\phi$ a \textbf{spinové části} $\alpha$ nebo $\beta$. V~rámci aproximace MO-LCAO poté každou prostorovou část MO rozvíjíme do báze \textbf{atomových orbitalů} $\chi_i$. Abychom si ušetřili práci s~psaním rovnic, budeme v~této kapitole důsledně využívat atomové jednotky. Počet elektronů značíme $N$ a~počet jader~$K$.
@@ -55,7 +55,7 @@ E^{HF}= \sum_{i=1}^N H_{ii}+ \frac{1}{2}\sum_{i\neq j} (J_{ij}-\delta(s_{i},s_{j
 \label{rov:abinitio:ehf}
 \end{equation}
 kde $H_{ii}$ je maticový člen popisující jednoelektronové příspěvky k~energii (tj. kinetickou energii elektronů a interakci elektronů s~jádry), $J_{ii}$ je coulombovský integrál a $K_{ij}$ je výměnný integrál.
-Jako argument u~Kroneckerovy delty $\delta(s_{i},s_{j}$ jsou uvedeny spinová čísla elektronů. Z~toho vyplývá, že výměnná interakce se uplatňuje pouze mezi elektrony se stejným spinem.
+Jako argument u~Kroneckerovy delty $\delta(s_{i},s_{j})$ jsou uvedeny spinová čísla elektronů. Z~toho vyplývá, že výměnná interakce se uplatňuje pouze mezi elektrony se stejným spinem.
 Tento vztah byl odvozen za předpokladu, že jsou molekulové orbitaly ortogonální. Tento požadavek je ryze praktického rázu, ke stejnému výsledku bychom došli i bez něj, ale mnohem obtížněji. Také si můžeme všimnout, že jsme se již integrací zbavili spinové části spinorbitalu a dále pracujeme jen s~prostorovou částí MO.
 
 Aplikací variačního počtu na předchozí rovnici (více o~funkcionálech a variacích si povíme v~kapitole o~DFT) dostaneme Fockovy rovnice\footnote{Ve skutečnosti hledáme vázaný extrém, jelikož musíme zachovat podmínku ortonormality MO, z~níž byl odvozen vztah \ref{rov:abinitio:ehf}.} 
