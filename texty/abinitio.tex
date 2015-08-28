@@ -51,7 +51,7 @@ Jelikož SD má $N!$ členů, kde $N$ je počet elektronů, je třeba použít n
 
 Optimální jednoelektronové vlnové funkce, tj. molekulové orbitaly, získáme pomocí variačního principu. Funkcionál energie v~rámci metody HF má tvar 
 \begin{equation}
-E^{HF}= \sum_{i=1}^N H_{ii}+ \frac{1}{2}\sum_{i\neq j} (J_{ij}-\delta(s_{i},s_{j})K_{ij}),
+E^{HF}= \sum_{i=1}^N H_{ii}+ \frac{1}{2}\sum_{i\neq j} \left( J_{ij}-\delta(s_{i},s_{j})K_{ij} \right),
 \label{rov:abinitio:ehf}
 \end{equation}
 kde $H_{ii}$ je maticový člen popisující jednoelektronové příspěvky k~energii (tj. kinetickou energii elektronů a interakci elektronů s~jádry), $J_{ii}$ je coulombovský integrál a $K_{ij}$ je výměnný integrál.
@@ -63,23 +63,23 @@ Aplikací variačního počtu na předchozí rovnici (více o~funkcionálech a v
 \hat{F}\phi_i(1) = \epsilon_i \phi_i ,
 \label{rov:abinitio:fockrov}  
 \end{equation}
-kde Fockův operátor $\hat{F}$ má tvar:
+kde Fockův operátor $\hat{F}$ má tvar
 \begin{equation}
-\hat{F}_i = \hat{h}_i+\sum^N_{j(\neq i)} \hat{J}_j - \delta(s_i,s_j) \hat{K}_j .
+\hat{F}_i = \hat{h}_i+\sum^N_{j(\neq i)} \left(\hat{J}_j - \delta(s_i,s_j) \hat{K}_j \right) .
 \label{rov:abinitio:fockoper}
 \end{equation}
 %je treba zduraznit, ze ta suma neni dvojna, narozdil od vztahu pro energii
-První člen zahrnuje  kinetickou energii $i$-tého elektronu a jeho přitažlivou interakci a atomovými jádry dle vztahu
+První člen zahrnuje  kinetickou energii $i$-tého elektronu a jeho přitažlivou interakci s atomovými jádry dle vztahu
 \begin{equation}
 \hat{h}_i = -\frac{1}{2}\Delta_i - \sum_{A}\frac{Z_A}{r_{iA}} .
 \end{equation}
 Zbylé dva členy popisuji coulombickou a výměnnou interakci $i$-tého elektronu se zprůměrovaným polem ostatních elektronů:
 \begin{eqnarray}
 \hat{J}_j=\int \frac{|\phi_j |^2}{|\textbf{r}_{i}-\textbf{r}_{j}|}\mathrm{d}\textbf{r}_j \\
-\hat{K}_{ij} = \int \frac{\phi_j^*(\mathbf{r}_j)\phi_i(\mathbf{r}_j)}{|\textbf{r}_{i}-\textbf{r}_{j}|}\mathrm{d}\textbf{r}_j .
+\hat{K}_{ij} = \int \frac{\phi_j^*(\mathbf{r}_j)\phi_i(\mathbf{r}_i)}{|\textbf{r}_{i}-\textbf{r}_{j}|}\mathrm{d}\textbf{r}_j .
 \end{eqnarray}
 
-Fockovy rovnice jsou složité integro-diferencíální rovnice pro neznámé funkce $\phi_i$,
+Fockovy rovnice jsou složité integro-diferenciální rovnice pro neznámé funkce $\phi_i$,
 což jsou naše hledané molekulové orbitaly.
 Tyto rovnice typicky řešíme rozvojem molekulových orbitalů do báze orbitalů atomových
 \begin{equation}
@@ -104,8 +104,8 @@ E_{kor}=E_{el} - E^{HF}
 \end{equation}
 a je důsledkem toho, že jsme zanedbali okamžitou mezi-elektronovou repulzi.
 
-%OBRAZEK KORELACNI ENERGIE ATP
-%TODO rict neco o Fermiho dire????
+%OBRAZEK, znazorneni HF limity, kor. energie, presneho reseni a relativistickeho reseni
+
 %TODO: zminit resitricted a unrestricted pripady
 
 Pro výpočet korelační energie je třeba použít pokročilejších metod, které popíšeme v~následujících kapitolách.
@@ -120,7 +120,7 @@ V~poruchové metodě je třeba nejprve najít problém, který jsme schopni ře�
 
 Jelikož Fockovy rovnice \ref{rov:abinitio:fockrov} jsou rovnicemi jednoelektronovými, bude se celkový hamiltonián skládat ze součtu jednoelektronových Fockových operátorů \ref{rov:abinitio:fockoper}
 \begin{equation}
-\hat{H}^{(0)}_{HF}= \sum_{i=1}^N \hat{F}_i
+\hat{H}^{(0)}_{HF}= \sum_{i=1}^N \hat{F}_i.
 \label{rov:abinitio:hfham}
 \end{equation}
 Energie tohoto hamiltoniánu je potom rovna součtu orbitálních energií
@@ -129,13 +129,13 @@ E^{(0)}_{HF}=\sum_{i=1}^N \epsilon_i .
 \end{equation}
 Pozor, toto není HF energie! V~součtu orbitálních energií jsou mezielektronové interakce započteny dvakrát. Nyní můžeme přejít k~definici naší poruchy odečtením rovnice \eqref{rov:abinitio:hfham} od elektronového hamiltoniánu. Jednoelektronové členy se vyruší a vyjde nám
 \begin{equation}
-\hat{H}^{\prime}_{MP}=\hat{H}_{el}-\hat{H}^{(0)}_{HF}= \sum_{j\neq i} \frac{1}{\textbf{r}_{ij}} - \left(\sum_{j\neq i} \hat{J}_j - \delta(s_i,s_j) \hat{K}_j \right) .
+\hat{H}^{\prime}_{MP}=\hat{H}_{el}-\hat{H}^{(0)}_{HF}= \sum_{j\neq i}^{N} \frac{1}{\textbf{r}_{ij}} - \left(\sum_{j\neq i} \left( \hat{J}_j - \delta(s_i,s_j) \hat{K}_j \right) \right) .
 \end{equation}
 Vidíme, že porucha je dána rozdílem mezi coulombickým členem a efektivním polem elektronů v~HF teorii.
 
 Zkusme si nyní podle vzorce \eqref{rov:PorusenaEnergie} vypočítat energii do prvního řádu. Platí, že
 \begin{equation}
-E_1=E^{(0)}_{HF} + E^{(1)}= \sum_{i=1}^N \epsilon_i - \left(\sum_{j\neq i} J_{ij} - \delta(s_i,s_j) {K}_{ij} \right)
+E_1=E^{(0)}_{HF} + E^{(1)}= \sum_{i=1}^N \epsilon_i - \left(\sum_{j\neq i}^{N} \left( J_{ij} - \delta(s_i,s_j) {K}_{ij} \right) \right).
 \end{equation}
 %TODO: podobny vzorec bychom meli ukazat uz v predchozi kapitole
 To jsme se daleko nedostali! Porucha v~prvním řádu nám ve výsledku dá původní HF energii.
@@ -148,15 +148,15 @@ Vypadá to, že budeme muset počítat spoustu maticových elementů mezi zákla
 \begin{equation}
 E^{MP2}= E^{HF} + \sum_{ij} \sum_{rs} \frac{\left < \psi_0 | \hat{H}^{\prime}_{MP} | \psi_{ij}^{rs} \right > }{\epsilon_r+\epsilon_s-\epsilon_i-\epsilon_j} .
 \end{equation}
-Metoda zahrnující příspěvky do druhého řádu teorie poruch má zkratku MP2 a je jednou s~nejvíce užívaných metod na výpočet korelační energie. Mohli bychom pokračovat a odvodit vzorce pro vyšší řády a dostali bychom pak metody MP3, MP4 atd. 
-Metoda MP3 nepřináší výrazné zlepšení oproti MP2 a tudíž není využívána. Metoda MP4 je velmi přesná, ale také velmi výpočetně náročná. Ani ona se v~dnešní dobře příliš nevyužívá, pro velkou přesnost je totiž výhodnější použít metody spřažených klastrů, o~kterých bude řeč za chvíli.
+Metoda zahrnující příspěvky do druhého řádu teorie poruch má zkratku MP2 a je jednou z~nejvíce užívaných metod na výpočet korelační energie. Mohli bychom pokračovat a odvodit vzorce pro vyšší řády a dostali bychom pak metody MP3, MP4 atd. 
+Metoda MP3 nepřináší výrazné zlepšení oproti MP2 a tudíž není využívána. Metoda MP4 je velmi přesná, ale také velmi výpočetně náročná. Ani ona se v~dnešní době příliš nevyužívá, pro velkou přesnost je totiž výhodnější použít metody spřažených klastrů, o~kterých bude řeč za chvíli.
 
 
 \subsection{Metoda konfigurační interakce}
 
 Alternativní cestu ke korelační energii nabízí variační princip. Dá se ukázat, že množina všech Slaterových determinantů, které můžeme vytvořit z~HF molekulových orbitalů, vytváří úplný soubor funkcí. Můžeme tak do něj rozvinout přesnou vlnovou funkci 
 \begin{equation}
-\psi^{CI}=C_0\psi_0+\sum_a\sum_m C_a^m\psi_a^m+\sum_m \sum_n \sum_a \sum_b C_{ab}^{mn}\psi_{ab}^{mn}+\dots
+\psi^{CI}=C_0\psi_0+\sum_a\sum_m C_a^m\psi_a^m+\sum_m \sum_n \sum_a \sum_b C_{ab}^{mn}\psi_{ab}^{mn}+\dots \quad ,
 \label{rov:CIrozvoj}
 \end{equation}
 kde první člen je Slaterův determinant základního stavu a další členy odpovídající determinantům, kde jsme excitovali jeden nebo více elektronů z~obsazeného do neobsazeného orbitalu (viz obrázek \ref{obr:abinitio:ci}). Druhý člen odpovídá jednonásobným excitacím (monoexcitacím, viz obr. \ref{obr:abinitio:ci}A), třetí člen odpovídá dvojnásobným excitacím (biexcitacím,
@@ -165,39 +165,39 @@ viz obr.\,\ref{obr:abinitio:ci}B) atp. Jednotlivým Slaterovým determinantům m
 \begin{figure} [htb]
 \centering
 \includegraphics[scale=1]{CIkonfigurace.eps}
-\caption[Excitované Slaterovy determinanty]{Ukázka monoexcitovaných (\textbf{A}) a biexcitovaných (\textbf{B}) Slaterových determinantů.}
+\caption[Excitované elektronové konfigurace]{Ukázka monoexcitovaných (\textbf{A}) a biexcitovaných (\textbf{B}) konfigurací.}
 \label{obr:abinitio:ci}
 \end{figure}
 
-Jak nyní určíme koeficienty $C$ (pozor, neplést s~koeficienty $c$ v~HF metodě)? Opět pomocí variačního principu. Jelikož vlnová funkce na těchto koeficientech závisí lineárně, aplikací variačního principu dostaneme již mnohokrát zmíněné sekulární rovnice
+Jak nyní určíme koeficienty $C_i$ (pozor, neplést s~koeficienty u atomových orbitalů $c_ij$ v~HF metodě)? Opět pomocí variačního principu. Jelikož vlnová funkce na těchto koeficientech závisí lineárně, aplikací variačního principu dostaneme již mnohokrát zmíněné sekulární rovnice
 \begin{equation}
-\mathbb{H}\mathbf{c}=E\mathbb{S}\mathbf{c} \nonumber \\
+\mathbb{H}\mathbf{C}=E\mathbb{S}\mathbf{C} \nonumber ,\\
 \end{equation}
-%\sum_j (H_ij-E_i\delta_{ij})c_i=0 \quad \forall i
+%\sum_j (H_ij-E_i\delta_{ij})C_i=0 \quad \forall i
 kde maticové elementy $H_{ij}$ představují integrály mezi Slaterovými determinanty
 
 \begin{equation}
-H_{ij}= \left\langle \psi_i | \hat{H}_{el} | \psi_j \right\rangle
+H_{ij}= \left\langle \psi_i | \hat{H}_{el} | \psi_j \right\rangle.
 \end{equation}
 
-Výsledné matice $\mathbb{H}$ mohou být často obrovské (rozměr milion x milion není vůbec šokující), ale existují efektivní metody výpočetní lineární algebry, které si s~nimi dokáží poradit.
+Výsledné matice $\mathbb{H}$ mohou být často obrovské (rozměr milion x milion není vůbec šokující), ale existují efektivní metody výpočetní lineární algebry, které si s~nimi dokáží poradit. Hlavní trik je v tom, že většina elementů v této matici je nulových, mluvíme o tzv. řídké matici. 
 
-Pokud bychom použili nekonečnou bázi AO a zahrnuli všechny možné Slaterovy determinanty (kterých by bylo taktéž nekonečné mnoho), dostali bychom přesné řešení Schr\"{o}dingerovy rovnice. V~praxi ale musíme použít bázi konečnou, máme tedy i konečný počet molekulových orbitalů. Pokud v~rámci této báze budeme uvažovat všechny možné Slaterovy determinanty, mluvíme o~metodě úplné konfigurační interakce (FCI, z~angl.\textit{Full Configuration Interaction}). Zvětšováním báze se metoda FCI může libovolně přiblížit přesnému řešení. Metoda FCI je ale extrémně výpočetně náročná (náročnost roste exponenciálně s~počtem orbitalů) a lze ji tedy použít pouze pro malé molekuly s~malou bází.
+Pokud bychom použili nekonečnou bázi AO a zahrnuli všechny možné Slaterovy determinanty (kterých by bylo taktéž nekonečně mnoho), dostali bychom přesné řešení Schr\"{o}dingerovy rovnice. V~praxi ale musíme použít bázi konečnou, máme tedy i konečný počet molekulových orbitalů. Pokud v~rámci této báze budeme uvažovat všechny možné Slaterovy determinanty, mluvíme o~metodě úplné konfigurační interakce (FCI, z~angl. \textit{Full Configuration Interaction}). Zvětšováním báze se metoda FCI může libovolně přiblížit přesnému řešení. Metoda FCI je ale extrémně výpočetně náročná (náročnost roste exponenciálně s~počtem orbitalů) a lze ji tedy použít pouze pro malé molekuly s~malou bází.
 
-Pro praktické výpočty tedy musíme počet excitací omezit. Pokud se omezíme pouze jednonásobné a dvojnásobné excitace, získáme metodu CISD (z~angl. \textit{Configuration Interaction Singles Doubles}), která byla v~minulosti hojně využívána.
+Pro praktické výpočty tedy musíme počet excitací omezit. Pokud se omezíme pouze na jednonásobné a dvojnásobné excitace, získáme metodu CISD (z~angl. \textit{Configuration Interaction Singles Doubles}), která byla v~minulosti hojně využívána.
 
 Dnes se metody konfigurační interakce užívají méně, jelikož mají některé nevýhody oproti jiným metodám. 
 \begin{itemize}
 \item Metoda FCI je sice přesná, ale v~praxi díky exponenciálnímu škálování nepoužitelná.
 \item Rozvoj \ref{rov:CIrozvoj} konverguje velmi pomalu. Pro dobrou přesnost bychom chtěli minimálně čtyřnásobné excitace.
-\item Pokud použijeme konečný rozvoj \ref{rov:CIrozvoj}, tak výsledná metoda nemá správnou závislost na velikosti systému (v~žargonu kvantových chemiků, metoda není \uv{size konsistentní}). Co tento pojem znamená? Zjednodušeně řečeno, pokud metoda není \uv{size konsistentní}, tak její přesnost bude záviset na velikosti systému. Pro malou molekulu můžeme například metodou CISD zachytit přes 90 \% korelační energie, ale pro větší molekulu mnohem méně. Pro \uv{size konsistentní} metodu by mělo platit, že energie dvou nekonečně vzdálených molekul by měl být přesně roven dvojnásobku energie jedné molekuly. Na příkladu dvou atomů helia lze ale snadno ukázat, že toto pro metodu CISD není splněno. Pro jeden atom He totiž metoda CISD odpovídá metodě FCI, jelikož máme pouze dva elektrony, které můžeme excitovat. Pro dva nekonečně vzdálené atomy helia již ale toto neplatí, jelikož máme už čtyři elektrony a některé Slaterovy determinanty tudíž nebudou v~CISD metodě zahrnuty. 
+\item Pokud použijeme konečný rozvoj \ref{rov:CIrozvoj}, tak výsledná metoda nemá správnou závislost na velikosti systému (v~žargonu kvantových chemiků, metoda není \uv{size konsistentní}). Co tento pojem znamená? Zjednodušeně řečeno, pokud metoda není \uv{size konsistentní}, tak její přesnost bude záviset na velikosti systému. Pro malou molekulu můžeme například metodou CISD zachytit přes 90 \% korelační energie, ale pro větší molekulu mnohem méně. Pro \uv{size konsistentní} metodu by mělo platit, že energie dvou nekonečně vzdálených molekul by měla být přesně rovna dvojnásobku energie jedné molekuly. Na příkladu dvou atomů helia lze ale snadno ukázat, že toto pro metodu CISD není splněno. Pro jeden atom He totiž metoda CISD odpovídá metodě FCI, jelikož máme pouze dva elektrony, které můžeme excitovat. Pro dva nekonečně vzdálené atomy helia již ale toto neplatí, jelikož máme už čtyři elektrony a některé Slaterovy determinanty tudíž nebudou v~CISD metodě zahrnuty. 
 %(\textbf{obrázek? PSnote: Ano})
 Metoda MP2 či metoda spřažených klastrů \uv{size konsistentní} jsou, metoda CI naopak nikoliv. 
 \end{itemize}
 
 
 \subsection{Metody spřažených klastrů}
-Metody spřažených klastrů (CC, z~angl.\textit{Coupled Cluster}) nesou od svého počátku českou stopu. Tyto metody totiž použil v~kontextu kvantové chemie poprvé Jiří Čížek a později také Josef Paldus. Metoda konfigurační interakce je založena na mazaném přeskládání rozvoje typu CI. Klíčovým pojmem v~této metodě jsou takzvané excitační operátory. Například operátor $\hat{T}_1$ působí na vlnovou funkci základního stavu jako
+Metody spřažených klastrů (CC, z~angl.\textit{Coupled Cluster}) nesou od svého počátku českou stopu. Tyto metody totiž použil v~kontextu kvantové chemie poprvé Jiří Čížek a později také Josef Paldus. Metoda spřažených klastrů je založena na mazaném přeskládání rozvoje typu CI. Klíčovým pojmem v~této metodě jsou takzvané excitační operátory. Například operátor $\hat{T}_1$ působí na vlnovou funkci základního stavu jako
 \begin{eqnarray}
 \hat{T}_1\psi_0=\sum^N_{a=1}\sum_{m=n+1}^\infty t_a^m\psi_a^m , 
 \end{eqnarray}
@@ -226,27 +226,27 @@ e^{\hat{T}} = 1+\hat{T}+\frac{\hat{T}^2}{2}+\cdots.
 Díky vlastnostem excitačního operátoru je tato řada konečná, neboť molekula má pouze konečný počet elektronů, které lze excitovat.
 
 Jaká je vlastně výhoda takto složitého zápisu?
-Pokud použijeme úplný excitační operátor, tak dojdeme k~exaktnímu řešení stejně jako metoda FCI. Budeme ale potřebovat stejné množství parametrů, ať už je nazýváme rozvojovými koeficienty (v~metodě CI) nebo amplitudami (v~metodě CC).
+Pokud použijeme úplný excitační operátor, tak dojdeme k~exaktnímu řešení stejně jako metodou FCI. Budeme ale potřebovat stejné množství parametrů, ať už je nazýváme rozvojovými koeficienty (v~metodě CI) nebo amplitudami (v~metodě CC).
 Výhody se ale objeví, když excitační operátor začneme ořezávat. Když například vezmeme v~potaz pouze mono- a bi-excitace, dostaneme metodu CCSD  (z~angl. \textit{Coupled Cluster Singles Doubles}).
 Na rozdíl od metody CISD je ovšem CCSD \uv{size-konzistentní} a navíc dostaneme větší podíl korelační energie.
 To je dáno právě speciálním tvarem CC vlnové funkce, díky kterému i na úrovni CCSD dostaneme například i přibližný příspěvek čtyřnásobných excitací, jelikož v~exponenciální řadě je přítomen operátor $\hat{T}_2^2$. Stačí nám přitom stejný počet parametrů jako v~metodě CISD.
 
 Vzorec pro energii v~rámci metod typu CC je složitější, poněkud náročnější jsou také pracovní rovnice této metody určující amplitudy $t$ klastrového operátoru. Metody spřažených klastrů jsou stejně jako poruchové metody size-konzistentní a obdobně nejsou variační. Ukazuje se ale, že v~praxi je právě správná závislost na velikosti systému důležitější, a proto se metody konfigurační interakce dnes používají méně často než poruchové metody a metody spřažených klastrů.
 
-Jak jsme si již řekli v~předchozí podkapitole, metody konfigurační interakce konvergují dosti pomalu k~přesnému řešení. Tvar vlnové funkce v~metodě spřažených klastrů tuto konvergenci značně urychluje. Už se zahrnutím trojitých excitací dostáváme výsledky s~chemickou přesností (tzn. relativní energie s~přesností 1\,kcal/mol což je zhruba 4\,kJ/mol).
+Jak jsme si již řekli v~předchozí podkapitole, metody konfigurační interakce konvergují dosti pomalu k~přesnému řešení. Tvar vlnové funkce v~metodě spřažených klastrů tuto konvergenci značně urychluje. Už se zahrnutím trojitých excitací dostáváme výsledky s~chemickou přesností (tzn. relativní energie s~přesností 1\,kcal/mol, což je zhruba 4\,kJ/mol).
 Metoda CCSD(T) je v~současné době považována za \uv{zlatý standard} kvantové chemie. V~metodě CCSD(T) jsou trojité excitace zahrnuty v~rámci poruchového počtu. Výpočetní náročnost této metody dovoluje na současné úrovni popsání molekul s~10-50
 %TODODH: jaky je tu ten rozsah?
 atomy. Užitím speciálních technik lineárního škálování lze ale toto použití značně rozšířit, nedávno tak byla tato metoda aplikována na malou molekulu proteinu obsahující stovky atomů. 
 
 \subsection{Multireferenční metody}
 
-Všechny metody, které jsme probrali výše, vychází z~Hartreeho-Fockovy aproximace. Předpokládají, že popis molekuly pomocí jednoho Slaterova determinantu je v~zásadě v~pořádku, jenom je potřeba udělat menší \uv{facelift}. Někdy je ale popis jediným Slaterovým determinantem z~gruntu špatně. Kupodivu se se selháním Hartreeho-Fockovy metody můžeme setkat i v~jednoduchých situacích Uvažme molekulu vodíku H$_2$ v~základním stavu. Na Obr. \ref{obr:abinitio:multirefH2} je ukázán diagram orbitálních energií pro rovnovážnou geometrii a pro disociovanou strukturu. Uvažme první případ. Zde bez potíží umístíme dva elektrony do nejnižšího orbitalu $\sigma_g=1s_A+1s_B$, což odpovídá Slaterovu determinantu
+Všechny metody, které jsme probrali výše, vychází z~Hartreeho-Fockovy aproximace. Předpokládají, že popis molekuly pomocí jednoho Slaterova determinantu je v~zásadě v~pořádku, jenom je potřeba udělat menší \uv{facelift}. Někdy je ale popis jediným Slaterovým determinantem z~gruntu špatně. Kupodivu se můžeme se selháním Hartreeho-Fockovy metody setkat i v~jednoduchých situacích. Uvažme molekulu vodíku H$_2$ v~základním stavu. Na obr. \ref{obr:abinitio:multirefH2} je ukázán diagram orbitálních energií pro rovnovážnou geometrii a pro disociovanou strukturu. Uvažme první případ. Zde bez potíží umístíme dva elektrony do nejnižšího orbitalu $\sigma_g=1s_A+1s_B$, což odpovídá Slaterovu determinantu
 
 \begin{equation}
 \Psi (1,2)=\frac{1}{\sqrt{2}}
 \begin{vmatrix}
 \sigma_g(1)\alpha (1) & \sigma_g(2)\alpha (2) \\
-\sigma_g(2)\beta (2) & \sigma_g(2)\beta (2)
+\sigma_g(1)\beta (1) & \sigma_g(2)\beta (2)
 \end{vmatrix}
 =\frac{1}{\sqrt{2}}\sigma_g(1)\sigma_g(2)(\alpha (1)\beta (2)-\alpha (2)\beta (1)) .
 \label{rov:abinitio:SDH2}
@@ -255,20 +255,23 @@ Všechny metody, které jsme probrali výše, vychází z~Hartreeho-Fockovy apro
 \begin{figure} [htb]
 \centering
 \includegraphics[scale=1]{multirefH2.eps}
-\caption[Disociace molekuly vodíku]{Ukázka monoexcitovaných (\textbf{A}) a biexcitovaných (\textbf{B}) Slaterových determinantů.}
+\caption[Disociace molekuly vodíku]{Schematická disociační křivka molekuly vodíku a energetika molekulových a atomových orbitalů pro vázanou molekulu a disociované atomy.}
 \label{obr:abinitio:multirefH2}
 \end{figure}
 
 Jenomže pro disociovanou strukturu (což je v~tomto  případě triviálně řešitelný problém metodou separace proměnných s~řešením $1s_A(1)1s_B(2)$ a $E=2E_H=-27,2\,eV$) teď nevíme, jaký orbital vlastně dosadit do Slaterova determinantu \ref{rov:abinitio:SDH2}. Vazebný nebo antivazebný? Vždyť mají oba stejnou energii. Pokud si vybereme stejně jako v~předchozím případě symetrický $\sigma_g$, získáme vlnovou funkci (pro jednoduchost zde neuvádíme spinovou část)
 \begin{equation}
-1s_A(1)1s_B(2)+1s_B(1)1s_A(2)+1s_A(1)1s_A(2)+ 1s_B(1)1s_B(2)
+1s_A(1)1s_B(2)+1s_B(1)1s_A(2)+1s_A(1)1s_A(2)+ 1s_B(1)1s_B(2) .
 \end{equation}
-První dva členy zde odpovídají (správně) kovalentní struktuře, ale druhé dva členy popisují ionty, H$^+\cdots$H$^-$ a H$-\cdots$H$^+$. Tomu bude odpovídat energie, která bude z~poloviny dána jako neutrálními atomu a z~poloviny ionty. Správná vlnová funkce je ale dána rozvojem
+První dva členy zde odpovídají (správně) kovalentní struktuře, ale druhé dva členy popisují ionty, H$^+\cdots$H$^-$ a H$-\cdots$H$^+$. Tomu bude odpovídat energie, která bude z~poloviny dána neutrálními atomy a z~poloviny ionty. Iontové příspěvky ale nechceme, odpovídají totiž vyšší energii.
+To lze lehce nahlédnout, v iontové konfiguraci totiž jsou dva elektrony u jednoho atomu a budou se tudíž odpuzovat, zatímco u dvou nekonečně vzdálených atomů vodíku se elektrony vůbec nepotkají.
+Správná vlnová funkce je dána rozvojem
 \begin{equation}
-\psi= \sqrt{\frac{1}{2}} (\sigma_g+\sigma_u), 
+\psi= \sqrt{\frac{1}{2}} (\sigma_g-\sigma_u).
 \end{equation}
-je tedy vidět, že v~případě rozštěpení chemické vazby za vzniku bi-radikálové struktury je potřeba použít více než jeden Slaterův determinant. Metoda HF kvalitativně selhává. Ŕešením je použít velmi omezený rozvoj typu konfigurační interakce do kterého zahrneme pouze excitace z~orbitalů v~blízkosti nejvyššího obsazeného molekulového orbitalu HOMO (z~angl. \textit{Highest Occupied Molecular Orbital}) a z~nejnižšího neobsazeného molekulového orbitalu LUMO (a angl. \textit{Lowest Unoccupied Molecular Orbital}). Tuto množinu orbitalů, ze kterých a do kterých excitujeme, nazýváme aktivním prostorem. Tato metoda má zkratku CASSCF (z~angl. \textit{Complete Active Space-Slef Consistent Field}). Narozdíl od metody CI u~CASSCF metody optimalizujeme obě sady koeficientů $C$ a $c_{ij}$ zároveň. 
 
-Metoda CASSCF pokrývá tu část korelační energie, která souvisí s~principiální nedostatečností jednoho Slaterova determinantu pro popis molekuly, mluvíme o~tzv. \textbf{statické korelaci}. I~v~metodě CASSCF s~konečným aktivním prostorem je ale nesprávně popsána okamžitá interakce mezi elektrony, tj. tzv. dynamická korelace.\footnote{Dělení korelační energie na statickou a dynamickou je poněkud umělé a nelze jednoznačně definovat.} Dynamickou korelaci pak můžeme dodat kupříkladu pomocí poruchové teorie aplikované na referenční vlnovou funkci z~metody CASSCF (v~případě poruchové teorie druhého řádu pak dostaneme často užívanou metodu CASPT2) nebo pomoci metody konfigurační interakce (zde dostaneme metodu multireferenční konfigurační interakce, MRCI). Obecně mluvíme o~multi-referenčních metodách.
+Je tedy vidět, že v~případě rozštěpení chemické vazby za vzniku bi-radikálové struktury je potřeba použít více než jeden Slaterův determinant. Metoda HF kvalitativně selhává. Řešením je použít velmi omezený rozvoj typu konfigurační interakce, do kterého zahrneme pouze excitace z~orbitalů v~blízkosti nejvyššího obsazeného molekulového orbitalu HOMO (z~angl. \textit{Highest Occupied Molecular Orbital}) a z~nejnižšího neobsazeného molekulového orbitalu LUMO (a angl. \textit{Lowest Unoccupied Molecular Orbital}). Tuto množinu orbitalů, ze kterých a do kterých excitujeme, nazýváme aktivním prostorem. Tato metoda má zkratku CASSCF (z~angl. \textit{Complete Active Space-Self Consistent Field}). Narozdíl od metody CI u~CASSCF metody optimalizujeme obě sady koeficientů $C$ a $c_{ij}$ zároveň. 
+
+Metoda CASSCF pokrývá tu část korelační energie, která souvisí s~principiální nedostatečností jednoho Slaterova determinantu pro popis molekuly, mluvíme o~tzv. \textbf{statické korelaci}. I~v~metodě CASSCF s~konečným aktivním prostorem je ale nesprávně popsána okamžitá interakce mezi elektrony, tj. tzv. dynamická korelace.\footnote{Dělení korelační energie na statickou a dynamickou je poněkud umělé a nelze jednoznačně definovat.} Dynamickou korelaci pak můžeme dodat kupříkladu pomocí poruchové teorie aplikované na referenční vlnovou funkci z~metody CASSCF (v~případě poruchové teorie druhého řádu pak dostaneme často užívanou metodu CASPT2), nebo pomocí metody konfigurační interakce (zde dostaneme metodu multireferenční konfigurační interakce, MRCI). Obecně mluvíme o~multi-referenčních metodách.
 
 Disociace vazby za vzniku biradikálů není ale jediná situace, pro kterou je metoda HF nedostatečná. Jiným takovým případem jsou excitované stavy molekul. I~kdyby byl základní a excitovaný stav popsán kvalitně jedním Slaterovým determinantem, půjde o~jiný Slaterův determinant pro každý ze stavů. Pro konzistentní popis obou stavů najednou (třeba při výpočtech excitačních energií) je tudíž žádoucí opět použít rozvoj do více Slaterových determinantů. S~multireferenčními metodami se proto často setkáme ve spektroskopii a fotochemii. 
