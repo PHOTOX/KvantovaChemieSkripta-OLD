@@ -7,9 +7,9 @@ V~kvantové mechanice každé měřitelné veličině přiřazujeme operátor. H
 
 Jako komplexní číslo $Z$ označujeme uspořádanou dvojici reálných čísel $a_1$ a $a_2$. Komplexní číslo $Z = (a_1, a_2)$ nejčastěji zapisujeme v~tzv. algebraickém tvaru $Z = a_1 + i a_2$, kde $i$ je imaginární jednotka, pro kterou platí $i^2 = -1$. Imaginární jednotku definujeme vztahem $i = \sqrt{-1}$. Číslo $a_1$ je reálná část komplexního čísla $Z$, kterou značíme $\mathbf{Re}\, Z$. Číslo $a_2$ je imaginární část komplexního čísla $Z$, kterou značíme $\mathbf{Im} \, Z$. Všechna komplexní čísla $Z$ tvoří množinu komplexních čísel $\mathbb{C}$, proto můžeme psát $Z \in {\mathbb{C}}$.
 
-Z~algebraického tvaru komplexního čísla $Z$ vidíme, že reálná čísla tvoří podmnožinu komplexních čísel a to takových, že pro ně platí $R \equiv Z = a_1 + 0i$, neboli reálné číslo je komplexní číslo ve tvaru $R = (a_1, 0)$. Z~tohoto důvodu platí, že množina reálných čísel $\mathbb{R}$ je podmnožinou komplexních čísel $\mathbb{C}$, což symbolicky zapíšeme jako $\mathbb{R}\subset \mathbb{C}$. Na druhou stranu komplexní číslo, jehož reálná část je rovna nule $J=(0,a_2)$, kde $a_2 \not = 0$ označujeme jako ryze imaginární číslo.
+Z~algebraického tvaru komplexního čísla $Z$ vidíme, že reálná čísla tvoří podmnožinu komplexních čísel a to takových, že pro ně platí $R = Z = a_1 + 0i$, neboli reálné číslo je komplexní číslo ve tvaru $R = (a_1, 0)$. Z~tohoto důvodu platí, že množina reálných čísel $\mathbb{R}$ je podmnožinou komplexních čísel $\mathbb{C}$, což symbolicky zapíšeme jako $\mathbb{R}\subset \mathbb{C}$. Na druhou stranu komplexní číslo, jehož reálná část je rovna nule $J=(0,a_2)$, kde $a_2 \not = 0$ označujeme jako ryze imaginární číslo.
 
-Komplexní čísla můžeme zobrazit jako body v~komplexní rovině, kde kartézskou osu $x$ označujeme jako osu reálných čísel $\mathbf{Re}$ a kartézskou osu $y$ označujeme jako osu ryze imaginární čísel $\mathbf{Im}$ (viz obrázek~\ref{obr:RovinaKomplexnichCisel}).
+Komplexní čísla můžeme zobrazit jako body v~komplexní rovině, kde kartézskou osu $x$ označujeme jako osu reálných čísel $\mathbf{Re}$ a kartézskou osu $y$ označujeme jako osu ryze imaginárních čísel $\mathbf{Im}$ (viz obrázek~\ref{obr:RovinaKomplexnichCisel}).
 \begin{figure} [ht]
 \centering
 \includegraphics[scale=1]{KomplexniRovina.eps}
@@ -63,7 +63,7 @@ Z \cdot Z^\ast = |Z|^2 \mbox{.}
 
 Pro sčítání a násobení komplexních čísel platí asociativní, komutativní a distributivní zákon podobně jako u~čísel reálných. Pro komplexně sdružená čísla je možné odvodit následující relace
 \begin{equation}
-(Z_1 + Z_2)^\ast = Z_1^\ast + Z_2^\ast \mbox{,} \quad (Z_1Z_2)^\ast = Z_1^\ast \cdot Z_2^\ast \mbox{,} \quad \left(\frac{Z_1}{Z_2}\right)^\ast = \frac{Z_2^\ast}{Z_2^\ast} \,\mbox{.}
+(Z_1 + Z_2)^\ast = Z_1^\ast + Z_2^\ast \mbox{,} \quad (Z_1Z_2)^\ast = Z_1^\ast \cdot Z_2^\ast \mbox{,} \quad \left(\frac{Z_1}{Z_2}\right)^\ast = \frac{Z_1^\ast}{Z_2^\ast} \,\mbox{.}
 \label{rov:OperaceSdruzCisla}
 \end{equation}
 
@@ -93,7 +93,7 @@ V~kvantové mechanice se nám bude často hodit tzv. Eulerova identita
 \boxed{e^{i \theta} = \cos \theta + i \sin \theta \mbox{,}}
 \label{rov:EulerovaIdentita}
 \end{equation}
-která je základem komplexní analýzy, oboru matematiky studujícím funkce komplexní proměnné. Pro zájemce nyní dodáváme její odvození. Nejprve si připomeneme Taylorovu rozvoj funkce $e^{x}$ okolo bodu $x_0 = 0$. Hledaná Taylorova řada je
+která je základem komplexní analýzy, oboru matematiky studujícím funkce komplexní proměnné. Pro zájemce nyní dodáváme její odvození. Nejprve si připomeneme Taylorův rozvoj funkce $e^{x}$ okolo bodu $x_0 = 0$. Hledaná Taylorova řada je
 \begin{equation}
 e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!} \,\mbox{.}
 \label{rov:TaylorovaRadaExponenciela}
@@ -103,7 +103,7 @@ Pro další použití v~odvození si ještě připomeneme Taylorovy rozvoje funk
 \sin x = \sum_{n=0}^{\infty} (-1)^{n} \frac{x^{2n+1}}{(2n+1)!} \mbox{,} \quad \cos x = \sum_{n=0}^{\infty} (-1)^{n} \frac{x^{2n}}{(2n)!} \mbox{.}
 \label{rov:RadaCosinusSinus}
 \end{equation}
-Čistě formální záměnnou $x \equiv i \theta$ ve vztahu (\ref{rov:TaylorovaRadaExponenciela}) dostaneme po rozepsání Taylorovu řadu ve tvaru
+Čistě formální záměnnou $x = i \theta$ ve vztahu (\ref{rov:TaylorovaRadaExponenciela}) dostaneme po rozepsání Taylorovu řadu ve tvaru
 \begin{equation}
 e^{i\theta} = 1 + i\theta - \frac{\theta^2}{2!} - i \frac{\theta^3}{3!} + \frac{\theta^4}{4!} + i \frac{\theta^5}{5!} -\,\dots
 \label{rov:RadaExponenciela1}
@@ -201,7 +201,7 @@ Vidíme, že derivaci funkce podle proměnné $x$ můžeme chápat jako působen
 \textbf{Zadání:} Nalezněte výsledek působení operátoru $\hat{O}=\frac{\mathrm{d}}{\mathrm{d}x}$ na funkci $f(x) = \sin x$. \\
 \textbf{Řešení:} Zapíšeme rovnici vyjadřující působení operátoru $\hat{O}$ na funkci $f(x)$ a dostaneme
 \begin{displaymath}
-\hat{O} f(x) = \frac{\mathrm{d}}{\mathrm{d}x} \sin x = \cos x \equiv g(x)
+\hat{O} f(x) = \frac{\mathrm{d}}{\mathrm{d}x} \sin x = \cos x = g(x)
 \end{displaymath}
 Vidíme, že výsledkem působení operátoru $\hat{O}$ na funkci $f(x)$ je nová funkce $g(x) = \cos x$.
 \end{priklad}
@@ -218,13 +218,13 @@ Tuto rovnici můžeme přepsat jako operátorovou rovnici, tj. rovnici ve které
 \end{equation}
 kde $\hat{H}$ je operátor celkové energie systému, tzv. hamiltonián (Hamiltonův operátor). Porovnáním rovnice \eqref{rov:SCHR} s~rovnicí \eqref{rov:SCHR-operator} odvodíme předpis pro hamiltonián
 \begin{equation}
-\hat{H} \equiv \left( -\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d} x^2} + V(x) \right)
+\hat{H} = \left( -\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d} x^2} + V(x) \right)
 \label{rov:Hamiltonian1D}
 \end{equation}
 
 V~obecném případě pohybu částice v~třírozměrném prostoru má Hamiltonův operátor tvar
 \begin{equation}
-\hat{H} \equiv \left( -\frac{\hbar^2}{2m}\Delta + V(x) \right) \mbox{,}
+\hat{H} = \left( -\frac{\hbar^2}{2m}\Delta + V(x) \right) \mbox{,}
 \label{rov:Hamiltonian3D}
 \end{equation}
 kde symbol $\Delta$ představuje Laplaceův operátor, který je druhou mocninou operátoru nabla $\Delta = \nabla^2$  a v~kartézských souřadnicích má tvar
@@ -309,7 +309,7 @@ Obecně platí, že násobení operátorů (\ref{rov:SoucinOperatoru1}) není ko
 \end{equation}
 Abychom mohli vyšetřovat komutativnost operátorů, zavádí se nový operátor -- \textbf{komutátor}
 \begin{equation}
-\boxed{[\hat{A},\hat{B}] \equiv \hat{A}\hat{B}-\hat{B}\hat{A} \mbox{.}}
+\boxed{[\hat{A},\hat{B}] = \hat{A}\hat{B}-\hat{B}\hat{A} \mbox{.}}
 \label{rov:KomutatorOperatoru}
 \end{equation}
 Když je komutátor dvou operátorů roven nulovému operátoru ($\hat{0}f=0$)
@@ -449,7 +449,7 @@ V~kvantové mechanice je ústředním funkčním prostorem Hilbertův prostor, j
 \end{equation} 
 a dále je na tomto prostoru definována další vlastnost, skalární součin dvou funkcí
 \begin{equation}
-\boxed{\braket{f|g} \equiv \int_{-\infty}^{\infty} f^{\ast}(x) g(x) \mathrm{d}x,}
+\boxed{\braket{f|g} = \int_{-\infty}^{\infty} f^{\ast}(x) g(x) \mathrm{d}x,}
 \label{rov:SkalarniSoucinFci}
 \end{equation}
 kde $^{\ast}$ značí komplexně sdruženou funkci. Zápis skalárního součinu ve tvaru $\braket{f|g}$, kde symbol $\bra{f}$ označovaný jako bra-vektor znamená komplexně sdruženou funkci $f^{\ast}$, symbol $\ket{g}$ označovaný jako ket-vektor znamená funkci $g$ a celý uzavřený symbol neboli braket chápeme jako integraci součinu funkcí $f^{\ast}g$, pochází od britského teoretického fyzika P.\,A.\,M.\,Diraca. Tato tzv. braketová notace se v~kvantové mechanice hojně využívá pro svou eleganci a úsporné zkrácení zápisu, který by byl jinak velmi složitý. V našem textu se této notaci spíše vyhýbáme.
@@ -646,7 +646,7 @@ Rovnici vynásobme zleva jednou konkrétní funkcí z~úplného souboru funkcí,
 \end{equation}
 kde jsme využili toho, že úplný soubor funkcí jsou vlastní funkce hermitovského operátoru, které jsou ortogonální, tj. skalární součin $\braket{s_m|s_i}$ je nenulový jenom v~případě, kdy $m=i$. Výsledkem je, že v~sumaci na pravé straně výrazu (\ref{rov:Matice4}) zůstane nenulový jen člen $a c_m$. Dále provedeme substituci
 \begin{equation}
-A_{mi} \equiv \braket{\varphi_m|\hat{A}|\varphi_i} \mbox{,}
+A_{mi} = \braket{\varphi_m|\hat{A}|\varphi_i} \mbox{,}
 \nonumber
 \end{equation}
 kde výraz $A_{mi}$ označujeme jako maticový element. Výsledkem je 
