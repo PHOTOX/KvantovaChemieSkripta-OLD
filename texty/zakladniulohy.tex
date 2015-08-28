@@ -1,16 +1,16 @@
 V~této kapitole se podíváme na řešení Schrödingerovy rovnice pro některé jednoduché situace vedoucí k~analyticky řešitelným úlohám. Takových situací, které by byly zároveň fyzikálně zajímavé, není mnoho. Proto se při popisu složitějších problémů musíme uchýlit k~jistým zjednodušením a aproximacím, kterým se budeme blíže věnovat v~kapitole \ref{kap:pribliznemetody}.
 
-Začneme s volnou částicí. Na tomto triviálním případě si vysvětlíme přístup k~řešení úloh pomocí časově nezávislé Schrödingerovy rovnice. Na volnou částici plynule navážeme popisem částice v~nekonečně hluboké potenciálové jámě. Zde si vysvětlíme odkud se bere kvantování energie a hybnosti. Na závěr kapitoly se ve stručnosti podíváme na velmi důležitý problém řešení kvantového harmonického oscilátoru, který slouží jako modelový fyzikální systém například pro vibrační pohyby molekul.
+Začneme s volnou částicí. Na tomto triviálním případě si vysvětlíme přístup k~řešení úloh pomocí časově-nezávislé Schrödingerovy rovnice. Na volnou částici plynule navážeme popisem částice v~nekonečně hluboké potenciálové jámě. Zde si vysvětlíme, odkud se bere kvantování energie a hybnosti. Na závěr kapitoly se ve stručnosti podíváme na velmi důležitý problém řešení kvantového harmonického oscilátoru, který slouží jako modelový fyzikální systém například pro vibrační pohyby molekul.
 
 \subsection{Volná částice}
 \label{kap:VolnaCastice}
 
-Abychom názorně demonstrovali řešení časově nezávislé Schrödingerovy rovnice
+Abychom názorně demonstrovali řešení časově-nezávislé Schrödingerovy rovnice
 \begin{equation}
 (- \frac{\hbar^2}{2m} \Delta + V) \psi = \hat{H} \psi = E \psi \mbox{,}
 \label{rov:SCHR-Tvar}
 \end{equation}
-začneme s~řešením nejjednoduššího možného problému, kterým je volná částice, tj. částice na kterou nepůsobí žádná síla, tj. $V = 0$. Protože volná částice se pohybuje volně, nejsou na řešení Schrödingerovy rovnice (\ref{rov:SCHR-Tvar}) kladeny žádné okrajové podmínky. Uvidíme, že neexistence okrajových podmínek vede k~tomu, že energie a hybnost částice nebudou kvantovány.
+začneme s~řešením nejjednoduššího možného problému, kterým je volná částice, tj. částice, na kterou nepůsobí žádná síla, tj. $V = 0$. Protože volná částice se pohybuje volně, nejsou na řešení Schrödingerovy rovnice (\ref{rov:SCHR-Tvar}) kladeny žádné okrajové podmínky. Uvidíme, že neexistence okrajových podmínek vede k~tomu, že energie a hybnost částice nebudou kvantovány.
 
 Pro jednoduchost budeme předpokládat, že částice se může pohybovat pouze v~jednom rozměru. Rovnice (\ref{rov:SCHR-Tvar}) pak přejde do tvaru
 \begin{equation}
@@ -22,12 +22,12 @@ kde jsme využili předpoklad, že částice je volná, tj. $V = 0$. Rovnici (\r
 \left( \frac{\mathrm{d}^2}{\mathrm{d}x^2} + \frac{2mE}{\hbar^2} \right) \psi(x) = 0 \mbox{.}
 \label{rov:Volna2}
 \end{equation}
-Protože celková energie volné částice je rovná kinetické energii částice $T=p^2/(2m)$ a protože kinetická energie může být kladná anebo nulová, můžeme pro celkovou energii volné částice psát $E \geq 0$. Vzhledem k~této nerovnosti můžeme zavést substituci
+Protože celková energie volné částice je rovná kinetické energii částice $T=\frac{p^2}{2m}$ a protože kinetická energie může být kladná anebo nulová, můžeme pro celkovou energii volné částice psát $E \geq 0$. Vzhledem k~této nerovnosti můžeme zavést substituci
 \begin{equation}
 \frac{2mE}{\hbar^2} = k^2 \mbox{,}
 \label{rov:Volna3}
 \end{equation}
-kde $k\geq0$ je reálné číslo, obvykle označované jako vlnový vektor. S~využitím substituce (\ref{rov:Volna3}) přejde rovnice (\ref{rov:Volna2}) do tvaru
+kde $k\geq0$ je reálné číslo, obvykle označované jako vlnové číslo. S~využitím substituce (\ref{rov:Volna3}) přejde rovnice (\ref{rov:Volna2}) do tvaru
 \begin{equation}
 \left( \frac{\mathrm{d}^2}{\mathrm{d}x^2} + k^2 \right) \psi(x) = 0 \mbox{,}
 \label{rov:Volna4}
@@ -59,7 +59,7 @@ p = \pm \hbar k \mbox{.}
 \end{equation}
 Vlnovou funkci volné částice proto můžeme zapsat jako
 \begin{equation}
-\boxed{\psi(x) = e^{-px/(i\hbar)} \mbox{.}}
+\boxed{\psi(x) = e^{\frac{-px}{(i\hbar)}} \mbox{.}}
 \label{rov:Volna10}
 \end{equation}
 Vyjádříme-li celkovou energii částice pomocí hybnosti $p$, dostaneme výraz pro energii ve tvaru
@@ -74,19 +74,19 @@ Na závěr si shrňme výsledky, ke kterým jsme při odvození došli. Vlnová 
 \hat{H} = \hat{T} = \frac{\hat{p}^2}{2m} = -\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}
 \label{rov:Volna12}
 \end{equation}
-s~vlastní hodnotou neboli energií $E = p^2/(2m)$. Dále víme, že vlnová funkce volné částice je i~vlastní funkcí operátoru momentu hybnosti $\hat{p} = -i\hbar ({\mathrm{d}}/{\mathrm{d}x})$ s~vlastní hodnotou $p = \pm \hbar k$. Z~toho vyplývá, že komutátor operátorů
+s~vlastní hodnotou neboli energií $E = \frac{p^2}{2m}$. Dále víme, že vlnová funkce volné částice je i~vlastní funkcí operátoru momentu hybnosti $\hat{p} = -i\hbar (\frac{\mathrm{d}}{\mathrm{d}x})$ s~vlastní hodnotou $p = \pm \hbar k$. Z~toho vyplývá, že komutátor operátorů
 \begin{equation}
 [\hat{T},\hat{p}]
 \label{rov:Volna13}
 \end{equation}
-musí být roven nule. Protože operátory spolu komutují (komutátor je nulový), mají společný soubor vlastních vlnových funkcí, a tak lze jednorozměrný pohyb volné částice charakterizovat pomocí dvou kvantových čísel -- kinetické energie $E = p^2/(2m)$ a hybnosti $p$. Dále si všimněme, že de Broglieův vztah mezi vlnovým vektorem a hybností částice jsme zde nemuseli předpokládat, ale že nám vyšel z~řešení Schrödingerovy rovnice (\ref{rov:Volna1}) pro volnou částici.
+musí být roven nule. Protože operátory spolu komutují (komutátor je nulový), mají společný soubor vlastních vlnových funkcí, a tak lze jednorozměrný pohyb volné částice charakterizovat pomocí dvou kvantových čísel -- kinetické energie $E = \frac{p^2}{2m}$ a hybnosti $p$. Dále si všimněme, že de Broglieův vztah mezi vlnovým vektorem a hybností částice jsme zde nemuseli předpokládat, ale že nám vyšel z~řešení Schrödingerovy rovnice (\ref{rov:Volna1}) pro volnou částici.
 
 \subsection{Částice v~nekonečně hluboké potenciálové jámě}
 \label{kap:CasticeJama}
 
-Problém částice v~nekonečně hluboké jámě nám poslouží jako vzorový příklad kvantověmechanického problému, ve kterém se okrajové podmínky kladené na řešení projeví v~kvantování energií a hybností. Uvažujme nejdříve pro jednoduchost jednorozměrný případ, který pak přirozeně rozšíříme na trojrozměrný případ.
+Problém částice v~nekonečně hluboké jámě nám poslouží jako vzorový příklad kvantově-mechanického problému, ve kterém se okrajové podmínky kladené na řešení projeví v~kvantování energií a hybností. Uvažujme nejdříve pro jednoduchost jednorozměrný případ, který pak přirozeně rozšíříme na trojrozměrný případ.
 
-Předpokládejme, že v~intervalu $\langle0,a\rangle$ je potenciální energie $V(x)$ rovna nule, tj. $V = 0$. Dále předpokládejme, že mimo tento interval je potenciální energie nekonečná, tj. $V \rightarrow \infty$. Tímto předpokladem jsme si vytvořili potenciální jámu, která je pro částici uvězněnou uvnitř jámy, tj. v~intervalu $\langle0,a\rangle$ neproniknutelná, protože částice nemůže mít nekonečnou hodnotu energie.
+Předpokládejme, že v~intervalu $\langle0,a\rangle$ je potenciální energie $V(x)$ rovna nule, tj. $V = 0$. Dále předpokládejme, že mimo tento interval je potenciální energie nekonečná, tj. $V \rightarrow \infty$. Tímto předpokladem jsme si vytvořili potenciální jámu, která je pro částici uvězněnou uvnitř jámy, tj. v~intervalu $\langle0,a\rangle$, neproniknutelná, protože částice nemůže mít nekonečnou hodnotu energie.
 
 Pro vlnovou funkci částice mimo jámu platí
 \begin{equation}
@@ -134,7 +134,7 @@ ka = \pi n, \quad n= 1,2,3, \dots \mbox{,}
 \end{equation}
 kde $n$ je přirozené číslo -- kvantové číslo. V~případě $n=0$ bychom obdrželi řešení $\psi(x)=0$, které nemá fyzikální význam, neboť částice by se na intervalu $\langle0,a\rangle$ vůbec nevyskytovala.
 
-Jak jsme předeslali, v~případě omezeného pohybu, zde neproniknutelnou potenciálovou bariérou, dospějeme k~závěru, že energie i odpovídající vlnový vektor jsou kvantovány
+Jak jsme předeslali, v~případě omezeného pohybu, zde neproniknutelnou potenciálovou bariérou, dospějeme k~závěru, že energie i odpovídající vlnové číslo jsou kvantovány
 \begin{equation}
 k_n = \frac{\pi}{a}n \quad n=1,2,3, \dots \mbox{,}
 \label{rov:Jama9}
@@ -161,14 +161,14 @@ N = \sqrt{\frac{2}{a}}e^{i\alpha} \mbox{,}
 \end{equation}
 kde $\alpha$ je libovolné reálné číslo. Vidíme, že vlnová funkce $\psi(x)$ je určená až na fázový faktor $exp(i\alpha)$, který se zpravidla volí roven jedné.
 
-Diskutujme nyní dosažené výsledky. Energie $E_n$ stacionárních stavů (získali jsme je řešením časově nezávislé -- stacionární -- Schrödingerovy rovnice (\ref{rov:Jama2})) jsou větší než nula. Stav s~energií $E_n=0$ není pro jámu o~konečné šířce $a$ možný. Energetické spektrum, neboli soubor všech energií, je diskrétní a nedegenerované, tj. vlastnímu číslu (energii) přísluší jen jedna vlnová funkce. A~konečně, energie $E_n$ jsou úměrné kvadrátu kvantového čísla $n^2$.
+Diskutujme nyní dosažené výsledky. Energie $E_n$ stacionárních stavů (získali jsme je řešením časově-nezávislé -- stacionární -- Schrödingerovy rovnice (\ref{rov:Jama2})) jsou větší než nula. Stav s~energií $E_n=0$ není pro jámu o~konečné šířce $a$ možný. Energetické spektrum, neboli soubor všech energií, je diskrétní a nedegenerované, tj. vlastnímu číslu (energii) přísluší jen jedna vlnová funkce. A~konečně, energie $E_n$ jsou úměrné kvadrátu kvantového čísla $n^2$.
 
 Vlnové funkce $\psi_n(x)$ pro částici v~nekonečné potenciální 1D jámě jsou ortonormální
 \begin{equation}
 \int_0^a \psi_m^\ast(x) \psi_n(x) \mathrm{d}x = \delta_{mn} \mbox{,}
 \label{rov:Jama14}
 \end{equation}
-kde $\delta_{mn}$ je Kroneckerův symbol, který se rovná jedné, pakliže $m=n$, když $m \not = n$ je roven nule. Výraz (\ref{rov:Jama14}) je jen jiným způsobem zápisu ortonormálnosti dvou funkcí. Vlnové funkce $\psi_n(x)$ dále tvoří úplnou bázi na příslušném Hilbertově prostoru. Počet uzlových bodů, tj. těch kde $\psi_n(x)=0$ je roven $n-1$.
+kde $\delta_{mn}$ je Kroneckerův symbol, který se rovná jedné, pakliže $m=n$, když $m \not = n$ je roven nule. Výraz (\ref{rov:Jama14}) je jen jiným způsobem zápisu ortonormálnosti dvou funkcí. Vlnové funkce $\psi_n(x)$ dále tvoří úplnou bázi na příslušném Hilbertově prostoru. Počet uzlových bodů, tj. těch kde $\psi_n(x)=0$, je roven $n-1$.
 
 Rozšíření na trojrozměrný problém je poměrně intuitivní. Uvažujme potenciální energii $V(x,y,z) = 0$ všude v~oblasti $0\leq x\leq a$, $0\leq y \leq b$ a $0\leq z \leq c$, kde $a, b, c$ jsou rozměry uvažované jámy. Mimo tuto oblast je potenciální energie nekonečná, $V \rightarrow \infty$.
 
@@ -198,7 +198,7 @@ E_{lmn} = \frac{\pi^2\hbar^2}{2m} \left(\frac{l^2}{a^2} + \frac{m^2}{b^2} + \fra
 \label{rov:Jama19} 
 \end{equation}
 
-Na rozdíl od 1D přpadu jsou zde degenerované energetické hladiny. To znamená, že dané energii odpovídá několik lineárně nezávislých vlnových funkcí.
+Na rozdíl od 1D případu jsou zde degenerované energetické hladiny. To znamená, že dané energii odpovídá několik lineárně nezávislých vlnových funkcí.
 
 \subsection{Harmonický oscilátor}
 \label{kap:HarmonickyOscilator}
@@ -215,7 +215,7 @@ V(x) = \frac{1}{2} \left(\frac{\mathrm{d}^2V}{\mathrm{d}x^2} \right)_{x=x_0} (x-
 \end{equation}
 který odpovídá potenciálu LHO. Podobným způsobem můžeme postupovat i v~případě více dimenzí nebo u~vícečásticových systémů.
 
-Například vhodnou volbou tzv. normálních souřadnic můžeme popisovat pomocí systému nezávislých LHO vibrace víceatomových molekul. Na druhou stranu si musíme být vědomi jistých omezení tohoto modelu. Zásadním omezením je skutečnost, že při zvětšování souřadnice $x \rightarrow \infty$ roste síla $F = -\mathrm{d}V/ \mathrm{d}x$ nade všechny meze, což je nefyzikální závěr. U~reálných systémů dojde při překročení jisté mezní výchylky z~rovnovážné polohy k~disociaci systému, což vede k~požadavku, že při $x \rightarrow \infty$ musí potenciál nabývat konečné hodnoty.
+Například vhodnou volbou tzv. normálních souřadnic můžeme popisovat pomocí systému nezávislých LHO vibrace víceatomových molekul. Na druhou stranu si musíme být vědomi jistých omezení tohoto modelu. Zásadním omezením je skutečnost, že při zvětšování souřadnice $x \rightarrow \infty$ roste síla $F = -\frac{\mathrm{d}V}{\mathrm{d}x$} nade všechny meze, což je nefyzikální závěr. U~reálných systémů dojde při překročení jisté mezní výchylky z~rovnovážné polohy k~disociaci systému, což vede k~požadavku, že při $x \rightarrow \infty$ musí potenciál nabývat konečné hodnoty.
 
 Při řešení 1D LHO vyjdeme ze Schrödingerovy rovnice, kde za potenciální energii systému dosadíme potenciál LHO
 \begin{equation}
@@ -229,47 +229,47 @@ Schrödingerova rovnice (\ref{rov:LHO3}) je diferenciální rovnicí s~nelineár
 \end{equation}
 Rovnice ve tvaru (\ref{rov:LHO4}) se dále řeší zavedením bezrozměrných proměnných
 \begin{equation}
-\xi \equiv \sqrt{\frac{m \omega}{\hbar}} x
+\xi = \sqrt{\frac{m \omega}{\hbar}} x
 \label{rov:LHO5}
 \end{equation}
 a
 \begin{equation}
-\lambda \equiv \frac{2E}{\hbar \omega} \mbox{.}
+\lambda = \frac{2E}{\hbar \omega} \mbox{.}
 \label{rov:LHO6}
 \end{equation}
-Rovnici (\ref{rov:LHO4}) tak přejde do bezrozměrného tvaru
+Rovnice (\ref{rov:LHO4}) tak přejde do bezrozměrného tvaru
 \begin{equation}
 \frac{\mathrm{d}^2 \psi(\xi)}{\mathrm{d}\xi^2} + (\lambda - \xi^2)\psi(\xi) = 0 \mbox{.}
 \label{rov:LHO7}
 \end{equation}
 Při řešení se dále postupuje tak, že nejprve hledáme asymptotické řešení vlnové funkce $\psi$ pro $\xi \rightarrow \pm \infty$, kdy v~rovnici (\ref{rov:LHO7}) můžeme člen s~$\lambda$ zanedbat, protože ve srovnání s~ostatními členy je malý.  Výsledkem je asymptotické řešení ve tvaru
 \begin{equation}
-\psi(\xi) = A e^{-\xi^2/2} + B e^{\xi^2/2} \mbox{,}
+\psi(\xi) = A e^{-\frac{\xi^2}{2}} + B e^{\frac{\xi^2}{2}} \mbox{,}
 \label{rov:LHO8}
 \end{equation}
 kde $A$ a $B$ jsou libovolné konstanty. Pro znaménko plus ve výrazu (\ref{rov:LHO8}) vlnová funkce diverguje a nelze ji normovat, proto se vlnová funkce $\psi(\xi)$ asymptoticky chová jako funkce
 \begin{equation}
-\psi(\xi) = A e^{-\xi^2/2} \mbox{,}
+\psi(\xi) = A e^{-\frac{\xi^2}{2}} \mbox{,}
 \label{rov:LHO9}
 \end{equation}
 a tak můžeme řešení rovnice (\ref{rov:LHO7}) hledat ve tvaru
 \begin{equation}
-\psi(\xi) = v(\xi)e^{-\xi^2/2} \mbox{,}
+\psi(\xi) = v(\xi)e^{-\frac{\xi^2}{2}} \mbox{,}
 \label{rov:LHO10}
 \end{equation}
 kde $v(\xi)$ je zatím neurčená funkce. Dosadíme-li předpokládané řešení (\ref{rov:LHO10}) do rovnice (\ref{rov:LHO7}) dostaneme po malé úpravě diferenciální rovnici
 \begin{equation}
-v^{\prime\prime} - 2\xi v^{\prime} + (\lambda - 1)v = 0 \mbox{,}
+\frac{\dd ^2 v}{\dd \xi ^2} - 2\xi \frac{\dd v}{\dd \xi} + (\lambda - 1)v = 0 \mbox{.}
 \label{rov:LHO11}
 \end{equation}
-kde čárka naznačuje derivaci podle $\xi$. Diferenciální rovnice (\ref{rov:LHO11}) se řeší pomocí rozvoje hledané funkce v~mocninou řadu, kde nakonec dojdeme k~rekurentnímu vztahu mezi koeficienty řady. Aby funkce $v(\xi)$ pro $\xi \rightarrow \pm \infty$ nedivergovala, musí dosud neurčité $\lambda$ splňovat podmínku
+Diferenciální rovnice (\ref{rov:LHO11}) se řeší pomocí rozvoje hledané funkce v~mocninou řadu, kde nakonec dojdeme k~rekurentnímu vztahu mezi koeficienty řady. Aby funkce $v(\xi)$ pro $\xi \rightarrow \pm \infty$ nedivergovala, musí dosud neurčité $\lambda$ splňovat podmínku
 \begin{equation}
 \lambda = 2n + 1, \quad n=0,1,2, \dots \mbox{.}
 \label{rov:LHO12}
 \end{equation}
-S~přihlédnutím ke vztahu (\ref{rov:LHO6}) dostaneme pro energií stacionárních stavů
+S~přihlédnutím ke vztahu (\ref{rov:LHO6}) dostaneme pro energie stacionárních stavů
 \begin{equation}
-\boxed{E_n = \hbar \omega (n+ 1/2), \quad n=0,1,2, \dots \mbox{.}}
+\boxed{E_n = \hbar \omega (n+ \frac{1}{2}), \quad n=0,1,2, \dots \mbox{.}}
 \label{rov:LHO13}
 \end{equation}
 Vidíme, že kvantování energií je opět dáno okrajovými podmínkami kladenými na uvažovaný systém. Z~rovnice (\ref{rov:LHO13}) také plyne, že když za $n$ dosadíme $n=0$, neboli počítáme \textbf{energii nulové hladiny} LHO, dostaneme
@@ -277,11 +277,11 @@ Vidíme, že kvantování energií je opět dáno okrajovými podmínkami kladen
 E_0 = \frac{\hbar \omega}{2} \mbox{.}
 \label{rov:LHO16}
 \end{equation}
-Energie základního stavu je tak nenulová. To je podstatný rozdíl oproti klasické fyzice, kde částice může mít nulovou energii v~minimu potenciální energie $V(x)$. Nenulovost energie úzce souvisí s~relacemi neurčitosti. Energie (\ref{rov:LHO16}) je někdy označována jako energie nulových kmitů a lze ji například ověřit v~případě kmitů krystalové mřížky, kde na rozdíl od klasické fyziky vlivem nenulovosti kmitů, nevymizí rozmazání difrakčního obrazce ani při snižování teploty k~absolutní nule $T \rightarrow 0$.
+Energie základního stavu je tak nenulová. To je podstatný rozdíl oproti klasické fyzice, kde částice může mít nulovou energii v~minimu potenciální energie $V(x)$. Nenulovost energie úzce souvisí s~relacemi neurčitosti. Energie (\ref{rov:LHO16}) je někdy označována jako energie nulových kmitů a lze ji například ověřit v~případě kmitů krystalové mřížky, kde na rozdíl od klasické fyziky vlivem nenulovosti kmitů nevymizí rozmazání difrakčního obrazce ani při snižování teploty k~absolutní nule $T \rightarrow 0$.
 
 Provedeme-li zpětné dosazení všech použitých substitucí a provedeme-li normalizaci vlnové funkce, získáme vlnové funkce LHO ve tvaru
 \begin{equation}
-\phi_n(x)=\frac{1}{\sqrt{x_0}}\frac{1}{\sqrt{2^n n! \pi^{1/2}}}e^{-(x/x_0)^2/2}H_n(x/x_0), \quad n=0,1,2, \dots \mbox{,}
+\phi_n(x)=\frac{1}{\sqrt{x_0}}\frac{1}{\sqrt{2^n n! \pi^{\frac{1}{2}}}}e^{-(\frac{x}/{x_0})^2/2}H_n(\xi), \quad n=0,1,2, \dots \mbox{,}
 \label{rov:LHO14}
 \end{equation}
 kde funkce $H_n(\xi)$ je funkce $v(\xi)$ ze vztahu (\ref{rov:LHO10}) a nazýváme je Hermitovy polynomy
@@ -292,9 +292,9 @@ H_n(\xi) = (-1)^n e^{\xi^2} \frac{\mathrm{d}^n}{\mathrm{d}\xi^n}e^{-\xi^2} \mbox
 
 \begin{priklad}
 \textbf{Zadání:} Molekula HCl silně absorbuje v infračervené oblasti spektra u $2991$~cm$^{-1}$. Spočtěte silovou konstantu $k$ pro tuto molekulu.\\[0.1cm]
-\textbf{Řešení:} Zapíšeme $\Delta E = h \nu = h c / \lambda = \hbar \sqrt{k/\mu}$ a vyjádříme $k$
+\textbf{Řešení:} Zapíšeme $\Delta E = h \nu = h \frac{c}{\lambda} = \hbar \sqrt{\frac{k}{\mu}}$ a vyjádříme $k$
 \begin{displaymath}
-k = 4 \pi^2 \left( \frac{c}{\lambda} \right)^2 \mu = 516{,}3 \mbox{ N m}^{-1}.
+k = 4 \pi^2 \left( \frac{c}{\lambda} \right)^2 \mu = 516{,}3 \mbox{ N\cdot m}^{-1}.
 \end{displaymath} \vspace{-0.7cm}
 \end{priklad}
 
